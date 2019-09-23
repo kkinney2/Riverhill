@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    TileManager owner;
+
     Grid grid;
 
     Tile[] neighbors;
+
+    public Tile(TileManager newOwner)
+    {
+        this.owner = newOwner;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +31,6 @@ public class Tile : MonoBehaviour
     {
         neighbors = new Tile[6];
 
-        neighbors[0] = (grid.GetComponent<GridLayout>().LocalToCell + new Vector3 (1,0,0));
+        //neighbors[0] = (grid.GetComponent<GridLayout>().LocalToCell + new Vector3 (1,0,0));
     }
 }
