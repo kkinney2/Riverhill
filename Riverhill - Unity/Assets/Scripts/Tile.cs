@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    TileManager owner;
+    public TileManager owner;
 
     Grid grid;
+    public Vector2Int cellPosition;
 
-    Tile[] neighbors;
+    public Tile Parent; // For the a* algorithm, will store what node 
+                        // it previously came from so it can trace the shortest path
 
-    public Tile(TileManager newOwner)
-    {
-        this.owner = newOwner;
-    }
+    public int gCost; // Cost of moving to the next square
+    public int hCost; // The distance to the goal from this node
+
+    public int FCost { get { return gCost + hCost; } }
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +27,5 @@ public class Tile : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void GetNeighbors()
-    {
-        neighbors = new Tile[6];
-
-        //neighbors[0] = (grid.GetComponent<GridLayout>().LocalToCell + new Vector3 (1,0,0));
     }
 }
