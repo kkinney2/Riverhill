@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ActorController : MonoBehaviour
 {
+    public int speed = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,21 +20,40 @@ public class ActorController : MonoBehaviour
 
     IEnumerator Move()
     {
+        Debug.Log("Move Coroutine");
+
         bool hasPath = false;
         List<Tile> path = new List<Tile>();
 
         while (!hasPath)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonUp(0))
             {
-                if (Physics.Raycast(Input.mousePosition + Vector3.back, Vector3.forward, Mathf.Infinity, 1))
-                {
-                    Vector3Int cellPos = TileManager.Instance.grid.WorldToCell(Input.mousePosition);
+                Debug.Log("Mouse Click");
 
-                    path = TileManager.Instance.FindPath(transform.position, TileManager.Instance.grid.CellToWorld(cellPos));
+                Vector3 testPoint = TileManager.Instance.grid.CellToWorld(TileManager.Instance.grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+
+                /*
+                Debug.Log("Input.mousePosition: " + Input.mousePosition);
+                Debug.Log("Input.mousePosition_Revised: " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                Debug.Log("CellPos: " + TileManager.Instance.grid.WorldToCell(Input.mousePosition));
+                Debug.Log("CellPos_Revised: " + TileManager.Instance.grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+
+                Debug.Log("TestPoint: " + testPoint);
+                */
+                
+                if (Physics2D.Raycast(testPoint + Vector3.back, Vector3.forward, Mathf.Infinity, 1))
+                {
+                    Debug.Log("Ping");
+
+                    //Vector3Int cellPos = TileManager.Instance.grid.WorldToCell(Input.mousePosition);
+
+                    path = TileManager.Instance.FindPath(transform.position, testPoint);
                     hasPath = true;
+                    Debug.Log("Has Path");
                 }
             }
+            yield return new WaitForFixedUpdate();
         }
 
         bool hasReachedTarget = false;
@@ -41,16 +62,17 @@ public class ActorController : MonoBehaviour
         {
             for (int i = 0; i < path.Count; i++)
             {
-                // Move our position a step closer to the target.
-                float step = speed * Time.deltaTime; // calculate distance to move
-                transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+                Transform target = path[i].transform;
 
-                // Check if the position of the cube and sphere are approximately equal.
-                if (Vector3.Distance(transform.position, target.position) < 0.001f)
+                while (Vector3.Distance(transform.position, target.position) < 0.001f)
                 {
-                    // Swap the position of the cylinder.
-                    target.position *= -1.0f;
+                    // Move our position a step closer to the target.
+                    float step = speed * Time.deltaTime; // calculate distance to move
+                    transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
+                    yield return new WaitForFixedUpdate();
                 }
+                
             }
         }
 

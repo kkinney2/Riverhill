@@ -99,12 +99,12 @@ TextureImporter:
       name: alyssIDLEsheet_0
       rect:
         serializedVersion: 2
-        x: 108
-        y: 4
-        width: 273
-        height: 485
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -120,12 +120,12 @@ TextureImporter:
       name: alyssIDLEsheet_1
       rect:
         serializedVersion: 2
-        x: 585
-        y: 4
-        width: 278
-        height: 464
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: alyssIDLEsheet_2
       rect:
         serializedVersion: 2
-        x: 1108
-        y: 4
-        width: 273
-        height: 485
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: alyssIDLEsheet_3
       rect:
         serializedVersion: 2
-        x: 1629
-        y: 4
-        width: 275
-        height: 463
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -17,6 +17,8 @@ public class Tile : MonoBehaviour
 
     public int FCost { get { return gCost + hCost; } }
 
+    public List<Tile> neighborTiles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +29,21 @@ public class Tile : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow; // Assigns the NEXT thing to be drawn
+
+        Gizmos.DrawSphere(transform.position, 1.3f);
+
+        Gizmos.color = Color.red;
+        if (Application.isPlaying == true)
+        {
+            for (int i = 0; i < neighborTiles.Count; i++)
+            {
+                Gizmos.DrawSphere(neighborTiles[i].transform.position, 1);
+            }
+        }
     }
 }

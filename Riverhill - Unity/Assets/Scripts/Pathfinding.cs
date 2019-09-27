@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pathfinding : MonoBehaviour {
+public class Pathfinding {
     [HideInInspector]
     public GameObject GameController;
     public Grid grid;
-    public TileManager tileManager;
     public Transform StartPosition;
     public Transform TargetPosition;
 
@@ -31,7 +30,7 @@ public class Pathfinding : MonoBehaviour {
     }*/
 
     private void Update()
-    {
+    {/*
         if (GameController == null)
         {
             if (gameObject.name == "GameController")
@@ -45,7 +44,7 @@ public class Pathfinding : MonoBehaviour {
         {
             FindPath(StartPosition.position, TargetPosition.position);
         }
-
+*/
     }
 
     public void FindPath(Transform a_StartPos ,Transform a_TargetPos)
@@ -56,8 +55,8 @@ public class Pathfinding : MonoBehaviour {
 
     public List<Tile> FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
     {
-        Tile StartTile = tileManager.TileFromWorldPosition(a_StartPos);
-        Tile TargetTile = tileManager.TileFromWorldPosition(a_TargetPos);
+        Tile StartTile = TileManager.Instance.TileFromWorldPosition(a_StartPos);
+        Tile TargetTile = TileManager.Instance.TileFromWorldPosition(a_TargetPos);
 
         List<Tile> OpenList = new List<Tile>();
         HashSet<Tile> ClosedList = new HashSet<Tile>();
@@ -83,8 +82,20 @@ public class Pathfinding : MonoBehaviour {
                 return GetFinalPath(StartTile, TargetTile);
             }
 
-            foreach (Tile NeighborTile in tileManager.GetNeighborTiles(CurrentTile))
+            if (CurrentTile.neighborTiles == null)
             {
+                 CurrentTile.neighborTiles = TileManager.Instance.GetNeighborTiles(CurrentTile);
+            }
+
+            List<Tile> neighborTiles = CurrentTile.neighborTiles;
+
+            for (int i = 0; i < neighborTiles.Count; i++)
+            {
+                Tile NeighborTile = neighborTiles[i];
+                Debug.Log("Tile: " + neighborTiles[i].cellPosition);
+                Debug.Log("OpenList Count: " + OpenList.Count);
+
+
                 if (ClosedList.Contains(NeighborTile))
                 {
                     continue;
@@ -126,6 +137,11 @@ public class Pathfinding : MonoBehaviour {
 
     private int GetManhattenDistance(Tile a_tileA, Tile a_tileB)
     {
+        /*Debug.Log("a_TileA" + a_tileA == null ? true : false);
+        Debug.Log("a_TileB" + a_tileB == null ? true : false);
+        Debug.Log("A cellpos" + a_tileA.cellPosition);
+        Debug.Log("B cellpos" + a_tileB.cellPosition);*/
+
         int ix = Mathf.Abs(a_tileA.cellPosition.x - a_tileB.cellPosition.x);
         int iy = Mathf.Abs(a_tileA.cellPosition.y - a_tileB.cellPosition.y);
 

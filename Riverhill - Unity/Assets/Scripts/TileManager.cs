@@ -48,6 +48,7 @@ public class TileManager : MonoBehaviour
         pathfinder = new Pathfinding();
 
         StartCoroutine(Setup());
+        StartCoroutine(FindNeighbors());
     }
 
     // Update is called once per frame
@@ -81,7 +82,6 @@ public class TileManager : MonoBehaviour
                 if (Physics2D.Raycast(cellPoint + Vector3.back, Vector3.forward, Mathf.Infinity, 1))
                 {
                     //Debug.Log("ping");
-                    //GameObject a_tempGO = Instantiate(tile, cellPoint, Quaternion.identity, tilesParent.transform);
                     GameObject a_tempGO = new GameObject();
                     a_tempGO.transform.parent = tilesParent.transform;
                     a_tempGO.transform.position = cellPoint;
@@ -92,10 +92,22 @@ public class TileManager : MonoBehaviour
                     tileComp.owner = this;
                     tileComp.cellPosition = new Vector2Int(x, y);
 
-                    tiles[x + gridSize.x, y + gridSize.y] = a_tempGO.GetComponent<Tile>();
+                    tiles[x + gridSize.x, y + gridSize.y] = tileComp;
                     tilesList.Add(a_tempGO);
                 }
             }
+        }
+
+        yield return null;
+    }
+
+    IEnumerator FindNeighbors()
+    {
+
+        for (int i = 0; i < tilesList.Count; i++)
+        {
+            Tile currentTile = tilesList[i].GetComponent<Tile>();
+            currentTile.neighborTiles = GetNeighborTiles(currentTile);
         }
 
         yield return null;
@@ -108,7 +120,8 @@ public class TileManager : MonoBehaviour
 
     public Tile TileFromWorldPosition(Vector3 a_WorldPosition)
     {
-        return GetTile((Vector2Int)grid.WorldToCell(a_WorldPosition));
+        Vector3Int cellPos = grid.WorldToCell(a_WorldPosition);
+        return GetTile(new Vector2Int(cellPos.x, cellPos.y));
     }
 
     public List<Tile> GetNeighborTiles(Tile a_Tile)
@@ -119,54 +132,118 @@ public class TileManager : MonoBehaviour
 
         for (int i = 0; i < 6; i++)
         {
-            switch (i)
+            // Even Columns
+            if (a_Tile.cellPosition.y%2 == 0)
             {
-                case 0:
-                    // Right Side
-                    xCheck = a_Tile.cellPosition.x + 1;
-                    yCheck = a_Tile.cellPosition.y;
-                    break;
-                case 1:
-                    // Left Side
-                    xCheck = a_Tile.cellPosition.x;
-                    yCheck = a_Tile.cellPosition.y + 1;
-                    break;
-                case 2:
-                    // Top Side
-                    xCheck = a_Tile.cellPosition.x - 1;
-                    yCheck = a_Tile.cellPosition.y + 1;
-                    break;
-                case 3:
-                    // Bottom Side
-                    xCheck = a_Tile.cellPosition.x - 1;
-                    yCheck = a_Tile.cellPosition.y;
-                    break;
-                case 4:
-                    // Left Side
-                    xCheck = a_Tile.cellPosition.x - 1;
-                    yCheck = a_Tile.cellPosition.y - 1;
-                    break;
-                case 5:
-                    // Top Side
-                    xCheck = a_Tile.cellPosition.x;
-                    yCheck = a_Tile.cellPosition.y - 1;
-                    break;
-                default:
-                    Debug.Log("Too many sides to a tile");
-                    xCheck = 0;
-                    yCheck = 0;
-                    break;
-            }
-
-            if (xCheck >= 0 && xCheck < gridSize.x)
-            {
-                if (yCheck >= 0 && yCheck < gridSize.y)
+                switch (i)
                 {
-                    NeighboringTiles.Add(tiles[xCheck, yCheck]);
+                    case 0:
+                        // Top
+                        xCheck = a_Tile.cellPosition.x + 1;
+                        yCheck = a_Tile.cellPosition.y;
+                        break;
+                    case 1:
+                        // Right Top
+                        xCheck = a_Tile.cellPosition.x;
+                        yCheck = a_Tile.cellPosition.y + 1;
+                        break;
+                    case 2:
+                        // Right Bottom
+                        xCheck = a_Tile.cellPosition.x - 1;
+                        yCheck = a_Tile.cellPosition.y + 1;
+                        break;
+                    case 3:
+                        // Bottom
+                        xCheck = a_Tile.cellPosition.x - 1;
+                        yCheck = a_Tile.cellPosition.y;
+                        break;
+                    case 4:
+                        // Left Bottom
+                        xCheck = a_Tile.cellPosition.x - 1;
+                        yCheck = a_Tile.cellPosition.y - 1;
+                        break;
+                    case 5:
+                        // Left Top
+                        xCheck = a_Tile.cellPosition.x;
+                        yCheck = a_Tile.cellPosition.y - 1;
+                        break;
+                    default:
+                        Debug.Log("Too many sides to a tile");
+                        xCheck = 0;
+                        yCheck = 0;
+                        break;
                 }
             }
-        }
 
+            // Odd Columns
+            else
+            {
+                switch (i)
+                {
+                    case 0:
+                        // Top
+                        xCheck = a_Tile.cellPosition.x + 1;
+                        yCheck = a_Tile.cellPosition.y;
+                        break;
+                    case 1:
+                        // Right Top
+                        xCheck = a_Tile.cellPosition.x + 1;
+                        yCheck = a_Tile.cellPosition.y + 1;
+                        break;
+                    case 2:
+                        // Right Bottom
+                        xCheck = a_Tile.cellPosition.x;
+                        yCheck = a_Tile.cellPosition.y + 1;
+                        break;
+                    case 3:
+                        // Bottom
+                        xCheck = a_Tile.cellPosition.x - 1;
+                        yCheck = a_Tile.cellPosition.y;
+                        break;
+                    case 4:
+                        // Left Bottom
+                        xCheck = a_Tile.cellPosition.x;
+                        yCheck = a_Tile.cellPosition.y - 1;
+                        break;
+                    case 5:
+                        // Left Top
+                        xCheck = a_Tile.cellPosition.x + 1;
+                        yCheck = a_Tile.cellPosition.y - 1;
+                        break;
+                    default:
+                        Debug.Log("Too many sides to a tile");
+                        xCheck = 0;
+                        yCheck = 0;
+                        break;
+                }
+            }
+
+
+
+
+            /*if (xCheck >= 0 && xCheck < gridSize.x*2)
+            {
+                if (yCheck >= 0 && yCheck < gridSize.y*2)
+                {
+                    NeighboringTiles.Add(tiles[xCheck + gridSize.x, yCheck + gridSize.x]);
+                }
+            }*/
+
+            int invalid = 0;
+
+            if (tiles[xCheck + gridSize.x, yCheck + gridSize.x] != null)
+            {
+                NeighboringTiles.Add(tiles[xCheck + gridSize.x, yCheck + gridSize.x]);
+            }
+            else
+            {
+                //Debug.Log("Invalid Neighbor Tile");
+                invalid++;
+            }
+
+            Debug.Log("Invalid Calls: " + invalid);
+        }
+        
         return NeighboringTiles;
     }
 
