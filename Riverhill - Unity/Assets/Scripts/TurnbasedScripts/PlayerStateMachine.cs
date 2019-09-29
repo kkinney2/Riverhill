@@ -10,7 +10,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player.currentHP = player.baseHP;
     }
 
     // Update is called once per frame

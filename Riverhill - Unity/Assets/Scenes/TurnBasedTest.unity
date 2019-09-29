@@ -720,7 +720,7 @@ MonoBehaviour:
   player:
     name: Alyss
     baseHP: 100
-    currentHP: 100
+    currentHP: 0
 --- !u!1 &873662260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,7 +1722,7 @@ MonoBehaviour:
   enemy:
     name: Dayana
     baseHP: 100
-    currentHP: 100
+    currentHP: 0
 --- !u!1 &1646409510
 GameObject:
   m_ObjectHideFlags: 0
