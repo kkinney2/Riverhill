@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyStats
 {
-    //base stats
+    //enemy base stats
     public string name;
 
     public float baseHP;
