@@ -6,16 +6,36 @@ public class ActorController : MonoBehaviour
 {
     public int speed = 5;
 
+    public bool moveAgain = true;
+    public List<Tile> path = new List<Tile>();
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Move());
+        StartCoroutine(MoveINFINITE());
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    IEnumerator MoveINFINITE()
+    {
+        while (true)
+        {
+            if (moveAgain == true)
+            {
+                StartCoroutine(Move());
+                moveAgain = false;
+            }
+
+
+            yield return new WaitForFixedUpdate();
+        }
+        
     }
 
     IEnumerator Move()
@@ -23,7 +43,7 @@ public class ActorController : MonoBehaviour
         Debug.Log("Move Coroutine");
 
         bool hasPath = false;
-        List<Tile> path = new List<Tile>();
+        //List<Tile> path = new List<Tile>();
 
         while (!hasPath)
         {
@@ -42,21 +62,25 @@ public class ActorController : MonoBehaviour
                 Debug.Log("TestPoint: " + testPoint);
                 */
                 
-                if (Physics2D.Raycast(testPoint + Vector3.back, Vector3.forward, Mathf.Infinity, 1))
+                if (Physics2D.Raycast(testPoint + Vector3.back*5f, Vector3.forward, Mathf.Infinity, 1))
                 {
                     Debug.Log("Ping");
 
-                    //Vector3Int cellPos = TileManager.Instance.grid.WorldToCell(Input.mousePosition);
-
                     path = TileManager.Instance.FindPath(transform.position, testPoint);
-                    hasPath = true;
-                    Debug.Log("Has Path");
+                    if (path!= null)
+                    {
+                        hasPath = true;
+                        Debug.Log("Has Path");
+                        break;
+                    }
+                    
+                    
                 }
             }
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(0.001f);
         }
 
-        bool hasReachedTarget = false;
+        /*bool hasReachedTarget = false;
 
         while (!hasReachedTarget)
         {
@@ -74,8 +98,28 @@ public class ActorController : MonoBehaviour
                 }
                 
             }
-        }
+        }*/
 
+        Debug.Log("PathLength: " + path.Count);
+
+        transform.position = path[path.Count-1].transform.position;
+
+        yield return new WaitForSeconds(1);
+
+        moveAgain = true;
         yield return null;
+    }
+
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        if (Application.isPlaying == true)
+        {
+            for (int i = 0; i < path.Count; i++)
+            {
+                Gizmos.DrawSphere(path[i].transform.position, 1);
+            }
+        }
     }
 }

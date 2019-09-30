@@ -218,30 +218,10 @@ public class TileManager : MonoBehaviour
                 }
             }
 
-
-
-
-            /*if (xCheck >= 0 && xCheck < gridSize.x*2)
-            {
-                if (yCheck >= 0 && yCheck < gridSize.y*2)
-                {
-                    NeighboringTiles.Add(tiles[xCheck + gridSize.x, yCheck + gridSize.x]);
-                }
-            }*/
-
-            int invalid = 0;
-
             if (tiles[xCheck + gridSize.x, yCheck + gridSize.x] != null)
             {
                 NeighboringTiles.Add(tiles[xCheck + gridSize.x, yCheck + gridSize.x]);
             }
-            else
-            {
-                //Debug.Log("Invalid Neighbor Tile");
-                invalid++;
-            }
-
-            Debug.Log("Invalid Calls: " + invalid);
         }
         
         return NeighboringTiles;

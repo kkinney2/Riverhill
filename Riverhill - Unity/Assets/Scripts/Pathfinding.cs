@@ -65,7 +65,12 @@ public class Pathfinding {
 
         while (OpenList.Count > 0)
         {
+            Debug.Log("Loop Started");
             Tile CurrentTile = OpenList[0];
+            Debug.Log("Loop Length: " + OpenList.Count);
+
+            
+
             for (int i = 0; i < OpenList.Count; i++)
             {
                 if (OpenList[i].FCost < CurrentTile.FCost || (OpenList[i].FCost == CurrentTile.FCost && OpenList[i].hCost < CurrentTile.hCost))
@@ -73,6 +78,8 @@ public class Pathfinding {
                     CurrentTile = OpenList[i];
                 }
             }
+            Debug.Log("Set Current Tile");
+            Debug.Log("Current Tile: " + CurrentTile.name);
 
             OpenList.Remove(CurrentTile);
             ClosedList.Add(CurrentTile);
@@ -82,22 +89,23 @@ public class Pathfinding {
                 return GetFinalPath(StartTile, TargetTile);
             }
 
-            if (CurrentTile.neighborTiles == null)
+            /*if (CurrentTile.neighborTiles == null)
             {
                  CurrentTile.neighborTiles = TileManager.Instance.GetNeighborTiles(CurrentTile);
-            }
+            }*/
 
             List<Tile> neighborTiles = CurrentTile.neighborTiles;
 
+            Debug.Log("Checking Neighbors");
             for (int i = 0; i < neighborTiles.Count; i++)
             {
                 Tile NeighborTile = neighborTiles[i];
                 Debug.Log("Tile: " + neighborTiles[i].cellPosition);
-                Debug.Log("OpenList Count: " + OpenList.Count);
-
+                Debug.Log("OpenList Count: " + OpenList.Count); 
 
                 if (ClosedList.Contains(NeighborTile))
                 {
+                    //OpenList.Remove(NeighborTile);
                     continue;
                 }
                 int MoveCost = CurrentTile.gCost + GetManhattenDistance(CurrentTile, NeighborTile);
@@ -134,6 +142,8 @@ public class Pathfinding {
 
         return FinalPath;
     }
+
+
 
     private int GetManhattenDistance(Tile a_tileA, Tile a_tileB)
     {
