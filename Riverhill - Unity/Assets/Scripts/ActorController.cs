@@ -9,11 +9,14 @@ public class ActorController : MonoBehaviour
     public bool moveAgain = true;
     public List<Tile> path = new List<Tile>();
 
+    private LineRenderer laserLine;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.AddComponent<LineRenderer>();
+        laserLine = GetComponent<LineRenderer>();
         StartCoroutine(MoveINFINITE());
-
     }
 
     // Update is called once per frame
@@ -51,24 +54,29 @@ public class ActorController : MonoBehaviour
             {
                 Debug.Log("Mouse Click");
 
-                Vector3 testPoint = TileManager.Instance.grid.CellToWorld(TileManager.Instance.grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell(worldFromScreen) - new Vector3Int(10, 0, 0);
 
-                /*
-                Debug.Log("Input.mousePosition: " + Input.mousePosition);
-                Debug.Log("Input.mousePosition_Revised: " + Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                Debug.Log("CellPos: " + TileManager.Instance.grid.WorldToCell(Input.mousePosition));
-                Debug.Log("CellPos_Revised: " + TileManager.Instance.grid.WorldToCell(Camera.main.ScreenToWorldPoint(Input.mousePosition)));
+                Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
 
+                Debug.Log("WorldFromScreen: " + worldFromScreen);
+                Debug.Log("WorldToCell: " + worldToCell);
                 Debug.Log("TestPoint: " + testPoint);
-                */
-                
-                if (Physics2D.Raycast(testPoint + Vector3.back*5f, Vector3.forward, Mathf.Infinity, 1))
+
+                RaycastHit2D hit = Physics2D.Raycast(testPoint + Vector3.back * 5f, Vector3.forward, Mathf.Infinity, 1);
+
+                Debug.Log("HitPoint: " + hit.point);
+                if (Physics2D.Raycast(testPoint + Vector3.back*5f, Vector3.forward * 0.01f, Mathf.Infinity, 1))
                 {
                     Debug.Log("Ping");
 
                     path = TileManager.Instance.FindPath(transform.position, testPoint);
                     if (path!= null)
                     {
+                        laserLine.SetPosition(1, worldFromScreen);
+                        laserLine.SetPosition(2, testPoint + Vector3.back * 5f);
+                        laserLine.enabled = true;
+
                         hasPath = true;
                         Debug.Log("Has Path");
                         break;
@@ -101,8 +109,10 @@ public class ActorController : MonoBehaviour
         }*/
 
         Debug.Log("PathLength: " + path.Count);
-
-        transform.position = path[path.Count-1].transform.position;
+        if (path.Count > 0)
+        {
+            transform.position = path[path.Count - 1].transform.position;
+        }
 
         yield return new WaitForSeconds(1);
 

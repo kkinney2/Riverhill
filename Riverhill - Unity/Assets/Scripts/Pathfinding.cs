@@ -65,9 +65,9 @@ public class Pathfinding {
 
         while (OpenList.Count > 0)
         {
-            Debug.Log("Loop Started");
+            //Debug.Log("Loop Started");
             Tile CurrentTile = OpenList[0];
-            Debug.Log("Loop Length: " + OpenList.Count);
+            //Debug.Log("Loop Length: " + OpenList.Count);
 
             
 
@@ -78,8 +78,8 @@ public class Pathfinding {
                     CurrentTile = OpenList[i];
                 }
             }
-            Debug.Log("Set Current Tile");
-            Debug.Log("Current Tile: " + CurrentTile.name);
+            //Debug.Log("Set Current Tile");
+            //Debug.Log("Current Tile: " + CurrentTile.name);
 
             OpenList.Remove(CurrentTile);
             ClosedList.Add(CurrentTile);
@@ -96,12 +96,12 @@ public class Pathfinding {
 
             List<Tile> neighborTiles = CurrentTile.neighborTiles;
 
-            Debug.Log("Checking Neighbors");
+            //Debug.Log("Checking Neighbors");
             for (int i = 0; i < neighborTiles.Count; i++)
             {
                 Tile NeighborTile = neighborTiles[i];
-                Debug.Log("Tile: " + neighborTiles[i].cellPosition);
-                Debug.Log("OpenList Count: " + OpenList.Count); 
+                //Debug.Log("Tile: " + neighborTiles[i].cellPosition);
+                //Debug.Log("OpenList Count: " + OpenList.Count); 
 
                 if (ClosedList.Contains(NeighborTile))
                 {
