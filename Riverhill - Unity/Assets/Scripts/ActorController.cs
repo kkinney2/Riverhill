@@ -16,6 +16,7 @@ public class ActorController : MonoBehaviour
     {
         gameObject.AddComponent<LineRenderer>();
         laserLine = GetComponent<LineRenderer>();
+
         StartCoroutine(MoveINFINITE());
     }
 
@@ -54,35 +55,50 @@ public class ActorController : MonoBehaviour
             {
                 Debug.Log("Mouse Click");
 
-                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell(worldFromScreen) - new Vector3Int(10, 0, 0);
-
-                Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
-
+                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition); // This is slanted at the 50deg as the camera
                 Debug.Log("WorldFromScreen: " + worldFromScreen);
-                Debug.Log("WorldToCell: " + worldToCell);
-                Debug.Log("TestPoint: " + testPoint);
+                
+                RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
 
-                RaycastHit2D hit = Physics2D.Raycast(testPoint + Vector3.back * 5f, Vector3.forward, Mathf.Infinity, 1);
+                Debug.Log("");
+                Debug.Log("HitPointName: " + hit.transform.name);
+                Debug.Log("");
 
-                Debug.Log("HitPoint: " + hit.point);
-                if (Physics2D.Raycast(testPoint + Vector3.back*5f, Vector3.forward * 0.01f, Mathf.Infinity, 1))
+                //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                //cube.transform.position = hit.point;
+
+                
+                laserLine.SetPosition(0, worldFromScreen);
+                laserLine.SetPosition(1, Camera.main.transform.TransformDirection(Vector3.forward) * 100);
+                //laserLine.SetPosition(1, hit.point);
+                laserLine.enabled = true;
+
+
+                if (hit.collider != null)
                 {
                     Debug.Log("Ping");
 
-                    path = TileManager.Instance.FindPath(transform.position, testPoint);
+                    float rayPercentage = ;
+
+
+
+
+
+                    Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+                    Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
+
+                    Debug.Log("HitPoint: " + hit.point);
+                    Debug.Log("HitPointMod: " + (new Vector3(hit.point.x, hit.point.y, 0) - new Vector3(0, 10, 0)));
+                    Debug.Log("WorldToCell: " + worldToCell);
+                    Debug.Log("TestPoint: " + testPoint);
+
+                    //path = TileManager.Instance.FindPath(transform.position, testPoint);
                     if (path!= null)
                     {
-                        laserLine.SetPosition(1, worldFromScreen);
-                        laserLine.SetPosition(2, testPoint + Vector3.back * 5f);
-                        laserLine.enabled = true;
-
                         hasPath = true;
                         Debug.Log("Has Path");
                         break;
                     }
-                    
-                    
                 }
             }
             yield return new WaitForSeconds(0.001f);
