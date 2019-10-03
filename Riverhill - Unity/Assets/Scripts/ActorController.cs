@@ -60,29 +60,21 @@ public class ActorController : MonoBehaviour
                 
                 RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
 
-                Debug.Log("");
-                Debug.Log("HitPointName: " + hit.transform.name);
-                Debug.Log("");
+                Debug.DrawRay(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward));
 
                 //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
                 //cube.transform.position = hit.point;
 
                 
                 laserLine.SetPosition(0, worldFromScreen);
-                laserLine.SetPosition(1, Camera.main.transform.TransformDirection(Vector3.forward) * 100);
-                //laserLine.SetPosition(1, hit.point);
+                //laserLine.SetPosition(1, Camera.main.transform.TransformDirection(Vector3.forward) * 100 + worldFromScreen);
+                laserLine.SetPosition(1, hit.point);
                 laserLine.enabled = true;
 
 
                 if (hit.collider != null)
                 {
                     Debug.Log("Ping");
-
-                    float rayPercentage = ;
-
-
-
-
 
                     Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
                     Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
@@ -92,7 +84,7 @@ public class ActorController : MonoBehaviour
                     Debug.Log("WorldToCell: " + worldToCell);
                     Debug.Log("TestPoint: " + testPoint);
 
-                    //path = TileManager.Instance.FindPath(transform.position, testPoint);
+                    path = TileManager.Instance.FindPath(transform.position, testPoint);
                     if (path!= null)
                     {
                         hasPath = true;
