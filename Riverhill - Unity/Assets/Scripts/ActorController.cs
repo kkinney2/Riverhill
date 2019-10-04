@@ -8,12 +8,13 @@ public class ActorController : MonoBehaviour
 
     public bool moveAgain = true;
     public List<Tile> path = new List<Tile>();
+
+    public bool attack = true;
     
 
     // Start is called before the first frame update
     void Start()
     {
-
         StartCoroutine(MoveINFINITE());
     }
 
@@ -59,21 +60,15 @@ public class ActorController : MonoBehaviour
 
                 if (hit.collider != null)
                 {
-                    Debug.Log("Ping");
 
                     Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
                     Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
 
-                    Debug.Log("HitPoint: " + hit.point);
-                    Debug.Log("HitPointMod: " + (new Vector3(hit.point.x, hit.point.y, 0) - new Vector3(0, 10, 0)));
-                    Debug.Log("WorldToCell: " + worldToCell);
-                    Debug.Log("TestPoint: " + testPoint);
 
                     path = TileManager.Instance.FindPath(transform.position, testPoint);
                     if (path != null)
                     {
                         hasPath = true;
-                        Debug.Log("Has Path");
                         break;
                     }
                 }

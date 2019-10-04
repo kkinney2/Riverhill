@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: 0e973681cef62f344aee29ffeb0f4c28
+guid: 59c77c566d32ad34e85a01d1ec9e2375
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2658610285096542891
-    second: alyssIDLEsheet_0
+      213: 1521863688243679984
+    second: alyssATTACKsheet_0
   - first:
-      213: 7433154598519441365
-    second: alyssIDLEsheet_1
+      213: -1778520340712680527
+    second: alyssATTACKsheet_1
   - first:
-      213: 7940863066716570883
-    second: alyssIDLEsheet_2
+      213: -1962537451969687750
+    second: alyssATTACKsheet_2
   - first:
-      213: -1403300021502012720
-    second: alyssIDLEsheet_3
+      213: 6864240910472902015
+    second: alyssATTACKsheet_3
+  - first:
+      213: -5534139439449313342
+    second: alyssATTACKsheet_4
+  - first:
+      213: -2277893868479901814
+    second: alyssATTACKsheet_5
+  - first:
+      213: -6914597339542606932
+    second: alyssATTACKsheet_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -43,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -96,85 +105,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alyssIDLEsheet_0
+      name: alyssATTACKsheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0e1337ed1073d4db1d8cf94744be50
+      internalID: 1521863688243679984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alyssATTACKsheet_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab1912676c559fe43bf68025c0cbc458
+      internalID: -1778520340712680527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alyssATTACKsheet_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57cd4bfb359d62746bba193a7fa554c5
+      internalID: -1962537451969687750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alyssATTACKsheet_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304e38b5e93b3ad4a9115c8866156a53
+      internalID: 6864240910472902015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alyssATTACKsheet_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 500
         height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1799754648fac35489ca9f8fc7bdb9ac
-      internalID: 2658610285096542891
+      spriteID: 9d9c9e1a6eb4d5d41bef0b5fa63bc8ac
+      internalID: -5534139439449313342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alyssIDLEsheet_1
+      name: alyssATTACKsheet_5
       rect:
         serializedVersion: 2
         x: 500
         y: 0
         width: 500
         height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 838fbe95174ee9248acd7ed424261bda
-      internalID: 7433154598519441365
+      spriteID: c7dd453a72c234a428a8f9b97561a6fd
+      internalID: -2277893868479901814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alyssIDLEsheet_2
+      name: alyssATTACKsheet_6
       rect:
         serializedVersion: 2
         x: 1000
         y: 0
         width: 500
         height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c055ad81940cc94c874a7c21ca7c503
-      internalID: 7940863066716570883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssIDLEsheet_3
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a7cfaece90966843a11af24dc520ba6
-      internalID: -1403300021502012720
+      spriteID: 2025ff7e6ba054d4ba2c8431e46576ad
+      internalID: -6914597339542606932
       vertices: []
       indices: 
       edges: []
@@ -182,7 +254,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d84db0c67cc7d6a41b2b33a6374e852f
+    spriteID: 8d1b63eeb5ad6aa4fa1e98cb6b588a9e
     internalID: 0
     vertices: []
     indices: 
