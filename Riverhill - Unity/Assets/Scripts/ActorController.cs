@@ -8,14 +8,11 @@ public class ActorController : MonoBehaviour
 
     public bool moveAgain = true;
     public List<Tile> path = new List<Tile>();
-
-    private LineRenderer laserLine;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.AddComponent<LineRenderer>();
-        laserLine = GetComponent<LineRenderer>();
 
         StartCoroutine(MoveINFINITE());
     }
@@ -23,7 +20,7 @@ public class ActorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator MoveINFINITE()
@@ -39,7 +36,7 @@ public class ActorController : MonoBehaviour
 
             yield return new WaitForFixedUpdate();
         }
-        
+
     }
 
     IEnumerator Move()
@@ -47,7 +44,6 @@ public class ActorController : MonoBehaviour
         Debug.Log("Move Coroutine");
 
         bool hasPath = false;
-        //List<Tile> path = new List<Tile>();
 
         while (!hasPath)
         {
@@ -55,21 +51,10 @@ public class ActorController : MonoBehaviour
             {
                 Debug.Log("Mouse Click");
 
-                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition); // This is slanted at the 50deg as the camera
+                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
                 Debug.Log("WorldFromScreen: " + worldFromScreen);
-                
+
                 RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
-
-                Debug.DrawRay(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward));
-
-                //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                //cube.transform.position = hit.point;
-
-                
-                laserLine.SetPosition(0, worldFromScreen);
-                //laserLine.SetPosition(1, Camera.main.transform.TransformDirection(Vector3.forward) * 100 + worldFromScreen);
-                laserLine.SetPosition(1, hit.point);
-                laserLine.enabled = true;
 
 
                 if (hit.collider != null)
@@ -85,7 +70,7 @@ public class ActorController : MonoBehaviour
                     Debug.Log("TestPoint: " + testPoint);
 
                     path = TileManager.Instance.FindPath(transform.position, testPoint);
-                    if (path!= null)
+                    if (path != null)
                     {
                         hasPath = true;
                         Debug.Log("Has Path");
@@ -96,15 +81,19 @@ public class ActorController : MonoBehaviour
             yield return new WaitForSeconds(0.001f);
         }
 
-        /*bool hasReachedTarget = false;
 
-        while (!hasReachedTarget)
+        Debug.Log("PathLength: " + path.Count);
+        if (path.Count > 0)
         {
+            // Teleport to Position
+            //transform.position = path[path.Count - 1].transform.position;
+
+            // Travel towards Position
             for (int i = 0; i < path.Count; i++)
             {
                 Transform target = path[i].transform;
 
-                while (Vector3.Distance(transform.position, target.position) < 0.001f)
+                while (Vector3.Distance(transform.position, target.position) > 0.001f)
                 {
                     // Move our position a step closer to the target.
                     float step = speed * Time.deltaTime; // calculate distance to move
@@ -112,17 +101,10 @@ public class ActorController : MonoBehaviour
 
                     yield return new WaitForFixedUpdate();
                 }
-                
+
+                yield return new WaitForSeconds(0.5f);
             }
-        }*/
-
-        Debug.Log("PathLength: " + path.Count);
-        if (path.Count > 0)
-        {
-            transform.position = path[path.Count - 1].transform.position;
         }
-
-        yield return new WaitForSeconds(1);
 
         moveAgain = true;
         yield return null;
