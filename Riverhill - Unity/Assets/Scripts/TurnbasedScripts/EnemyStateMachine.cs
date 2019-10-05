@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    public EnemyStats enemy;
+
+}
+
+    /* OLD CODE --- will keep until everything is working properly
+    
+    //public EnemyStats enemy;
 
     public enum TurnState
     {
@@ -17,19 +22,19 @@ public class EnemyStateMachine : MonoBehaviour
         DEAD //death / defeated state
     }
 
-    public TurnState currentState;
+    //public TurnState currentState;
 
     //for processing display
-    private float currentCooldown = 0.0f;
-    private float maxCooldown = 5.0f;
+    //private float currentCooldown = 0.0f;
+    //private float maxCooldown = 5.0f;
 
     //for enemy thinking time
-    private float currentThoughtTime = 0.0f;
-    private float maxThoughtTime = 5.0f;
+    //private float currentThoughtTime = 0.0f;
+    //private float maxThoughtTime = 5.0f;
 
-    Text p2TurnREADYText;
+    //Text p2TurnREADYText;
 
-    private BattleStateMachine battleSM; //connecting to Battle State Machine
+    //private BattleStateMachine battleSM; //connecting to Battle State Machine
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +99,6 @@ public class EnemyStateMachine : MonoBehaviour
         }
     }
 
-    /*
     void DisplayThinking()
     {
         currentThoughtTime = currentThoughtTime + Time.deltaTime;
@@ -103,7 +107,6 @@ public class EnemyStateMachine : MonoBehaviour
             currentState = TurnState.ACTION;
         }
     }
-    */
 
     void ChooseAction()
     {
@@ -114,4 +117,5 @@ public class EnemyStateMachine : MonoBehaviour
         myAttack.attacksTarget = battleSM.playersInBattle[Random.Range(0, battleSM.playersInBattle.Count)]; //array-length, list-count
         battleSM.GetActions(myAttack); //above code for choosing an action, randomly attacking players
     }
-}
+
+    */

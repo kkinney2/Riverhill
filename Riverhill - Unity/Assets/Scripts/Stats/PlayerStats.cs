@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerStats
 {
     //player base stats
-    public string name;
+    public string playerName;
 
-    public float baseHP;
-    public float currentHP;
+    public float playerBaseHP;
+    public float playerCurrentHP;
 }

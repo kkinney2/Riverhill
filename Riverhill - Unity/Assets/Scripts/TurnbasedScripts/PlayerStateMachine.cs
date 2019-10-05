@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    public PlayerStats player;
+
+}
+
+    /* OLD CODE --- will keep until everything is working properly
+    
+    //public PlayerStats player;
 
     public enum TurnState
     {
@@ -16,13 +21,13 @@ public class PlayerStateMachine : MonoBehaviour
         DEAD //death / defeated state
     }
 
-    public TurnState currentState;
+    //public TurnState currentState;
 
     //for processing display
-    private float currentCooldown = 0.0f;
-    private float maxCooldown = 5.0f;
+    //private float currentCooldown = 0.0f;
+    //private float maxCooldown = 5.0f;
 
-    Text p1TurnREADYText;
+    //Text p1TurnREADYText;
 
     //private bool optionSelected = false;
     private bool moveSelected = false;
@@ -152,4 +157,5 @@ public class PlayerStateMachine : MonoBehaviour
             endedTurn = true;
         }
     }
-}
+
+    */

@@ -6,8 +6,8 @@ using UnityEngine;
 public class EnemyStats
 {
     //enemy base stats
-    public string name;
+    public string enemyName;
 
-    public float baseHP;
-    public float currentHP;
+    public float enemyBaseHP;
+    public float enemyCurrentHP;
 }
