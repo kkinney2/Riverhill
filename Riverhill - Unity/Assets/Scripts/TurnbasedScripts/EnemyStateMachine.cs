@@ -42,14 +42,14 @@ public class EnemyStateMachine : MonoBehaviour
 
         battleSM = GameObject.Find("BattleManager").GetComponent<BattleStateMachine>(); //connecting to Battle State Machine
 
-        GameObject thePlayer = GameObject.Find("P1_Player");
+        GameObject thePlayer = GameObject.Find("Alyss");
         PlayerStateMachine playerSM = thePlayer.GetComponent<PlayerStateMachine>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject thePlayer = GameObject.Find("P1_Player");
+        GameObject thePlayer = GameObject.Find("Alyss");
         PlayerStateMachine playerSM = thePlayer.GetComponent<PlayerStateMachine>();
 
         Debug.Log("P2: " + currentState);

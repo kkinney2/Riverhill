@@ -40,14 +40,14 @@ public class PlayerStateMachine : MonoBehaviour
 
         p1TurnREADYText = GameObject.Find("P1TurnREADYText").GetComponent<Text>();
 
-        GameObject theEnemy = GameObject.Find("P2_Enemy");
+        GameObject theEnemy = GameObject.Find("Alyss_BAD");
         EnemyStateMachine enemySM = theEnemy.GetComponent<EnemyStateMachine>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject theEnemy = GameObject.Find("P2_Enemy");
+        GameObject theEnemy = GameObject.Find("Alyss_BAD");
         EnemyStateMachine enemySM = theEnemy.GetComponent<EnemyStateMachine>();
         
         Debug.Log("P1: " + currentState);
@@ -87,7 +87,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void SelectingOptions()
     {
-        GameObject theEnemy = GameObject.Find("P2_Enemy");
+        GameObject theEnemy = GameObject.Find("Alyss_BAD");
         EnemyStateMachine enemySM = theEnemy.GetComponent<EnemyStateMachine>();
 
         if (moveSelected == true)

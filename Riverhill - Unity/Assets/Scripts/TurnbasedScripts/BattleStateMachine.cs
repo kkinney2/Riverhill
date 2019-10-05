@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BattleStateMachine : MonoBehaviour
 {
+
+
+
     public enum PerformAction
     {
         WAITING,
