@@ -6,7 +6,8 @@ using UnityEngine.UI; //using UI
 public class BattleStateMachine : MonoBehaviour
 {
 
-    //this is our state machine (will switch)... now we can mess around with different states...
+    //this is our general state machine (will switch b/w states)
+    //now we can mess around with different creating different states
     private IState currentState;
     private IState previousState;
 
@@ -30,11 +31,20 @@ public class BattleStateMachine : MonoBehaviour
             this.currentState.Execute();
         }
     }
+
+    public void RevertToPreviousState()
+    {
+        this.currentState.Exit();
+        this.currentState = this.previousState;
+        this.previousState.Enter();
+    }
+
 }
 
-    //this is our state machine (will switch)... now we can mess around with different states...
+    //this is our general state machine (will switch b/w states)
+    //now we can mess around with different creating different states
 
-    /* OLD CODE --- will keep until everything is working properly
+    /* OLD CODE --- will keep until everything is working properly (new state codes will use aspects from old code)
     
     public PlayerStats player;
     public EnemyStats enemy;

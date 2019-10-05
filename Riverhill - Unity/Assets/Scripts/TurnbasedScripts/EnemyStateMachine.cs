@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class EnemyStateMachine : MonoBehaviour
 {
 
+    private BattleStateMachine battleStateMachine = new BattleStateMachine();
+
 }
 
-    /* OLD CODE --- will keep until everything is working properly
+    /* OLD CODE --- will keep until everything is working properly (new state codes will use aspects from old code)
     
     //public EnemyStats enemy;
 
