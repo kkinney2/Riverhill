@@ -4,6 +4,32 @@ using UnityEngine;
 
 public class BattleStats : MonoBehaviour
 {
+
+    /* Use if ever only one instance of battle stats
+     * Can be referenced using BattleStats.Instance.*** 
+     * 
+     * A good reference is in TileManager for the singleton and ActorController for the application
+     * 
+     */
+    #region Singleton
+    private static BattleStats _instance;
+
+    public static BattleStats Instance { get { return _instance; } }
+
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+    #endregion
+
     //helps keep track of player vs. enemy turn (odd #s = player turn, even #s = enemy turn)
     public int turnCount = 0;
     //helps in allowing for 2 actions per turn, keeping track of # of actions performed
@@ -21,9 +47,13 @@ public class BattleStats : MonoBehaviour
     void Start()
     {
         turnCount++; //inc. turn count
+
+        StartCoroutine(TurnCounter());
     }
 
-    // Update is called once per frame
+    #region TurnCounter
+
+    /*
     void Update()
     {
         //move stuff from start down here?
@@ -43,6 +73,35 @@ public class BattleStats : MonoBehaviour
         //Debug.Log("PT: " + playerTurn + ", ET: " + enemyTurn);
         Debug.Log("Turn: " + turnCount + ", P: " + playerTurn + ", E: " + enemyTurn);
     }
+    */
+
+    IEnumerator TurnCounter()
+    {
+        while (true)
+        {
+            // TODO: Rework turn order for multiple characters
+            //       Maybe via array/lists?
+            if (turnCount % 2 == 1) //odd number, it's the playerTurn
+            {
+                playerTurn = true;
+                enemyTurn = false;
+            }
+
+            if (turnCount % 2 == 0) //even number, it's the enemyTurn
+            {
+                playerTurn = false;
+                enemyTurn = true;
+            }
+
+            //Debug.Log("Turn: " + turnCount);
+            //Debug.Log("PT: " + playerTurn + ", ET: " + enemyTurn);
+            Debug.Log("Turn: " + turnCount + ", P: " + playerTurn + ", E: " + enemyTurn);
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    #endregion
 
     public void Moving()
     {
@@ -68,10 +127,19 @@ public class BattleStats : MonoBehaviour
     public void EndTurn()
     {
         endTurnSelected = true;
+        ResetSelected();
         Debug.Log("ET: " + endTurnSelected);
+
         //this seems to be working
         //TODO: now time to add in turnCount++; and switching to enemy turn...
         turnCount++;
         //still need to leave AS state
+    }
+
+    private void ResetSelected()
+    {
+        moveSelected = false;
+        attackSelected = false;
+        defendSelected = false;
     }
 }

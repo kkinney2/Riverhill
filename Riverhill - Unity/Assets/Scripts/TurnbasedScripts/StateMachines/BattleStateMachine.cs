@@ -19,6 +19,7 @@ public class BattleStateMachine //: MonoBehaviour
 
         this.previousState = this.currentState; //state just exited is stored as the previous state
         this.currentState = newState; //current state is updated to that new state
+        currentState.Enter();
     }
 
     public void UpdateState()
@@ -29,6 +30,15 @@ public class BattleStateMachine //: MonoBehaviour
         {
             this.currentState.Execute(); //execute content of said state
         }
+    }
+
+    public bool IsInState(IState state)
+    {
+        if (currentState == state)
+        {
+            return true;
+        }
+        else return false;
     }
 
     public void RevertToPreviousState()

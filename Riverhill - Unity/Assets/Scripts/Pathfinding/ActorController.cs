@@ -5,17 +5,17 @@ using UnityEngine;
 public class ActorController : MonoBehaviour
 {
     public int speed = 5;
+    public Vector2Int range = new Vector2Int(1, 2);
 
-    public bool moveAgain = true;
     public List<Tile> path = new List<Tile>();
 
     public bool attack = true;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(MoveINFINITE());
+
     }
 
     // Update is called once per frame
@@ -24,23 +24,14 @@ public class ActorController : MonoBehaviour
 
     }
 
-    IEnumerator MoveINFINITE()
+    public void Move()
     {
-        while (true)
-        {
-            if (moveAgain == true)
-            {
-                StartCoroutine(Move());
-                moveAgain = false;
-            }
-
-
-            yield return new WaitForFixedUpdate();
-        }
-
+        StartCoroutine(Move_Coroutine());
     }
 
-    IEnumerator Move()
+    #region Movement
+
+    IEnumerator Move_Coroutine()
     {
         Debug.Log("Move Coroutine");
 
@@ -52,18 +43,15 @@ public class ActorController : MonoBehaviour
             {
                 Debug.Log("Mouse Click");
 
-                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition); 
+                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Debug.Log("WorldFromScreen: " + worldFromScreen);
 
                 RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
 
-
                 if (hit.collider != null)
                 {
-
                     Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
                     Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
-
 
                     path = TileManager.Instance.FindPath(transform.position, testPoint);
                     if (path != null)
@@ -76,35 +64,41 @@ public class ActorController : MonoBehaviour
             yield return new WaitForSeconds(0.001f);
         }
 
-
         Debug.Log("PathLength: " + path.Count);
-        if (path.Count > 0)
+        if (path.Count != 0 && path.Count >= range.x && path.Count <= range.y)
         {
-            // Teleport to Position
-            //transform.position = path[path.Count - 1].transform.position;
-
-            // Travel towards Position
-            for (int i = 0; i < path.Count; i++)
-            {
-                Transform target = path[i].transform;
-
-                while (Vector3.Distance(transform.position, target.position) > 0.001f)
-                {
-                    // Move our position a step closer to the target.
-                    float step = speed * Time.deltaTime; // calculate distance to move
-                    transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-
-                    yield return new WaitForFixedUpdate();
-                }
-
-                yield return new WaitForSeconds(0.5f);
-            }
+            StartCoroutine(MoveAlongPath());
         }
 
-        moveAgain = true;
-        yield return null;
+        yield break;
     }
 
+    IEnumerator MoveAlongPath()
+    {
+        // Teleport to Position
+        //transform.position = path[path.Count - 1].transform.position;
+
+        // Travel towards Position
+        for (int i = 0; i < path.Count; i++)
+        {
+            Transform target = path[i].transform;
+
+            while (Vector3.Distance(transform.position, target.position) > 0.001f)
+            {
+                // Move our position a step closer to the target.
+                float step = speed * Time.deltaTime; // calculate distance to move
+                transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
+                yield return new WaitForFixedUpdate();
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        yield break;
+    }
+
+    #endregion
 
     void OnDrawGizmosSelected()
     {
