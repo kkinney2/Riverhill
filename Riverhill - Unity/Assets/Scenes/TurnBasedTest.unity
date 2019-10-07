@@ -280,6 +280,7 @@ MonoBehaviour:
   moveSelected: 0
   attackSelected: 0
   defendSelected: 0
+  endTurnSelected: 0
 --- !u!4 &268945813
 Transform:
   m_ObjectHideFlags: 0
@@ -463,7 +464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 210, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &360800828
@@ -554,6 +555,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50812a8344fa6744c9cf2caf34ea77fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player:
+    playerName: Alyss
+    playerBaseHP: 100
+    playerCurrentHP: 0
 --- !u!1 &544858278
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +996,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a540c431e6629944ab1aa8cfa6dd0f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy:
+    enemyName: Dayana
+    enemyBaseHP: 100
+    enemyCurrentHP: 0
 --- !u!1 &861354872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1278,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 210, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &978892827
@@ -2401,7 +2410,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 268945812}
         m_MethodName: EndTurn
         m_Mode: 1
         m_Arguments:
@@ -2859,7 +2868,7 @@ PrefabInstance:
     - target: {fileID: 2536583533229047314, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
       propertyPath: m_Name
-      value: Alyss_BAD
+      value: Dayana
       objectReference: {fileID: 0}
     - target: {fileID: 2536583533229047314, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
