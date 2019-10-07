@@ -217,11 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a540c431e6629944ab1aa8cfa6dd0f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-    name: Dayana
-    baseHP: 100
-    currentHP: 0
-  currentState: 0
 --- !u!1 &268945811
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,13 +243,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 268945811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff1e8a8c039d4a140b34075c49283aed, type: 3}
+  m_Script: {fileID: 11500000, guid: a41d4128d87db5b4b8978a57448268bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  performStates: 0
-  performList: []
-  playersInBattle: []
-  enemiesInBattle: []
+  turnCount: 0
+  actionCount: 0
+  playerTurn: 0
+  enemyTurn: 0
 --- !u!4 &268945813
 Transform:
   m_ObjectHideFlags: 0
@@ -267,7 +262,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &354417011
 GameObject:
@@ -1087,7 +1082,7 @@ RectTransform:
   - {fileID: 978892826}
   - {fileID: 1141747939}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1228,7 +1223,7 @@ PrefabInstance:
     - target: {fileID: 2536583533229047318, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2536583533229047318, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
@@ -1311,12 +1306,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093432431}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1108575045
 GameObject:
@@ -2063,11 +2058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50812a8344fa6744c9cf2caf34ea77fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
-    name: Alyss
-    baseHP: 100
-    currentHP: 0
-  currentState: 0
 --- !u!1 &1670777753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,8 +2670,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SelectingMove
+      - m_Target: {fileID: 11500000, guid: b2397cbcb656c0a4eb47941befd28df5, type: 3}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2985,7 +2975,7 @@ PrefabInstance:
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}

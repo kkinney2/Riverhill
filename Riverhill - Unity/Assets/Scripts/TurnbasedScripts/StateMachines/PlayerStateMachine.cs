@@ -5,10 +5,28 @@ using UnityEngine.UI;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-
     private BattleStateMachine battleStateMachine = new BattleStateMachine();
 
+    private void Start()
+    {
+        GameObject battleManager = GameObject.Find("BattleManager");
+        BattleStats battleStats = battleManager.GetComponent<BattleStats>();
+
+        if (battleStats.playerTurn == true)
+        {
+            this.battleStateMachine.ChangeState(new ActionSelect());
+        }
+    }
+
+    private void Update()
+    {
+        this.battleStateMachine.UpdateState();
+
+        //may need to take some code from above?
+    }
 }
+
+
 
     /* OLD CODE --- will keep until everything is working properly (new state codes will use aspects from old code)
     
