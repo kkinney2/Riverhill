@@ -12,6 +12,10 @@ public class BattleStats : MonoBehaviour
     public bool playerTurn = false;
     public bool enemyTurn = false;
 
+    public bool moveSelected = false;
+    public bool attackSelected = false;
+    public bool defendSelected = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,5 +41,20 @@ public class BattleStats : MonoBehaviour
     void Update()
     {
         //move stuff from start down here?
+    }
+
+    public void Moving()
+    {
+        moveSelected = true;
+    }
+
+    public void Attacking()
+    {
+        attackSelected = true;
+    }
+
+    public void Defending()
+    {
+        defendSelected = true;
     }
 }
