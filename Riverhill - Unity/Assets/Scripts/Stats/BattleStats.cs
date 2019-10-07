@@ -46,6 +46,7 @@ public class BattleStats : MonoBehaviour
     public void Moving()
     {
         moveSelected = true;
+
     }
 
     public void Attacking()
