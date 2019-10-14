@@ -13,6 +13,9 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log("ESM start");
+        //enemy.enemyCurrentHP = enemy.enemyBaseHP; //working correctly, can see stats in inspector
+
         battleManager = BattleManager.Instance;
     }
 

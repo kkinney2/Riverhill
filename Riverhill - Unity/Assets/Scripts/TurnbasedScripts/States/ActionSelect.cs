@@ -7,6 +7,7 @@ public class ActionSelect : IState
     private BattleStateMachine battleStateMachine;
     BattleStateMachine owner;
     BattleManager battleManager;
+    GameObject character;
 
     //private object gameObject;
     private GameObject character;
@@ -30,7 +31,6 @@ public class ActionSelect : IState
 
     public void Enter()
     {
-        Debug.Log("Entering ActionSelect");
         battleManager = BattleManager.Instance;
         acScript = character.GetComponent<ActorController>();
     }
@@ -62,6 +62,10 @@ public class ActionSelect : IState
             Debug.Log("Action count:" + battleManager.actionCount); //success
             battleManager.moveSelected = false; //returns to false correctly
             */
+
+            battleManager.actionCount++;
+            Debug.Log("Action count:" + battleManager.actionCount); //success
+            battleManager.moveSelected = false; //returns to false correctly
         }
 
         if (battleManager.attackSelected == true && battleManager.actionCount < 2) //same as above rule
@@ -74,7 +78,6 @@ public class ActionSelect : IState
             battleManager.actionCount++;
             Debug.Log("Action count:" + battleManager.actionCount); //success
             battleManager.attackSelected = false; //returns to false correctly
-            */
         }
 
         if (battleManager.specialSelected == true && battleManager.actionCount < 2) //same as above rule
@@ -87,7 +90,6 @@ public class ActionSelect : IState
             battleManager.actionCount++;
             Debug.Log("Action count:" + battleManager.actionCount); //success
             battleManager.specialSelected = false; //returns to false correctly
-            */
         }
 
         if(battleManager.actionCount >= 2 || battleManager.endTurnSelected == true)

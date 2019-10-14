@@ -10,9 +10,14 @@ public class PlayerStateMachine : MonoBehaviour
     /*
     private BattleStateMachine playerStateMachine = new BattleStateMachine();
     BattleManager battleManager;
+
+    public PlayerStats player;
     
     private void Start()
     {
+        //Debug.Log("PSM start");
+        player.playerCurrentHP = player.playerBaseHP; //working correctly, can see stats in inspector
+
         battleManager = BattleManager.Instance;
     }
 
