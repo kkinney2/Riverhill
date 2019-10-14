@@ -18,8 +18,8 @@ public class BattleStateMachine //: MonoBehaviour
         }
 
         this.previousState = this.currentState; //state just exited is stored as the previous state
-        this.currentState = newState; //current state is updated to that new state
-        currentState.Enter();
+        this.currentState = newState; //current state is updated to the new state
+        currentState.Enter(); //enter new state
     }
 
     public void UpdateState()
@@ -45,6 +45,6 @@ public class BattleStateMachine //: MonoBehaviour
     {
         this.currentState.Exit(); //exit current state
         this.currentState = this.previousState; //set the current state as whatever the previous state was
-        this.currentState.Enter(); //enter the new current state (which is also the previous state, just set to the current state...)
+        this.currentState.Enter(); //enter the new current state (aka the previous state, set to the current state...)
     }
 }

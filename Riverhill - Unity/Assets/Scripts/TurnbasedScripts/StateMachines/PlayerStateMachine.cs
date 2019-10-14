@@ -20,7 +20,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void Update()
     {
-
         //Debug.Log("PSM start, player turn: " + battleStats.playerTurn); //returning false ?
 
         if (battleStats.playerTurn == true) //entering if statement correctly, based on debugs below
@@ -28,17 +27,12 @@ public class PlayerStateMachine : MonoBehaviour
             //Debug.Log("Player turn (SM) started");
             this.playerStateMachine.ChangeState(new ActionSelect(playerStateMachine, this.gameObject)); //moves to the ActionSelect state correctly, based on debugs
             //Debug.Log("Player AS");
-
-
-            
         }
 
         if (battleStats.playerTurn != false)
         {
             this.playerStateMachine.UpdateState();
         }
-        
-
         battleStats.playerTurn = false;
     }
 }

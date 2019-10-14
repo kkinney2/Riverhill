@@ -34,8 +34,6 @@ public class ActionSelect : IState
 
     public void Execute()
     {
-        
-
         Debug.Log("ActionSelect"); //success
 
         if (battleStats.moveSelected == true && battleStats.actionCount < 2) //stops at actionCount of 2 (allows for 2 option picks per turn)
@@ -56,8 +54,6 @@ public class ActionSelect : IState
             owner.ChangeState(new IState());
             */
 
-
-
             battleStats.actionCount++;
             Debug.Log("Action count:" + battleStats.actionCount); //success
             battleStats.moveSelected = false; //returns to false correctly
@@ -72,15 +68,14 @@ public class ActionSelect : IState
             battleStats.attackSelected = false; //returns to false correctly
         }
 
-        if (battleStats.defendSelected == true && battleStats.actionCount < 2) //same as above rule
+        if (battleStats.specialSelected == true && battleStats.actionCount < 2) //same as above rule
         {
-            Debug.Log("Defend selected"); //success
-            //do defend here... (add in functionality later)
+            Debug.Log("Special selected"); //success
+            //do special option here... (add in functionality later)
             battleStats.actionCount++;
             Debug.Log("Action count:" + battleStats.actionCount); //success
-            battleStats.defendSelected = false; //returns to false correctly
+            battleStats.specialSelected = false; //returns to false correctly
         }
-
         /*
         if(battleStats.actionCount >= 2) //after two selections
         {

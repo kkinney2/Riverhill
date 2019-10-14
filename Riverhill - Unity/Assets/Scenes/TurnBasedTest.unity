@@ -279,7 +279,7 @@ MonoBehaviour:
   enemyTurn: 0
   moveSelected: 0
   attackSelected: 0
-  defendSelected: 0
+  specialSelected: 0
   endTurnSelected: 0
 --- !u!4 &268945813
 Transform:
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 354417014}
   - component: {fileID: 354417013}
   m_Layer: 0
-  m_Name: P1Defend
+  m_Name: P1Special
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 268945812}
-        m_MethodName: Defending
+        m_MethodName: Special
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 873662263}
   - component: {fileID: 873662262}
   m_Layer: 0
-  m_Name: DefendText
+  m_Name: SpecialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1157,7 +1157,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Defend
+  m_Text: Special
 --- !u!222 &873662263
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2251,7 +2251,7 @@ GameObject:
   - component: {fileID: 1108575048}
   - component: {fileID: 1108575047}
   m_Layer: 0
-  m_Name: DefendText
+  m_Name: SpecialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2309,7 +2309,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Defend
+  m_Text: Special
 --- !u!222 &1108575048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2652,18 +2652,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1371432371}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 268945812}
-        m_MethodName: Moving
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1371432371
@@ -3393,7 +3382,7 @@ GameObject:
   - component: {fileID: 1833193917}
   - component: {fileID: 1833193916}
   m_Layer: 0
-  m_Name: P2Defend
+  m_Name: P2Special
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

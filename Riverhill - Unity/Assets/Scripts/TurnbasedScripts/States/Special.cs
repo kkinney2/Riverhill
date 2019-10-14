@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Defend : IState
+public class Special : IState
 {
     public void Enter()
     {

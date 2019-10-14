@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BattleStats : MonoBehaviour
 {
-
     /* Use if ever only one instance of battle stats
      * Can be referenced using BattleStats.Instance.*** 
      * 
@@ -15,7 +14,6 @@ public class BattleStats : MonoBehaviour
     private static BattleStats _instance;
 
     public static BattleStats Instance { get { return _instance; } }
-
 
     private void Awake()
     {
@@ -32,6 +30,7 @@ public class BattleStats : MonoBehaviour
 
     //helps keep track of player vs. enemy turn (odd #s = player turn, even #s = enemy turn)
     public int turnCount = 0;
+
     //helps in allowing for 2 actions per turn, keeping track of # of actions performed
     public int actionCount = 0;
 
@@ -40,7 +39,7 @@ public class BattleStats : MonoBehaviour
 
     public bool moveSelected = false;
     public bool attackSelected = false;
-    public bool defendSelected = false;
+    public bool specialSelected = false;
     public bool endTurnSelected = false; //pass
 
     // Start is called before the first frame update
@@ -52,7 +51,6 @@ public class BattleStats : MonoBehaviour
     }
 
     #region TurnCounter
-
     /*
     void Update()
     {
@@ -100,7 +98,6 @@ public class BattleStats : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
     }
-
     #endregion
 
     public void Moving()
@@ -117,10 +114,10 @@ public class BattleStats : MonoBehaviour
         //this seems to be working
     }
 
-    public void Defending()
+    public void Special()
     {
-        defendSelected = true;
-        Debug.Log("DS: " + defendSelected);
+        specialSelected = true;
+        Debug.Log("DS: " + specialSelected);
         //this seems to be working
     }
 
@@ -140,6 +137,6 @@ public class BattleStats : MonoBehaviour
     {
         moveSelected = false;
         attackSelected = false;
-        defendSelected = false;
+        specialSelected = false;
     }
 }
