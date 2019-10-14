@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ActionSelect : IState
 {
-    private BattleStateMachine battleStateMachine = new BattleStateMachine();
+    private BattleStateMachine battleStateMachine;
     BattleStateMachine owner;
     BattleManager battleManager;
 
+    //private object gameObject;
     private GameObject character;
     public ActionSelect(BattleStateMachine newOwner, GameObject a_Character)
     {
@@ -43,7 +44,7 @@ public class ActionSelect : IState
             Debug.Log("Move selected");
             this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.character));
 
-            /*
+            /* MOVING TO MOVE SCRIPT
             //do move here... (add in functionality later)
             
             //if (acScript.enabled == false)
@@ -68,7 +69,7 @@ public class ActionSelect : IState
             Debug.Log("Attack selected");
             this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.character));
 
-            /*
+            /* MOVING TO ATTACK SCRIPT
             //do attack here... (add in functionality later)
             battleManager.actionCount++;
             Debug.Log("Action count:" + battleManager.actionCount); //success
@@ -81,7 +82,7 @@ public class ActionSelect : IState
             Debug.Log("Special selected");
             this.battleStateMachine.ChangeState(new Special(battleStateMachine, this.character));
 
-            /*
+            /* MOVING TO SPECIAL SCRIPT
             //do special option here... (add in functionality later)
             battleManager.actionCount++;
             Debug.Log("Action count:" + battleManager.actionCount); //success

@@ -79,7 +79,7 @@ public class BattleManager : MonoBehaviour
 
             //Debug.Log("Turn: " + turnCount);
             //Debug.Log("PT: " + playerTurn + ", ET: " + enemyTurn);
-            Debug.Log("Turn: " + turnCount + ", P: " + playerTurn + ", E: " + enemyTurn);
+            Debug.Log("Turn: " + turnCount + ", P: " + playerTurn + ", E: " + enemyTurn); //success, keep showing for now
 
             yield return new WaitForFixedUpdate();
         }

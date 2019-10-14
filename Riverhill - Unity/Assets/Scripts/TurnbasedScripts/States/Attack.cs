@@ -5,13 +5,18 @@ using UnityEngine;
 public class Attack : IState
 {
     private BattleStateMachine battleStateMachine;
-    private object gameObject;
+    BattleStateMachine owner;
+    BattleManager battleManager;
 
-    public Attack(BattleStateMachine battleStateMachine, object gameObject)
+    //private object gameObject;
+    private GameObject character;
+    public Attack(BattleStateMachine newOwner, GameObject a_Character)
     {
-        this.battleStateMachine = battleStateMachine;
-        this.gameObject = gameObject;
+        this.owner = newOwner;
+        character = a_Character;
     }
+
+
 
     public void Enter()
     {

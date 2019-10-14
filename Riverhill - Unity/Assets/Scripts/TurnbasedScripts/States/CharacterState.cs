@@ -16,18 +16,18 @@ public class CharacterState : IState
 
     public void Enter()
     {
-        Debug.Log("Entering CharacterState");
+        //Debug.Log("Entering CharacterState"); //success
         battleManager = BattleManager.Instance;
-        Execute();
+        Execute(); //Doesn't call execute function on it's own, unlike some other states? But this call works to execute successfully...
     }
 
     public void Execute()
     {
-        Debug.Log("Executing CharacterState");
+        //Debug.Log("Executing CharacterState"); //success
 
         if (battleManager.playerTurn == true && battleManager.enemyTurn == false)
         {
-            Debug.Log("Player turn started-->ActionSelect");
+            //Debug.Log("Player turn started-->ActionSelect"); //success
             this.battleStateMachine.ChangeState(new ActionSelect(battleStateMachine, this.character));
         }
 
@@ -52,6 +52,6 @@ public class CharacterState : IState
 
     public void Exit()
     {
-        Debug.Log("Exiting CharacterState");
+        //Debug.Log("Exiting CharacterState"); //success
     }
 }

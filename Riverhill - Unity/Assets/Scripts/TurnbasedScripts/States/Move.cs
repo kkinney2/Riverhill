@@ -5,22 +5,37 @@ using UnityEngine;
 public class Move : IState
 {
     private BattleStateMachine battleStateMachine;
-    private object gameObject;
-
-    public Move(BattleStateMachine battleStateMachine, object gameObject)
+    BattleStateMachine owner;
+    BattleManager battleManager;
+    
+    //private object gameObject;
+    private GameObject character;
+    public Move(BattleStateMachine newOwner, GameObject a_Character)
     {
-        this.battleStateMachine = battleStateMachine;
-        this.gameObject = gameObject;
+        this.owner = newOwner;
+        character = a_Character;
     }
+
+    public ActorController acScript;
 
     public void Enter()
     {
         Debug.Log("Entering Move");
+        Execute();
     }
 
     public void Execute()
     {
         Debug.Log("Executing Move");
+        /*
+        acScript.Move();
+
+        //owner.ChangeState(new IState());
+        
+        battleManager.actionCount++;
+        Debug.Log("Action count:" + battleManager.actionCount); //success
+        battleManager.moveSelected = false; //returns to false correctly
+        */
     }
 
     public void Exit()

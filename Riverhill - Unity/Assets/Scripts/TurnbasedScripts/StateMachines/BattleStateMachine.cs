@@ -1,16 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic; //using list
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; //using Unity UI
+using UnityEngine.UI;
 
 public class BattleStateMachine //: MonoBehaviour
 {
-    //general state machine (it will switch b/w states)
-    //now we can mess around with creating different states
+    //general state machine (will switch b/w states)
+    //now we can mess around w/ creating different states
     private IState currentState;
     private IState previousState;
 
-    public void ChangeState(IState newState) //exiting one state (currently in) and entering a new one
+    public void ChangeState(IState newState) //exiting one state (current state) and entering a new one
     {
         if (this.currentState != null)
         {
@@ -22,7 +22,7 @@ public class BattleStateMachine //: MonoBehaviour
         currentState.Enter();
     }
 
-    public void UpdateState() //executing content of the state you're currently in
+    public void UpdateState() //executing content of the current state
     {
         var runningState = this.currentState;
 
@@ -32,7 +32,7 @@ public class BattleStateMachine //: MonoBehaviour
         }
     }
 
-    public void RevertToPreviousState() //exit current, set current to prev., enter that previous state
+    public void RevertToPreviousState() //exit current state, set current state to prev. state, enter new current state (aka that previous state)
     {
         this.currentState.Exit(); 
         this.currentState = this.previousState;
