@@ -2,8 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIState : MonoBehaviour
+public class AIState : IState
 {
+    public void Enter()
+    {
+
+    }
+
+    public void Execute()
+    {
+
+    }
+
+    public void Exit()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
+    //Merging into CHARACTERSTATE
+
     private BattleStateMachine battleStateMachine = new BattleStateMachine();
     BattleStats battleStats;
 

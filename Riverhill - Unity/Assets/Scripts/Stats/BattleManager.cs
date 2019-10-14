@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleStats : MonoBehaviour
+public class BattleManager : MonoBehaviour
 {
     /* Use if ever only one instance of battle stats
      * Can be referenced using BattleStats.Instance.*** 
@@ -11,9 +11,9 @@ public class BattleStats : MonoBehaviour
      * 
      */
     #region Singleton
-    private static BattleStats _instance;
+    private static BattleManager _instance;
 
-    public static BattleStats Instance { get { return _instance; } }
+    public static BattleManager Instance { get { return _instance; } }
 
     private void Awake()
     {

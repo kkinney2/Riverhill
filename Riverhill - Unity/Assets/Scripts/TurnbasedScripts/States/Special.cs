@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Special : IState
 {
+    public bool specialSelected = true;
+
     public void Enter()
     {
 
@@ -19,6 +21,7 @@ public class Special : IState
 
     }
 
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -30,4 +33,6 @@ public class Special : IState
     {
 
     }
+    */
+
 }

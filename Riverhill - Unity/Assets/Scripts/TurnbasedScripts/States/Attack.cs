@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Attack : IState
 {
+    public bool attackSelected = true;
+
     public void Enter()
     {
 
@@ -19,6 +21,7 @@ public class Attack : IState
 
     }
 
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -30,4 +33,6 @@ public class Attack : IState
     {
 
     }
+    */
+
 }
