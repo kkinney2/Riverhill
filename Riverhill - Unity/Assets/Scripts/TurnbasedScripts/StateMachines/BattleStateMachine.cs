@@ -5,31 +5,38 @@ using UnityEngine.UI; //using Unity UI
 
 public class BattleStateMachine //: MonoBehaviour
 {
-    //this is our general state machine (it will switch b/w states)
+    //general state machine (it will switch b/w states)
     //now we can mess around with creating different states
     private IState currentState;
     private IState previousState;
 
-    public void ChangeState(IState newState)
+    public void ChangeState(IState newState) //exiting one state (currently in) and entering a new one
     {
-        if (this.currentState != null) //if you are already in a state
+        if (this.currentState != null)
         {
-            this.currentState.Exit(); //exit said state
+            this.currentState.Exit();
         }
 
-        this.previousState = this.currentState; //state just exited is stored as the previous state
-        this.currentState = newState; //current state is updated to the new state
-        currentState.Enter(); //enter new state
+        this.previousState = this.currentState;
+        this.currentState = newState;
+        currentState.Enter();
     }
 
-    public void UpdateState()
+    public void UpdateState() //executing content of the state you're currently in
     {
         var runningState = this.currentState;
 
-        if (runningState != null) //if you are currently in a state
+        if (runningState != null)
         {
-            this.currentState.Execute(); //execute content of said state
+            this.currentState.Execute();
         }
+    }
+
+    public void RevertToPreviousState() //exit current, set current to prev., enter that previous state
+    {
+        this.currentState.Exit(); 
+        this.currentState = this.previousState;
+        this.currentState.Enter();
     }
 
     public bool IsInState(IState state)
@@ -39,12 +46,5 @@ public class BattleStateMachine //: MonoBehaviour
             return true;
         }
         else return false;
-    }
-
-    public void RevertToPreviousState()
-    {
-        this.currentState.Exit(); //exit current state
-        this.currentState = this.previousState; //set the current state as whatever the previous state was
-        this.currentState.Enter(); //enter the new current state (aka the previous state, set to the current state...)
     }
 }

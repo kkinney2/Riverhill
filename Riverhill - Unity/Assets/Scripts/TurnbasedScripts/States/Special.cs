@@ -4,35 +4,27 @@ using UnityEngine;
 
 public class Special : IState
 {
-    public bool specialSelected = true;
+    private BattleStateMachine battleStateMachine;
+    private object gameObject;
+
+    public Special(BattleStateMachine battleStateMachine, object gameObject)
+    {
+        this.battleStateMachine = battleStateMachine;
+        this.gameObject = gameObject;
+    }
 
     public void Enter()
     {
-
+        Debug.Log("Entering Special");
     }
 
     public void Execute()
     {
-
+        Debug.Log("Executing Special");
     }
 
     public void Exit()
     {
-
+        Debug.Log("Exiting Special");
     }
-
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    */
-
 }

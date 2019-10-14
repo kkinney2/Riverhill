@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class ActionSelect : IState
 {
+    private BattleStateMachine battleStateMachine = new BattleStateMachine();
     BattleStateMachine owner;
-    BattleStats battleStats;
-    GameObject character;
+    BattleManager battleManager;
 
-    public ActorController acScript;
-
+    private GameObject character;
     public ActionSelect(BattleStateMachine newOwner, GameObject a_Character)
     {
         this.owner = newOwner;
         character = a_Character;
     }
+
+    public ActorController acScript;
 
     /*
     void Start()
@@ -28,67 +29,75 @@ public class ActionSelect : IState
 
     public void Enter()
     {
-        battleStats = BattleStats.Instance;
+        Debug.Log("Entering ActionSelect");
+        battleManager = BattleManager.Instance;
         acScript = character.GetComponent<ActorController>();
     }
 
     public void Execute()
     {
-        Debug.Log("ActionSelect"); //success
+        Debug.Log("Execute ActionSelect");
 
-        if (battleStats.moveSelected == true && battleStats.actionCount < 2) //stops at actionCount of 2 (allows for 2 option picks per turn)
+        if (battleManager.moveSelected == true && battleManager.actionCount < 2) //stops at actionCount of 2 (allows for 2 option picks per turn)
         {
-            Debug.Log("Move selected"); //success
-            //do move here... (add in functionality later)
+            Debug.Log("Move selected");
+            this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.character));
+
             /*
-            if (acScript.enabled == false)
-            {
-                acScript.enabled = true;
-            }
-            */
+            //do move here... (add in functionality later)
+            
+            //if (acScript.enabled == false)
+            //{
+            //    acScript.enabled = true;
+            //}
+
             //tried enable/disable of entire ActorController script, no luck
 
             acScript.Move();
 
-            /*
-            owner.ChangeState(new IState());
+            //owner.ChangeState(new IState());
+
+            battleManager.actionCount++;
+            Debug.Log("Action count:" + battleManager.actionCount); //success
+            battleManager.moveSelected = false; //returns to false correctly
             */
-
-            battleStats.actionCount++;
-            Debug.Log("Action count:" + battleStats.actionCount); //success
-            battleStats.moveSelected = false; //returns to false correctly
         }
 
-        if (battleStats.attackSelected == true && battleStats.actionCount < 2) //same as above rule
+        if (battleManager.attackSelected == true && battleManager.actionCount < 2) //same as above rule
         {
-            Debug.Log("Attack selected"); //success
+            Debug.Log("Attack selected");
+            this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.character));
+
+            /*
             //do attack here... (add in functionality later)
-            battleStats.actionCount++;
-            Debug.Log("Action count:" + battleStats.actionCount); //success
-            battleStats.attackSelected = false; //returns to false correctly
+            battleManager.actionCount++;
+            Debug.Log("Action count:" + battleManager.actionCount); //success
+            battleManager.attackSelected = false; //returns to false correctly
+            */
         }
 
-        if (battleStats.specialSelected == true && battleStats.actionCount < 2) //same as above rule
+        if (battleManager.specialSelected == true && battleManager.actionCount < 2) //same as above rule
         {
-            Debug.Log("Special selected"); //success
+            Debug.Log("Special selected");
+            this.battleStateMachine.ChangeState(new Special(battleStateMachine, this.character));
+
+            /*
             //do special option here... (add in functionality later)
-            battleStats.actionCount++;
-            Debug.Log("Action count:" + battleStats.actionCount); //success
-            battleStats.specialSelected = false; //returns to false correctly
+            battleManager.actionCount++;
+            Debug.Log("Action count:" + battleManager.actionCount); //success
+            battleManager.specialSelected = false; //returns to false correctly
+            */
         }
-        /*
-        if(battleStats.actionCount >= 2) //after two selections
+
+        if(battleManager.actionCount >= 2 || battleManager.endTurnSelected == true)
         {
-            //this makes turnCount increase like crazy...
-            battleStats.turnCount++;
-            //we need to leave this ActionSelect
-            Exit(); //exit said state
+            Exit();
         }
-        */
     }
 
     public void Exit()
     {
-        //need to leave state...
+        Debug.Log("Exiting ActionSelect");
+        this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.character));
     }
 }

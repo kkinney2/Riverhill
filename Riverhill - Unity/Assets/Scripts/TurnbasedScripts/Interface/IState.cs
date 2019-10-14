@@ -1,8 +1,11 @@
 ﻿public interface IState
 {
-    void Enter(); //enter state
+    void Enter();
+    //enter state
 
-    void Execute(); //execute content in state
+    void Execute();
+    //execute content in state
 
-    void Exit(); //exit state
+    void Exit();
+    //exit state
 }

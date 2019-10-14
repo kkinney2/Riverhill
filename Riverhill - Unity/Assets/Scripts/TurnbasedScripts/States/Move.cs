@@ -4,35 +4,27 @@ using UnityEngine;
 
 public class Move : IState
 {
-    public bool moveSelected = true;
+    private BattleStateMachine battleStateMachine;
+    private object gameObject;
+
+    public Move(BattleStateMachine battleStateMachine, object gameObject)
+    {
+        this.battleStateMachine = battleStateMachine;
+        this.gameObject = gameObject;
+    }
 
     public void Enter()
     {
-
+        Debug.Log("Entering Move");
     }
 
     public void Execute()
     {
-
+        Debug.Log("Executing Move");
     }
 
     public void Exit()
     {
-
+        Debug.Log("Exiting Move");
     }
-
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    */
-
 }

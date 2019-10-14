@@ -5,36 +5,33 @@ using UnityEngine.UI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    //Merging into CHARACTERSTATE
+    //Merged into CharacterState
 
+    /*
     private BattleStateMachine battleStateMachine = new BattleStateMachine();
-    BattleStats battleStats;
-
-    public EnemyStats enemy;
+    BattleManager battleManager;
 
     private void Start()
     {
-        //Debug.Log("ESM start");
-        //enemy.enemyCurrentHP = enemy.enemyBaseHP; //working correctly, can see stats in inspector
-
-        battleStats = BattleStats.Instance;
+        battleManager = BattleManager.Instance;
     }
 
     private void Update()
     {
-        //Debug.Log("ESM start, enemy turn: " + battleStats.enemyTurn); //running, but enemyTurn is false
+        //Debug.Log("ESM start, enemy turn: " + battleStats.enemyTurn);
 
-        if (battleStats.enemyTurn == true)
+        if (battleManager.enemyTurn == true)
         {
-            //Debug.Log("Enemy turn (SM) started");
+            //Debug.Log("Enemy turn started");
             this.battleStateMachine.ChangeState(new ActionSelect(battleStateMachine, this.gameObject));
             //Debug.Log("Enemy AS");
         }
 
-        if (battleStats.enemyTurn != false)
+        if (battleManager.enemyTurn != false)
         {
             this.battleStateMachine.UpdateState();
         }
-        battleStats.enemyTurn = false;
+        battleManager.enemyTurn = false;
     }
+    */
 }

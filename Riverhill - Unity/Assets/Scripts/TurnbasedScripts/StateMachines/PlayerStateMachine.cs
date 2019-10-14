@@ -5,36 +5,33 @@ using UnityEngine.UI;
 
 public class PlayerStateMachine : MonoBehaviour
 {
-    //Merging into CHARACTERSTATE
+    //Merged into CharacterState
 
+    /*
     private BattleStateMachine playerStateMachine = new BattleStateMachine();
-    BattleStats battleStats;
-
-    public PlayerStats player;
+    BattleManager battleManager;
     
     private void Start()
     {
-        //Debug.Log("PSM start");
-        player.playerCurrentHP = player.playerBaseHP; //working correctly, can see stats in inspector
-
-        battleStats = BattleStats.Instance;
+        battleManager = BattleManager.Instance;
     }
 
     private void Update()
     {
-        //Debug.Log("PSM start, player turn: " + battleStats.playerTurn); //returning false ?
+        //Debug.Log("PSM start, player turn: " + battleStats.playerTurn);
 
-        if (battleStats.playerTurn == true) //entering if statement correctly, based on debugs below
+        if (battleManager.playerTurn == true) //entering if statement correctly, based on debugs below
         {
-            //Debug.Log("Player turn (SM) started");
+            //Debug.Log("Player turn started");
             this.playerStateMachine.ChangeState(new ActionSelect(playerStateMachine, this.gameObject)); //moves to the ActionSelect state correctly, based on debugs
             //Debug.Log("Player AS");
         }
 
-        if (battleStats.playerTurn != false)
+        if (battleManager.playerTurn != false)
         {
             this.playerStateMachine.UpdateState();
         }
-        battleStats.playerTurn = false;
+        battleManager.playerTurn = false;
     }
+    */
 }

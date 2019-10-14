@@ -4,37 +4,54 @@ using UnityEngine;
 
 public class CharacterState : IState
 {
-    //keep track of player char vs. enemy char turn
-    private bool isPlayerTurn = false; //player being controlled when true, will call for ActionSelect
-    private bool isEnemyTurn = false; //enemy being controlled when true, will call for AIState
+    private BattleStateMachine battleStateMachine = new BattleStateMachine();
+    BattleManager battleManager;
+
+    private GameObject character;
+    public CharacterState(BattleStateMachine battleStateMachine, GameObject a_Character)
+    {
+        this.battleStateMachine = battleStateMachine;
+        this.character = a_Character;
+    }
 
     public void Enter()
     {
-
+        Debug.Log("Entering CharacterState");
+        battleManager = BattleManager.Instance;
+        Execute();
     }
 
     public void Execute()
     {
+        Debug.Log("Executing CharacterState");
 
+        if (battleManager.playerTurn == true && battleManager.enemyTurn == false)
+        {
+            Debug.Log("Player turn started-->ActionSelect");
+            this.battleStateMachine.ChangeState(new ActionSelect(battleStateMachine, this.character));
+        }
+
+        if (battleManager.playerTurn != false)
+        {
+            this.battleStateMachine.UpdateState();
+        }
+        battleManager.playerTurn = false;
+
+        if (battleManager.playerTurn == false && battleManager.enemyTurn == true)
+        {
+            Debug.Log("Enemy turn started-->AIState");
+            this.battleStateMachine.ChangeState(new AIState(battleStateMachine, this.character));
+        }
+
+        if (battleManager.enemyTurn != false)
+        {
+            this.battleStateMachine.UpdateState();
+        }
+        battleManager.enemyTurn = false;
     }
 
     public void Exit()
     {
-
+        Debug.Log("Exiting CharacterState");
     }
-
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    */
-
 }

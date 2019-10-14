@@ -281,6 +281,14 @@ MonoBehaviour:
   attackSelected: 0
   specialSelected: 0
   endTurnSelected: 0
+  player:
+    playerName: Alyss
+    playerBaseHP: 100
+    playerCurrentHP: 0
+  enemy:
+    enemyName: Dayana
+    enemyBaseHP: 100
+    enemyCurrentHP: 0
 --- !u!4 &268945813
 Transform:
   m_ObjectHideFlags: 0
@@ -555,10 +563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50812a8344fa6744c9cf2caf34ea77fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
-    playerName: Alyss
-    playerBaseHP: 100
-    playerCurrentHP: 0
 --- !u!1 &544858278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,10 +1004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a540c431e6629944ab1aa8cfa6dd0f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-    enemyName: Dayana
-    enemyBaseHP: 100
-    enemyCurrentHP: 0
 --- !u!1 &861354872
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,35 +4,27 @@ using UnityEngine;
 
 public class Attack : IState
 {
-    public bool attackSelected = true;
+    private BattleStateMachine battleStateMachine;
+    private object gameObject;
+
+    public Attack(BattleStateMachine battleStateMachine, object gameObject)
+    {
+        this.battleStateMachine = battleStateMachine;
+        this.gameObject = gameObject;
+    }
 
     public void Enter()
     {
-
+        Debug.Log("Entering Attack");
     }
 
     public void Execute()
     {
-
+        Debug.Log("Executing Attack");
     }
 
     public void Exit()
     {
-
+        Debug.Log("Exiting Attack");
     }
-
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    */
-
 }
