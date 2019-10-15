@@ -4,33 +4,23 @@ using UnityEngine;
 
 public class ActionSelect : IState
 {
-    private BattleStateMachine battleStateMachine;
+    private BattleStateMachine battleStateMachine = new BattleStateMachine();
     BattleStateMachine owner;
     BattleManager battleManager;
-    GameObject character;
 
-    //private object gameObject;
+    //private GameObject gameObject;
     private GameObject character;
     public ActionSelect(BattleStateMachine newOwner, GameObject a_Character)
     {
         this.owner = newOwner;
-        character = a_Character;
+        this.character = a_Character;
     }
 
     public ActorController acScript;
 
-    /*
-    void Start()
-    {
-        GameObject playerAlyss = GameObject.Find("Alyss");
-        acScript = playerAlyss.GetComponent<ActorController>();
-        acScript.enabled = false;
-    }
-    */
-    //tried enable/disable of entire ActorController script, no luck
-
     public void Enter()
     {
+        Debug.Log("Enter ActionSelect");
         battleManager = BattleManager.Instance;
         acScript = character.GetComponent<ActorController>();
     }
@@ -42,7 +32,9 @@ public class ActionSelect : IState
         if (battleManager.moveSelected == true && battleManager.actionCount < 2) //stops at actionCount of 2 (allows for 2 option picks per turn)
         {
             Debug.Log("Move selected");
+            //this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.character));
             this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.character));
+
 
             /* MOVING TO MOVE SCRIPT
             //do move here... (add in functionality later)
@@ -62,34 +54,34 @@ public class ActionSelect : IState
             Debug.Log("Action count:" + battleManager.actionCount); //success
             battleManager.moveSelected = false; //returns to false correctly
             */
-
-            battleManager.actionCount++;
-            Debug.Log("Action count:" + battleManager.actionCount); //success
-            battleManager.moveSelected = false; //returns to false correctly
         }
 
         if (battleManager.attackSelected == true && battleManager.actionCount < 2) //same as above rule
         {
             Debug.Log("Attack selected");
-            this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.character));
+            //this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.character));
+
 
             /* MOVING TO ATTACK SCRIPT
             //do attack here... (add in functionality later)
             battleManager.actionCount++;
             Debug.Log("Action count:" + battleManager.actionCount); //success
             battleManager.attackSelected = false; //returns to false correctly
+            */
         }
 
         if (battleManager.specialSelected == true && battleManager.actionCount < 2) //same as above rule
         {
             Debug.Log("Special selected");
-            this.battleStateMachine.ChangeState(new Special(battleStateMachine, this.character));
+            //this.battleStateMachine.ChangeState(new Special(battleStateMachine, this.character));
+
 
             /* MOVING TO SPECIAL SCRIPT
             //do special option here... (add in functionality later)
             battleManager.actionCount++;
             Debug.Log("Action count:" + battleManager.actionCount); //success
             battleManager.specialSelected = false; //returns to false correctly
+            */
         }
 
         if(battleManager.actionCount >= 2 || battleManager.endTurnSelected == true)

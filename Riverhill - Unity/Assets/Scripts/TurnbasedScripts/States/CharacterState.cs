@@ -7,6 +7,7 @@ public class CharacterState : IState
     private BattleStateMachine battleStateMachine = new BattleStateMachine();
     BattleManager battleManager;
 
+    //private GameObject gameObject;
     private GameObject character;
     public CharacterState(BattleStateMachine battleStateMachine, GameObject a_Character)
     {
@@ -16,18 +17,18 @@ public class CharacterState : IState
 
     public void Enter()
     {
-        //Debug.Log("Entering CharacterState"); //success
+        Debug.Log("Entering CharacterState"); //success
         battleManager = BattleManager.Instance;
         Execute(); //Doesn't call execute function on it's own, unlike some other states? But this call works to execute successfully...
     }
 
     public void Execute()
     {
-        //Debug.Log("Executing CharacterState"); //success
+        Debug.Log("Executing CharacterState"); //success
 
         if (battleManager.playerTurn == true && battleManager.enemyTurn == false)
         {
-            //Debug.Log("Player turn started-->ActionSelect"); //success
+            Debug.Log("Player turn started-->ActionSelect"); //success
             this.battleStateMachine.ChangeState(new ActionSelect(battleStateMachine, this.character));
         }
 
@@ -39,7 +40,7 @@ public class CharacterState : IState
 
         if (battleManager.playerTurn == false && battleManager.enemyTurn == true)
         {
-            Debug.Log("Enemy turn started-->AIState");
+            Debug.Log("Enemy turn started-->AIState"); //not tested yet
             this.battleStateMachine.ChangeState(new AIState(battleStateMachine, this.character));
         }
 
@@ -52,6 +53,6 @@ public class CharacterState : IState
 
     public void Exit()
     {
-        //Debug.Log("Exiting CharacterState"); //success
+        Debug.Log("Exiting CharacterState"); //success
     }
 }

@@ -7,8 +7,7 @@ public class Move : IState
     private BattleStateMachine battleStateMachine;
     BattleStateMachine owner;
     BattleManager battleManager;
-    
-    //private object gameObject;
+
     private GameObject character;
     public Move(BattleStateMachine newOwner, GameObject a_Character)
     {
@@ -21,21 +20,17 @@ public class Move : IState
     public void Enter()
     {
         Debug.Log("Entering Move");
-        Execute();
+        //Execute();
     }
 
     public void Execute()
     {
         Debug.Log("Executing Move");
-        /*
         acScript.Move();
-
-        //owner.ChangeState(new IState());
         
         battleManager.actionCount++;
         Debug.Log("Action count:" + battleManager.actionCount); //success
         battleManager.moveSelected = false; //returns to false correctly
-        */
     }
 
     public void Exit()
