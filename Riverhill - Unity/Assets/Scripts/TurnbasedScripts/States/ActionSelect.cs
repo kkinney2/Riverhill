@@ -32,7 +32,6 @@ public class ActionSelect : IState
         if (battleManager.moveSelected == true && battleManager.actionCount < 2) //stops at actionCount of 2 (allows for 2 option picks per turn)
         {
             Debug.Log("Move selected");
-            //this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.character));
             this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.character));
 
 
@@ -59,7 +58,7 @@ public class ActionSelect : IState
         if (battleManager.attackSelected == true && battleManager.actionCount < 2) //same as above rule
         {
             Debug.Log("Attack selected");
-            //this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.character));
+            this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.character));
 
 
             /* MOVING TO ATTACK SCRIPT
@@ -74,6 +73,7 @@ public class ActionSelect : IState
         {
             Debug.Log("Special selected");
             //this.battleStateMachine.ChangeState(new Special(battleStateMachine, this.character));
+            //Crashes when special is selected twice...
 
 
             /* MOVING TO SPECIAL SCRIPT

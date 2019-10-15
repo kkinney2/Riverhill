@@ -107,7 +107,7 @@ public class BattleManager : MonoBehaviour
     public void EndTurn()
     {
         endTurnSelected = true;
-        this.battleStateMachine.UpdateState();
+        //this.battleStateMachine.UpdateState(); //Unity crashes?
         //Debug.Log("ET: " + endTurnSelected);
         ResetSelected();
     }
