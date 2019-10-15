@@ -22,8 +22,11 @@ public class GameSettings : MonoBehaviour
     }
     #endregion
 
+    [Tooltip("Sets Target Framerate")]
     public int FramerateTarget = 60;
-    public int TextSpeed = 5;
+    [Range(1,45)]
+    [Tooltip("Controls text speed based on a 1/x delay between characters and a 2/x delay on punctuation")]
+    public int TextSpeed = 15;
     // TODO: GameSettings 
 
     private void Start()

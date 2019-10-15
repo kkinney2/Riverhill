@@ -46,7 +46,12 @@ public class TextDisplayer : MonoBehaviour
         {
             displayedText += fullText[i];
 
-            //yield return new WaitForSeconds(1f / GameSettings.Instance.TextSpeed);
+            if (fullText[i] == '.' || fullText[i] == '?' || fullText[i] == '!')
+            {
+                yield return new WaitForSeconds(1f / GameSettings.Instance.TextSpeed);
+            }
+
+            yield return new WaitForSeconds(1f / GameSettings.Instance.TextSpeed);
         }
         yield return null;
     }
