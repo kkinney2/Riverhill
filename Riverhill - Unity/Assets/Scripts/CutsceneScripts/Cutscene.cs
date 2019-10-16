@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cutscene : MonoBehaviour
 {
+    [Tooltip("Name of the Scene for the CutsceneManager to Find")]
     public string SceneName;
     public GameObject[] Frames;
 
@@ -23,6 +24,7 @@ public class Cutscene : MonoBehaviour
 
     IEnumerator Scene()
     {
+        Debug.Log("Scene Started");
         for (int i = 0; i < Frames.Length; i++)
         {
             if (i != 0)
@@ -32,6 +34,7 @@ public class Cutscene : MonoBehaviour
             Frames[i].SetActive(true);
             while (!Input.GetButtonDown("Submit"))
             {
+                Debug.Log("Waiting for User Input");
                 yield return new WaitForEndOfFrame();
             }
         }
