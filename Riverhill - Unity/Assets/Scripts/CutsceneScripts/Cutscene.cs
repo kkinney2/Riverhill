@@ -32,12 +32,18 @@ public class Cutscene : MonoBehaviour
                 Frames[i - 1].SetActive(false);
             }
             Frames[i].SetActive(true);
-            while (!Input.GetButtonDown("Submit"))
-            {
-                Debug.Log("Waiting for User Input");
-                yield return new WaitForEndOfFrame();
+            while (true)
+            {   
+                // TODO: Extremely high polling number for user input
+                yield return new WaitForSeconds(0.00001f);
+                if (Input.GetButtonUp("Submit"))
+                {
+                    break;
+                }
             }
         }
+
+        Frames[Frames.Length - 1].SetActive(false);
 
         CutsceneManager.Instance.hasActiveCutscene = false;
         yield return null;
