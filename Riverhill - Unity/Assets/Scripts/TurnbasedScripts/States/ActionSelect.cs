@@ -72,7 +72,7 @@ public class ActionSelect : IState
             //battleManager.actionCount++; maybe do this in Enter() of Special state?
         }
 
-        /* HAVE THIS CHECK IN CHARSTATE INSTEAD?
+        /* HAVE THIS CHECK IN CHARACTERSTATE INSTEAD? YES
         if (battleManager.actionCount >= 2)
         {
             battleManager.turnCount++;

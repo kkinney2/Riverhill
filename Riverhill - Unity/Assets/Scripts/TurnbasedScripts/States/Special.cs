@@ -40,7 +40,7 @@ public class Special : IState
 
     public void Execute() //crashes when selected twice...
     {
-        Debug.Log("Executing special state");
+        Debug.Log("Executing special state, **ADD FUNC.**");
         //TO DO: do special function here!
 
         /*

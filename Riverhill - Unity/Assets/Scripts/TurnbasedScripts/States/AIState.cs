@@ -7,6 +7,8 @@ public class AIState : IState
     private BattleStateMachine battleStateMachine;
     private GameObject gameObject;
 
+    BattleManager battleManager;
+
     public AIState(BattleStateMachine battleStateMachine, GameObject gameObject)
     {
         this.battleStateMachine = battleStateMachine;
@@ -30,6 +32,9 @@ public class AIState : IState
     public void Enter()
     {
         Debug.Log("Entering AI state");
+        battleManager = BattleManager.Instance;
+        battleManager.actionCount++; //inc. actionCount, by one to allow for multi-action selections per turn //success! //may have to move depending on what option enemy AI picks
+        this.battleStateMachine.UpdateState();
         /*
         Debug.Log("Entering AIState");
         battleManager = BattleManager.Instance;
@@ -39,7 +44,9 @@ public class AIState : IState
 
     public void Execute()
     {
-        Debug.Log("Executing AI state");
+        Debug.Log("Executing AI state, **ADD FUNC.**");
+        //AI DOES STUFF HERE...
+
         /*
         Debug.Log("Executing AIState"); //success
 
@@ -85,6 +92,8 @@ public class AIState : IState
          //Exit();
          //}
         */
+
+        this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
     }
 
     public void Exit()

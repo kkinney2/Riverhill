@@ -40,7 +40,7 @@ public class Attack : IState
 
     public void Execute()
     {
-        Debug.Log("Executing attack state");
+        Debug.Log("Executing attack state, **ADD FUNC.**");
         //TO DO: do attacking function here!
 
         /*

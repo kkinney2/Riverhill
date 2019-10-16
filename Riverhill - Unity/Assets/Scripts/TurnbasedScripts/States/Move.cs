@@ -41,7 +41,7 @@ public class Move : IState
 
     public void Execute()
     {
-        Debug.Log("Executing move state");
+        Debug.Log("Executing move state, **ADD FUNC.**");
         //TO DO: do moving function here!
 
         /*
