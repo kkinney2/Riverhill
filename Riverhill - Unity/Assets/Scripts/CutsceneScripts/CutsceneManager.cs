@@ -34,12 +34,16 @@ public class CutsceneManager : MonoBehaviour
     {
         for (int i = 0; i < Cutscene_GameObjects.Length; i++)
         {
+            Debug.Log(i);
             cutscenes[i] = Cutscene_GameObjects[i].GetComponent<Cutscene>();
         }
         //  OR
         //StartCoroutine(ObtainCutsceneScripts());
 
+
+        StartCutscene("Test");
     }
+
 
     IEnumerator ObtainCutsceneScripts()
     {
@@ -70,7 +74,5 @@ public class CutsceneManager : MonoBehaviour
         {
             Debug.Log("Unable to start new scene '" + sceneName + "' because another scene is still/already started");
         }
-
-        
     }
 }
