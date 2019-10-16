@@ -1,11 +1,8 @@
-﻿public interface IState
+﻿public interface IState //interface IState mandates three methods --- Enter, Execute, and Exit
 {
-    void Enter();
-    //enter state
+    void Enter(); //entering a state
 
-    void Execute();
-    //execute content in state
+    void Execute(); //executing the content in a state
 
-    void Exit();
-    //exit state
+    void Exit(); //exiting a state
 }
