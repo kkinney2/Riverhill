@@ -47,6 +47,17 @@ public class AIState : IState
         Debug.Log("Executing AI state, **ADD FUNC.**");
         //AI DOES STUFF HERE...
 
+        // Find Player
+        // TODO: Needs Reference to Player
+        
+
+        // If Player is in AttackRange: Attack
+        
+        // If Player is not in AttackRange: Move towards nearest Player
+
+
+
+        #region Original Player Code
         /*
         Debug.Log("Executing AIState"); //success
 
@@ -92,6 +103,7 @@ public class AIState : IState
          //Exit();
          //}
         */
+        #endregion
 
         this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
     }
