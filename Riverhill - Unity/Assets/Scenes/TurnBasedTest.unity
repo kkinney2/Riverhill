@@ -273,22 +273,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41d4128d87db5b4b8978a57448268bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterStats:
+  - {fileID: 394065452}
+  - {fileID: 852597207}
   turnCount: 0
-  actionCount: 0
-  playerTurn: 0
-  enemyTurn: 0
   moveSelected: 0
   attackSelected: 0
   specialSelected: 0
   endTurnSelected: 0
-  player:
-    playerName: Alyss
-    playerBaseHP: 100
-    playerCurrentHP: 0
-  enemy:
-    enemyName: Dayana
-    enemyBaseHP: 100
-    enemyCurrentHP: 0
+  nextCharacter: 0
 --- !u!4 &268945813
 Transform:
   m_ObjectHideFlags: 0
@@ -551,7 +544,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1075692365}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &394065456
+--- !u!114 &394065452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -560,9 +553,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 394065451}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50812a8344fa6744c9cf2caf34ea77fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 69f2901b85930da478ad043aaa6b4303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 0
+  Name: 
+  BaseHP: 100
+  CurrentHP: 0
+  attack: 55
 --- !u!1 &544858278
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +990,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1431768323}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &852597211
+--- !u!114 &852597207
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1001,9 +999,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 852597206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a540c431e6629944ab1aa8cfa6dd0f6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 69f2901b85930da478ad043aaa6b4303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemy: 1
+  Name: 
+  BaseHP: 100
+  CurrentHP: 0
+  attack: 55
 --- !u!1 &861354872
 GameObject:
   m_ObjectHideFlags: 0

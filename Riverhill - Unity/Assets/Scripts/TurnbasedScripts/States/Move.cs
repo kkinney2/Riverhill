@@ -14,6 +14,7 @@ public class Move : IState
     public List<Tile> path = new List<Tile>();
 
     public bool attack = true;
+    bool isDone = false;
 
     public Move(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
@@ -53,7 +54,10 @@ public class Move : IState
     public void Execute()
     {
         Debug.Log("Executing move state, **ADD FUNC.**");
-        //TO DO: do moving function here!
+        if (isDone)
+        {
+            characterStateMachine.ChangeState(characterState.state_Idle);
+        }
 
         /*
         Debug.Log("Executing Move");
@@ -67,10 +71,9 @@ public class Move : IState
 
     public void Exit()
     {
-        Debug.Log("Exiting move state");
-        /*
-        Debug.Log("Exiting Move");
-        */
+        Debug.Log("Exiting Move State");
+        characterState.hasActiveAction = false;
+        isDone = false;
     }
 
 
@@ -112,7 +115,7 @@ public class Move : IState
         Debug.Log("PathLength: " + path.Count);
         if (path.Count != 0 && path.Count >= range.x && path.Count <= range.y)
         {
-            StartCoroutine(MoveAlongPath());
+            //StartCoroutine(MoveAlongPath());
         }
 
         yield break;

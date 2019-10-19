@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Special : IState
 {
-    private BattleStateMachine battleStateMachine;
-    private GameObject gameObject;
+    CharacterState characterState;
+    private BattleStateMachine characterStateMachine;
 
     BattleManager battleManager;
 
-    public Special(BattleStateMachine battleStateMachine, GameObject gameObject)
+    public Special(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
-        this.battleStateMachine = battleStateMachine;
-        this.gameObject = gameObject;
+        this.characterState = a_CharacterState;
+        this.characterStateMachine = a_BattleStateMachine;
     }
 
     /*
@@ -34,8 +34,11 @@ public class Special : IState
         Debug.Log("Entering special state"); //success!
         battleManager = BattleManager.Instance;
         battleManager.specialSelected = false; //reset specialSelected //success!
-        battleManager.actionCount++; // or = (battleManager.actionCount + 2); //inc. actionCount, by one or two to allow/avoid multi-special selections per turn //success!
-        this.battleStateMachine.UpdateState();
+        // TODO: What adds to actionCount? the action or the decision maker?
+        //battleManager.actionCount++; // or = (battleManager.actionCount + 2); //inc. actionCount, by one or two to allow/avoid multi-special selections per turn //success!
+        
+        // Currently ignoring error until specials are being integrated
+        //this.battleStateMachine.UpdateState();
     }
 
     public void Execute() //crashes when selected twice...
@@ -52,7 +55,8 @@ public class Special : IState
         Exit();
         */
 
-        this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
+        // Currently ignoring error until specials are being integrated
+        //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
     }
 
     public void Exit()

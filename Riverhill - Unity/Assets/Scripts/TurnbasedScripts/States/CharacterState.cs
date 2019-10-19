@@ -6,13 +6,17 @@ public class CharacterState : IState
 {
     public BattleStateMachine battleStateMachine;
     public GameObject character;
+    public CharacterStats characterStats;
 
     BattleManager battleManager;
 
-    ActionSelect state_ActionSelect;
-    Move state_Move;
-    Attack state_Attack;
+    IState state_CharacterAction;
 
+    public Idle state_Idle;
+    public Move state_Move;
+    public Attack state_Attack;
+
+    public bool hasActiveAction = false;
     public int actionCount = 0;
 
     //public CharacterState(GameObject a_Character, BattleStateMachine a_BattleStateMachine)
@@ -26,9 +30,29 @@ public class CharacterState : IState
          * switch characters and it can repeat.
          */
         character = a_Character;
+        if (character.GetComponent<CharacterStats>() != null)
+        {
+            characterStats = character.GetComponent<CharacterStats>();
+        }
+        else
+	    {
+            Debug.Log("Character " + character.name + "is either missing or failed to find its CharacterStats");
+        }
+
         battleStateMachine = new BattleStateMachine();
 
-        state_ActionSelect = new ActionSelect(this, battleStateMachine);
+        if (!characterStats.isEnemy)
+        {
+            state_CharacterAction = new ActionSelect(this, battleStateMachine);
+        }
+        else
+        {
+            state_CharacterAction = new AIState(this, battleStateMachine);
+        }
+
+        state_Idle = new Idle(this, battleStateMachine);
+        state_Attack = new Attack(this, battleStateMachine);
+        state_Move = new Move(this, battleStateMachine);
     }
 
     /*
@@ -51,19 +75,26 @@ public class CharacterState : IState
 
     public void Execute()
     {
-        /* TODO: Needs a bool to switch when its already having actionSelect called so it doesn't infinitely repeat every execute
-         * OR move actionSelect to here and use "isEnemy in the CharacterStats to switch how the action states react
-         */
-
-        if (actionCount < GameSettings.Instance.MaxActionCount )
+        if (actionCount < GameSettings.Instance.MaxActionCount)
         {
-            this.battleStateMachine.ChangeState(state_ActionSelect);
+            if (hasActiveAction)
+            {
+                battleStateMachine.UpdateState();
+            }
+            else
+            {
+                this.battleStateMachine.ChangeState(state_CharacterAction);
+                hasActiveAction = true;
+            }
         }
 
         if (actionCount >= GameSettings.Instance.MaxActionCount)
         {
-            Exit();
+            //Exit();
+            this.battleStateMachine.ChangeState(state_Idle);
         }
+
+        
         #region Old Execute
         /*
         Debug.Log("Executing CharacterState state");
@@ -131,7 +162,7 @@ public class CharacterState : IState
     }
     battleManager.enemyTurn = false;
     */
-#endregion
+        #endregion
     }
 
     public void Exit()

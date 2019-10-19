@@ -81,17 +81,20 @@ public class BattleManager : MonoBehaviour
     */
     #endregion
 
-    private BattleStateMachine battleStateMachine = new BattleStateMachine();
+    private BattleStateMachine battleStateMachine;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Assign characters' stats
-        //          Or do they come as prefabs with the stats already?
-        //          and then hand that off to the BattleManager?
+        battleStateMachine = new BattleStateMachine();
+        characterStates = new List<CharacterState>();
 
-        // TODO: Limits number of characters
-        characterStates = new CharacterState[characterStats.Length];
+        // Create Characters
+        for (int i = 0; i < characterStats.Count; i++)
+        {
+            CreateCharacter(characterStats[i]);
+        }
+        Debug.Log("***Characters Created***");
 
         turnCount++; //inc. turn count on start, starts @ 1, player turn
         //Debug.Log(turnCount);
@@ -100,16 +103,20 @@ public class BattleManager : MonoBehaviour
         //StartCoroutine(TurnCounter());
 
         //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine)); //success!
+
+        StartCoroutine(TurnSequence());
     }
 
     IEnumerator TurnSequence()
     {
+        Debug.Log("Turn Sequence Started");
         while (true)
         {
-            for (int i = 0; i < characterStates.Count; i++)
+            for (int i = 0; i < characterStats.Count; i++)
             {
+                Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
                 battleStateMachine.ChangeState(characterStates[i]);
-                yield return new WaitUntil(() => nextCharacter == true);
+                yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
                 nextCharacter = false;
             }
             nextCharacter = false;
@@ -117,8 +124,10 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        yield return null;
+        //yield return null;
     }
+
+    #region Actions
 
     public void Moving()
     {
@@ -155,6 +164,8 @@ public class BattleManager : MonoBehaviour
         ResetSelected();
     }
 
+    #endregion
+
     private void ResetSelected()
     {
         moveSelected = false;
@@ -162,20 +173,13 @@ public class BattleManager : MonoBehaviour
         specialSelected = false;
     }
 
-    public void CreateCharacter(string a_Name)
+    public void CreateCharacter(CharacterStats a_CharacterStat)
     {
-        // Find correct characterStat
-        for (int i = 0; i < characterStats.Length; i++)
-        {
-            if (characterStats[i].Name == a_Name)
-            {
-                // Creates CharacterState and Assigns GameObject
-                CharacterState a_CState = new CharacterState(characterStats[i].gameObject);
-                characterStates. = a_CState;
-                break;
-            }
-        }
-        
+        // Creates CharacterState and Assigns GameObject
+        CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
+        a_CharacterStat.name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
+        characterStates.Add(a_CState);
+        Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.name);
     }
 }
 
@@ -228,7 +232,6 @@ IEnumerator TurnCounter()
 {
     while (true)
     {
-        // TODO: Rework turn order for multiple characters
         //       Maybe via array/lists?
         if (turnCount % 2 == 1) //odd number, it's the playerTurn
         {

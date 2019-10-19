@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Attack : IState
 {
-    private BattleStateMachine battleStateMachine;
-    private GameObject gameObject;
+    CharacterState characterState;
+    private BattleStateMachine characterStateMachine;
 
     BattleManager battleManager;
 
-    public Attack(BattleStateMachine battleStateMachine, GameObject gameObject)
+    bool isDone = false;
+
+    public Attack(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
-        this.battleStateMachine = battleStateMachine;
-        this.gameObject = gameObject;
+        this.characterState = a_CharacterState;
+        this.characterStateMachine = a_BattleStateMachine;
     }
 
     /*
@@ -34,14 +36,19 @@ public class Attack : IState
         Debug.Log("Entering attack state"); //success!
         battleManager = BattleManager.Instance;
         battleManager.attackSelected = false; //reset attackSelected //success!
-        battleManager.actionCount = (battleManager.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
-        this.battleStateMachine.UpdateState();
+        characterState.actionCount = (characterState.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
+        //this.battleStateMachine.UpdateState();
     }
 
     public void Execute()
     {
         Debug.Log("Executing attack state, **ADD FUNC.**");
-        //TO DO: do attacking function here!
+        //TODO: do attacking function here!
+
+        if (isDone)
+        {
+            characterStateMachine.ChangeState(characterState.state_Idle);
+        }
 
         /*
         Debug.Log("Executing Attack");
@@ -52,15 +59,14 @@ public class Attack : IState
         Exit();
         */
 
-        this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
+
+        //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
     }
 
     public void Exit()
     {
-        Debug.Log("Exiting attack state");
-        /*
-        Debug.Log("Exiting Attack");
-        //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.character));
-        */
+        Debug.Log("Exiting Attack State");
+        characterState.hasActiveAction = false;
+        isDone = false;
     }
 }

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class AIState : IState
 {
-    private BattleStateMachine battleStateMachine;
-    private GameObject gameObject;
+    CharacterState characterState;
+    private BattleStateMachine characterStateMachine;
 
     BattleManager battleManager;
 
-    public AIState(BattleStateMachine battleStateMachine, GameObject gameObject)
+    public AIState(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
-        this.battleStateMachine = battleStateMachine;
-        this.gameObject = gameObject;
+        this.characterState = a_CharacterState;
+        this.characterStateMachine = a_BattleStateMachine;
     }
 
     /*
@@ -33,8 +33,11 @@ public class AIState : IState
     {
         Debug.Log("Entering AI state");
         battleManager = BattleManager.Instance;
-        battleManager.actionCount++; //inc. actionCount, by one to allow for multi-action selections per turn //success! //may have to move depending on what option enemy AI picks
-        this.battleStateMachine.UpdateState();
+
+        //AIState controls actions, not an action itself
+        //battleManager.actionCount++; //inc. actionCount, by one to allow for multi-action selections per turn //success! //may have to move depending on what option enemy AI picks
+        //this.battleStateMachine.UpdateState();
+
         /*
         Debug.Log("Entering AIState");
         battleManager = BattleManager.Instance;
@@ -49,14 +52,17 @@ public class AIState : IState
 
         // Find Player
         // TODO: Needs Reference to Player
-        
+
 
         // If Player is in AttackRange: Attack
-        
+
         // If Player is not in AttackRange: Move towards nearest Player
 
 
-
+        if (characterState.actionCount >= GameSettings.Instance.MaxActionCount)
+        {
+            characterStateMachine.ChangeState(characterState.state_Idle);
+        }
         #region Original Player Code
         /*
         Debug.Log("Executing AIState"); //success
@@ -104,8 +110,6 @@ public class AIState : IState
          //}
         */
         #endregion
-
-        this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
     }
 
     public void Exit()

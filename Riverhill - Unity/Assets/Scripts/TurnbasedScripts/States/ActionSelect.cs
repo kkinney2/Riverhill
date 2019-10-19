@@ -46,12 +46,11 @@ public class ActionSelect : IState
         Debug.Log("Executing ActionSelect state");
 
         // TODO: Individual Character buttons? That way they only have to reference "themselves"?
-
         if (battleManager.moveSelected == true && characterState.actionCount < 2)
         {
             Debug.Log("MoveSelected, to Move state");
             //go to Move state
-            this.characterStateMachine.ChangeState(new Move(characterStateMachine, this.gameObject));
+            characterStateMachine.ChangeState(characterState.state_Move);
             //battleManager.moveSelected = false; maybe do this in Enter() of Move state?
             //battleManager.actionCount++; maybe do this in Enter() of Move state?
         }
@@ -60,16 +59,17 @@ public class ActionSelect : IState
         {
             Debug.Log("AttackSelected, to Attack state");
             //go to Attack state
-            this.characterStateMachine.ChangeState(new Attack(characterStateMachine, this.gameObject));
+            characterStateMachine.ChangeState(characterState.state_Attack);
             //battleManager.attackSelected = false; maybe do this in Enter() of Attack state?
             //battleManager.actionCount++; maybe do this in Enter() of Attack state?
         }
 
+        // TODO: Implement Special
         if (battleManager.specialSelected == true && characterState.actionCount < 2)
         {
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state
-            this.characterStateMachine.ChangeState(new Special(characterStateMachine, this.gameObject));
+            //this.characterStateMachine.ChangeState(new Special(characterStateMachine, this.gameObject));
             //battleManager.specialSelected = false; maybe do this in Enter() of Special state?
             //battleManager.actionCount++; maybe do this in Enter() of Special state?
         }
