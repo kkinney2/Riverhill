@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ActionSelect : IState
 {
-    private BattleStateMachine battleStateMachine;
-    private GameObject gameObject;
+    CharacterState characterState;
+    private BattleStateMachine characterStateMachine;
 
     BattleManager battleManager;
 
-    public ActionSelect(BattleStateMachine battleStateMachine, GameObject gameObject)
+    public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
-        this.battleStateMachine = battleStateMachine;
-        this.gameObject = gameObject;
+        this.characterState = a_CharacterState;
+        this.characterStateMachine = a_BattleStateMachine;
     }
 
     /*
@@ -35,7 +35,7 @@ public class ActionSelect : IState
     {
         Debug.Log("Entering ActionSelect state");
         battleManager = BattleManager.Instance;
-        this.battleStateMachine.UpdateState();
+        this.characterStateMachine.UpdateState();
         /*        
         acScript = character.GetComponent<ActorController>();
         */
@@ -45,29 +45,31 @@ public class ActionSelect : IState
     {
         Debug.Log("Executing ActionSelect state");
 
-        if (battleManager.moveSelected == true && battleManager.actionCount < 2)
+        // TODO: Individual Character buttons? That way they only have to reference "themselves"?
+
+        if (battleManager.moveSelected == true && characterState.actionCount < 2)
         {
             Debug.Log("MoveSelected, to Move state");
             //go to Move state
-            this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.gameObject));
+            this.characterStateMachine.ChangeState(new Move(characterStateMachine, this.gameObject));
             //battleManager.moveSelected = false; maybe do this in Enter() of Move state?
             //battleManager.actionCount++; maybe do this in Enter() of Move state?
         }
 
-        if (battleManager.attackSelected == true && battleManager.actionCount < 2)
+        if (battleManager.attackSelected == true && characterState.actionCount < 2)
         {
             Debug.Log("AttackSelected, to Attack state");
             //go to Attack state
-            this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.gameObject));
+            this.characterStateMachine.ChangeState(new Attack(characterStateMachine, this.gameObject));
             //battleManager.attackSelected = false; maybe do this in Enter() of Attack state?
             //battleManager.actionCount++; maybe do this in Enter() of Attack state?
         }
 
-        if (battleManager.specialSelected == true && battleManager.actionCount < 2)
+        if (battleManager.specialSelected == true && characterState.actionCount < 2)
         {
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state
-            this.battleStateMachine.ChangeState(new Special(battleStateMachine, this.gameObject));
+            this.characterStateMachine.ChangeState(new Special(characterStateMachine, this.gameObject));
             //battleManager.specialSelected = false; maybe do this in Enter() of Special state?
             //battleManager.actionCount++; maybe do this in Enter() of Special state?
         }
