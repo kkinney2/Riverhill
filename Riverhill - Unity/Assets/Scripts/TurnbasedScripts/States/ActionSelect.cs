@@ -9,6 +9,8 @@ public class ActionSelect : IState
 
     BattleManager battleManager;
 
+    
+
     public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
@@ -46,7 +48,7 @@ public class ActionSelect : IState
         Debug.Log("Executing ActionSelect state");
 
         // TODO: Individual Character buttons? That way they only have to reference "themselves"?
-        if (battleManager.moveSelected == true && characterState.actionCount < 2)
+        if (characterState.moveSelected == true /*&& characterState.actionCount < 2*/) // Don't need to check action count bc character state already does this
         {
             Debug.Log("MoveSelected, to Move state");
             //go to Move state
@@ -55,7 +57,7 @@ public class ActionSelect : IState
             //battleManager.actionCount++; maybe do this in Enter() of Move state?
         }
 
-        if (battleManager.attackSelected == true && characterState.actionCount < 2)
+        if (characterState.attackSelected == true)
         {
             Debug.Log("AttackSelected, to Attack state");
             //go to Attack state
@@ -65,7 +67,7 @@ public class ActionSelect : IState
         }
 
         // TODO: Implement Special
-        if (battleManager.specialSelected == true && characterState.actionCount < 2)
+        if (characterState.specialSelected == true)
         {
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state
@@ -74,80 +76,6 @@ public class ActionSelect : IState
             //battleManager.actionCount++; maybe do this in Enter() of Special state?
         }
 
-        /* HAVE THIS CHECK IN CHARACTERSTATE INSTEAD? YES
-        if (battleManager.actionCount >= 2)
-        {
-            battleManager.turnCount++;
-            this.battleStateMachine.UpdateState();
-        }
-        */
-
-        /*
-        Debug.Log("Execute ActionSelect");
-
-        if (battleManager.moveSelected == true && battleManager.actionCount < 2) //stops at actionCount of 2 (allows for 2 option picks per turn)
-        {
-            Debug.Log("Move selected");
-            this.battleStateMachine.ChangeState(new Move(battleStateMachine, this.character));
-
-        */
-        /* MOVING TO MOVE SCRIPT
-        //do move here... (add in functionality later)
-
-        //if (acScript.enabled == false)
-        //{
-        //    acScript.enabled = true;
-        //}
-
-        //tried enable/disable of entire ActorController script, no luck
-
-        acScript.Move();
-
-        //owner.ChangeState(new IState());
-
-        battleManager.actionCount++;
-        Debug.Log("Action count:" + battleManager.actionCount); //success
-        battleManager.moveSelected = false; //returns to false correctly
-        */
-        /*
-    }
-
-    if (battleManager.attackSelected == true && battleManager.actionCount < 2) //same as above rule
-    {
-        Debug.Log("Attack selected");
-        this.battleStateMachine.ChangeState(new Attack(battleStateMachine, this.character));
-
-        */
-        /* MOVING TO ATTACK SCRIPT
-        //do attack here... (add in functionality later)
-        battleManager.actionCount++;
-        Debug.Log("Action count:" + battleManager.actionCount); //success
-        battleManager.attackSelected = false; //returns to false correctly
-        */
-        /*
-    }
-
-    if (battleManager.specialSelected == true && battleManager.actionCount < 2) //same as above rule
-    {
-        Debug.Log("Special selected");
-        //this.battleStateMachine.ChangeState(new Special(battleStateMachine, this.character));
-        //Crashes when special is selected twice...
-
-        */
-        /* MOVING TO SPECIAL SCRIPT
-        //do special option here... (add in functionality later)
-        battleManager.actionCount++;
-        Debug.Log("Action count:" + battleManager.actionCount); //success
-        battleManager.specialSelected = false; //returns to false correctly
-        */
-        /*
-    }
-
-    if(battleManager.actionCount >= 2 || battleManager.endTurnSelected == true)
-    {
-        Exit();
-    }
-    */
     }
 
     public void Exit()

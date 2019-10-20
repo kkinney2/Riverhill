@@ -33,10 +33,13 @@ public class BattleManager : MonoBehaviour
     public EnemyStats enemy;
     */
 
+    public GameObject prefab_CharacterUI;
+    CharacterUI characterUI;
+    GameObject characterUI_Object;
+
     public List<CharacterStats> characterStats;
     List<CharacterState> characterStates;
 
-    //keeping track of player vs. enemy turn (odd #s = player turn, even #s = enemy turn)
     public int turnCount = 0;
 
     // No longer needed - Characters are told when their turn is, not waiting for their turn
@@ -45,41 +48,7 @@ public class BattleManager : MonoBehaviour
     public bool enemyTurn = false;
     */
 
-    //UI button options
-    public bool moveSelected = false;
-    public bool attackSelected = false;
-    public bool specialSelected = false;
-    public bool endTurnSelected = false; //essentially a pass option
-
     public bool nextCharacter = false;
-
-    // Currently no longer used, only(?) purpose was to determine turn order
-    #region TurnCounter
-    /*
-    IEnumerator TurnCounter()
-    {
-        while (true)
-        {
-            // TODO: Rework turn order for multiple characters
-            //       Maybe via array/lists?
-            if (turnCount % 2 == 1) //odd number, it's the playerTurn
-            {
-                playerTurn = true;
-                enemyTurn = false;
-            }
-
-            if (turnCount % 2 == 0) //even number, it's the enemyTurn
-            {
-                playerTurn = false;
-                enemyTurn = true;
-            }
-
-            Debug.Log("Turn: " + turnCount + ", PT: " + playerTurn + ", ET: " + enemyTurn); //success, keep showing for now
-            yield return new WaitForFixedUpdate();
-        }
-    }
-    */
-    #endregion
 
     private BattleStateMachine battleStateMachine;
 
@@ -96,13 +65,11 @@ public class BattleManager : MonoBehaviour
         }
         Debug.Log("***Characters Created***");
 
+        GenerateCharacterUI();
+        Debug.Log("***CharacterUI Created***");
+
         turnCount++; //inc. turn count on start, starts @ 1, player turn
         //Debug.Log(turnCount);
-
-        // See TurnCounter Function
-        //StartCoroutine(TurnCounter());
-
-        //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine)); //success!
 
         StartCoroutine(TurnSequence());
     }
@@ -116,6 +83,7 @@ public class BattleManager : MonoBehaviour
             {
                 Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
                 battleStateMachine.ChangeState(characterStates[i]);
+                characterUI.AssignNewCharacter(characterStates[i]);
                 yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
                 nextCharacter = false;
             }
@@ -127,52 +95,6 @@ public class BattleManager : MonoBehaviour
         //yield return null;
     }
 
-    #region Actions
-
-    public void Moving()
-    {
-        //have to limit UpdateState(); cause each button would Update the same state
-        //POSSIBLY: disable buttons while in state?
-        moveSelected = true;
-        //Debug.Log("MS: " + moveSelected); //success!
-        this.battleStateMachine.UpdateState();
-    }
-
-    public void Attacking()
-    {
-        //have to limit UpdateState(); cause each button would Update the same state
-        //see POSSIBLY...
-        attackSelected = true;
-        //Debug.Log("AS: " + attackSelected); //success!
-        this.battleStateMachine.UpdateState();
-    }
-
-    public void Special()
-    {
-        //have to limit UpdateState(); cause each button would Update the same state
-        //see POSSIBLY...
-        specialSelected = true;
-        //Debug.Log("SS: " + specialSelected); //success!
-        this.battleStateMachine.UpdateState();
-    }
-
-    public void EndTurn()
-    {
-        endTurnSelected = true;
-        Debug.Log("ET: " + endTurnSelected);
-        //this.battleStateMachine.UpdateState(); //Unity crashes?
-        ResetSelected();
-    }
-
-    #endregion
-
-    private void ResetSelected()
-    {
-        moveSelected = false;
-        attackSelected = false;
-        specialSelected = false;
-    }
-
     public void CreateCharacter(CharacterStats a_CharacterStat)
     {
         // Creates CharacterState and Assigns GameObject
@@ -180,6 +102,16 @@ public class BattleManager : MonoBehaviour
         a_CharacterStat.name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
         characterStates.Add(a_CState);
         Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.name);
+    }
+
+    /// <summary>
+    /// Generates the UI characters can use, and will be able to transfer between characters
+    /// </summary>
+    private void GenerateCharacterUI()
+    {
+        characterUI_Object = Instantiate(prefab_CharacterUI);
+        characterUI = characterUI_Object.GetComponent<CharacterUI>();
+
     }
 }
 

@@ -19,6 +19,13 @@ public class CharacterState : IState
     public bool hasActiveAction = false;
     public int actionCount = 0;
 
+    //UI button options
+    public bool moveSelected = false;
+    public bool attackSelected = false;
+    public bool specialSelected = false;
+    public bool endTurnSelected = false; //essentially a pass option
+
+
     //public CharacterState(GameObject a_Character, BattleStateMachine a_BattleStateMachine)
     public CharacterState(GameObject a_Character)
     {
@@ -35,7 +42,7 @@ public class CharacterState : IState
             characterStats = character.GetComponent<CharacterStats>();
         }
         else
-	    {
+        {
             Debug.Log("Character " + character.name + "is either missing or failed to find its CharacterStats");
         }
 
@@ -94,7 +101,7 @@ public class CharacterState : IState
             this.battleStateMachine.ChangeState(state_Idle);
         }
 
-        
+
         #region Old Execute
         /*
         Debug.Log("Executing CharacterState state");

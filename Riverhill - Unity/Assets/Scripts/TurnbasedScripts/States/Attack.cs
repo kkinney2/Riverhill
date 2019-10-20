@@ -35,7 +35,6 @@ public class Attack : IState
     {
         Debug.Log("Entering attack state"); //success!
         battleManager = BattleManager.Instance;
-        battleManager.attackSelected = false; //reset attackSelected //success!
         characterState.actionCount = (characterState.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
         //this.battleStateMachine.UpdateState();
     }

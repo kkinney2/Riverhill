@@ -33,7 +33,6 @@ public class Special : IState
     {
         Debug.Log("Entering special state"); //success!
         battleManager = BattleManager.Instance;
-        battleManager.specialSelected = false; //reset specialSelected //success!
         // TODO: What adds to actionCount? the action or the decision maker?
         //battleManager.actionCount++; // or = (battleManager.actionCount + 2); //inc. actionCount, by one or two to allow/avoid multi-special selections per turn //success!
         

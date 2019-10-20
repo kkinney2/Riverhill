@@ -41,7 +41,6 @@ public class Move : IState
     {
         Debug.Log("Entering move state"); //success!
         battleManager = BattleManager.Instance;
-        battleManager.moveSelected = false; //reset moveSelected //success!
         characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
 
         /* TODO: Correct Move functionality to work without coroutine?
