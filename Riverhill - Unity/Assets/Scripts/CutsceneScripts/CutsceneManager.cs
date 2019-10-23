@@ -29,7 +29,9 @@ public class CutsceneManager : MonoBehaviour
 
     public bool hasActiveCutscene = false;
 
+    [Header("Scene Testing")]
     public GameObject TestScene;
+    public bool isTestingScene = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,9 +45,9 @@ public class CutsceneManager : MonoBehaviour
         //  OR
         //StartCoroutine(ObtainCutsceneScripts());
 
-        if (TestScene != null)
+        if (TestScene != null && isTestingScene)
         {
-            StartCutscene(TestScene.GetComponent<Cutscene>().SceneName));
+            StartCutscene(TestScene.GetComponent<Cutscene>().SceneName);
         }
         else
         {
