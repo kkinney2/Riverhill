@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    //wanting zooming function
+    //center camera on active player
 
-    //wanting camera to follow player, centered player
+    //zoom function, centered on active player
+    
+    //want camera to follow the active player as they move
 
     // Start is called before the first frame update
     void Start()
