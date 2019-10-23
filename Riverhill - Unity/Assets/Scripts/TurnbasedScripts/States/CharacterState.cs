@@ -98,7 +98,7 @@ public class CharacterState : IState
         if (actionCount >= GameSettings.Instance.MaxActionCount)
         {
             //Exit();
-            this.battleStateMachine.ChangeState(state_Idle);
+            battleManager.nextCharacter = true;
         }
 
 
@@ -177,7 +177,7 @@ public class CharacterState : IState
         Debug.Log("Exiting CharacterState state"); //success
 
         actionCount = 0;
-        battleManager.nextCharacter = true;
+        hasActiveAction = false;
     }
 }
 #region Original Code

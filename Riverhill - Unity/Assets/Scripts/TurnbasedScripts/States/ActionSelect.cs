@@ -76,6 +76,16 @@ public class ActionSelect : IState
             //battleManager.actionCount++; maybe do this in Enter() of Special state?
         }
 
+        if (characterState.endTurnSelected == true)
+        {
+            Debug.Log("EndTurn Selected");
+            //End Turn
+            battleManager.nextCharacter = true;
+
+            //battleManager.specialSelected = false; maybe do this in Enter() of Special state?
+            //battleManager.actionCount++; maybe do this in Enter() of Special state?
+        }
+
     }
 
     private void ResetSelected()
@@ -83,11 +93,13 @@ public class ActionSelect : IState
         characterState.moveSelected = false;
         characterState.attackSelected = false;
         characterState.specialSelected = false;
+        characterState.endTurnSelected = false;
     }
 
     public void Exit()
     {
         Debug.Log("Exiting ActionSelect state");
+        ResetSelected();
         /*
         Debug.Log("Exiting ActionSelect");
         this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.character));

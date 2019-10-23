@@ -7,19 +7,14 @@ public class CharacterUI : MonoBehaviour
     BattleManager battleManager;
 
     public CharacterState characterState;
+    public bool hasCharacterState;
     public GameObject characterUI_Object;
-
-    //UI button options
-    public bool moveSelected = false;
-    public bool attackSelected = false;
-    public bool specialSelected = false;
-    public bool endTurnSelected = false; //essentially a pass option
 
     public CharacterUI(GameObject a_UIAsset)
     {
         battleManager = BattleManager.Instance;
 
-        characterUI_Object = a_UIAsset;
+        //characterUI_Object = a_UIAsset;
     }
 
     // Start is called before the first frame update
@@ -28,15 +23,19 @@ public class CharacterUI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-
+        if (characterState != null)
+        {
+            hasCharacterState = true;
+        }
+        else hasCharacterState = false;
     }
 
     public void AssignNewCharacter(CharacterState a_CharacterState)
     {
         characterState = a_CharacterState;
+        Debug.Log("UI: Current Character: " + a_CharacterState.characterStats.Name);
     }
 
     #region Actions
@@ -59,20 +58,8 @@ public class CharacterUI : MonoBehaviour
 
     public void EndTurn()
     {
-        endTurnSelected = true;
-        Debug.Log("ET: " + endTurnSelected);
-        //this.battleStateMachine.UpdateState(); //Unity crashes?
-        characterState.battleStateMachine.ChangeState(characterState.state_Idle);
-        battleManager.nextCharacter = true;
-        ResetSelected();
+        characterState.endTurnSelected = true;
     }
 
     #endregion
-
-    private void ResetSelected()
-    {
-        moveSelected = false;
-        attackSelected = false;
-        specialSelected = false;
-    }
 }
