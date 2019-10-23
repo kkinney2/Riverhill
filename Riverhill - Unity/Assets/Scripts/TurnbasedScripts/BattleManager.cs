@@ -65,8 +65,9 @@ public class BattleManager : MonoBehaviour
         }
         Debug.Log("***Characters Created***");
 
-        GenerateCharacterUI();
-        Debug.Log("***CharacterUI Created***");
+        //TODO: Character UI Generate
+        //GenerateCharacterUI();
+        //Debug.Log("***CharacterUI Created***");
 
         turnCount++; //inc. turn count on start, starts @ 1, player turn
         //Debug.Log(turnCount);
@@ -83,7 +84,7 @@ public class BattleManager : MonoBehaviour
             {
                 Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
                 battleStateMachine.ChangeState(characterStates[i]);
-                characterUI.AssignNewCharacter(characterStates[i]);
+                //characterUI.AssignNewCharacter(characterStates[i]);
                 yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
                 nextCharacter = false;
             }

@@ -273,14 +273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41d4128d87db5b4b8978a57448268bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab_CharacterUI: {fileID: 0}
   characterStats:
   - {fileID: 394065452}
   - {fileID: 852597207}
   turnCount: 0
-  moveSelected: 0
-  attackSelected: 0
-  specialSelected: 0
-  endTurnSelected: 0
   nextCharacter: 0
 --- !u!4 &268945813
 Transform:
@@ -1337,6 +1334,7 @@ GameObject:
   - component: {fileID: 1007729273}
   - component: {fileID: 1007729272}
   - component: {fileID: 1007729271}
+  - component: {fileID: 1007729275}
   m_Layer: 5
   m_Name: TestBattleCanvas
   m_TagString: Untagged
@@ -1426,6 +1424,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1007729275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007729270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb24b36609478f745b4906b85b5489f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterUI_Object: {fileID: 0}
+  moveSelected: 0
+  attackSelected: 0
+  specialSelected: 0
+  endTurnSelected: 0
 --- !u!1 &1008931001
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,7 +3126,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 268945812}
+      - m_Target: {fileID: 1007729275}
         m_MethodName: Attacking
         m_Mode: 1
         m_Arguments:
@@ -3243,7 +3258,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 268945812}
+      - m_Target: {fileID: 1007729275}
         m_MethodName: Moving
         m_Mode: 1
         m_Arguments:

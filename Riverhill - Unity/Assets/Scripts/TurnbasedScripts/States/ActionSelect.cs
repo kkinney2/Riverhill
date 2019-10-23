@@ -78,6 +78,13 @@ public class ActionSelect : IState
 
     }
 
+    private void ResetSelected()
+    {
+        characterState.moveSelected = false;
+        characterState.attackSelected = false;
+        characterState.specialSelected = false;
+    }
+
     public void Exit()
     {
         Debug.Log("Exiting ActionSelect state");
