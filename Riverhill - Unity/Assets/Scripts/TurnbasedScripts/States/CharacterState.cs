@@ -86,10 +86,17 @@ public class CharacterState : IState
         {
             if (hasActiveAction)
             {
+                //Debug.Log("Updating Action");
                 battleStateMachine.UpdateState();
             }
             else
             {
+                if (!characterStats.isEnemy)
+                {
+                    Debug.Log("Sending to ActionSelect");
+                }
+                else Debug.Log("Sending to AIState");
+
                 this.battleStateMachine.ChangeState(state_CharacterAction);
                 hasActiveAction = true;
             }

@@ -45,7 +45,7 @@ public class ActionSelect : IState
 
     public void Execute()
     {
-        Debug.Log("Executing ActionSelect state");
+        //Debug.Log("Executing ActionSelect state");
 
         // TODO: Individual Character buttons? That way they only have to reference "themselves"?
         if (characterState.moveSelected == true /*&& characterState.actionCount < 2*/) // Don't need to check action count bc character state already does this

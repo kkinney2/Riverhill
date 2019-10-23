@@ -53,6 +53,10 @@ public class Move : IState
     public void Execute()
     {
         Debug.Log("Executing move state, **ADD FUNC.**");
+
+        // TODO: Move Function is "Auto" Finishing until it is implemented
+        isDone = true;
+
         if (isDone)
         {
             characterStateMachine.ChangeState(characterState.state_Idle);

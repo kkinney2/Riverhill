@@ -42,22 +42,26 @@ public class CharacterUI : MonoBehaviour
 
     public void Moving()
     {
+        Debug.Log("Move Button Selected");
         characterState.moveSelected = true;
     }
 
     public void Attacking()
     {
+        Debug.Log("Attack Button Selected");
         characterState.attackSelected = true;
     }
 
     // TODO: Implement Specials - CharacterUI
     public void Special()
     {
+        Debug.Log("Special Button Selected");
         characterState.specialSelected = true;
     }
 
     public void EndTurn()
     {
+        Debug.Log("EndTurn Button Selected");
         characterState.endTurnSelected = true;
     }
 
