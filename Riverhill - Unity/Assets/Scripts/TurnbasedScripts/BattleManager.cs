@@ -82,10 +82,19 @@ public class BattleManager : MonoBehaviour
         {
             for (int i = 0; i < characterStats.Count; i++)
             {
+                Debug.Log("");
                 Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
                 battleStateMachine.ChangeState(characterStates[i]);
                 characterUI.AssignNewCharacter(characterStates[i]);
-                yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
+
+                // Was waiting for nextCharacter, but nothing was updating the state INORDER to get nextCharacter
+                //yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
+
+                while (nextCharacter == false)
+                {
+                    battleStateMachine.UpdateState();
+                    yield return new WaitForEndOfFrame();
+                }
                 nextCharacter = false;
             }
             nextCharacter = false;
