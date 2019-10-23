@@ -38,14 +38,14 @@ public class MainMenu : MonoBehaviour
 
     public void loadGame()
     {
-        //no scene or existing games to load rn
-        Debug.Log("Load Game");
+        SceneManager.LoadScene("_MainScene_");
+        //Debug.Log("Load Game");
     }
 
     public void quitGame()
     {
         Application.Quit();
-        Debug.Log("Quit Game");
+        //Debug.Log("Quit Game");
     }
 
 }

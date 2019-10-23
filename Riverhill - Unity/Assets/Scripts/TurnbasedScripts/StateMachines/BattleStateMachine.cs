@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class BattleStateMachine //: MonoBehaviour --- not needed
 {
     //this is our general state machine (it will switch b/w states)
-    public IState currentState; //public for testing purposes
-    public IState previousState; //public for testing purposes
+    public IState currentState;
+    public IState previousState;
 
     public void ChangeState(IState newState) //change to a new state
     {
@@ -33,7 +33,7 @@ public class BattleStateMachine //: MonoBehaviour --- not needed
         }
     }
 
-    /* NOT IN USE RN...
+    /* NOT IN USE...
     public void RevertToPreviousState() //switch back to last state
     {
         this.currentState.Exit(); //exit the current state
