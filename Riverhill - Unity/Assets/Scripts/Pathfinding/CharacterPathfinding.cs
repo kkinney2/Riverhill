@@ -28,7 +28,12 @@ public class CharacterPathfinding : MonoBehaviour
             Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
             Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
 
-            path = TileManager.Instance.FindPath(transform.position, testPoint);
+            if (worldToCell != null || testPoint != null)
+            {
+                path = TileManager.Instance.FindPath(transform.position, testPoint);
+            }
+
+            //path = TileManager.Instance.FindPath(transform.position, testPoint);
             if (path != null)
             {
                 hasPath = true;

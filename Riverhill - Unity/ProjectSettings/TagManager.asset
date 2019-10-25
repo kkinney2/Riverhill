@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Frame
+  - Tilemap
   layers:
   - Default
   - TransparentFX

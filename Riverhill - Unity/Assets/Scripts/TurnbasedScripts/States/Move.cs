@@ -59,7 +59,7 @@ public class Move : IState
 
     public void Execute()
     {
-        Debug.Log("Executing move state, **ADD FUNC.**");
+        //Debug.Log("Executing move state, **ADD FUNC.**");
 
         // TODO: Move Function is "Auto" Finishing until it is implemented
         //isDone = true;
@@ -78,7 +78,6 @@ public class Move : IState
                 tileHighlight_Neg.SetActive(true);
 
                 tileHighlight_Neg.transform.position = pathfinder.path[pathfinder.path.Count - 1].transform.position;
-
             }
         }
         else
