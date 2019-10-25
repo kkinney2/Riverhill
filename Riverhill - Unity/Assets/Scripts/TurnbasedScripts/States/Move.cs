@@ -24,12 +24,6 @@ public class Move : IState
         this.characterStateMachine = a_BattleStateMachine;
 
         pathfinder = characterState.character.gameObject.GetComponent<CharacterPathfinding>();
-
-        tileHighlight_Pos = GameObjectCreator.CreateGameObject(GameSettings.Instance.tileHighlight_Positive);
-        tileHighlight_Neg = GameObjectCreator.CreateGameObject(GameSettings.Instance.tileHighlight_Negative);
-        tileHighlight_Pos.SetActive(false);
-        tileHighlight_Neg.SetActive(false);
-
     }
 
     /*
@@ -53,6 +47,9 @@ public class Move : IState
         battleManager = BattleManager.Instance;
         characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
 
+        // Put here instead of cnstr to ensure grab after creation
+        tileHighlight_Pos = GameSettings.Instance.tileHighlight_Positive;
+        tileHighlight_Neg = GameSettings.Instance.tileHighlight_Negative;
         /* TODO: Correct Move functionality to work without coroutine?
          * OR create a helper function that does the work, like ActorController,
          * but is able to report when it has completed so the Move state can wait and 
@@ -81,6 +78,7 @@ public class Move : IState
                 tileHighlight_Neg.SetActive(true);
 
                 tileHighlight_Neg.transform.position = pathfinder.path[pathfinder.path.Count - 1].transform.position;
+
             }
         }
         else
@@ -107,6 +105,10 @@ public class Move : IState
     public void Exit()
     {
         Debug.Log("Exiting Move State");
+
+        tileHighlight_Pos.SetActive(false);
+        tileHighlight_Neg.SetActive(false);
+
         characterState.hasActiveAction = false;
         isDone = false;
     }

@@ -42,5 +42,11 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = FramerateTarget;
+
+        tileHighlight_Positive = Instantiate(tileHighlight_Positive);
+        tileHighlight_Negative = Instantiate(tileHighlight_Negative);
+
+        tileHighlight_Positive.SetActive(false);
+        tileHighlight_Negative.SetActive(false);
     }
 }
