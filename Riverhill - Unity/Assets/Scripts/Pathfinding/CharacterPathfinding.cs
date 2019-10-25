@@ -25,8 +25,16 @@ public class CharacterPathfinding : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+            Vector3Int worldToCell2 = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+            Debug.Log("WorldToCell2: " + worldToCell2);
+            Vector3 temp = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+            Vector3Int worldToCell = new Vector3Int((int)temp.x, (int)temp.y, (int)temp.z);
             Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
+
+            Debug.Log("temp: " + temp);
+            Debug.Log("WorldToCell: " + worldToCell);
+            Debug.Log("HitPoint: " + hit.point);
+            Debug.Log("Test Point: " + testPoint);
 
             if (worldToCell != null || testPoint != null)
             {
