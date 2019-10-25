@@ -19,10 +19,20 @@ public class Tile : MonoBehaviour
 
     public List<Tile> neighborTiles;
 
+    public GameObject tileHighlight_Positive;
+    public GameObject tileHighlight_Negative;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tileHighlight_Positive = Instantiate(GameSettings.Instance.tileHighlight_Positive);
+        tileHighlight_Negative = Instantiate(GameSettings.Instance.tileHighlight_Negative);
+
+        tileHighlight_Positive.transform.position = transform.position;
+        tileHighlight_Negative.transform.position = transform.position;
+
+        tileHighlight_Positive.SetActive(false);
+        tileHighlight_Negative.SetActive(false);
     }
 
     // Update is called once per frame

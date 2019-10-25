@@ -10,6 +10,7 @@ public class CharacterPathfinding : MonoBehaviour
     public List<Tile> path = new List<Tile>();
 
     bool hasPath = false;
+    public bool isDone = false;
 
     public void Move()
     {
@@ -25,16 +26,14 @@ public class CharacterPathfinding : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Vector3Int worldToCell2 = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
-            Debug.Log("WorldToCell2: " + worldToCell2);
-            Vector3 temp = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
-            Vector3Int worldToCell = new Vector3Int((int)temp.x, (int)temp.y, (int)temp.z);
+            Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
             Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
 
-            Debug.Log("temp: " + temp);
+            /*
             Debug.Log("WorldToCell: " + worldToCell);
             Debug.Log("HitPoint: " + hit.point);
             Debug.Log("Test Point: " + testPoint);
+            */
 
             if (worldToCell != null || testPoint != null)
             {
@@ -47,6 +46,30 @@ public class CharacterPathfinding : MonoBehaviour
                 hasPath = true;
             }
         }
+    }
+
+    public void FindPath(Vector3 a_Position)
+    {
+        Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(a_Position.x, a_Position.y, 0)));
+        Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
+
+        /*
+        Debug.Log("WorldToCell: " + worldToCell);
+        Debug.Log("HitPoint: " + hit.point);
+        Debug.Log("Test Point: " + testPoint);
+        */
+
+        if (worldToCell != null || testPoint != null)
+        {
+            path = TileManager.Instance.FindPath(transform.position, testPoint);
+        }
+
+        //path = TileManager.Instance.FindPath(transform.position, testPoint);
+        if (path != null)
+        {
+            hasPath = true;
+        }
+
     }
 
     public void MoveAlongPath()
@@ -118,6 +141,8 @@ public class CharacterPathfinding : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
 
+        path = new List<Tile>();
+        isDone = true;
         yield break;
     }
 

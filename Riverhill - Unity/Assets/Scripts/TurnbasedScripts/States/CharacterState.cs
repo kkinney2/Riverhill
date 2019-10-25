@@ -82,6 +82,13 @@ public class CharacterState : IState
 
     public void Execute()
     {
+        if ((actionCount >= GameSettings.Instance.MaxActionCount && !hasActiveAction) || endTurnSelected == true)
+        {
+            //Exit();
+            this.battleStateMachine.ChangeState(state_Idle);
+            battleManager.nextCharacter = true;
+        }
+
         if (actionCount < GameSettings.Instance.MaxActionCount)
         {
             if (hasActiveAction)
@@ -101,13 +108,6 @@ public class CharacterState : IState
                 hasActiveAction = true;
             }
         }
-
-        if (actionCount >= GameSettings.Instance.MaxActionCount)
-        {
-            //Exit();
-            battleManager.nextCharacter = true;
-        }
-
 
         #region Old Execute
         /*
