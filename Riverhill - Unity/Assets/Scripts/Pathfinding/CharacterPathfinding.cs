@@ -2,79 +2,89 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActorController : MonoBehaviour
+public class CharacterPathfinding : MonoBehaviour
 {
     public int speed = 5;
-    public Vector2Int range = new Vector2Int(1, 2);
+    public Vector2 range = new Vector2(1, 2);
 
     public List<Tile> path = new List<Tile>();
 
-    public bool attack = true;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    bool hasPath = false;
 
     public void Move()
     {
         StartCoroutine(Move_Coroutine());
     }
 
+    public void FindPath()
+    {
+        Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Debug.Log("WorldFromScreen: " + worldFromScreen);
+
+        RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
+
+        if (hit.collider != null)
+        {
+            Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+            Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
+
+            path = TileManager.Instance.FindPath(transform.position, testPoint);
+            if (path != null)
+            {
+                hasPath = true;
+            }
+        }
+    }
+
+    public void MoveAlongPath()
+    {
+        StartCoroutine(FollowPath());
+    }
+
     #region Movement
 
+    /// <summary>
+    /// Move_Coroutine takes in the user's click and then attempts to move the player
+    /// to the selected location, if possible.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Move_Coroutine()
     {
         Debug.Log("Move Coroutine");
-
-        bool hasPath = false;
+        hasPath = false;
 
         while (!hasPath)
         {
             if (Input.GetMouseButtonUp(0))
             {
                 Debug.Log("Mouse Click");
-
-                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Debug.Log("WorldFromScreen: " + worldFromScreen);
-
-                RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
-
-                if (hit.collider != null)
-                {
-                    Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
-                    Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
-
-                    path = TileManager.Instance.FindPath(transform.position, testPoint);
-                    if (path != null)
-                    {
-                        hasPath = true;
-                        break;
-                    }
-                }
+                FindPath();
             }
+            // TODO: Better polling numbers while waiting for user input?
             yield return new WaitForSeconds(0.001f);
         }
 
         Debug.Log("PathLength: " + path.Count);
         if (path.Count != 0 && path.Count >= range.x && path.Count <= range.y)
         {
-            StartCoroutine(MoveAlongPath());
+            MoveAlongPath();
         }
 
         yield break;
     }
 
-    IEnumerator MoveAlongPath()
+    /// <summary>
+    /// Follows Path
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator FollowPath()
     {
+        if (path == null)
+        {
+            Debug.Log("FollowPath() has no path to follow");
+            yield break;
+        }
+
         // Teleport to Position
         //transform.position = path[path.Count - 1].transform.position;
 
@@ -100,6 +110,10 @@ public class ActorController : MonoBehaviour
 
     #endregion
 
+    /// <summary>
+    /// Highlights the character's path while the character
+    /// is selected
+    /// </summary>
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

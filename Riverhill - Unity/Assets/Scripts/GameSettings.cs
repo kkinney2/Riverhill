@@ -36,6 +36,9 @@ public class GameSettings : MonoBehaviour
     public int MaxActionCount = 2;
     // TODO: GameSettings 
 
+    public GameObject tileHighlight_Positive;
+    public GameObject tileHighlight_Negative;
+
     private void Start()
     {
         Application.targetFrameRate = FramerateTarget;

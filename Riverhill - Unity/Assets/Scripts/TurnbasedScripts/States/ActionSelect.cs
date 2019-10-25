@@ -9,7 +9,7 @@ public class ActionSelect : IState
 
     BattleManager battleManager;
 
-    
+
 
     public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
@@ -47,13 +47,11 @@ public class ActionSelect : IState
     {
         //Debug.Log("Executing ActionSelect state");
 
-        // TODO: Individual Character buttons? That way they only have to reference "themselves"?
-        if (characterState.moveSelected == true /*&& characterState.actionCount < 2*/) // Don't need to check action count bc character state already does this
+        if (characterState.moveSelected == true)
         {
             Debug.Log("MoveSelected, to Move state");
-            //go to Move state
             characterStateMachine.ChangeState(characterState.state_Move);
-            //battleManager.moveSelected = false; maybe do this in Enter() of Move state?
+
             //battleManager.actionCount++; maybe do this in Enter() of Move state?
         }
 
@@ -100,9 +98,5 @@ public class ActionSelect : IState
     {
         Debug.Log("Exiting ActionSelect state");
         ResetSelected();
-        /*
-        Debug.Log("Exiting ActionSelect");
-        this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.character));
-        */
     }
 }

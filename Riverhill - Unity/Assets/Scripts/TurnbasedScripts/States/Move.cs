@@ -5,21 +5,31 @@ using UnityEngine;
 public class Move : IState
 {
     CharacterState characterState;
-    private BattleStateMachine characterStateMachine;
+    BattleStateMachine characterStateMachine;
 
     BattleManager battleManager;
-    
-    public Vector2Int range = new Vector2Int(1, 2);
 
-    public List<Tile> path = new List<Tile>();
+    CharacterPathfinding pathfinder;
 
-    public bool attack = true;
+    GameObject tileHighlight_Pos;
+    GameObject tileHighlight_Neg;
+
+    // TODO: Move.attack is for what?
+    //public bool attack = true;
     bool isDone = false;
 
     public Move(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
+
+        pathfinder = characterState.character.gameObject.GetComponent<CharacterPathfinding>();
+
+        tileHighlight_Pos = GameObjectCreator.CreateGameObject(GameSettings.Instance.tileHighlight_Positive);
+        tileHighlight_Neg = GameObjectCreator.CreateGameObject(GameSettings.Instance.tileHighlight_Negative);
+        tileHighlight_Pos.SetActive(false);
+        tileHighlight_Neg.SetActive(false);
+
     }
 
     /*
@@ -55,7 +65,29 @@ public class Move : IState
         Debug.Log("Executing move state, **ADD FUNC.**");
 
         // TODO: Move Function is "Auto" Finishing until it is implemented
-        isDone = true;
+        //isDone = true;
+
+        pathfinder.FindPath();
+        if (pathfinder.path.Count >= pathfinder.range.x) // If the path is longer than or equal to the min range
+        {
+            tileHighlight_Pos.SetActive(true);
+            tileHighlight_Neg.SetActive(false);
+
+            tileHighlight_Pos.transform.position = pathfinder.path[pathfinder.path.Count - 1].transform.position;
+
+            if (pathfinder.path.Count > pathfinder.range.y) // If the path is shorter than the max range
+            {
+                tileHighlight_Pos.SetActive(false);
+                tileHighlight_Neg.SetActive(true);
+
+                tileHighlight_Neg.transform.position = pathfinder.path[pathfinder.path.Count - 1].transform.position;
+            }
+        }
+        else
+        {
+            tileHighlight_Pos.SetActive(false);
+            tileHighlight_Neg.SetActive(false);
+        }
 
         if (isDone)
         {
@@ -78,76 +110,4 @@ public class Move : IState
         characterState.hasActiveAction = false;
         isDone = false;
     }
-
-
-    #region Movement
-
-    IEnumerator Move_Coroutine()
-    {
-        Debug.Log("Move Coroutine");
-
-        bool hasPath = false;
-
-        while (!hasPath)
-        {
-            if (Input.GetMouseButtonUp(0))
-            {
-                Debug.Log("Mouse Click");
-
-                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Debug.Log("WorldFromScreen: " + worldFromScreen);
-
-                RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
-
-                if (hit.collider != null)
-                {
-                    Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
-                    Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
-
-                    path = TileManager.Instance.FindPath(characterState.character.transform.position, testPoint);
-                    if (path != null)
-                    {
-                        hasPath = true;
-                        break;
-                    }
-                }
-            }
-            yield return new WaitForSeconds(0.001f);
-        }
-
-        Debug.Log("PathLength: " + path.Count);
-        if (path.Count != 0 && path.Count >= range.x && path.Count <= range.y)
-        {
-            //StartCoroutine(MoveAlongPath());
-        }
-
-        yield break;
-    }
-
-    IEnumerator MoveAlongPath()
-    {
-        // Teleport to Position
-        //transform.position = path[path.Count - 1].transform.position;
-
-        // Travel towards Position
-        for (int i = 0; i < path.Count; i++)
-        {
-            Transform target = path[i].transform;
-
-            while (Vector3.Distance(characterState.character.transform.position, target.position) > 0.001f)
-            {
-                // Move our position a step closer to the target.
-                float step = GameSettings.Instance.CharacterMoveSpeed * Time.deltaTime; // calculate distance to move
-                characterState.character.transform.position = Vector3.MoveTowards(characterState.character.transform.position, target.position, step);
-
-                yield return new WaitForFixedUpdate();
-            }
-
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        yield break;
-    }
-
-    #endregion
 }
