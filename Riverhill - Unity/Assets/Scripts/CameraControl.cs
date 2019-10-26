@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public bool zoomInLimit;
-    public bool zoomOutLimit;
+    public float zoomInLimit;
+    public float zoomOutLimit;
     //center camera on active player
 
     //zoom function, centered on active player
@@ -21,13 +21,13 @@ public class CameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && ((GetComponent<Camera>().orthographicSize) >= zoomInLimit)) //zoom in
         {
             //GetComponent<Camera>().fieldOfView--;
             GetComponent<Camera>().orthographicSize -= 1f;
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && ((GetComponent<Camera>().orthographicSize) <= zoomOutLimit)) //zoom out
         {
             //GetComponent<Camera>().fieldOfView++;
             GetComponent<Camera>().orthographicSize += 1f;
