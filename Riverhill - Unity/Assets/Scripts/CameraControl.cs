@@ -27,7 +27,7 @@ public class CameraControl : MonoBehaviour
             GetComponent<Camera>().orthographicSize -= 1f;
         }
 
-        if (Input.GetAxis("Mouse ScrollWheel") < 0 && ((GetComponent<Camera>().orthographicSize) <= zoomOutLimit)) //zoom out
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && ((GetComponent<Camera>().orthographicSize) <= zoomOutLimit)) //zoom out  
         {
             //GetComponent<Camera>().fieldOfView++;
             GetComponent<Camera>().orthographicSize += 1f;
