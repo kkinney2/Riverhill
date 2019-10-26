@@ -10,9 +10,8 @@ public class CameraControl : MonoBehaviour
 
     //center camera on active player
     private Transform playerTransform; //need to set as active player
-    public float offset; //if wanted?
-    
-    //want camera to follow the active player as they move
+
+    public float offset; //if wanted? going to work with offset vertically for now, since camera is centering around player pivot (at feet?)
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +24,8 @@ public class CameraControl : MonoBehaviour
     {
         Vector3 temp = transform.position; //current pos stored in temp var
         temp.x = playerTransform.position.x; //set camera's pos to player's pos
-        temp.x += offset; //add's offset to cam's x pos
+        temp.y = playerTransform.position.y;
+        temp.y += offset; //add's offset to cam's x pos
         transform.position = temp; //cam's temp pos set back to cam's current pos
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && ((GetComponent<Camera>().orthographicSize) >= zoomInLimit)) //zoom in
