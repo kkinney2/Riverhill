@@ -123,6 +123,11 @@ public class BattleManager : MonoBehaviour
         characterUI_Object = Instantiate(prefab_CharacterUI);
         characterUI = characterUI_Object.GetComponent<CharacterUI>();
     }
+
+    public void AttackCharacter(CharacterState attacker, CharacterState defender)
+    {
+        defender.characterStats.CurrentHP = defender.characterStats.CurrentHP - (attacker.characterStats.attack /*+attacker.characterStats.MODIFIERS- defender.characterStats.MODIFIERS*/ );
+    }
 }
 
 #region Original Code
