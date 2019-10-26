@@ -8,6 +8,8 @@ public class CharacterState : IState
     public GameObject character;
     public CharacterStats characterStats;
 
+    public CharacterState AI_Target;
+
     BattleManager battleManager;
 
     IState state_CharacterAction;
@@ -89,7 +91,7 @@ public class CharacterState : IState
             battleManager.nextCharacter = true;
         }
 
-        if (actionCount < GameSettings.Instance.MaxActionCount)
+        if (actionCount <= GameSettings.Instance.MaxActionCount || hasActiveAction)
         {
             if (hasActiveAction)
             {
@@ -185,6 +187,7 @@ public class CharacterState : IState
 
         actionCount = 0;
         hasActiveAction = false;
+        AI_Target = null;
     }
 }
 #region Original Code

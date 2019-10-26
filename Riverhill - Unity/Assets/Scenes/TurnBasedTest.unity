@@ -581,6 +581,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589479, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 307183929201589476, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_Controller
@@ -1438,7 +1443,7 @@ PrefabInstance:
     - target: {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: range.y
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
@@ -1598,7 +1603,7 @@ MonoBehaviour:
   FramerateTarget: 60
   TextSpeed: 15
   CharacterMoveSpeed: 5
-  MaxActionCount: 2
+  MaxActionCount: 1
   tileHighlight_Positive: {fileID: 4365147109737309284, guid: ab121e0c74b18c8488d5384ecc52d4d6,
     type: 3}
   tileHighlight_Negative: {fileID: 1338498439852372794, guid: e9b7c9c740defef42a4276fb7542a2ed,

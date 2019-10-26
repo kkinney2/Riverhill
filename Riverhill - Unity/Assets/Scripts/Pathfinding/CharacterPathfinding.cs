@@ -125,8 +125,14 @@ public class CharacterPathfinding : MonoBehaviour
         //transform.position = path[path.Count - 1].transform.position;
 
         // Travel towards Position
+
         for (int i = 0; i < path.Count; i++)
         {
+            if (i == range.y)
+            {
+                isDone = true;
+                break;
+            }
             Transform target = path[i].transform;
 
             while (Vector3.Distance(transform.position, target.position) > 0.001f)

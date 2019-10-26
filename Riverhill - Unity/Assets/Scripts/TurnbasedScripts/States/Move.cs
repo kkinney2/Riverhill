@@ -30,39 +30,50 @@ public class Move : IState
         Debug.Log("Entering move state"); //success!
         battleManager = BattleManager.Instance;
         characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
+        characterState.hasActiveAction = true;
 
-        for (int i = 0; i < TileManager.Instance.tilesList.Count; i++)
+        if (!characterState.characterStats.isEnemy)
         {
-            //TileManager.Instance.tilesList[i].GetComponent<Tile>();
-
-            pathfinder.FindPath(TileManager.Instance.tilesList[i].transform.position);
-
-
-            if (pathfinder.path.Count >= pathfinder.range.x) // If the path is longer than or equal to the min range
+            for (int i = 0; i < TileManager.Instance.tilesList.Count; i++)
             {
-                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(true);
-                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+                //TileManager.Instance.tilesList[i].GetComponent<Tile>();
 
-                if (pathfinder.path.Count > pathfinder.range.y) // If the path is shorter than the max range
+                pathfinder.FindPath(TileManager.Instance.tilesList[i].transform.position);
+
+
+                if (pathfinder.path.Count >= pathfinder.range.x) // If the path is longer than or equal to the min range
+                {
+                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(true);
+                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+
+                    if (pathfinder.path.Count > pathfinder.range.y) // If the path is shorter than the max range
+                    {
+                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
+                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(true);
+                    }
+                }
+                else
                 {
                     TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
-                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(true);
+                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
                 }
             }
-            else
-            {
-                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
-                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
-            }
-        }
 
-        pathfinder.Move();
+            pathfinder.Move();
+        }
+        else
+        {
+            pathfinder.FindPath(characterState.AI_Target.characterStats.gameObject.transform.position);
+            pathfinder.MoveAlongPath();
+        }
     }
 
     public void Execute()
     {
-        if (pathfinder.isDone)
+        Debug.Log("Move_Execute");
+        if (pathfinder.isDone == true)
         {
+            Debug.Log("Move isDone");
             pathfinder.isDone = false;
             characterStateMachine.ChangeState(characterState.state_Idle);
         }
@@ -72,11 +83,15 @@ public class Move : IState
     {
         Debug.Log("Exiting Move State");
 
-        for (int i = 0; i < TileManager.Instance.tilesList.Count; i++)
+        if (!characterState.characterStats.isEnemy)
         {
-            TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
-            TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+            for (int i = 0; i < TileManager.Instance.tilesList.Count; i++)
+            {
+                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
+                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+            }
         }
+        
         characterState.hasActiveAction = false;
     }
 }

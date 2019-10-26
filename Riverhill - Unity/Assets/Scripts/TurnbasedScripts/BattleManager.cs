@@ -38,7 +38,7 @@ public class BattleManager : MonoBehaviour
     GameObject characterUI_Object;
 
     public List<CharacterStats> characterStats;
-    List<CharacterState> characterStates;
+    public List<CharacterState> characterStates;
 
     public int turnCount = 0;
 
@@ -96,6 +96,7 @@ public class BattleManager : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                 }
                 nextCharacter = false;
+                Debug.Log("End " + characterStates[i].character.name + "'s Turn");
             }
             nextCharacter = false;
             turnCount++;

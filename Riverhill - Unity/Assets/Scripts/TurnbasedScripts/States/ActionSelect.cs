@@ -51,8 +51,6 @@ public class ActionSelect : IState
         {
             Debug.Log("MoveSelected, to Move state");
             characterStateMachine.ChangeState(characterState.state_Move);
-
-            //battleManager.actionCount++; maybe do this in Enter() of Move state?
         }
 
         if (characterState.attackSelected == true)
@@ -60,8 +58,6 @@ public class ActionSelect : IState
             Debug.Log("AttackSelected, to Attack state");
             //go to Attack state
             characterStateMachine.ChangeState(characterState.state_Attack);
-            //battleManager.attackSelected = false; maybe do this in Enter() of Attack state?
-            //battleManager.actionCount++; maybe do this in Enter() of Attack state?
         }
 
         // TODO: Implement Special
@@ -70,18 +66,14 @@ public class ActionSelect : IState
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state
             //this.characterStateMachine.ChangeState(new Special(characterStateMachine, this.gameObject));
-            //battleManager.specialSelected = false; maybe do this in Enter() of Special state?
-            //battleManager.actionCount++; maybe do this in Enter() of Special state?
         }
 
         if (characterState.endTurnSelected == true)
         {
             Debug.Log("EndTurn Selected");
             //End Turn
+            characterStateMachine.ChangeState(characterState.state_Idle);
             battleManager.nextCharacter = true;
-
-            //battleManager.specialSelected = false; maybe do this in Enter() of Special state?
-            //battleManager.actionCount++; maybe do this in Enter() of Special state?
         }
 
     }

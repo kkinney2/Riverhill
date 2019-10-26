@@ -9,40 +9,31 @@ public class AIState : IState
 
     BattleManager battleManager;
 
+    List<CharacterState> playerCharacterStates = new List<CharacterState>();
+
+    //TODO: AI attack proximity is hardcoded
+    float proximityRange = 5;
+
     public AIState(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
     }
 
-    /*
-    BattleStateMachine owner;
-    BattleManager battleManager;
-    GameObject character;
-
-    public ActorController acScript;
-
-    public AIState(BattleStateMachine newOwner, GameObject a_Character)
-    {
-       this.owner = newOwner;
-       character = a_Character;
-    }
-    */
-
     public void Enter()
     {
         Debug.Log("Entering AI state");
         battleManager = BattleManager.Instance;
 
-        //AIState controls actions, not an action itself
-        //battleManager.actionCount++; //inc. actionCount, by one to allow for multi-action selections per turn //success! //may have to move depending on what option enemy AI picks
-        //this.battleStateMachine.UpdateState();
+        // Grab Player Characters
+        for (int i = 0; i < battleManager.characterStates.Count; i++)
+        {
+            if (!battleManager.characterStats[i].isEnemy)
+            {
+                playerCharacterStates.Add(battleManager.characterStates[i]);
+            }
+        }
 
-        /*
-        Debug.Log("Entering AIState");
-        battleManager = BattleManager.Instance;
-        acScript = character.GetComponent<ActorController>();
-        */
     }
 
     public void Execute()
@@ -50,66 +41,44 @@ public class AIState : IState
         Debug.Log("Executing AI state, **ADD FUNC.**");
         //AI DOES STUFF HERE...
 
+        float minDistance = float.MaxValue;
+        bool hasTarget = false;
+
         // Find Player
-        // TODO: Needs Reference to Player
-
-
-        // If Player is in AttackRange: Attack
+        for (int i = 0; i < playerCharacterStates.Count; i++)
+        {
+            // Is the character in range?
+            float distance = (Mathf.Abs(Vector3.Distance(characterState.characterStats.gameObject.transform.position, playerCharacterStates[i].characterStats.gameObject.transform.position)));
+            if (proximityRange > distance)
+            {
+                // They are in range, so attack
+                characterState.AI_Target = playerCharacterStates[i];
+                hasTarget = true;
+                characterStateMachine.ChangeState(characterState.state_Attack);
+                break;
+            }
+            else
+            {
+                // They aren't in range, store the closest and keep searching
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    characterState.AI_Target = playerCharacterStates[i];
+                }
+            }
+        }
 
         // If Player is not in AttackRange: Move towards nearest Player
-
+        if (!hasTarget)
+        {
+            Debug.Log("AI could not find close enough target. Moving Closer");
+            characterStateMachine.ChangeState(characterState.state_Move);
+        }
 
         if (characterState.actionCount >= GameSettings.Instance.MaxActionCount)
         {
             characterStateMachine.ChangeState(characterState.state_Idle);
         }
-        #region Original Player Code
-        /*
-        Debug.Log("Executing AIState"); //success
-
-        if (battleManager.moveSelected == true && battleManager.actionCount < 2) //stops at actionCount of 2 (allows for 2 option picks per turn)
-        {
-            Debug.Log("Move selected"); //success
-            //do move here... (add in functionality later)
-            //if (acScript.enabled == false)
-            //{
-                //acScript.enabled = true;
-            //}
-            //tried enable/disable of entire ActorController script, no luck
-
-            //acScript.Move();
-
-            //owner.ChangeState(new IState());
-
-            battleManager.actionCount++;
-            Debug.Log("Action count:" + battleManager.actionCount); //success
-            battleManager.moveSelected = false; //returns to false correctly
-        }
-
-        if (battleManager.attackSelected == true && battleManager.actionCount < 2) //same as above rule
-        {
-            Debug.Log("Attack selected"); //success
-            //do attack here... (add in functionality later)
-            battleManager.actionCount++;
-            Debug.Log("Action count:" + battleManager.actionCount); //success
-            battleManager.attackSelected = false; //returns to false correctly
-        }
-
-        if (battleManager.specialSelected == true && battleManager.actionCount < 2) //same as above rule
-        {
-            Debug.Log("Special selected"); //success
-            //do special option here... (add in functionality later)
-            battleManager.actionCount++;
-            Debug.Log("Action count:" + battleManager.actionCount); //success
-            battleManager.specialSelected = false; //returns to false correctly
-        }
-
-         //if(actionCount >= 2 || endTurnSelected == true) ??
-         //{
-         //Exit();
-         //}
-        */
-        #endregion
     }
 
     public void Exit()
