@@ -1495,6 +1495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomInLimit: 5
   zoomOutLimit: 35
+  offset: 0
 --- !u!1 &1308207396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alyss_BAD
       objectReference: {fileID: 0}
+    - target: {fileID: 2536583533229047314, guid: bc99472432f47364f855edd26f755bd2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2536583533229047318, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1669,6 +1675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alyss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}

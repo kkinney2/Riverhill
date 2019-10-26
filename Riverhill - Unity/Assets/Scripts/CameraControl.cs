@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    public float zoomInLimit;
-    public float zoomOutLimit;
+    //zoom function
+    public float zoomInLimit; //5 ?
+    public float zoomOutLimit; //35 ?
+
     //center camera on active player
-
-    //zoom function, centered on active player
-
+    private Transform playerTransform; //need to set as active player
+    public float offset; //if wanted?
+    
     //want camera to follow the active player as they move
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3 temp = transform.position; //current pos stored in temp var
+        temp.x = playerTransform.position.x; //set camera's pos to player's pos
+        temp.x += offset; //add's offset to cam's x pos
+        transform.position = temp; //cam's temp pos set back to cam's current pos
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && ((GetComponent<Camera>().orthographicSize) >= zoomInLimit)) //zoom in
         {
             //GetComponent<Camera>().fieldOfView--;
@@ -31,6 +38,6 @@ public class CameraControl : MonoBehaviour
         {
             //GetComponent<Camera>().fieldOfView++;
             GetComponent<Camera>().orthographicSize += 1f;
-        }   
+        }
     }
 }
