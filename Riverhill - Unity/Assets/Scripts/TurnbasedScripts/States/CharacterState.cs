@@ -27,6 +27,8 @@ public class CharacterState : IState
     public bool specialSelected = false;
     public bool endTurnSelected = false; //essentially a pass option
 
+    public Tile localTile;
+
 
     //public CharacterState(GameObject a_Character, BattleStateMachine a_BattleStateMachine)
     public CharacterState(GameObject a_Character)
@@ -64,22 +66,9 @@ public class CharacterState : IState
         state_Move = new Move(this, battleStateMachine);
     }
 
-    /*
-    private GameObject character;
-    public CharacterState(BattleStateMachine battleStateMachine, GameObject a_Character)
-    {
-       this.battleStateMachine = battleStateMachine;
-       this.character = a_Character;
-    }
-    */
-
     public void Enter()
     {
         Debug.Log("Entering CharacterState state");
-        //Debug.Log("CS: " + battleStateMachine.currentState); //success!
-        //Debug.Log("PS: " + battleStateMachine.previousState); //success!
-
-        //this.battleStateMachine.ChangeState(state_ActionSelect);
     }
 
     public void Execute()

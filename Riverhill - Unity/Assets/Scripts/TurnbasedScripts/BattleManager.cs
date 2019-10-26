@@ -72,6 +72,7 @@ public class BattleManager : MonoBehaviour
         turnCount++; //inc. turn count on start, starts @ 1, player turn
         //Debug.Log(turnCount);
 
+        StartCoroutine(UpdateTiles());
         StartCoroutine(TurnSequence());
     }
 
@@ -93,6 +94,7 @@ public class BattleManager : MonoBehaviour
                 while (nextCharacter == false)
                 {
                     battleStateMachine.UpdateState();
+                    //yield return new WaitForSeconds(0.0001f);
                     yield return new WaitForEndOfFrame();
                 }
                 nextCharacter = false;
@@ -122,6 +124,32 @@ public class BattleManager : MonoBehaviour
     {
         characterUI_Object = Instantiate(prefab_CharacterUI);
         characterUI = characterUI_Object.GetComponent<CharacterUI>();
+    }
+
+    IEnumerator UpdateTiles()
+    {
+        while (true)
+        {
+            for (int i = 0; i < characterStates.Count; i++)
+            {
+                // Update Tile location via TileManager
+                if (characterStates[i].localTile != TileManager.Instance.TileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position))
+                {
+                    if (characterStates[i].localTile != null)
+                    {
+                        characterStates[i].localTile.hasCharacter = false;
+                        characterStates[i].localTile.character = null;
+                    }
+
+                    //Debug.Log("UpdatingTile");
+                    characterStates[i].localTile = TileManager.Instance.TileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position);
+
+                    characterStates[i].localTile.hasCharacter = true;
+                    characterStates[i].localTile.character = characterStates[i];
+                }
+            }
+            yield return new WaitForSeconds(1f / GameSettings.Instance.FramerateTarget);
+        }
     }
 
     public void AttackCharacter(CharacterState attacker, CharacterState defender)

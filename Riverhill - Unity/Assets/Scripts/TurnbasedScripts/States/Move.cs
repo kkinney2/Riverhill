@@ -46,7 +46,7 @@ public class Move : IState
                     TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(true);
                     TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
 
-                    if (pathfinder.path.Count > pathfinder.range.y) // If the path is shorter than the max range
+                    if (pathfinder.path.Count > pathfinder.range.y || TileManager.Instance.tilesList[i].GetComponent<Tile>().hasCharacter == true) // If the path is shorter than the max range OR if it has a character
                     {
                         TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
                         TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(true);
@@ -70,7 +70,7 @@ public class Move : IState
 
     public void Execute()
     {
-        Debug.Log("Move_Execute");
+        //Debug.Log("Move_Execute");
         if (pathfinder.isDone == true)
         {
             Debug.Log("Move isDone");

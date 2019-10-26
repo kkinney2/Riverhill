@@ -35,7 +35,7 @@ public class CharacterPathfinding : MonoBehaviour
             Debug.Log("Test Point: " + testPoint);
             */
 
-            if (worldToCell != null || testPoint != null)
+            if (worldToCell != null || testPoint != null || TileManager.Instance.TileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
             {
                 path = TileManager.Instance.FindPath(transform.position, testPoint);
             }
@@ -59,7 +59,7 @@ public class CharacterPathfinding : MonoBehaviour
         Debug.Log("Test Point: " + testPoint);
         */
 
-        if (worldToCell != null || testPoint != null)
+        if (worldToCell != null || testPoint != null || TileManager.Instance.TileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
         {
             path = TileManager.Instance.FindPath(transform.position, testPoint);
         }

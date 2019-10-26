@@ -9,12 +9,16 @@ public class Attack : IState
 
     BattleManager battleManager;
 
+    CharacterPathfinding pathfinder;
+
     bool isDone = false;
 
     public Attack(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
+
+        pathfinder = characterState.character.gameObject.GetComponent<CharacterPathfinding>();
     }
 
     /*
