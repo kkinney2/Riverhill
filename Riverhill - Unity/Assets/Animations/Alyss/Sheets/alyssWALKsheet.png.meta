@@ -1,28 +1,7 @@
 fileFormatVersion: 2
 guid: 41cd93bcb2b47e64296332e9923e4487
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 1273602127526300619
-    second: alyssWALKsheet_0
-  - first:
-      213: -4047760846939302703
-    second: alyssWALKsheet_1
-  - first:
-      213: -2442126370023023286
-    second: alyssWALKsheet_2
-  - first:
-      213: -8043903937659848458
-    second: alyssWALKsheet_3
-  - first:
-      213: 2112285000140749997
-    second: alyssWALKsheet_4
-  - first:
-      213: 1776417628281187224
-    second: alyssWALKsheet_5
-  - first:
-      213: -683964949744601219
-    second: alyssWALKsheet_6
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -61,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -90,171 +69,13 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: alyssWALKsheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 500
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b55829ed67e19f747bdb3ee87ef50323
-      internalID: 1273602127526300619
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssWALKsheet_1
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 500
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8558f8f8f9d2a864590da72a430a53ef
-      internalID: -4047760846939302703
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssWALKsheet_2
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 500
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a79f1790a88469d41ad6876c7c45939e
-      internalID: -2442126370023023286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssWALKsheet_3
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 500
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee81128d792372944922f5d077f6d20a
-      internalID: -8043903937659848458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssWALKsheet_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f5ce7c78e2766b842967c09a5d77225b
-      internalID: 2112285000140749997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssWALKsheet_5
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14cb9d329f196314895d9734173eae8b
-      internalID: 1776417628281187224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssWALKsheet_6
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d09d1e4232d59f4984cd68127a22b2a
-      internalID: -683964949744601219
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: dea8a8339845e8c4cb48b38bfb1518fb
+    spriteID: 6fd0223dc7a522149a0fab87c477888d
     internalID: 0
     vertices: []
     indices: 
