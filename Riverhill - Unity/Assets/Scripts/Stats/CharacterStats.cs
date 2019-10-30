@@ -66,7 +66,6 @@ public class CharacterStats : MonoBehaviour
 
     IEnumerator AnimCheck()
     {
-        Debug.Log("AnimCheck");
         while (true)
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Healing"))
