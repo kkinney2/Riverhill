@@ -48,14 +48,16 @@ public class MainMenu : MonoBehaviour
 
     public void loadGame()
     {
-        SceneManager.LoadScene("_MainScene_");
-        //Debug.Log("Load Game");
+        menuUISound.clip = buttonSelect;
+        menuUISound.Play();
+        //Debug.Log("Play sound: " + buttonSelect);
+        StartCoroutine(LoadGameButtonDelay());
     }
 
     public void quitGame()
     {
         Application.Quit();
-        //Debug.Log("Quit Game");
+        Debug.Log("Quit Game");
     }
 
     private IEnumerator NewGameButtonDelay()
@@ -63,7 +65,14 @@ public class MainMenu : MonoBehaviour
         Debug.Log(Time.time);
         yield return new WaitForSeconds(3.0f);
         Debug.Log(Time.time);
-        SceneManager.LoadScene("_MainScene_");
+        SceneManager.LoadScene("CutScene");
     }
 
+    private IEnumerator LoadGameButtonDelay()
+    {
+        Debug.Log(Time.time);
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log(Time.time);
+        SceneManager.LoadScene("TurnBasedTest");
+    }
 }
