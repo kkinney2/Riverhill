@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d3e8d00213a35314b9645df04b63bc4b
   - enabled: 1
+    path: Assets/Scenes/CutScene.unity
+    guid: 735eba8393597164eb52d17dcc4b6f9b
+  - enabled: 1
     path: Assets/Scenes/_MainScene_.unity
     guid: 422d7a0ff39d6424b97cf387d841fffd
+  - enabled: 1
+    path: Assets/Scenes/TurnBasedTest.unity
+    guid: aa29ebaaa818aba42908bb6b7283f38f
   m_configObjects: {}
