@@ -10,13 +10,30 @@ public class MenuSwitch : MonoBehaviour
     public GameObject onCanvas;
     public GameObject firstObj;
 
+    public AudioSource menuUISound;
+    public AudioClip buttonSwitch;
+    public AudioClip buttonSelect;
+
+    public void Start()
+    {
+        AudioSource menuUISound = GetComponent<AudioSource>();
+    }
+
     public void Switch()
     {
+        menuUISound.clip = buttonSelect;
+        menuUISound.Play();
+        //Debug.Log("Play sound: " + buttonSelect);
+        StartCoroutine(OptionsButtonDelay());
+    }
 
+    private IEnumerator OptionsButtonDelay()
+    {
+        Debug.Log(Time.time);
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log(Time.time);
         offCanvas.SetActive(true);
         onCanvas.SetActive(false);
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObj, null);
-
     }
-
 }
