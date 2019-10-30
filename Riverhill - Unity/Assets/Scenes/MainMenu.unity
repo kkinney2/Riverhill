@@ -871,8 +871,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSys: {fileID: 1113359339}
   menuUISound: {fileID: 626506932}
-  buttonSwitch: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
-  buttonSelect: {fileID: 8300000, guid: 3b59ba50a1bbacf4982db19bff29fbe7, type: 3}
+  buttonSwitch: {fileID: 8300000, guid: ee7a59e5046c2bd4297345f402957c8f, type: 3}
+  buttonSelect: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
   newGameSelect: {fileID: 8300000, guid: 922bd3ca96e263c438c56276dc3afc6b, type: 3}
 --- !u!1 &646103558
 GameObject:
@@ -1023,8 +1023,8 @@ MonoBehaviour:
   onCanvas: {fileID: 626506929}
   firstObj: {fileID: 1121138146}
   menuUISound: {fileID: 626506932}
-  buttonSwitch: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
-  buttonSelect: {fileID: 8300000, guid: 3b59ba50a1bbacf4982db19bff29fbe7, type: 3}
+  buttonSwitch: {fileID: 8300000, guid: ee7a59e5046c2bd4297345f402957c8f, type: 3}
+  buttonSelect: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
 --- !u!1 &678797537
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,8 +1645,8 @@ MonoBehaviour:
   onCanvas: {fileID: 2097813849}
   firstObj: {fileID: 646103558}
   menuUISound: {fileID: 2097813852}
-  buttonSwitch: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
-  buttonSelect: {fileID: 8300000, guid: 3b59ba50a1bbacf4982db19bff29fbe7, type: 3}
+  buttonSwitch: {fileID: 8300000, guid: ee7a59e5046c2bd4297345f402957c8f, type: 3}
+  buttonSelect: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
 --- !u!1 &1139071026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,8 +2844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSys: {fileID: 1113359339}
   menuUISound: {fileID: 2097813852}
-  buttonSwitch: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
-  buttonSelect: {fileID: 8300000, guid: 3b59ba50a1bbacf4982db19bff29fbe7, type: 3}
+  buttonSwitch: {fileID: 8300000, guid: ee7a59e5046c2bd4297345f402957c8f, type: 3}
+  buttonSelect: {fileID: 8300000, guid: d02c4fc18fd1cae4ab90e626b940a724, type: 3}
   newGameSelect: {fileID: 8300000, guid: 922bd3ca96e263c438c56276dc3afc6b, type: 3}
 --- !u!82 &2097813852
 AudioSource:
