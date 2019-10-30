@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1308207397}
   gridSize: {x: 20, y: 20}
+  tilesList: []
 --- !u!4 &408572673
 Transform:
   m_ObjectHideFlags: 0
@@ -1407,6 +1408,7 @@ GameObject:
   - component: {fileID: 1156707495}
   - component: {fileID: 1156707494}
   - component: {fileID: 1156707493}
+  - component: {fileID: 1156707496}
   m_Layer: 2
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -1479,6 +1481,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1156707496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156707492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e10704a38110c5489567c6eb7a76cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomInLimit: 5
+  zoomOutLimit: 35
+  offset: 0
 --- !u!1 &1308207396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,6 +1596,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alyss_BAD
       objectReference: {fileID: 0}
+    - target: {fileID: 2536583533229047314, guid: bc99472432f47364f855edd26f755bd2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2536583533229047318, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1639,7 +1661,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2536583533229047315, guid: bc99472432f47364f855edd26f755bd2, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bc99472432f47364f855edd26f755bd2, type: 3}
 --- !u!1001 &3117976414904670512
 PrefabInstance:
@@ -1652,6 +1675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Alyss
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -1713,5 +1741,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}

@@ -9,12 +9,16 @@ public class Attack : IState
 
     BattleManager battleManager;
 
+    CharacterPathfinding pathfinder;
+
     bool isDone = false;
 
     public Attack(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
+
+        pathfinder = characterState.character.gameObject.GetComponent<CharacterPathfinding>();
     }
 
     /*
@@ -36,7 +40,7 @@ public class Attack : IState
         Debug.Log("Entering attack state"); //success!
         battleManager = BattleManager.Instance;
         characterState.actionCount = (characterState.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
-        //this.battleStateMachine.UpdateState();
+        characterState.hasActiveAction = true;
     }
 
     public void Execute()

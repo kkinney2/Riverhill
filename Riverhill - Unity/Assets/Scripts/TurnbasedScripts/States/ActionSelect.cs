@@ -9,7 +9,7 @@ public class ActionSelect : IState
 
     BattleManager battleManager;
 
-    
+
 
     public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
@@ -45,16 +45,12 @@ public class ActionSelect : IState
 
     public void Execute()
     {
-        Debug.Log("Executing ActionSelect state");
+        //Debug.Log("Executing ActionSelect state");
 
-        // TODO: Individual Character buttons? That way they only have to reference "themselves"?
-        if (characterState.moveSelected == true /*&& characterState.actionCount < 2*/) // Don't need to check action count bc character state already does this
+        if (characterState.moveSelected == true)
         {
             Debug.Log("MoveSelected, to Move state");
-            //go to Move state
             characterStateMachine.ChangeState(characterState.state_Move);
-            //battleManager.moveSelected = false; maybe do this in Enter() of Move state?
-            //battleManager.actionCount++; maybe do this in Enter() of Move state?
         }
 
         if (characterState.attackSelected == true)
@@ -62,8 +58,6 @@ public class ActionSelect : IState
             Debug.Log("AttackSelected, to Attack state");
             //go to Attack state
             characterStateMachine.ChangeState(characterState.state_Attack);
-            //battleManager.attackSelected = false; maybe do this in Enter() of Attack state?
-            //battleManager.actionCount++; maybe do this in Enter() of Attack state?
         }
 
         // TODO: Implement Special
@@ -72,8 +66,14 @@ public class ActionSelect : IState
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state
             //this.characterStateMachine.ChangeState(new Special(characterStateMachine, this.gameObject));
-            //battleManager.specialSelected = false; maybe do this in Enter() of Special state?
-            //battleManager.actionCount++; maybe do this in Enter() of Special state?
+        }
+
+        if (characterState.endTurnSelected == true)
+        {
+            Debug.Log("EndTurn Selected");
+            //End Turn
+            characterStateMachine.ChangeState(characterState.state_Idle);
+            battleManager.nextCharacter = true;
         }
 
     }
@@ -83,14 +83,12 @@ public class ActionSelect : IState
         characterState.moveSelected = false;
         characterState.attackSelected = false;
         characterState.specialSelected = false;
+        characterState.endTurnSelected = false;
     }
 
     public void Exit()
     {
         Debug.Log("Exiting ActionSelect state");
-        /*
-        Debug.Log("Exiting ActionSelect");
-        this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.character));
-        */
+        ResetSelected();
     }
 }

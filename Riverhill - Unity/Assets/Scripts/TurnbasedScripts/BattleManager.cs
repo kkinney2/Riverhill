@@ -38,7 +38,7 @@ public class BattleManager : MonoBehaviour
     GameObject characterUI_Object;
 
     public List<CharacterStats> characterStats;
-    List<CharacterState> characterStates;
+    public List<CharacterState> characterStates;
 
     public int turnCount = 0;
 
@@ -66,12 +66,13 @@ public class BattleManager : MonoBehaviour
         Debug.Log("***Characters Created***");
 
         //TODO: Character UI Generate
-        //GenerateCharacterUI();
-        //Debug.Log("***CharacterUI Created***");
+        GenerateCharacterUI();
+        Debug.Log("***CharacterUI Created***");
 
         turnCount++; //inc. turn count on start, starts @ 1, player turn
         //Debug.Log(turnCount);
 
+        StartCoroutine(UpdateTiles());
         StartCoroutine(TurnSequence());
     }
 
@@ -82,11 +83,22 @@ public class BattleManager : MonoBehaviour
         {
             for (int i = 0; i < characterStats.Count; i++)
             {
+                Debug.Log("");
                 Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
                 battleStateMachine.ChangeState(characterStates[i]);
-                //characterUI.AssignNewCharacter(characterStates[i]);
-                yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
+                characterUI.AssignNewCharacter(characterStates[i]);
+
+                // Was waiting for nextCharacter, but nothing was updating the state INORDER to get nextCharacter
+                //yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
+
+                while (nextCharacter == false)
+                {
+                    battleStateMachine.UpdateState();
+                    //yield return new WaitForSeconds(0.0001f);
+                    yield return new WaitForEndOfFrame();
+                }
                 nextCharacter = false;
+                Debug.Log("End " + characterStates[i].character.name + "'s Turn");
             }
             nextCharacter = false;
             turnCount++;
@@ -100,9 +112,9 @@ public class BattleManager : MonoBehaviour
     {
         // Creates CharacterState and Assigns GameObject
         CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
-        a_CharacterStat.name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
+        a_CharacterStat.Name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
         characterStates.Add(a_CState);
-        Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.name);
+        Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.Name);
     }
 
     /// <summary>
@@ -112,7 +124,37 @@ public class BattleManager : MonoBehaviour
     {
         characterUI_Object = Instantiate(prefab_CharacterUI);
         characterUI = characterUI_Object.GetComponent<CharacterUI>();
+    }
 
+    IEnumerator UpdateTiles()
+    {
+        while (true)
+        {
+            for (int i = 0; i < characterStates.Count; i++)
+            {
+                // Update Tile location via TileManager
+                if (characterStates[i].localTile != TileManager.Instance.TileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position))
+                {
+                    if (characterStates[i].localTile != null)
+                    {
+                        characterStates[i].localTile.hasCharacter = false;
+                        characterStates[i].localTile.character = null;
+                    }
+
+                    //Debug.Log("UpdatingTile");
+                    characterStates[i].localTile = TileManager.Instance.TileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position);
+
+                    characterStates[i].localTile.hasCharacter = true;
+                    characterStates[i].localTile.character = characterStates[i];
+                }
+            }
+            yield return new WaitForSeconds(1f / GameSettings.Instance.FramerateTarget);
+        }
+    }
+
+    public void AttackCharacter(CharacterState attacker, CharacterState defender)
+    {
+        defender.characterStats.CurrentHP = defender.characterStats.CurrentHP - (attacker.characterStats.attack /*+attacker.characterStats.MODIFIERS- defender.characterStats.MODIFIERS*/ );
     }
 }
 

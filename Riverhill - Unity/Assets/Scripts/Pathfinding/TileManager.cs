@@ -27,7 +27,8 @@ public class TileManager : MonoBehaviour
     public Vector2Int gridSize;
 
     public Tile[,] tiles;
-    List<GameObject> tilesList;
+
+    public List<GameObject> tilesList;
     GameObject tilesParent;
 
     Pathfinding pathfinder;

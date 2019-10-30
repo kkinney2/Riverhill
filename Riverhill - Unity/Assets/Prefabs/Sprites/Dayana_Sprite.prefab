@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 307183929201589479}
   - component: {fileID: 307183929201589476}
   - component: {fileID: 307183929201589401}
+  - component: {fileID: 4184186491804655446}
   m_Layer: 0
   m_Name: Dayana_Sprite
   m_TagString: Untagged
@@ -115,4 +116,20 @@ MonoBehaviour:
   speed: 10
   range: {x: 1, y: 2}
   path: []
-  attack: 1
+--- !u!114 &4184186491804655446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307183929201589477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f2901b85930da478ad043aaa6b4303, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEnemy: 0
+  Name: 
+  BaseHP: 0
+  CurrentHP: 0
+  attack: 0

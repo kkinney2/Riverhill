@@ -8,6 +8,8 @@ public class CharacterState : IState
     public GameObject character;
     public CharacterStats characterStats;
 
+    public CharacterState AI_Target;
+
     BattleManager battleManager;
 
     IState state_CharacterAction;
@@ -24,6 +26,8 @@ public class CharacterState : IState
     public bool attackSelected = false;
     public bool specialSelected = false;
     public bool endTurnSelected = false; //essentially a pass option
+
+    public Tile localTile;
 
 
     //public CharacterState(GameObject a_Character, BattleStateMachine a_BattleStateMachine)
@@ -62,45 +66,39 @@ public class CharacterState : IState
         state_Move = new Move(this, battleStateMachine);
     }
 
-    /*
-    private GameObject character;
-    public CharacterState(BattleStateMachine battleStateMachine, GameObject a_Character)
-    {
-       this.battleStateMachine = battleStateMachine;
-       this.character = a_Character;
-    }
-    */
-
     public void Enter()
     {
         Debug.Log("Entering CharacterState state");
-        //Debug.Log("CS: " + battleStateMachine.currentState); //success!
-        //Debug.Log("PS: " + battleStateMachine.previousState); //success!
-
-        //this.battleStateMachine.ChangeState(state_ActionSelect);
     }
 
     public void Execute()
     {
-        if (actionCount < GameSettings.Instance.MaxActionCount)
+        if ((actionCount >= GameSettings.Instance.MaxActionCount && !hasActiveAction) || endTurnSelected == true)
+        {
+            //Exit();
+            this.battleStateMachine.ChangeState(state_Idle);
+            battleManager.nextCharacter = true;
+        }
+
+        if (actionCount <= GameSettings.Instance.MaxActionCount || hasActiveAction)
         {
             if (hasActiveAction)
             {
+                //Debug.Log("Updating Action");
                 battleStateMachine.UpdateState();
             }
             else
             {
+                if (!characterStats.isEnemy)
+                {
+                    Debug.Log("Sending to ActionSelect");
+                }
+                else Debug.Log("Sending to AIState");
+
                 this.battleStateMachine.ChangeState(state_CharacterAction);
                 hasActiveAction = true;
             }
         }
-
-        if (actionCount >= GameSettings.Instance.MaxActionCount)
-        {
-            //Exit();
-            this.battleStateMachine.ChangeState(state_Idle);
-        }
-
 
         #region Old Execute
         /*
@@ -177,7 +175,8 @@ public class CharacterState : IState
         Debug.Log("Exiting CharacterState state"); //success
 
         actionCount = 0;
-        battleManager.nextCharacter = true;
+        hasActiveAction = false;
+        AI_Target = null;
     }
 }
 #region Original Code
