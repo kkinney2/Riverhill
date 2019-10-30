@@ -62,17 +62,17 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator NewGameButtonDelay()
     {
-        Debug.Log(Time.time);
-        yield return new WaitForSeconds(2.5f);
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
+        yield return new WaitForSeconds(3.5f);
+        //Debug.Log(Time.time);
         SceneManager.LoadScene("CutScene");
     }
 
     private IEnumerator LoadGameButtonDelay()
     {
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         yield return new WaitForSeconds(0.5f);
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         SceneManager.LoadScene("TurnBasedTest");
     }
 }

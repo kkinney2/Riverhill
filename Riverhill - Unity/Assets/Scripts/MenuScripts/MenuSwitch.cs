@@ -29,9 +29,9 @@ public class MenuSwitch : MonoBehaviour
 
     private IEnumerator OptionsButtonDelay()
     {
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         yield return new WaitForSeconds(0.5f);
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         offCanvas.SetActive(true);
         onCanvas.SetActive(false);
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(firstObj, null);
