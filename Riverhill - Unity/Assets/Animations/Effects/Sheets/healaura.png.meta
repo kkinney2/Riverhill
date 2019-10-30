@@ -1,19 +1,22 @@
 fileFormatVersion: 2
-guid: 0e973681cef62f344aee29ffeb0f4c28
+guid: a6e6d6889eea62e498e78e536515d851
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2658610285096542891
-    second: alyssIDLEsheet_0
+      213: -6243848996776798313
+    second: healaura_0
   - first:
-      213: 7433154598519441365
-    second: alyssIDLEsheet_1
+      213: 3501834498746077282
+    second: healaura_1
   - first:
-      213: 7940863066716570883
-    second: alyssIDLEsheet_2
+      213: 6021072893316050826
+    second: healaura_2
   - first:
-      213: -1403300021502012720
-    second: alyssIDLEsheet_3
+      213: -3283636953530567405
+    second: healaura_3
+  - first:
+      213: -837774995329703735
+    second: healaura_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -129,85 +132,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alyssIDLEsheet_0
+      name: healaura_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bfbf1e3ac80a042b9c2c19fa809f69
+      internalID: -6243848996776798313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healaura_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766e4600c1b655d4cb964f62130e2257
+      internalID: 3501834498746077282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healaura_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa56c1134fcacd4d9f32a586bbff083
+      internalID: 6021072893316050826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healaura_3
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68f3de149e660740b318ee4dd01e038
+      internalID: -3283636953530567405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: healaura_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 500
         height: 500
-      alignment: 9
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a011c277aae6a9f4eafab0e7e220487f
-      internalID: 2658610285096542891
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssIDLEsheet_1
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc884f584b3a52d4dad305cd90b4bda5
-      internalID: 7433154598519441365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssIDLEsheet_2
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0befbe0086231647b8a2eb3e578acd2
-      internalID: 7940863066716570883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alyssIDLEsheet_3
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95511e69ea6993640a7ff20d81437bf3
-      internalID: -1403300021502012720
+      spriteID: d661c34b45c09c949b292780bd51ff5f
+      internalID: -837774995329703735
       vertices: []
       indices: 
       edges: []
@@ -215,7 +239,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: afb78b97f907d8847bb725fab5e6e07b
+    spriteID: 1ae3a94624819244ea224ac8c969a76f
     internalID: 0
     vertices: []
     indices: 
