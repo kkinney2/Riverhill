@@ -10,9 +10,16 @@ public class MainMenu : MonoBehaviour
     public EventSystem eventSys;
     private GameObject storeSelect;
 
+    public AudioSource menuUISound;
+    public AudioClip buttonSwitch;
+    public AudioClip buttonSelect;
+    public AudioClip newGameSelect;
+
     public void Start()
     {
         storeSelect = eventSys.firstSelectedGameObject;
+
+        AudioSource menuUISound = GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -33,7 +40,10 @@ public class MainMenu : MonoBehaviour
 
     public void newGame()
     {
-        SceneManager.LoadScene("_MainScene_");
+        menuUISound.clip = newGameSelect;
+        menuUISound.Play();
+        //Debug.Log("Play sound: " + newGameSelect);
+        StartCoroutine(NewGameButtonDelay());
     }
 
     public void loadGame()
@@ -46,6 +56,14 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
         //Debug.Log("Quit Game");
+    }
+
+    private IEnumerator NewGameButtonDelay()
+    {
+        Debug.Log(Time.time);
+        yield return new WaitForSeconds(3.0f);
+        Debug.Log(Time.time);
+        SceneManager.LoadScene("_MainScene_");
     }
 
 }
