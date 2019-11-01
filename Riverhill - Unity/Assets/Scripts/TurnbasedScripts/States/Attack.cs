@@ -39,7 +39,7 @@ public class Attack : IState
     {
         Debug.Log("Entering attack state"); //success!
         battleManager = BattleManager.Instance;
-        characterState.actionCount = (characterState.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
+        
         characterState.hasActiveAction = true;
     }
 
@@ -50,6 +50,7 @@ public class Attack : IState
 
         if (isDone)
         {
+            characterState.actionCount = (characterState.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
             characterStateMachine.ChangeState(characterState.state_Idle);
         }
 
