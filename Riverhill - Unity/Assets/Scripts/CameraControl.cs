@@ -13,10 +13,14 @@ public class CameraControl : MonoBehaviour
 
     public float offset; //if wanted? going to work with offset vertically for now, since camera is centering around player pivot (at feet?)
 
+    private Camera camera;
+
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+        camera = GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -31,13 +35,18 @@ public class CameraControl : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && ((GetComponent<Camera>().orthographicSize) >= zoomInLimit)) //zoom in
         {
             //GetComponent<Camera>().fieldOfView--;
-            GetComponent<Camera>().orthographicSize -= 1f;
+            camera.orthographicSize -= 1f;
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0 && ((GetComponent<Camera>().orthographicSize) <= zoomOutLimit)) //zoom out  
         {
             //GetComponent<Camera>().fieldOfView++;
-            GetComponent<Camera>().orthographicSize += 1f;
+            camera.orthographicSize += 1f;
+        }
+
+        if (Input.GetKeyUp(KeyCode.F))
+        {
+            camera.orthographicSize = 10f;
         }
     }
 }

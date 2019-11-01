@@ -23,19 +23,24 @@ public class CharacterUI : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (characterState != null)
         {
             hasCharacterState = true;
+            gameObject.transform.position = characterState.character.transform.position;
         }
-        else hasCharacterState = false;
+        else
+        {
+            hasCharacterState = false;
+            gameObject.transform.position = new Vector3(int.MaxValue, int.MaxValue, 0);
+        }
     }
 
     public void AssignNewCharacter(CharacterState a_CharacterState)
     {
         characterState = a_CharacterState;
-        Debug.Log("UI: Current Character: " + a_CharacterState.characterStats.Name);
+        //Debug.Log("UI: Current Character: " + a_CharacterState.characterStats.Name);
     }
 
     #region Actions
