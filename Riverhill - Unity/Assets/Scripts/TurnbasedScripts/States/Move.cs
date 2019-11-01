@@ -29,7 +29,7 @@ public class Move : IState
     {
         Debug.Log("Entering move state"); //success!
         battleManager = BattleManager.Instance;
-        characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
+        
         characterState.hasActiveAction = true;
 
         if (!characterState.characterStats.isEnemy)
@@ -76,6 +76,7 @@ public class Move : IState
             Debug.Log("Move isDone");
             pathfinder.isDone = false;
             characterStateMachine.ChangeState(characterState.state_Idle);
+            characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
         }
     }
 
