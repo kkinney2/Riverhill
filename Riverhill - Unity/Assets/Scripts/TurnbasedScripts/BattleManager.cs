@@ -88,6 +88,15 @@ public class BattleManager : MonoBehaviour
                 battleStateMachine.ChangeState(characterStates[i]);
                 characterUI.AssignNewCharacter(characterStates[i]);
 
+                if (characterStates[i].characterStats.isEnemy)
+                {
+                    characterUI.gameObject.SetActive(false);
+                }
+                else
+                {
+                    characterUI.gameObject.SetActive(true);
+                }
+
                 // Was waiting for nextCharacter, but nothing was updating the state INORDER to get nextCharacter
                 //yield return new WaitUntil(() => nextCharacter == true); // WaitUntil nextCharacter == true
 
