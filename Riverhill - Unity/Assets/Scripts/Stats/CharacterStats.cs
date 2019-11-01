@@ -22,41 +22,75 @@ public class CharacterStats : MonoBehaviour
     private Animator healingAura_Anim;
     private SpriteRenderer healingAura_SR;
 
+    private float deathPlayTime = 0;
+
     private void Start()
     {
+        CurrentHP = BaseHP;
+
+        #region Animations
         animator = gameObject.GetComponent<Animator>();
 
         healingAura_Anim = healingAura.GetComponent<Animator>();
         healingAura_SR = healingAura.GetComponent<SpriteRenderer>();
         healingAura.gameObject.SetActive(false);
 
+        // Gets Animation Time(s)
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name == name + "_Dies")
+            {
+                Debug.Log(clip.length);
+                deathPlayTime = clip.length;
+            }
+        }
+
         StartCoroutine(AnimCheck());
+        #endregion
     }
 
-    public void isHealing()
+    private void Update()
+    {
+        if (CurrentHP <= 0f)
+        {
+            IsDead();
+        }
+    }
+
+    public void IsHealing()
     {
         animator.SetTrigger("isHealing");
         healingAura_Anim.SetTrigger("isHealing");
     }
 
-    public void isWalking()
+    public void IsWalking()
     {
         animator.SetBool("isWalking", true);
     }
-    
-    public void isAttacking()
+
+    public void IsAttacking()
     {
         animator.SetTrigger("isAttacking");
     }
 
-    public void wasHit()
+    public void WasHit()
     {
         animator.SetTrigger("wasHit");
     }
 
-    public void isDead()
+    public void IsDead()
+    {
+        StartCoroutine(Died());
+    }
+
+    IEnumerator Died()
     {
         animator.SetBool("isDead", true);
+
+        yield return new WaitForSeconds(deathPlayTime);
+
+        gameObject.SetActive(false);
     }
 
     public void useSpecial()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class BattleManager : MonoBehaviour
     public List<CharacterState> characterStates;
 
     public int turnCount = 0;
+
+    public Text turnText;
 
     // No longer needed - Characters are told when their turn is, not waiting for their turn
     /* 
@@ -85,6 +88,8 @@ public class BattleManager : MonoBehaviour
             {
                 Debug.Log("");
                 Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
+                turnText.text = "Turn: " + characterStates[i].character.name;
+                yield return new WaitForSeconds(1f);
                 battleStateMachine.ChangeState(characterStates[i]);
                 characterUI.AssignNewCharacter(characterStates[i]);
 
@@ -107,6 +112,8 @@ public class BattleManager : MonoBehaviour
                     yield return new WaitForEndOfFrame();
                 }
                 nextCharacter = false;
+
+                characterUI.AssignNewCharacter(null);
                 Debug.Log("End " + characterStates[i].character.name + "'s Turn");
             }
             nextCharacter = false;
