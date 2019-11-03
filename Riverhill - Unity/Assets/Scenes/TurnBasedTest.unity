@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomInLimit: 5
-  zoomOutLimit: 30
+  zoomOutLimit: 29
   offset: 2
 --- !u!1 &937482609
 GameObject:
@@ -1906,7 +1906,7 @@ MonoBehaviour:
   FramerateTarget: 60
   TextSpeed: 15
   CharacterMoveSpeed: 5
-  MaxActionCount: 1
+  MaxActionCount: 2
   tileHighlight_Positive: {fileID: 4365147109737309284, guid: ab121e0c74b18c8488d5384ecc52d4d6,
     type: 3}
   tileHighlight_Negative: {fileID: 1338498439852372794, guid: e9b7c9c740defef42a4276fb7542a2ed,

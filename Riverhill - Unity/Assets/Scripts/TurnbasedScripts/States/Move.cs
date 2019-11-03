@@ -6,6 +6,9 @@ public class Move : IState
 {
     CharacterState characterState;
     BattleStateMachine characterStateMachine;
+    public BattleStateMachine battleStateMachine;
+
+    IState state_CharacterAction;
 
     BattleManager battleManager;
 
@@ -78,13 +81,13 @@ public class Move : IState
             characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
             Debug.Log("actionCount: " + characterState.actionCount);
 
-            if (characterState.actionCount == 2) {
+            if (characterState.actionCount >= 2) {
                 characterStateMachine.ChangeState(characterState.state_Idle);
                 Debug.Log("actionCount: " + characterState.actionCount);
             }
-
+            
             else {
-                characterStateMachine.ChangeState(battleManager.characterStates[i]);
+                Debug.Log("Need to repeat ActionSelect?");
                 Debug.Log("actionCount: " + characterState.actionCount);
             }
         }
