@@ -591,11 +591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb24b36609478f745b4906b85b5489f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasCharacterState: 0
   characterUI_Object: {fileID: 0}
-  moveSelected: 0
-  attackSelected: 0
-  specialSelected: 0
-  endTurnSelected: 0
 --- !u!1 &6781379477703544161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,7 +1767,7 @@ GameObject:
   - component: {fileID: 6781379479052867139}
   m_Layer: 0
   m_Name: P1Attack
-  m_TagString: Untagged
+  m_TagString: P1AttackButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActionSelect : IState
 {
@@ -8,6 +9,14 @@ public class ActionSelect : IState
     private BattleStateMachine characterStateMachine;
 
     BattleManager battleManager;
+
+    //Could possibly reorganize this all later & move it into Attack state?
+    public GameObject attackButton;
+    //For now we're going to check if attack is possible before button is even selected... work on disabling button if attack not possible yet
+    public Vector2 meleeAttackRange = new Vector2(1, 1);
+    public bool enemyInMAttackRange = false;
+    public Vector2 rangedAttackRange = new Vector2(1, 3);
+    public bool enemyInRAttackRange = false;
 
     public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
@@ -33,6 +42,8 @@ public class ActionSelect : IState
 
     public void Enter()
     {
+        attackButton = GameObject.FindGameObjectWithTag("P1AttackButton"); //get Attack button (part of UI prefab)
+
         Debug.Log("Entering ActionSelect state");
         Debug.Log("actionCount: " + characterState.actionCount);
         battleManager = BattleManager.Instance;
@@ -45,6 +56,31 @@ public class ActionSelect : IState
     public void Execute()
     {
         //Debug.Log("Executing ActionSelect state");
+
+        #region IsAttackPossible?
+        //First---Check if enemy is in melee attack range & adjust bool accordingly
+        //May be a better way to do this...
+        /*
+         * if ("Enemy" tag found in neighboring tiles, within meleeAttackRange x = 1 & y = 1) {
+         *  enemyInMAttackRange = true;
+         * }
+         * 
+         * else {
+         *  enemyInMAttackRange = false;
+         * }
+         * 
+        */
+
+        //If so-enable Attack button/make interactable
+        if (enemyInMAttackRange == true) {
+            attackButton.GetComponent<Button>().interactable = true;
+        }
+
+        //If not-disable Attack button/make not-interactable
+        if (enemyInMAttackRange == false) {
+            attackButton.GetComponent<Button>().interactable = false;
+        }
+        #endregion
 
         if (characterState.moveSelected == true && characterState.actionCount <= GameSettings.Instance.MaxActionCount) // (&& actionCount <= 2)
         {
