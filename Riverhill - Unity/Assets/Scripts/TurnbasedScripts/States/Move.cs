@@ -80,16 +80,8 @@ public class Move : IState
             pathfinder.isDone = false;
             characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
             Debug.Log("actionCount: " + characterState.actionCount);
-
-            if (characterState.actionCount >= 2) {
-                characterStateMachine.ChangeState(characterState.state_Idle);
-                Debug.Log("actionCount: " + characterState.actionCount);
-            }
-            
-            else {
-                Debug.Log("Need to repeat ActionSelect?");
-                Debug.Log("actionCount: " + characterState.actionCount);
-            }
+            characterStateMachine.ChangeState(characterState.state_Idle);
+            Debug.Log("actionCount: " + characterState.actionCount);
         }
     }
 

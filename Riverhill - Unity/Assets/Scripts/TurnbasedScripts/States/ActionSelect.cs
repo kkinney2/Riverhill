@@ -9,8 +9,6 @@ public class ActionSelect : IState
 
     BattleManager battleManager;
 
-    GameSettings gameSettings;
-
     public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
@@ -48,13 +46,13 @@ public class ActionSelect : IState
     {
         //Debug.Log("Executing ActionSelect state");
 
-        if (characterState.moveSelected == true && characterState.actionCount <= gameSettings.MaxActionCount) // (&& actionCount <= 2)
+        if (characterState.moveSelected == true && characterState.actionCount <= GameSettings.Instance.MaxActionCount) // (&& actionCount <= 2)
         {
             Debug.Log("MoveSelected, to Move state");
             characterStateMachine.ChangeState(characterState.state_Move);
         }
 
-        if (characterState.attackSelected == true && characterState.actionCount <= gameSettings.MaxActionCount) // (&& actionCount <= 2)
+        if (characterState.attackSelected == true && characterState.actionCount <= GameSettings.Instance.MaxActionCount) // (&& actionCount <= 2)
         {
             Debug.Log("AttackSelected, to Attack state");
             //go to Attack state
@@ -62,7 +60,7 @@ public class ActionSelect : IState
         }
 
         // TODO: Implement Special
-        if (characterState.specialSelected == true && characterState.actionCount <= gameSettings.MaxActionCount) // (&& actionCount <= 2)
+        if (characterState.specialSelected == true && characterState.actionCount <= GameSettings.Instance.MaxActionCount) // (&& actionCount <= 2)
         {
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state
