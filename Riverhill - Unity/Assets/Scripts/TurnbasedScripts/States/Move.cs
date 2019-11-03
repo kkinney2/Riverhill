@@ -75,8 +75,18 @@ public class Move : IState
         {
             Debug.Log("Move isDone");
             pathfinder.isDone = false;
-            characterStateMachine.ChangeState(characterState.state_Idle);
             characterState.actionCount++; //inc. actionCount, by one to allow for multi-move selections per turn //success!
+            Debug.Log("actionCount: " + characterState.actionCount);
+
+            if (characterState.actionCount == 2) {
+                characterStateMachine.ChangeState(characterState.state_Idle);
+                Debug.Log("actionCount: " + characterState.actionCount);
+            }
+
+            else {
+                characterStateMachine.ChangeState(battleManager.characterStates[i]);
+                Debug.Log("actionCount: " + characterState.actionCount);
+            }
         }
     }
 

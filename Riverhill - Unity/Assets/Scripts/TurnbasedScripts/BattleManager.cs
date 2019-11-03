@@ -86,7 +86,7 @@ public class BattleManager : MonoBehaviour
         {
             for (int i = 0; i < characterStats.Count; i++)
             {
-                Debug.Log("");
+                //Debug.Log("");
                 Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
                 turnText.text = "Turn: " + characterStates[i].character.name;
                 yield return new WaitForSeconds(1f);

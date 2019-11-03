@@ -6,7 +6,7 @@ public class CameraControl : MonoBehaviour
 {
     //zoom function
     public float zoomInLimit; //5 ?
-    public float zoomOutLimit; //35 ?
+    public float zoomOutLimit; //30 ?
 
     //center camera on active player
     private Transform playerTransform; //need to set as active player
