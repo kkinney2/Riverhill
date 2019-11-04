@@ -18,6 +18,9 @@ public class ActionSelect : IState
     public Vector2 rangedAttackRange = new Vector2(1, 3);
     public bool enemyInRAttackRange = false;
 
+    public GameObject player;
+    public GameObject enemy;
+
     public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
@@ -43,6 +46,12 @@ public class ActionSelect : IState
     public void Enter()
     {
         attackButton = GameObject.FindGameObjectWithTag("P1AttackButton"); //get Attack button (part of UI prefab)
+
+        //attempting tracking enemy position and determining when attack is possible
+        //there's probably a better way to do this/cleaner way to code it... whoops :-)
+        player = GameObject.FindGameObjectWithTag("Player"); //get player
+        enemy = GameObject.FindGameObjectWithTag("Enemy"); //get enemy
+        Debug.Log("Enemy pos: " + enemy.transform.position); //tracking enemy pos., using this info for finding when attack is possible (enemy in range... +- 0.05 x and y? one tile away)
 
         Debug.Log("Entering ActionSelect state");
         Debug.Log("actionCount: " + characterState.actionCount);
@@ -70,6 +79,16 @@ public class ActionSelect : IState
          * }
          * 
         */
+
+        //rn, it approves attack when they are on the same space
+        //we want it to approve if enemy is within range of one tile away
+        if (enemy.transform.position == player.transform.position) {
+            enemyInMAttackRange = true;
+        }
+        
+        else {
+            enemyInMAttackRange = false;
+        }
 
         //If so-enable Attack button/make interactable
         if (enemyInMAttackRange == true) {
