@@ -12,6 +12,15 @@ public class CharacterPathfinding : MonoBehaviour
     bool hasPath = false;
     public bool isDone = false;
 
+    public SpriteRenderer charSpriteRenderer;
+    public bool movingLeft = false;
+    public bool movingRight = false;
+
+    private void Awake()
+    {
+        charSpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void Move()
     {
         StartCoroutine(Move_Coroutine());
@@ -139,6 +148,29 @@ public class CharacterPathfinding : MonoBehaviour
             {
                 // Move our position a step closer to the target.
                 float step = speed * Time.deltaTime; // calculate distance to move
+                
+                //if moving left, set movingLeft = true;
+                if (target.position.x < transform.position.x)
+                {
+                    movingLeft = true;
+                }
+                //if moving right, set movingRight = true;
+                if (target.position.x > transform.position.x)
+                {
+                    movingRight = true;
+                }
+                //WORKING WELL? flip sprite in direction of movement...
+                if (movingLeft == true)
+                {
+                    charSpriteRenderer.flipX = false;
+                    movingLeft = false;
+                }
+                if (movingRight == true)
+                {
+                    charSpriteRenderer.flipX = true;
+                    movingRight = false;
+                }
+                
                 transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
                 yield return new WaitForFixedUpdate();
