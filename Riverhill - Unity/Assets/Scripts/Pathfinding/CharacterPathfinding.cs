@@ -12,13 +12,20 @@ public class CharacterPathfinding : MonoBehaviour
     bool hasPath = false;
     public bool isDone = false;
 
+    //walk direction, sprite change
     public SpriteRenderer charSpriteRenderer;
     public bool movingLeft = false;
     public bool movingRight = false;
 
+    //walk sound
+    public AudioSource characterSound;
+    public AudioClip walkSound;
+
     private void Awake()
     {
         charSpriteRenderer = GetComponent<SpriteRenderer>();
+
+        AudioSource characterSound = GetComponent<AudioSource>();
     }
 
     public void Move()
@@ -170,7 +177,10 @@ public class CharacterPathfinding : MonoBehaviour
                     charSpriteRenderer.flipX = true;
                     movingRight = false;
                 }
-                
+
+                characterSound.clip = walkSound;
+                characterSound.Play();
+
                 transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
                 yield return new WaitForFixedUpdate();
