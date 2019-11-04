@@ -51,7 +51,7 @@ public class ActionSelect : IState
         //there's probably a better way to do this/cleaner way to code it... whoops :-)
         player = GameObject.FindGameObjectWithTag("Player"); //get player
         enemy = GameObject.FindGameObjectWithTag("Enemy"); //get enemy
-        Debug.Log("Enemy pos: " + enemy.transform.position); //tracking enemy pos., using this info for finding when attack is possible (enemy in range... +- 0.05 x and y? one tile away)
+        Debug.Log("Enemy pos: " + enemy.transform.position); //tracking enemy pos., using this info for finding when attack is possible
 
         Debug.Log("Entering ActionSelect state");
         Debug.Log("actionCount: " + characterState.actionCount);
