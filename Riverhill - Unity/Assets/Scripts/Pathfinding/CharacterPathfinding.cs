@@ -104,7 +104,7 @@ public class CharacterPathfinding : MonoBehaviour
     {
         Debug.Log("Move Coroutine");
         hasPath = false;
-
+        yield return new WaitForSeconds(0.3f);
         while (!hasPath)
         {
             if (Input.GetMouseButtonUp(0))

@@ -51,48 +51,49 @@ public class Attack : IState
         {
             // TODO: Enemy Attack
             battleManager.AttackCharacter(characterState, characterState.AI_Target);
-            characterState.characterStats.IsAttacking();
-            characterState.AI_Target.characterStats.WasHit();
             isDone = true;
         }
         else
         {
-            Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //Debug.Log("WorldFromScreen: " + worldFromScreen);
-
-            RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
-
-            if (hit.collider != null)
+            if (Input.GetMouseButtonUp(0))
             {
-                Tile a_Tile = TileManager.Instance.GetTileFromWorldPosition(worldFromScreen);
+                Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //Debug.Log("WorldFromScreen: " + worldFromScreen);
 
-                if (a_Tile.hasCharacter)
+                RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
+
+                if (hit.collider != null)
                 {
-                    if (a_Tile.characterState.characterStats.isEnemy)
-                    {
-                        Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
-                        Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
+                    Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+                    Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
 
-                        // Pathfind to them to determine distance
-                        if (worldToCell != null || testPoint != null)
+                    Tile a_Tile = TileManager.Instance.GetTileFromWorldPosition((new Vector3(hit.point.x, hit.point.y, 0)));
+                    if (a_Tile.hasCharacter || a_Tile != null)
+                    {
+                        if (a_Tile.characterState.characterStats.isEnemy)
                         {
-                            pathfinder.FindPath(testPoint);
-                        }
-                        // TODO: Input not registering -- Not checking enough?
-                        if (pathfinder.path.Count == 1f && Input.GetMouseButtonUp(0)) // TODO: Script a attack range variable/Get from characterStats
-                        {
-                            battleManager.AttackCharacter(characterState, a_Tile.characterState);
-                            isDone = true;
+                            // Pathfind to them to determine distance
+                            if (worldToCell != null || testPoint != null)
+                            {
+                                pathfinder.FindPath(testPoint);
+                            }
+
+                            if (pathfinder.path.Count == 1f) // TODO: Script a attack range variable/Get from characterStats
+                            {
+                                battleManager.AttackCharacter(characterState, a_Tile.characterState);
+                                isDone = true;
+                            }
                         }
                     }
                 }
             }
+            
         }
         
 
         if (isDone)
         {
-            characterState.actionCount = (characterState.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
+            characterState.actionCount = (characterState.actionCount + GameSettings.Instance.MaxActionCount); //inc. actionCount, by max to avoid multi-attack selections per turn //success!
             characterStateMachine.ChangeState(characterState.state_Idle);
         }
     }

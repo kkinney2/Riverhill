@@ -89,6 +89,11 @@ public class BattleManager : MonoBehaviour
         {
             for (int i = 0; i < characterStats.Count; i++)
             {
+                if (characterStats[i].CurrentHP <= 0f)
+                {
+                    continue;
+                }
+
                 //Debug.Log("");
                 Debug.Log("Start " + characterStates[i].character.name + "'s Turn");
                 turnText.text = "Turn: " + characterStates[i].character.name;
@@ -110,9 +115,10 @@ public class BattleManager : MonoBehaviour
 
                 while (nextCharacter == false)
                 {
+                    //yield return new WaitForEndOfFrame(); // Works better for input
                     battleStateMachine.UpdateState();
-                    //yield return new WaitForSeconds(0.0001f);
-                    yield return new WaitForEndOfFrame();
+                    yield return new WaitForSeconds(0.0001f);
+                    //yield return new WaitForEndOfFrame();
                 }
                 nextCharacter = false;
 
@@ -154,31 +160,46 @@ public class BattleManager : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForEndOfFrame();
             for (int i = 0; i < characterStates.Count; i++)
             {
                 // Update Tile location via TileManager
+
+                // If the local tiles doesn't match it's current tile...
                 if (characterStates[i].localTile != TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position))
                 {
+                    // ...If it has a tile...
                     if (characterStates[i].localTile != null)
                     {
+                        // ... reset the local tile from it's previous location
                         characterStates[i].localTile.hasCharacter = false;
                         characterStates[i].localTile.characterState = null;
                     }
 
+                    //... assign the current tile to the local tile
                     //Debug.Log("UpdatingTile");
                     characterStates[i].localTile = TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position);
 
                     characterStates[i].localTile.hasCharacter = true;
                     characterStates[i].localTile.characterState = characterStates[i];
+                    Debug.Log(characterStates[i].character.name + "'s Local Tile" + characterStates[i].localTile);
                 }
             }
-            yield return new WaitForSeconds(1f / GameSettings.Instance.FramerateTarget);
+
         }
     }
 
     public void AttackCharacter(CharacterState attacker, CharacterState defender)
     {
+        StartCoroutine(CharacterAttacking(attacker, defender));
         defender.characterStats.CurrentHP = defender.characterStats.CurrentHP - (attacker.characterStats.attack /*+attacker.characterStats.MODIFIERS- defender.characterStats.MODIFIERS*/ );
+    }
+
+    IEnumerator CharacterAttacking(CharacterState attacker, CharacterState defender)
+    {
+        attacker.characterStats.IsAttacking();
+        yield return new WaitForSeconds(1f);
+        defender.characterStats.WasHit();
     }
 }
 

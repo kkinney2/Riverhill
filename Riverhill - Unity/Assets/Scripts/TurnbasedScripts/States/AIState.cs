@@ -29,14 +29,8 @@ public class AIState : IState
         Debug.Log("Entering AI state");
         battleManager = BattleManager.Instance;
 
-        // Grab Player Characters
-        for (int i = 0; i < battleManager.characterStates.Count; i++)
-        {
-            if (!battleManager.characterStats[i].isEnemy)
-            {
-                playerCharacterStates.Add(battleManager.characterStates[i]);
-            }
-        }
+        // Update Player Characters
+        UpdatePlayerCharacters();
 
     }
 
@@ -114,5 +108,16 @@ public class AIState : IState
         //need to leave state... revert back to the previous CharacterState...
         Debug.Log("Exiting AIState");
         */
+    }
+
+    void UpdatePlayerCharacters()
+    {
+        for (int i = 0; i < battleManager.characterStates.Count; i++)
+        {
+            if (!battleManager.characterStats[i].isEnemy && battleManager.characterStats[i].CurrentHP > 0)
+            {
+                playerCharacterStates.Add(battleManager.characterStates[i]);
+            }
+        }
     }
 }
