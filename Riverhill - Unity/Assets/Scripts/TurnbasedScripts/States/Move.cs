@@ -17,9 +17,6 @@ public class Move : IState
     GameObject tileHighlight_Pos;
     GameObject tileHighlight_Neg;
 
-    // TODO: Move.attack is for what?
-    //public bool attack = true;
-
     public Move(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;

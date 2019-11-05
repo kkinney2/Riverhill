@@ -10,9 +10,12 @@ public class ActionSelect : IState
 
     BattleManager battleManager;
 
+    CharacterPathfinding pathfinder;
+
     //Could possibly reorganize this all later & move it into Attack state?
     public GameObject attackButton;
     //For now we're going to check if attack is possible before button is even selected... work on disabling button if attack not possible yet
+    // TODO: Move attack ranges to characterStats so they are accessible from inspector
     public Vector2 meleeAttackRange = new Vector2(1, 1);
     public bool enemyInMAttackRange = false;
     public Vector2 rangedAttackRange = new Vector2(1, 3);
@@ -25,23 +28,9 @@ public class ActionSelect : IState
     {
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
+
+        pathfinder = characterState.pathfinder;
     }
-
-    /*
-    private BattleStateMachine battleStateMachine = new BattleStateMachine();
-    BattleStateMachine owner;
-    BattleManager battleManager;
-
-    //private GameObject gameObject;
-    private GameObject character;
-    public ActionSelect(BattleStateMachine newOwner, GameObject a_Character)
-    {
-       this.owner = newOwner;
-       this.character = a_Character;
-    }
-
-    public ActorController acScript;
-    */
 
     public void Enter()
     {
@@ -82,12 +71,26 @@ public class ActionSelect : IState
 
         //rn, it approves attack when they are on the same space
         //we want it to approve if enemy is within range of one tile away
-        if (enemy.transform.position == player.transform.position) {
+        /*
+        if (enemy.transform.position == player.transform.position) 
+        {
             enemyInMAttackRange = true;
         }
         
-        else {
+        else 
+        {
             enemyInMAttackRange = false;
+        }
+        */
+
+        for (int i = 0; i < battleManager.characterStates_Enemy.Count; i++)
+        {
+            pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.transform.position);
+
+            if (pathfinder.path.Count == 1) // TODO: Hardcoded attack range
+            {
+                enemyInMAttackRange = true; // SIDENOTE: When I first read this, I read it as "enemy in MAH attack range" xD
+            }
         }
 
         //If so-enable Attack button/make interactable

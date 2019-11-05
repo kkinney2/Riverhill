@@ -151,11 +151,18 @@ public class CharacterPathfinding : MonoBehaviour
             }
             Transform target = path[i].transform;
 
+            // TODO: Cheap way of stopping characters from overlapping
+            if (TileManager.Instance.GetTileFromWorldPosition(target.position).hasCharacter)
+            {
+                continue;
+            }
+
             while (Vector3.Distance(transform.position, target.position) > 0.001f)
             {
                 // Move our position a step closer to the target.
                 float step = speed * Time.deltaTime; // calculate distance to move
-                
+
+                #region Sprite Flipping
                 //if moving left, set movingLeft = true;
                 if (target.position.x < transform.position.x)
                 {
@@ -177,6 +184,7 @@ public class CharacterPathfinding : MonoBehaviour
                     charSpriteRenderer.flipX = true;
                     movingRight = false;
                 }
+                #endregion
 
                 characterSound.clip = walkSound;
                 characterSound.Play();

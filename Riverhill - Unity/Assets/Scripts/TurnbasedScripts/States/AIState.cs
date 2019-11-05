@@ -9,6 +9,8 @@ public class AIState : IState
 
     BattleManager battleManager;
 
+    CharacterPathfinding pathfinder;
+
     List<CharacterState> playerCharacterStates = new List<CharacterState>();
 
     //TODO: AI attack proximity is hardcoded
@@ -18,6 +20,8 @@ public class AIState : IState
     {
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
+
+        pathfinder = characterState.pathfinder;
     }
 
     public void Enter()
@@ -48,6 +52,26 @@ public class AIState : IState
         for (int i = 0; i < playerCharacterStates.Count; i++)
         {
             // Is the character in range?
+            pathfinder.FindPath(playerCharacterStates[i].character.transform.position);
+
+            if (pathfinder.path.Count == 1)
+            {
+                characterState.AI_Target = playerCharacterStates[i];
+                hasTarget = true;
+                characterStateMachine.ChangeState(characterState.state_Attack);
+                break;
+            }
+            else
+            {
+                // Store the closest player character
+                if (pathfinder.path.Count < minDistance)
+                {
+                    minDistance = pathfinder.path.Count;
+                    characterState.AI_Target = playerCharacterStates[i];
+                }
+            }
+            #region old AI
+            /*
             float distance = (Mathf.Abs(Vector3.Distance(characterState.characterStats.gameObject.transform.position, playerCharacterStates[i].characterStats.gameObject.transform.position)));
             if (proximityRange > distance)
             {
@@ -66,6 +90,8 @@ public class AIState : IState
                     characterState.AI_Target = playerCharacterStates[i];
                 }
             }
+            */
+            #endregion
         }
 
         // If Player is not in AttackRange: Move towards nearest Player

@@ -47,36 +47,48 @@ public class Attack : IState
     {
         Debug.Log("Executing attack state, **ADD FUNC.**");
         //TODO: do attacking function here!
-
-        Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log("WorldFromScreen: " + worldFromScreen);
-
-        RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
-
-        if (hit.collider != null)
+        if (characterState.characterStats.isEnemy)
         {
-            Tile a_Tile = TileManager.Instance.GetTileFromWorldPosition(worldFromScreen);
+            // TODO: Enemy Attack
+            battleManager.AttackCharacter(characterState, characterState.AI_Target);
+            characterState.characterStats.IsAttacking();
+            characterState.AI_Target.characterStats.WasHit();
+            isDone = true;
+        }
+        else
+        {
+            Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //Debug.Log("WorldFromScreen: " + worldFromScreen);
 
-            if (a_Tile.hasCharacter)
+            RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
+
+            if (hit.collider != null)
             {
-                if (a_Tile.characterState.characterStats.isEnemy)
+                Tile a_Tile = TileManager.Instance.GetTileFromWorldPosition(worldFromScreen);
+
+                if (a_Tile.hasCharacter)
                 {
-                    Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
-                    Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
-
-                    // Pathfind to them to determine distance
-                    if (worldToCell != null || testPoint != null)
+                    if (a_Tile.characterState.characterStats.isEnemy)
                     {
-                        pathfinder.FindPath(testPoint);
-                    }
+                        Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+                        Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
 
-                    if (pathfinder.path.Count == 1f) // TODO: Script a attack range variable
-                    {
-                        battleManager.AttackCharacter(characterState, a_Tile.characterState);
+                        // Pathfind to them to determine distance
+                        if (worldToCell != null || testPoint != null)
+                        {
+                            pathfinder.FindPath(testPoint);
+                        }
+                        // TODO: Input not registering -- Not checking enough?
+                        if (pathfinder.path.Count == 1f && Input.GetMouseButtonUp(0)) // TODO: Script a attack range variable/Get from characterStats
+                        {
+                            battleManager.AttackCharacter(characterState, a_Tile.characterState);
+                            isDone = true;
+                        }
                     }
                 }
             }
         }
+        
 
         if (isDone)
         {

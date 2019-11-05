@@ -41,7 +41,7 @@ public class BattleManager : MonoBehaviour
     public List<CharacterStats> characterStats;
     public List<CharacterState> characterStates;
 
-    public List<CharacterState> characterStates;
+    public List<CharacterState> characterStates_Enemy;
 
     public int turnCount = 0;
 
@@ -62,6 +62,7 @@ public class BattleManager : MonoBehaviour
     {
         battleStateMachine = new BattleStateMachine();
         characterStates = new List<CharacterState>();
+        characterStates_Enemy = new List<CharacterState>();
 
         // Create Characters
         for (int i = 0; i < characterStats.Count; i++)
@@ -132,6 +133,11 @@ public class BattleManager : MonoBehaviour
         CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
         a_CharacterStat.Name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
         characterStates.Add(a_CState);
+        if (a_CState.characterStats.isEnemy)
+        {
+            characterStates_Enemy.Add(a_CState);
+        }
+
         Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.Name);
     }
 
