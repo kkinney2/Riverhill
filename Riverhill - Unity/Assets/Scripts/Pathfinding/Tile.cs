@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour
     public GameObject tileHighlight_Negative;
 
     public bool hasCharacter = false;
-    public CharacterState character;
+    public CharacterState characterState;
 
     // Start is called before the first frame update
     void Start()

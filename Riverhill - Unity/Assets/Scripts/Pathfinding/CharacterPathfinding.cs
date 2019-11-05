@@ -33,7 +33,7 @@ public class CharacterPathfinding : MonoBehaviour
         StartCoroutine(Move_Coroutine());
     }
 
-    public void FindPath()
+    public void FindPath_AutoUseInput()
     {
         Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log("WorldFromScreen: " + worldFromScreen);
@@ -51,7 +51,7 @@ public class CharacterPathfinding : MonoBehaviour
             Debug.Log("Test Point: " + testPoint);
             */
 
-            if (worldToCell != null || testPoint != null || TileManager.Instance.TileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
+            if (worldToCell != null || testPoint != null || TileManager.Instance.GetTileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
             {
                 path = TileManager.Instance.FindPath(transform.position, testPoint);
             }
@@ -75,7 +75,7 @@ public class CharacterPathfinding : MonoBehaviour
         Debug.Log("Test Point: " + testPoint);
         */
 
-        if (worldToCell != null || testPoint != null || TileManager.Instance.TileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
+        if (worldToCell != null || testPoint != null || TileManager.Instance.GetTileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
         {
             path = TileManager.Instance.FindPath(transform.position, testPoint);
         }
@@ -110,7 +110,7 @@ public class CharacterPathfinding : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 Debug.Log("Mouse Click");
-                FindPath();
+                FindPath_AutoUseInput();
             }
             // TODO: Better polling numbers while waiting for user input?
             yield return new WaitForSeconds(0.001f);

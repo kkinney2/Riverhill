@@ -41,6 +41,8 @@ public class BattleManager : MonoBehaviour
     public List<CharacterStats> characterStats;
     public List<CharacterState> characterStates;
 
+    public List<CharacterState> characterStates;
+
     public int turnCount = 0;
 
     public Text turnText;
@@ -149,19 +151,19 @@ public class BattleManager : MonoBehaviour
             for (int i = 0; i < characterStates.Count; i++)
             {
                 // Update Tile location via TileManager
-                if (characterStates[i].localTile != TileManager.Instance.TileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position))
+                if (characterStates[i].localTile != TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position))
                 {
                     if (characterStates[i].localTile != null)
                     {
                         characterStates[i].localTile.hasCharacter = false;
-                        characterStates[i].localTile.character = null;
+                        characterStates[i].localTile.characterState = null;
                     }
 
                     //Debug.Log("UpdatingTile");
-                    characterStates[i].localTile = TileManager.Instance.TileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position);
+                    characterStates[i].localTile = TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position);
 
                     characterStates[i].localTile.hasCharacter = true;
-                    characterStates[i].localTile.character = characterStates[i];
+                    characterStates[i].localTile.characterState = characterStates[i];
                 }
             }
             yield return new WaitForSeconds(1f / GameSettings.Instance.FramerateTarget);

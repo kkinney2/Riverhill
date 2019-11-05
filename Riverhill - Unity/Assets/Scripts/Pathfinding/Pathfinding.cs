@@ -55,8 +55,8 @@ public class Pathfinding {
 
     public List<Tile> FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
     {
-        Tile StartTile = TileManager.Instance.TileFromWorldPosition(a_StartPos);
-        Tile TargetTile = TileManager.Instance.TileFromWorldPosition(a_TargetPos);
+        Tile StartTile = TileManager.Instance.GetTileFromWorldPosition(a_StartPos);
+        Tile TargetTile = TileManager.Instance.GetTileFromWorldPosition(a_TargetPos);
 
         List<Tile> OpenList = new List<Tile>();
         HashSet<Tile> ClosedList = new HashSet<Tile>();

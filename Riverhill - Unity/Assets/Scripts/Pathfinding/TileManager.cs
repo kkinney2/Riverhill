@@ -119,7 +119,7 @@ public class TileManager : MonoBehaviour
         return tiles[a_Cell.x + gridSize.x, a_Cell.y + gridSize.y];
     }
 
-    public Tile TileFromWorldPosition(Vector3 a_WorldPosition)
+    public Tile GetTileFromWorldPosition(Vector3 a_WorldPosition)
     {
         Vector3Int cellPos = grid.WorldToCell(a_WorldPosition);
         return GetTile(new Vector2Int(cellPos.x, cellPos.y));

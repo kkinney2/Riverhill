@@ -18,7 +18,7 @@ public class Attack : IState
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
 
-        pathfinder = characterState.character.gameObject.GetComponent<CharacterPathfinding>();
+        pathfinder = characterState.pathfinder;
     }
 
     /*
@@ -39,7 +39,7 @@ public class Attack : IState
     {
         Debug.Log("Entering attack state"); //success!
         battleManager = BattleManager.Instance;
-        
+
         characterState.hasActiveAction = true;
     }
 
@@ -48,23 +48,41 @@ public class Attack : IState
         Debug.Log("Executing attack state, **ADD FUNC.**");
         //TODO: do attacking function here!
 
+        Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Debug.Log("WorldFromScreen: " + worldFromScreen);
+
+        RaycastHit2D hit = Physics2D.Raycast(worldFromScreen, Camera.main.transform.TransformDirection(Vector3.forward), 100);
+
+        if (hit.collider != null)
+        {
+            Tile a_Tile = TileManager.Instance.GetTileFromWorldPosition(worldFromScreen);
+
+            if (a_Tile.hasCharacter)
+            {
+                if (a_Tile.characterState.characterStats.isEnemy)
+                {
+                    Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(hit.point.x, hit.point.y, 0)));
+                    Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
+
+                    // Pathfind to them to determine distance
+                    if (worldToCell != null || testPoint != null)
+                    {
+                        pathfinder.FindPath(testPoint);
+                    }
+
+                    if (pathfinder.path.Count == 1f) // TODO: Script a attack range variable
+                    {
+                        battleManager.AttackCharacter(characterState, a_Tile.characterState);
+                    }
+                }
+            }
+        }
+
         if (isDone)
         {
             characterState.actionCount = (characterState.actionCount + 2); //inc. actionCount, by two to avoid multi-attack selections per turn //success!
             characterStateMachine.ChangeState(characterState.state_Idle);
         }
-
-        /*
-        Debug.Log("Executing Attack");
-        //perform attack here, add functionality later on
-
-        //increase actionCount, maybe by 2 to prevent acting again after attacking?
-        battleManager.actionCount = (battleManager.actionCount) + 2;
-        Exit();
-        */
-
-
-        //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
     }
 
     public void Exit()
@@ -74,3 +92,4 @@ public class Attack : IState
         isDone = false;
     }
 }
+

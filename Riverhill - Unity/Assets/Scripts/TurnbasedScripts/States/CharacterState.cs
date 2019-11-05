@@ -12,6 +12,8 @@ public class CharacterState : IState
 
     BattleManager battleManager;
 
+    public CharacterPathfinding pathfinder;
+
     IState state_CharacterAction;
 
     public Idle state_Idle;
@@ -51,6 +53,8 @@ public class CharacterState : IState
         }
 
         battleStateMachine = new BattleStateMachine();
+
+        pathfinder = character.gameObject.GetComponent<CharacterPathfinding>();
 
         if (!characterStats.isEnemy)
         {
