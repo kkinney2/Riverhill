@@ -29,10 +29,11 @@ public class SpriteLayering : MonoBehaviour
     void Update()
     {
         float sum = 0;
+        int obstacles_OrderLayer = 0;
         for (int i = 0; i < spriteRenderers.Count; i++)
         {
-            spriteRenderers[i].sortingOrder = (int)(spriteRenderers[i].gameObject.transform.position.y * 100); // 100 helps to round decimal places
-            sum += (int)(spriteRenderers[i].gameObject.transform.position.y * 100);
+            //spriteRenderers[i].sortingOrder = (int)(spriteRenderers[i].gameObject.transform.position.y * -100); // 100 helps to round decimal places
+            //sum += (int)(spriteRenderers[i].gameObject.transform.position.y * -100);
         }
 
         float avg = sum / spriteRenderers.Count;
@@ -42,17 +43,17 @@ public class SpriteLayering : MonoBehaviour
             if (tilemapRenderers[i].gameObject.name == "Ground")
             {
                 //tilemapRenderers[i].sortingOrder = int.MinValue;
-                tilemapRenderers[i].sortingOrder = -13824;
+                //tilemapRenderers[i].sortingOrder = -13824;
             }
 
             if (tilemapRenderers[i].gameObject.name == "Obstacles")
             {
-                tilemapRenderers[i].sortingOrder = (int)avg;
+                //tilemapRenderers[i].sortingOrder = (int)avg;
             }
 
             if (tilemapRenderers[i].gameObject.name == "Unwalkable")
             {
-                tilemapRenderers[i].sortingOrder = -13824;
+                //tilemapRenderers[i].sortingOrder = -13824;
             }
         }
     }

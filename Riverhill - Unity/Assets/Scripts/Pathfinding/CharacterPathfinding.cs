@@ -158,6 +158,7 @@ public class CharacterPathfinding : MonoBehaviour
             }
 
             while (Vector3.Distance(transform.position, target.position) > 0.001f)
+            //while ((transform.position.x - target.position.x) > 0.001f && (transform.position.y - target.position.y) > 0.001f)
             {
                 // Move our position a step closer to the target.
                 float step = speed * Time.deltaTime; // calculate distance to move
@@ -190,6 +191,7 @@ public class CharacterPathfinding : MonoBehaviour
                 characterSound.Play();
 
                 transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+                //transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), step);
 
                 yield return new WaitForFixedUpdate();
             }
