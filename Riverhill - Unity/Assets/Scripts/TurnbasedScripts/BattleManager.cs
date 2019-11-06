@@ -176,6 +176,7 @@ public class BattleManager : MonoBehaviour
         while (true)
         {
             #region Player Turn
+            Debug.Log("Player count: " + characterStates_Player.Count);
             for (int i = 0; i < characterStates_Player.Count; i++)
             {
                 if (characterStates_Player[i].characterStats.CurrentHP <= 0f)
