@@ -26,7 +26,7 @@ public class CharacterStats : MonoBehaviour
 
     private void Start()
     {
-        CurrentHP = BaseHP;
+        ResetHealth();
 
         #region Animations
         animator = gameObject.GetComponent<Animator>();
@@ -56,6 +56,11 @@ public class CharacterStats : MonoBehaviour
         {
             IsDead();
         }
+    }
+
+    public void ResetHealth()
+    {
+        CurrentHP = BaseHP;
     }
 
     public void IsHealing()
