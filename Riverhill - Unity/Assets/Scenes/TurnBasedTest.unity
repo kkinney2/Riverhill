@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1411335521}
   gridSize: {x: 20, y: 20}
+  tilesHighlights: {fileID: 0}
   tilesList: []
 --- !u!4 &93919224
 Transform:
@@ -233,6 +234,8 @@ MonoBehaviour:
   characterStats:
   - {fileID: 394065452}
   - {fileID: 613895692}
+  environment: {fileID: 0}
+  levelConditions: {fileID: 0}
   turnCount: 0
   turnText: {fileID: 512794680}
   nextCharacter: 0
@@ -2902,6 +2905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2072256811}
   - component: {fileID: 2072256812}
+  - component: {fileID: 2072256813}
   m_Layer: 0
   m_Name: GameSettings
   m_TagString: Untagged
@@ -2943,6 +2947,24 @@ MonoBehaviour:
     type: 3}
   tileHighlight_Negative: {fileID: 1338498439852372794, guid: e9b7c9c740defef42a4276fb7542a2ed,
     type: 3}
+--- !u!114 &2072256813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072256810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea604bdf787d404da0a21cba58459ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: 
+  tutorial_firstAttack: 0
+  tutorial_firstMovement: 0
+  tutorial_firstWasHit: 0
+  tutorial_DayanaDies: 0
+  tutorial_AlyssDies: 0
 --- !u!1 &4261429118425795852
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class TextDisplayer : MonoBehaviour
     {
         textBox = GetComponent<Text>();
 
-        fullText = textBox.text;   
+        fullText = textBox.text;
         displayedText = "";
     }
 
@@ -31,7 +31,10 @@ public class TextDisplayer : MonoBehaviour
     private void OnDisable()
     {
         StopCoroutine(DisplayText());
-        textBox.text = "";
+        if (textBox != null)
+        {
+            textBox.text = "";
+        }
     }
 
     IEnumerator DisplayText()

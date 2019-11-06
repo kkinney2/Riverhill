@@ -41,12 +41,23 @@ public class Attack : IState
         battleManager = BattleManager.Instance;
 
         characterState.hasActiveAction = true;
+        if (!characterState.characterStats.isEnemy)
+        {
+            for (int i = 0; i < battleManager.characterStates_Enemy.Count; i++)
+            {
+                pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.gameObject.transform.position);
+                if (pathfinder.path.Count == 1)
+                {
+                    TileManager.Instance.GetTileFromWorldPosition(battleManager.characterStates_Enemy[i].character.gameObject.transform.position).tileHighlight_Negative.SetActive(true);
+                }
+            }
+        }
+        
     }
 
     public void Execute()
     {
-        Debug.Log("Executing attack state, **ADD FUNC.**");
-        //TODO: do attacking function here!
+        Debug.Log("Executing attack state");
         if (characterState.characterStats.isEnemy)
         {
             // TODO: Enemy Attack
@@ -68,7 +79,7 @@ public class Attack : IState
                     Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
 
                     Tile a_Tile = TileManager.Instance.GetTileFromWorldPosition((new Vector3(hit.point.x, hit.point.y, 0)));
-                    if (a_Tile.hasCharacter || a_Tile != null)
+                    if (a_Tile.hasCharacter || a_Tile != null || a_Tile.characterState != null)
                     {
                         if (a_Tile.characterState.characterStats.isEnemy)
                         {
@@ -103,6 +114,11 @@ public class Attack : IState
         Debug.Log("Exiting Attack State");
         characterState.hasActiveAction = false;
         isDone = false;
+
+        for (int i = 0; i < TileManager.Instance.tilesList.Count; i++)
+        {
+            TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+        }
     }
 }
 

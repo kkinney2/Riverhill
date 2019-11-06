@@ -2116,7 +2116,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -2181,7 +2181,7 @@ PrefabInstance:
     - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: SceneName
-      value: 'Tutorial - player moves '
+      value: Tutorial - player moves
       objectReference: {fileID: 0}
     - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -6515,16 +6515,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_Text
       value: "\u201CWatch your tongue. Be thankful I am allowing you to keep your
         title.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea46e128d2a5e8488b8d231ca8f13cb, type: 3}
@@ -6664,16 +6664,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_Text
       value: "\u201CI am simply doing what is right for the kingdom. This is the will
         of the people.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea46e128d2a5e8488b8d231ca8f13cb, type: 3}
@@ -7246,7 +7246,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -7616,16 +7616,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_Text
       value: "\u201CA divided throne is of no use to the people. We must be united
         as one. I suspect your brother,then, hasn\u2019t told you what he told me?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea46e128d2a5e8488b8d231ca8f13cb, type: 3}
@@ -12656,8 +12656,8 @@ MonoBehaviour:
   - {fileID: 810978338}
   - {fileID: 1603277505}
   hasActiveCutscene: 0
-  TestScene: {fileID: 1670891051}
-  isTestingScene: 1
+  TestScene: {fileID: 810978338}
+  isTestingScene: 0
 --- !u!1 &897473380 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
@@ -14903,7 +14903,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -14968,7 +14968,7 @@ PrefabInstance:
     - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: SceneName
-      value: 'Tutorial - player hits Dayana '
+      value: Tutorial - player hits Dayana
       objectReference: {fileID: 0}
     - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -17641,15 +17641,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_Text
       value: "\u201CWouldn\u2019t have wanted what, my dear?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661426357466159984, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea46e128d2a5e8488b8d231ca8f13cb, type: 3}
@@ -18030,7 +18030,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -20580,7 +20580,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -22781,11 +22781,11 @@ GameObject:
   - component: {fileID: 1690935393}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1690935393
 AudioListener:
   m_ObjectHideFlags: 0
@@ -22793,7 +22793,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690935392}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1690935394
 Camera:
   m_ObjectHideFlags: 0
@@ -23308,7 +23308,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -24160,7 +24160,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -29006,7 +29006,7 @@ PrefabInstance:
     - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}

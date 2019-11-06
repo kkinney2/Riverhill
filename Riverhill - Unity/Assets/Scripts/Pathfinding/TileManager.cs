@@ -28,6 +28,8 @@ public class TileManager : MonoBehaviour
 
     public Tile[,] tiles;
 
+    public GameObject tilesHighlights;
+
     public List<GameObject> tilesList;
     GameObject tilesParent;
 
@@ -36,6 +38,11 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (tilesHighlights == null)
+        {
+            tilesHighlights = new GameObject();
+            tilesHighlights.name = "Tile Highlights";
+        }
 
         if (gridSize.x == 0 || gridSize.y == 0)
         {

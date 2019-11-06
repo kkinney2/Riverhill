@@ -31,6 +31,9 @@ public class Tile : MonoBehaviour
         tileHighlight_Positive = Instantiate(GameSettings.Instance.tileHighlight_Positive);
         tileHighlight_Negative = Instantiate(GameSettings.Instance.tileHighlight_Negative);
 
+        tileHighlight_Positive.transform.SetParent(TileManager.Instance.tilesHighlights.transform);
+        tileHighlight_Negative.transform.SetParent(TileManager.Instance.tilesHighlights.transform);
+
         tileHighlight_Positive.transform.position = transform.position;
         tileHighlight_Negative.transform.position = transform.position;
 

@@ -38,9 +38,9 @@ public class ActionSelect : IState
 
         //attempting tracking enemy position and determining when attack is possible
         //there's probably a better way to do this/cleaner way to code it... whoops :-)
-        player = GameObject.FindGameObjectWithTag("Player"); //get player
-        enemy = GameObject.FindGameObjectWithTag("Enemy"); //get enemy
-        Debug.Log("Enemy pos: " + enemy.transform.position); //tracking enemy pos., using this info for finding when attack is possible
+        //player = GameObject.FindGameObjectWithTag("Player"); //get player
+        //enemy = GameObject.FindGameObjectWithTag("Enemy"); //get enemy
+        //Debug.Log("Enemy pos: " + enemy.transform.position); //tracking enemy pos., using this info for finding when attack is possible
 
         Debug.Log("Entering ActionSelect state");
         Debug.Log("actionCount: " + characterState.actionCount);
@@ -135,17 +135,17 @@ public class ActionSelect : IState
 
     }
 
+    public void Exit()
+    {
+        Debug.Log("Exiting ActionSelect state");
+        ResetSelected();
+    }
+
     private void ResetSelected()
     {
         characterState.moveSelected = false;
         characterState.attackSelected = false;
         characterState.specialSelected = false;
         characterState.endTurnSelected = false;
-    }
-
-    public void Exit()
-    {
-        Debug.Log("Exiting ActionSelect state");
-        ResetSelected();
     }
 }
