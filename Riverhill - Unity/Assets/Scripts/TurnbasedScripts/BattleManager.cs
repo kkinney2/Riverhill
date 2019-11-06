@@ -157,7 +157,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator TurnSequence()
     {
-        yield return new WaitUntil(() => characterStates[characterStates.Count - 1].characterStats.CurrentHP > 0); // WaitUntil nextCharacter == true
+        yield return new WaitUntil(() => characterStates[characterStates.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
         levelConditions.levelName = environment.name;
 
         Debug.Log("Turn Sequence Started");
