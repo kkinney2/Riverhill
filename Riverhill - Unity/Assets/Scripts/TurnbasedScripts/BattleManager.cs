@@ -44,8 +44,10 @@ public class BattleManager : MonoBehaviour
     public List<CharacterState> characterStates_Enemy;
     public List<CharacterState> characterStates_Player;
 
-    public GameObject environment;
+    public Level[] levels;
+    public int currentLevel = 0;
     public LevelConditions levelConditions;
+    public bool isLevelLoaded = false;
 
     public int turnCount = 0;
 
@@ -87,6 +89,8 @@ public class BattleManager : MonoBehaviour
 
         turnCount++; //inc. turn count on start, starts @ 1, player turn
         //Debug.Log(turnCount);
+
+        LoadNextLevel();
 
         StartCoroutine(UpdateTiles());
         StartCoroutine(TurnSequence());
@@ -158,7 +162,8 @@ public class BattleManager : MonoBehaviour
     IEnumerator TurnSequence()
     {
         yield return new WaitUntil(() => characterStates[characterStates.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
-        levelConditions.levelName = environment.name;
+        yield return new WaitUntil(() => isLevelLoaded == true);
+        levelConditions.levelName = levels[currentLevel].name;
 
         Debug.Log("Turn Sequence Started");
         while (true)
@@ -245,6 +250,9 @@ public class BattleManager : MonoBehaviour
             if (!hasPlayableEnemy)
             {
                 Debug.Log("CONGRATS");
+
+                LoadNextLevel();
+                StartCoroutine(TurnSequence());
                 break;
             }
             nextCharacter = false;
@@ -252,9 +260,9 @@ public class BattleManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        Debug.Log("TurnSequence Exiting");
+        //Debug.Log("TurnSequence Exiting");
 
-        //yield return null;
+        yield break;
     }
 
     public void CreateCharacter(CharacterStats a_CharacterStat)
@@ -328,6 +336,23 @@ public class BattleManager : MonoBehaviour
         attacker.characterStats.IsAttacking();
         yield return new WaitForSeconds(1f);
         defender.characterStats.WasHit();
+    }
+
+    public void LoadNextLevel()
+    {
+        isLevelLoaded = false;
+
+        levels[currentLevel].Load();
+        if (currentLevel > 0)
+        {
+            levels[currentLevel - 1].Unload();
+        }
+
+
+        for (int i = 0; i < characterStates_Player.Count; i++)
+        {
+            characterStates_Player[i].characterStats.ResetHealth();
+        }
     }
 }
 

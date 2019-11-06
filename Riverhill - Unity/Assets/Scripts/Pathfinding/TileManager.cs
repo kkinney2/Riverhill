@@ -55,14 +55,19 @@ public class TileManager : MonoBehaviour
 
         pathfinder = new Pathfinding();
 
-        StartCoroutine(Setup());
-        StartCoroutine(FindNeighbors());
+        Reset();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void Reset()
+    {
+        StartCoroutine(Setup());
+        StartCoroutine(FindNeighbors());
     }
 
     void OnDrawGizmosSelected()

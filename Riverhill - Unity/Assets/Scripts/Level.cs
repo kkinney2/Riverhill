@@ -10,26 +10,37 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
+        /*
+        gameObject.SetActive(false);
         Grid_Tile.gameObject.SetActive(false);
         Grid_Obstacles.gameObject.SetActive(false);
         Grid_Unwalkable.gameObject.SetActive(false);
+        */
     }
 
     public void Load()
     {
-        StartCoroutine(LoadLevel());
+        StartCoroutine(LoadLevel(true));
     }
 
-    IEnumerator LoadLevel()
+    public void Unload()
     {
-        Grid_Tile.gameObject.SetActive(true);
-        yield return new WaitUntil(() => Grid_Tile.gameObject.activeSelf == true); 
+        StartCoroutine(LoadLevel(false));
+    }
 
-        Grid_Obstacles.gameObject.SetActive(true);
-        yield return new WaitUntil(() => Grid_Obstacles.gameObject.activeSelf == true);
+    IEnumerator LoadLevel(bool toggle)
+    {
+        Grid_Tile.gameObject.SetActive(toggle);
+        yield return new WaitUntil(() => Grid_Tile.gameObject.activeSelf == toggle); 
 
-        Grid_Unwalkable.gameObject.SetActive(true);
-        yield return new WaitUntil(() => Grid_Unwalkable.gameObject.activeSelf == true);
+        Grid_Obstacles.gameObject.SetActive(toggle);
+        yield return new WaitUntil(() => Grid_Obstacles.gameObject.activeSelf == toggle);
+
+        Grid_Unwalkable.gameObject.SetActive(toggle);
+        yield return new WaitUntil(() => Grid_Unwalkable.gameObject.activeSelf == toggle);
+
+        TileManager.Instance.Reset();
+        BattleManager.Instance.isLevelLoaded = true;
 
         yield break;
     }

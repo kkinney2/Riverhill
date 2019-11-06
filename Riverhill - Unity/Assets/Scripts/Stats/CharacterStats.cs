@@ -41,7 +41,7 @@ public class CharacterStats : MonoBehaviour
         {
             if (clip.name == name + "_Dies")
             {
-                Debug.Log(clip.length);
+                //Debug.Log(clip.length);
                 deathPlayTime = clip.length;
             }
         }
