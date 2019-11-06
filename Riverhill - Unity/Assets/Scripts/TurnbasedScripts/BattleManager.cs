@@ -161,9 +161,9 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator TurnSequence()
     {
-        yield return new WaitUntil(() => characterStates[characterStates.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
+        yield return new WaitUntil(() => characterStates_Player[characterStates_Player.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
         yield return new WaitUntil(() => isLevelLoaded == true);
-        levelConditions.levelName = levels[currentLevel].name;
+        levelConditions.levelName = levels[currentLevel - 1].name;
 
         Debug.Log("Turn Sequence Started");
         while (true)
@@ -342,12 +342,13 @@ public class BattleManager : MonoBehaviour
     {
         isLevelLoaded = false;
 
-        levels[currentLevel].Load();
-        if (currentLevel > 0)
-        {
-            levels[currentLevel - 1].Unload();
-        }
+        currentLevel++;
 
+        if (currentLevel > 1)
+        {
+            levels[currentLevel - 2].Unload();
+        }
+        levels[currentLevel - 1].Load();
 
         for (int i = 0; i < characterStates_Player.Count; i++)
         {
