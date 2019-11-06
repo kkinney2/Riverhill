@@ -77,13 +77,8 @@ public class BattleManager : MonoBehaviour
         levelConditions = GameSettings.Instance.gameObject.GetComponent<LevelConditions>();
 
         // Create Characters
-        for (int i = 0; i < characterStats.Count; i++)
-        {
-            CreateCharacter(characterStats[i]);
-        }
-        Debug.Log("***Characters Created***");
+        StartCoroutine(CreateCharacters());
 
-        //TODO: Character UI Generate
         GenerateCharacterUI();
         Debug.Log("***CharacterUI Created***");
 
@@ -94,6 +89,17 @@ public class BattleManager : MonoBehaviour
 
         StartCoroutine(UpdateTiles());
         StartCoroutine(TurnSequence());
+    }
+
+    IEnumerator CreateCharacters()
+    {
+        yield return new WaitForEndOfFrame();
+        for (int i = 0; i < characterStats.Count; i++)
+        {
+            CreateCharacter(characterStats[i]);
+        }
+        Debug.Log("***Characters Created***");
+        yield break;
     }
 
 
@@ -161,6 +167,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator TurnSequence()
     {
+        yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => characterStates_Player[characterStates_Player.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
         yield return new WaitUntil(() => isLevelLoaded == true);
         levelConditions.levelName = levels[currentLevel - 1].name;
