@@ -233,6 +233,7 @@ MonoBehaviour:
   prefab_CharacterUI: {fileID: 8653099306592415916, guid: 5a01056e15610294d88f9196d49d5cc7,
     type: 3}
   characterStats: []
+  spriteLayering: {fileID: 2072256814}
   levels:
   - {fileID: 4261429118425795854}
   - {fileID: 2231777635083834124}
@@ -844,7 +845,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 578
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 3.13, y: 2.64, z: 0}
   m_MaxChunkCount: 16
@@ -4617,6 +4618,7 @@ GameObject:
   - component: {fileID: 2072256811}
   - component: {fileID: 2072256812}
   - component: {fileID: 2072256813}
+  - component: {fileID: 2072256814}
   m_Layer: 0
   m_Name: GameSettings
   m_TagString: Untagged
@@ -4676,6 +4678,21 @@ MonoBehaviour:
   tutorial_firstWasHit: 0
   tutorial_DayanaDies: 0
   tutorial_AlyssDies: 0
+--- !u!114 &2072256814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072256810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a9cb3f33206a84da60af806a99495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsWithRenderer: []
+  spriteRenderers: []
+  tilemapRenderers: []
 --- !u!1 &2231777635083834123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4708,6 +4725,7 @@ MonoBehaviour:
   Grid_Tile: {fileID: 2231777635509604434}
   Grid_Obstacles: {fileID: 2231777635305784428}
   Grid_Unwalkable: {fileID: 618128382}
+  spriteLayering: {fileID: 0}
 --- !u!4 &2231777635083834356
 Transform:
   m_ObjectHideFlags: 0
@@ -8909,6 +8927,7 @@ MonoBehaviour:
   Grid_Tile: {fileID: 4261429119365732646}
   Grid_Obstacles: {fileID: 4261429119125097891}
   Grid_Unwalkable: {fileID: 1505303767}
+  spriteLayering: {fileID: 0}
 --- !u!19719996 &4261429119085230544
 TilemapCollider2D:
   m_ObjectHideFlags: 0

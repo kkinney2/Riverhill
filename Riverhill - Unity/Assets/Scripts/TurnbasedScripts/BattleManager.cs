@@ -44,6 +44,8 @@ public class BattleManager : MonoBehaviour
     public List<CharacterState> characterStates_Enemy;
     public List<CharacterState> characterStates_Player;
 
+    public SpriteLayering spriteLayering;
+
     public Level[] levels;
     public int currentLevel = 0;
     public LevelConditions levelConditions;

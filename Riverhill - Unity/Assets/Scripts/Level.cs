@@ -8,8 +8,11 @@ public class Level : MonoBehaviour
     public GameObject Grid_Obstacles;
     public GameObject Grid_Unwalkable;
 
+    public SpriteLayering spriteLayering;
+
     private void Start()
     {
+        spriteLayering = BattleManager.Instance.spriteLayering;
         /*
         gameObject.SetActive(false);
         Grid_Tile.gameObject.SetActive(false);
@@ -39,6 +42,7 @@ public class Level : MonoBehaviour
         Grid_Unwalkable.gameObject.SetActive(toggle);
         yield return new WaitUntil(() => Grid_Unwalkable.gameObject.activeSelf == toggle);
 
+        spriteLayering.UpdateReferences();
         TileManager.Instance.Reset();
         BattleManager.Instance.isLevelLoaded = true;
 
