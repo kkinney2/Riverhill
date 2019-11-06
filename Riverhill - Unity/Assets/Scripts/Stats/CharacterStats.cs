@@ -26,6 +26,8 @@ public class CharacterStats : MonoBehaviour
 
     private void Start()
     {
+        BattleManager.Instance.characterStats.Add(this);
+
         ResetHealth();
 
         #region Animations
