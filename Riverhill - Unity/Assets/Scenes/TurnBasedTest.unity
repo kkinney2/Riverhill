@@ -2468,21 +2468,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: BaseHP
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: attack
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: deathPlayTime
-      value: 0.583
-      objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2541,7 +2526,22 @@ PrefabInstance:
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: BaseHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: attack
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: deathPlayTime
+      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -2557,6 +2557,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
