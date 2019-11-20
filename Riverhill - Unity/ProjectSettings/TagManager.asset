@@ -8,6 +8,8 @@ TagManager:
   - Frame
   - Tilemap
   - P1AttackButton
+  - Spawn_Player
+  - SpawnEnemy
   layers:
   - Default
   - TransparentFX
