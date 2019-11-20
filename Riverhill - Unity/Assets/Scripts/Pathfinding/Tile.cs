@@ -31,20 +31,26 @@ public class Tile : MonoBehaviour
         tileHighlight_Positive = Instantiate(GameSettings.Instance.tileHighlight_Positive);
         tileHighlight_Negative = Instantiate(GameSettings.Instance.tileHighlight_Negative);
 
+        tileHighlight_Positive.tag = "TileHighlight";
+        tileHighlight_Negative.tag = "TileHighlight";
+
         tileHighlight_Positive.transform.SetParent(TileManager.Instance.tilesHighlights.transform);
         tileHighlight_Negative.transform.SetParent(TileManager.Instance.tilesHighlights.transform);
 
         tileHighlight_Positive.transform.position = transform.position;
         tileHighlight_Negative.transform.position = transform.position;
 
-        tileHighlight_Positive.SetActive(false);
-        tileHighlight_Negative.SetActive(false);
+        //tileHighlight_Positive.SetActive(false);
+        //tileHighlight_Negative.SetActive(false);
+
+        tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = false;
+        tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnDrawGizmosSelected()

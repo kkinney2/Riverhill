@@ -439,7 +439,7 @@ PrefabInstance:
     - target: {fileID: 307183929201589479, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 307183929201589476, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
@@ -1707,7 +1707,7 @@ PrefabInstance:
     - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -4166,6 +4166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsWithRenderer: []
   spriteRenderers: []
+  characters: []
+  tileHighlights: []
 --- !u!1 &2231777635083834123
 GameObject:
   m_ObjectHideFlags: 0
@@ -9670,7 +9672,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 4.5, y: 7.5, z: 0}
   m_MaxChunkCount: 16

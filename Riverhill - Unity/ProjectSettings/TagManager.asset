@@ -10,6 +10,7 @@ TagManager:
   - P1AttackButton
   - Spawn_Player
   - SpawnEnemy
+  - TileHighlight
   layers:
   - Default
   - TransparentFX

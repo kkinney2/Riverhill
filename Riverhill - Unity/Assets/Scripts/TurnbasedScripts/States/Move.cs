@@ -46,22 +46,32 @@ public class Move : IState
                 #region Tile Highlighting
                 if (pathfinder.path.Count >= pathfinder.range.x) // If the path is longer than or equal to the min range
                 {
-                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(true);
-                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+                    //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(true);
+                    //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+
+                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = true;
+                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = false;
+
 
                     // Will toggle negative(red) when cursor is hovering
 
                     if (pathfinder.path.Count > pathfinder.range.y || TileManager.Instance.tilesList[i].GetComponent<Tile>().hasCharacter == true) // If the path is shorter than the max range OR if it has a character
                     {
-                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
-                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(true);
+                        //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
+                        //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(true);
+
+                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = false;
+                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = true;
                     }
 
                 }
                 else
                 {
-                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
-                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+                    //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
+                    //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+
+                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = false;
+                    TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = false;
                 }
                 #endregion
             }
@@ -150,8 +160,11 @@ public class Move : IState
         {
             for (int i = 0; i < TileManager.Instance.tilesList.Count; i++)
             {
-                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
-                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+                //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
+                //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+
+                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = false;
+                TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = false;
             }
         }
 
