@@ -48,7 +48,7 @@ public class Attack : IState
                 pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.gameObject.transform.position);
                 if (pathfinder.path.Count == 1)
                 {
-                    TileManager.Instance.GetTileFromWorldPosition(battleManager.characterStates_Enemy[i].character.gameObject.transform.position).tileHighlight_Negative.SetActive(true);
+                    TileManager.Instance.GetTileFromWorldPosition(battleManager.characterStates_Enemy[i].character.gameObject.transform.position).tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = true;
                 }
             }
         }
@@ -117,7 +117,7 @@ public class Attack : IState
 
         for (int i = 0; i < TileManager.Instance.tilesList.Count; i++)
         {
-            TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
+            TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }

@@ -8,6 +8,8 @@ public class SpriteLayering : MonoBehaviour
     public List<GameObject> objectsWithRenderer;
 
     public List<SpriteRenderer> spriteRenderers;
+    public List<SpriteRenderer> characters;
+    public List<SpriteRenderer> tileHighlights;
 
     Level currentLevel;
     Transform UpperBound;
@@ -34,6 +36,7 @@ public class SpriteLayering : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateReferences();
         for (int i = 0; i < spriteRenderers.Count; i++)
         {
             Vector3 currentPos = spriteRenderers[i].gameObject.transform.position;
@@ -45,38 +48,30 @@ public class SpriteLayering : MonoBehaviour
             spriteRenderers[i].gameObject.transform.position = currentPos;
         }
 
-        #region Tilemap Stuff
         /*
-        float sum = 0;
-        int obstacles_OrderLayer = 0;
-        for (int i = 0; i < spriteRenderers.Count; i++)
+        for (int i = 0; i < characters.Count; i++)
         {
-            //spriteRenderers[i].sortingOrder = (int)(spriteRenderers[i].gameObject.transform.position.y * -100); // 100 helps to round decimal places
-            //sum += (int)(spriteRenderers[i].gameObject.transform.position.y * -100);
+            Vector3 currentPos = characters[i].gameObject.transform.position;
+            // Percentage of the level's height
+            float heightPercentage = ((UpperBound.position.y - currentPos.y) / distBetweenUpperLower_Y);
+            float distFromUpper = heightPercentage * distBetweenUpperLower_Z;
+
+            currentPos = new Vector3(currentPos.x, currentPos.y, UpperBound.position.z - distFromUpper);
+            characters[i].gameObject.transform.position = currentPos;
         }
 
-        float avg = sum / spriteRenderers.Count;
-
-        for (int i = 0; i < tilemapRenderers.Count; i++)
+        /*
+        for (int i = 0; i < tileHighlights.Count; i++)
         {
-            if (tilemapRenderers[i].gameObject.name == "Ground")
-            {
-                //tilemapRenderers[i].sortingOrder = int.MinValue;
-                //tilemapRenderers[i].sortingOrder = -13824;
-            }
+            Vector3 currentPos = tileHighlights[i].gameObject.transform.position;
+            // Percentage of the level's height
+            float heightPercentage = ((UpperBound.position.y - currentPos.y) / distBetweenUpperLower_Y);
+            float distFromUpper = heightPercentage * distBetweenUpperLower_Z;
 
-            if (tilemapRenderers[i].gameObject.name == "Obstacles")
-            {
-                //tilemapRenderers[i].sortingOrder = (int)avg;
-            }
-
-            if (tilemapRenderers[i].gameObject.name == "Unwalkable")
-            {
-                //tilemapRenderers[i].sortingOrder = -13824;
-            }
+            currentPos = new Vector3(currentPos.x, currentPos.y, UpperBound.position.z - distFromUpper + 0.1f);
+            tileHighlights[i].gameObject.transform.position = currentPos;
         }
         */
-        #endregion
     }
 
     public void UpdateReferences()
@@ -97,6 +92,17 @@ public class SpriteLayering : MonoBehaviour
             if (obj.GetComponent<SpriteRenderer>() != null)
             {
                 spriteRenderers.Add(obj.GetComponent<SpriteRenderer>());
+
+                if (obj.CompareTag("Player") || obj.CompareTag("Enemy"))
+                {
+                    characters.Add(obj.GetComponent<SpriteRenderer>());
+                }
+                /*
+                else if(obj.CompareTag("TileHighlight"))
+                {
+                    tileHighlights.Add(obj.GetComponent<SpriteRenderer>());
+                }
+                */
                 continue;
             }
         }
