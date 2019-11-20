@@ -71,9 +71,9 @@ public class CharacterStats : MonoBehaviour
         healingAura_Anim.SetTrigger("isHealing");
     }
 
-    public void IsWalking()
+    public void IsWalking(bool set)
     {
-        animator.SetBool("isWalking", true);
+        animator.SetBool("isWalking", set);
     }
 
     public void IsAttacking()

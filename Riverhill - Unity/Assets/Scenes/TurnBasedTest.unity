@@ -10231,6 +10231,7 @@ GameObject:
   - component: {fileID: 4261429119085230546}
   - component: {fileID: 4261429119085230545}
   - component: {fileID: 4261429119085230544}
+  - component: {fileID: 4261429119085230560}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -10252,6 +10253,25 @@ Transform:
   m_Father: {fileID: 4261429119365732647}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4261429119085230560
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261429119085230558}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd1e7642ca449644a9fe6a555182bf0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4261429119125097891
 GameObject:
   m_ObjectHideFlags: 0

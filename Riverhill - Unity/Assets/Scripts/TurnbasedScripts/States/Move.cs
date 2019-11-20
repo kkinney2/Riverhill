@@ -17,6 +17,8 @@ public class Move : IState
     GameObject tileHighlight_Pos;
     GameObject tileHighlight_Neg;
 
+    Vector2 previousPos;
+
     public Move(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
@@ -72,10 +74,23 @@ public class Move : IState
             pathfinder.FindPath(characterState.AI_Target.characterStats.gameObject.transform.position);
             pathfinder.MoveAlongPath();
         }
+
+        previousPos = new Vector2(characterState.characterStats.gameObject.transform.position.x, characterState.characterStats.gameObject.transform.position.y);
     }
 
     public void Execute()
     {
+        if (previousPos != new Vector2(characterState.characterStats.gameObject.transform.position.x, characterState.characterStats.gameObject.transform.position.y))
+        {
+            characterState.characterStats.IsWalking(true);
+        }
+        else
+        {
+            characterState.characterStats.IsWalking(false);
+        }
+
+        previousPos = new Vector2(characterState.characterStats.gameObject.transform.position.x, characterState.characterStats.gameObject.transform.position.y);
+
         // TODO: Moving user input to here so that tile selection can be toggled here
         /*
         Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -110,9 +125,7 @@ public class Move : IState
                         pathfinder.MoveAlongPath();
                     }
                 }
-                
             }
-
         }
         */
         //Debug.Log("Move_Execute");
@@ -130,6 +143,8 @@ public class Move : IState
     public void Exit()
     {
         Debug.Log("Exiting Move State");
+
+        characterState.characterStats.IsWalking(false);
 
         if (!characterState.characterStats.isEnemy)
         {
