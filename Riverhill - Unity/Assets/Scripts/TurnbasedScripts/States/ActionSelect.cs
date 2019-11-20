@@ -91,6 +91,10 @@ public class ActionSelect : IState
             {
                 enemyInMAttackRange = true; // SIDENOTE: When I first read this, I read it as "enemy in MAH attack range" xD
             }
+            else
+            {
+                enemyInMAttackRange = false;
+            }
         }
 
         //If so-enable Attack button/make interactable
