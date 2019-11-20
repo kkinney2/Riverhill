@@ -351,6 +351,7 @@ public class BattleManager : MonoBehaviour
     public void LoadNextLevel()
     {
         isLevelLoaded = false;
+        spriteLayering.UpdateReferences();
 
         currentLevel++;
 

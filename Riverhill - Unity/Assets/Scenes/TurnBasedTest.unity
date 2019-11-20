@@ -845,13 +845,13 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 3.13, y: 2.64, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 1
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &634176287
@@ -1714,7 +1714,7 @@ GameObject:
   - component: {fileID: 1005111636}
   - component: {fileID: 1005111635}
   m_Layer: 2
-  m_Name: Cube
+  m_Name: Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2373,7 +2373,7 @@ GameObject:
   - component: {fileID: 1068351881}
   - component: {fileID: 1068351880}
   m_Layer: 2
-  m_Name: Cube (1)
+  m_Name: Lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2471,12 +2471,12 @@ PrefabInstance:
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.1
+      value: -16.06
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -9.98
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -2527,21 +2527,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: BaseHP
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: attack
-      value: 55
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: deathPlayTime
-      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -2613,6 +2598,21 @@ PrefabInstance:
       propertyPath: walkSound
       value: 
       objectReference: {fileID: 8300000, guid: dfdc0c68de7335a4b9d2555695d1f7b2, type: 3}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: BaseHP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: attack
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: deathPlayTime
+      value: 0.583
+      objectReference: {fileID: 0}
     - target: {fileID: 6574552586869157292, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_RootOrder
@@ -2754,14 +2754,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505303767}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.4186597, y: 0, z: 0, w: 0.9081432}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.65, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 634176284}
   m_Father: {fileID: 4261429118425795853}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 49.5, y: 0, z: 0}
 --- !u!156049354 &1505303769
 Grid:
   m_ObjectHideFlags: 0
@@ -4894,7 +4894,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsWithRenderer: []
   spriteRenderers: []
-  tilemapRenderers: []
 --- !u!1 &2231777635083834123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4927,7 +4926,8 @@ MonoBehaviour:
   Grid_Tile: {fileID: 2231777635509604434}
   Grid_Obstacles: {fileID: 2231777635305784428}
   Grid_Unwalkable: {fileID: 618128382}
-  spriteLayering: {fileID: 0}
+  UpperBound: {fileID: 0}
+  LowerBound: {fileID: 0}
 --- !u!4 &2231777635083834356
 Transform:
   m_ObjectHideFlags: 0
@@ -9129,7 +9129,8 @@ MonoBehaviour:
   Grid_Tile: {fileID: 4261429119365732646}
   Grid_Obstacles: {fileID: 4261429119125097891}
   Grid_Unwalkable: {fileID: 1505303767}
-  spriteLayering: {fileID: 0}
+  UpperBound: {fileID: 1005111634}
+  LowerBound: {fileID: 1068351879}
 --- !u!19719996 &4261429119085230544
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -9182,7 +9183,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 3.13, y: 2.64, z: 0}
   m_MaxChunkCount: 16

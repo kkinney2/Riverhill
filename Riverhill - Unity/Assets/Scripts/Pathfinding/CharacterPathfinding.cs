@@ -157,6 +157,88 @@ public class CharacterPathfinding : MonoBehaviour
                 continue;
             }
 
+            Vector3 zeroZ_TargetPos = new Vector3(target.position.x, target.position.y, transform.position.z);
+
+            while (Vector3.Distance(transform.position, zeroZ_TargetPos) > 0.001f)
+            //while ((transform.position.x - target.position.x) > 0.001f && (transform.position.y - target.position.y) > 0.001f)
+            {
+                // Move our position a step closer to the target.
+                float step = speed * Time.deltaTime; // calculate distance to move
+
+                //Adjust for sprite layering - Maintain Target, but allow for adjustment in the Z
+                zeroZ_TargetPos = new Vector3(target.position.x, target.position.y, transform.position.z);
+
+                #region Sprite Flipping
+                //if moving left, set movingLeft = true;
+                if (target.position.x < transform.position.x)
+                {
+                    movingLeft = true;
+                }
+                //if moving right, set movingRight = true;
+                if (target.position.x > transform.position.x)
+                {
+                    movingRight = true;
+                }
+                //WORKING WELL? flip sprite in direction of movement...
+                if (movingLeft == true)
+                {
+                    charSpriteRenderer.flipX = false;
+                    movingLeft = false;
+                }
+                if (movingRight == true)
+                {
+                    charSpriteRenderer.flipX = true;
+                    movingRight = false;
+                }
+                #endregion
+
+                characterSound.clip = walkSound;
+                characterSound.Play();
+
+                transform.position = Vector3.MoveTowards(transform.position, zeroZ_TargetPos, step);
+                //transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), step);
+
+                yield return new WaitForFixedUpdate();
+            }
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        path = new List<Tile>();
+        isDone = true;
+        yield break;
+    }
+
+    #region Old FollowPath()
+    /*
+    IEnumerator FollowPath()
+    {
+        if (path == null)
+        {
+            Debug.Log("FollowPath() has no path to follow");
+            yield break;
+        }
+
+        // Teleport to Position
+        //transform.position = path[path.Count - 1].transform.position;
+
+        // Travel towards Position
+
+        for (int i = 0; i < path.Count; i++)
+        {
+            if (i == range.y)
+            {
+                isDone = true;
+                break;
+            }
+            Transform target = path[i].transform;
+
+            // TODO: Cheap way of stopping characters from overlapping
+            if (TileManager.Instance.GetTileFromWorldPosition(target.position).hasCharacter)
+            {
+                continue;
+            }
+
             while (Vector3.Distance(transform.position, target.position) > 0.001f)
             //while ((transform.position.x - target.position.x) > 0.001f && (transform.position.y - target.position.y) > 0.001f)
             {
@@ -203,6 +285,8 @@ public class CharacterPathfinding : MonoBehaviour
         isDone = true;
         yield break;
     }
+    */
+    #endregion
 
     #endregion
 

@@ -8,7 +8,13 @@ public class SpriteLayering : MonoBehaviour
     public List<GameObject> objectsWithRenderer;
 
     public List<SpriteRenderer> spriteRenderers;
-    public List<TilemapRenderer> tilemapRenderers;
+
+    Level currentLevel;
+    Transform UpperBound;
+    Transform LowerBound;
+    float distBetweenUpperLower_Y;
+    float distBetweenUpperLower_Z;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +34,19 @@ public class SpriteLayering : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        for (int i = 0; i < spriteRenderers.Count; i++)
+        {
+            Vector3 currentPos = spriteRenderers[i].gameObject.transform.position;
+            // Percentage of the level's height
+            float heightPercentage = ((UpperBound.position.y - currentPos.y) / distBetweenUpperLower_Y);
+            float distFromUpper = heightPercentage * distBetweenUpperLower_Z;
+
+            currentPos = new Vector3(currentPos.x, currentPos.y, UpperBound.position.z - distFromUpper);
+            spriteRenderers[i].gameObject.transform.position = currentPos;
+        }
+
+        #region Tilemap Stuff
+        /*
         float sum = 0;
         int obstacles_OrderLayer = 0;
         for (int i = 0; i < spriteRenderers.Count; i++)
@@ -56,27 +75,28 @@ public class SpriteLayering : MonoBehaviour
                 //tilemapRenderers[i].sortingOrder = -13824;
             }
         }
+        */
+        #endregion
     }
 
     public void UpdateReferences()
     {
+        currentLevel = BattleManager.Instance.levels[BattleManager.Instance.currentLevel];
+
+        UpperBound = currentLevel.UpperBound;
+        LowerBound = currentLevel.LowerBound;
+        distBetweenUpperLower_Y = UpperBound.position.y - LowerBound.position.y;
+        distBetweenUpperLower_Z = UpperBound.position.z - LowerBound.position.z;
+
         objectsWithRenderer = new List<GameObject>();
         spriteRenderers = new List<SpriteRenderer>();
-        tilemapRenderers = new List<TilemapRenderer>();
 
         GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
         foreach (GameObject obj in allObjects)
         {
-
             if (obj.GetComponent<SpriteRenderer>() != null)
             {
                 spriteRenderers.Add(obj.GetComponent<SpriteRenderer>());
-                continue;
-            }
-
-            if (obj.GetComponent<TilemapRenderer>() != null)
-            {
-                tilemapRenderers.Add(obj.GetComponent<TilemapRenderer>());
                 continue;
             }
         }
