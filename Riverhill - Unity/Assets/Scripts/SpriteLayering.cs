@@ -76,7 +76,7 @@ public class SpriteLayering : MonoBehaviour
 
     public void UpdateReferences()
     {
-        currentLevel = BattleManager.Instance.levels[BattleManager.Instance.currentLevel];
+        currentLevel = BattleManager.Instance.currentLevel;
 
         UpperBound = currentLevel.UpperBound;
         LowerBound = currentLevel.LowerBound;

@@ -46,8 +46,7 @@ public class BattleManager : MonoBehaviour
 
     public SpriteLayering spriteLayering;
 
-    public Level[] levels;
-    public int currentLevel = 0;
+    public Level currentLevel;
     public LevelConditions levelConditions;
     public bool isLevelLoaded = false;
 
@@ -87,7 +86,7 @@ public class BattleManager : MonoBehaviour
         turnCount++; //inc. turn count on start, starts @ 1, player turn
         //Debug.Log(turnCount);
 
-        LoadNextLevel();
+        LoadLevel();
 
         StartCoroutine(UpdateTiles());
         StartCoroutine(TurnSequence());
@@ -172,7 +171,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => characterStates_Player[characterStates_Player.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
         yield return new WaitUntil(() => isLevelLoaded == true);
-        levelConditions.levelName = levels[currentLevel - 1].name;
+        levelConditions.levelName = currentLevel.name;
 
         Debug.Log("Turn Sequence Started");
         while (true)
@@ -217,6 +216,7 @@ public class BattleManager : MonoBehaviour
 
             if (!hasPlayableCharacter)
             {
+                // TODO: Communicate the game is over
                 Debug.Log("GAME_OVER");
                 break;
             }
@@ -259,10 +259,12 @@ public class BattleManager : MonoBehaviour
 
             if (!hasPlayableEnemy)
             {
+                // TODO: Communicate the game is over
                 Debug.Log("CONGRATS");
 
-                LoadNextLevel();
-                StartCoroutine(TurnSequence());
+                //TODO: ResetLevel Loading
+                //LoadNextLevel();
+                //StartCoroutine(TurnSequence());
                 break;
             }
             nextCharacter = false;
@@ -348,23 +350,14 @@ public class BattleManager : MonoBehaviour
         defender.characterStats.WasHit();
     }
 
-    public void LoadNextLevel()
+    public void LoadLevel()
     {
-        isLevelLoaded = false;
-        spriteLayering.UpdateReferences();
+        currentLevel.Load();
+    }
 
-        currentLevel++;
-
-        if (currentLevel > 1)
-        {
-            levels[currentLevel - 2].Unload();
-        }
-        levels[currentLevel - 1].Load();
-
-        for (int i = 0; i < characterStates_Player.Count; i++)
-        {
-            characterStates_Player[i].characterStats.ResetHealth();
-        }
+    public void Unloadlevel()
+    {
+        currentLevel.Unload();
     }
 }
 

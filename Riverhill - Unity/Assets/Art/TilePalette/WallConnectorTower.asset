@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: WallConnectorTower
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1985583557195286865, guid: daf192bf0ef66424798f6a5005b46f17,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30d9c0fba7eb2bc4ba42162a0c1573af, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

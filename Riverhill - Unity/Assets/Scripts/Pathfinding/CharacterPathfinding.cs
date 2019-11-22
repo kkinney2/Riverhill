@@ -233,7 +233,7 @@ public class CharacterPathfinding : MonoBehaviour
             }
             Transform target = path[i].transform;
 
-            // TODO: Cheap way of stopping characters from overlapping
+            // Cheap way of stopping characters from overlapping
             if (TileManager.Instance.GetTileFromWorldPosition(target.position).hasCharacter)
             {
                 continue;
