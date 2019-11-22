@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    BattleManager battleManager;
+    public Level[] levels;
+
     // Start is called before the first frame update
     void Start()
     {
+        battleManager = BattleManager.Instance;
+
+        // If the scene isn't Cutscene, load it
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1))
+        {
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+        }
+
         // Load Menu if not already loaded by build settings
     }
 
@@ -35,5 +47,18 @@ public class GameController : MonoBehaviour
             characterStates_Player[i].characterStats.ResetHealth();
         }
         */
+    }
+
+    public void LoadLevel(int levelNum)
+    {
+        if (battleManager.currentLevel != null)
+        {
+            battleManager.Unloadlevel();
+        }
+
+        battleManager.currentLevel = levels[levelNum];
+        battleManager.LoadLevel();
+
+        battleManager.Startup();
     }
 }

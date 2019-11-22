@@ -26,6 +26,36 @@ public class CharacterStats : MonoBehaviour
 
     private void Start()
     {
+        /*
+        BattleManager.Instance.characterStats.Add(this);
+
+        ResetHealth();
+
+        #region Animations
+        animator = gameObject.GetComponent<Animator>();
+
+        healingAura_Anim = healingAura.GetComponent<Animator>();
+        healingAura_SR = healingAura.GetComponent<SpriteRenderer>();
+        healingAura.gameObject.SetActive(false);
+
+        // Gets Animation Time(s)
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            if (clip.name == name + "_Dies")
+            {
+                //Debug.Log(clip.length);
+                deathPlayTime = clip.length;
+            }
+        }
+
+        StartCoroutine(AnimCheck());
+        #endregion
+        */
+    }
+
+    private void Awake()
+    {
         BattleManager.Instance.characterStats.Add(this);
 
         ResetHealth();

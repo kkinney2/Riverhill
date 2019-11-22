@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameSettings : MonoBehaviour
 {
@@ -43,11 +42,5 @@ public class GameSettings : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = FramerateTarget;
-
-        // If the scene isn't Cutscene, load it
-        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1))
-        {
-            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
-        }
     }
 }

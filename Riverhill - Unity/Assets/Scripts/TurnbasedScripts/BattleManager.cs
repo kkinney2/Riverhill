@@ -70,6 +70,11 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        turnText.gameObject.SetActive(false);
+    }
+
+    public void Startup()
+    {
         battleStateMachine = new BattleStateMachine();
         characterStates = new List<CharacterState>();
         characterStates_Enemy = new List<CharacterState>();
@@ -82,9 +87,6 @@ public class BattleManager : MonoBehaviour
 
         GenerateCharacterUI();
         Debug.Log("***CharacterUI Created***");
-
-        turnCount++; //inc. turn count on start, starts @ 1, player turn
-        //Debug.Log(turnCount);
 
         LoadLevel();
 
@@ -168,6 +170,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator TurnSequence()
     {
+        turnCount++;
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => characterStates_Player[characterStates_Player.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
         yield return new WaitUntil(() => isLevelLoaded == true);
@@ -352,11 +355,21 @@ public class BattleManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        currentLevel.Load();
+        if (currentLevel == null)
+        {
+            Debug.LogWarning("No level to Load");
+        }
+        else
+        {
+            currentLevel.Load();
+            turnText.gameObject.SetActive(true);
+        }
+        
     }
 
     public void Unloadlevel()
     {
+        turnText.gameObject.SetActive(false);
         currentLevel.Unload();
     }
 }

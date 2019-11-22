@@ -54,8 +54,6 @@ public class TileManager : MonoBehaviour
         tilesParent.name = "Tiles";
 
         pathfinder = new Pathfinding();
-
-        Reset();
     }
 
     // Update is called once per frame

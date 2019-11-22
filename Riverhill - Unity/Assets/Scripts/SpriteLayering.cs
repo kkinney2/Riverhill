@@ -77,34 +77,36 @@ public class SpriteLayering : MonoBehaviour
     public void UpdateReferences()
     {
         currentLevel = BattleManager.Instance.currentLevel;
-
-        UpperBound = currentLevel.UpperBound;
-        LowerBound = currentLevel.LowerBound;
-        distBetweenUpperLower_Y = UpperBound.position.y - LowerBound.position.y;
-        distBetweenUpperLower_Z = UpperBound.position.z - LowerBound.position.z;
-
-        objectsWithRenderer = new List<GameObject>();
-        spriteRenderers = new List<SpriteRenderer>();
-
-        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach (GameObject obj in allObjects)
+        if (currentLevel != null)
         {
-            if (obj.GetComponent<SpriteRenderer>() != null)
-            {
-                spriteRenderers.Add(obj.GetComponent<SpriteRenderer>());
+            UpperBound = currentLevel.UpperBound;
+            LowerBound = currentLevel.LowerBound;
+            distBetweenUpperLower_Y = UpperBound.position.y - LowerBound.position.y;
+            distBetweenUpperLower_Z = UpperBound.position.z - LowerBound.position.z;
 
-                if (obj.CompareTag("Player") || obj.CompareTag("Enemy"))
+            objectsWithRenderer = new List<GameObject>();
+            spriteRenderers = new List<SpriteRenderer>();
+
+            GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+            foreach (GameObject obj in allObjects)
+            {
+                if (obj.GetComponent<SpriteRenderer>() != null)
                 {
-                    characters.Add(obj.GetComponent<SpriteRenderer>());
+                    spriteRenderers.Add(obj.GetComponent<SpriteRenderer>());
+
+                    if (obj.CompareTag("Player") || obj.CompareTag("Enemy"))
+                    {
+                        characters.Add(obj.GetComponent<SpriteRenderer>());
+                    }
+                    /*
+                    else if(obj.CompareTag("TileHighlight"))
+                    {
+                        tileHighlights.Add(obj.GetComponent<SpriteRenderer>());
+                    }
+                    */
+                    continue;
                 }
-                /*
-                else if(obj.CompareTag("TileHighlight"))
-                {
-                    tileHighlights.Add(obj.GetComponent<SpriteRenderer>());
-                }
-                */
-                continue;
             }
-        }
+        } 
     }
 }
