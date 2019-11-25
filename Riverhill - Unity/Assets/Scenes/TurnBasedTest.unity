@@ -504,7 +504,7 @@ PrefabInstance:
         type: 3}
       propertyPath: walkSound
       value: 
-      objectReference: {fileID: 8300000, guid: dfdc0c68de7335a4b9d2555695d1f7b2, type: 3}
+      objectReference: {fileID: 8300000, guid: 0d168071ca220574795a1e40a76db4ff, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb40f9bb8ee8b294897199dad30b6390, type: 3}
 --- !u!4 &613895691 stripped
@@ -1886,7 +1886,7 @@ PrefabInstance:
         type: 3}
       propertyPath: walkSound
       value: 
-      objectReference: {fileID: 8300000, guid: dfdc0c68de7335a4b9d2555695d1f7b2, type: 3}
+      objectReference: {fileID: 8300000, guid: 0d168071ca220574795a1e40a76db4ff, type: 3}
     - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: BaseHP
