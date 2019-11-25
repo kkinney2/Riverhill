@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
     private IEnumerator NewGameButtonDelay()
     {
         //Debug.Log(Time.time);
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(3f);
         //Debug.Log(Time.time);
         SceneManager.LoadScene("CutScene");
     }
