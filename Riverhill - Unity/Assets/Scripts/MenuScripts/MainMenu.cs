@@ -46,20 +46,6 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(NewGameButtonDelay());
     }
 
-    public void loadGame()
-    {
-        menuUISound.clip = buttonSelect;
-        menuUISound.Play();
-        //Debug.Log("Play sound: " + buttonSelect);
-        StartCoroutine(LoadGameButtonDelay());
-    }
-
-    public void quitGame()
-    {
-        Application.Quit();
-        Debug.Log("Quit Game");
-    }
-
     private IEnumerator NewGameButtonDelay()
     {
         //Debug.Log(Time.time);
@@ -68,11 +54,25 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("CutScene");
     }
 
+    public void loadGame()
+    {
+        menuUISound.clip = buttonSelect;
+        menuUISound.Play();
+        //Debug.Log("Play sound: " + buttonSelect);
+        StartCoroutine(LoadGameButtonDelay());
+    }
+
     private IEnumerator LoadGameButtonDelay()
     {
         //Debug.Log(Time.time);
         yield return new WaitForSeconds(0.5f);
         //Debug.Log(Time.time);
         SceneManager.LoadScene("TurnBasedTest");
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
     }
 }

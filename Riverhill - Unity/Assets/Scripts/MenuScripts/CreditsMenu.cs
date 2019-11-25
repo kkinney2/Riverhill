@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class OptionsMenu : MonoBehaviour
+public class CreditsMenu : MonoBehaviour
 {
 
     public EventSystem eventSys;

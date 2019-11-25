@@ -14338,7 +14338,7 @@ MonoBehaviour:
   - {fileID: 1603277505}
   hasActiveCutscene: 0
   TestScene: {fileID: 1670891051}
-  isTestingScene: 1
+  isTestingScene: 0
 --- !u!1 &897473380 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,

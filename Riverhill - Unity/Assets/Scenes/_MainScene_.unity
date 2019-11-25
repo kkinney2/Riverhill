@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grid: {fileID: 1308207397}
   gridSize: {x: 20, y: 20}
+  tilesHighlights: {fileID: 0}
   tilesList: []
 --- !u!4 &408572673
 Transform:
@@ -164,7 +165,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &528613223
 GameObject:
@@ -1479,7 +1480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1156707496
 MonoBehaviour:
@@ -1495,6 +1496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomInLimit: 5
   zoomOutLimit: 35
+  hasTarget: 0
   offset: 0
 --- !u!1 &1308207396
 GameObject:
@@ -1582,7 +1584,7 @@ Transform:
   m_Children:
   - {fileID: 528613224}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2536583534388229952
 PrefabInstance:
@@ -1639,7 +1641,7 @@ PrefabInstance:
     - target: {fileID: 2536583533229047318, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2536583533229047318, guid: bc99472432f47364f855edd26f755bd2,
         type: 3}
@@ -1719,7 +1721,7 @@ PrefabInstance:
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}

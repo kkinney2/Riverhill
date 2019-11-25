@@ -250,7 +250,7 @@ MonoBehaviour:
     type: 3}
   characterStats: []
   spriteLayering: {fileID: 2072256814}
-  currentLevel: {fileID: 0}
+  currentLevel: {fileID: 3211926}
   levelConditions: {fileID: 2072256813}
   isLevelLoaded: 0
   turnCount: 0

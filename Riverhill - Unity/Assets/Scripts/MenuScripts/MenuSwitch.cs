@@ -24,10 +24,10 @@ public class MenuSwitch : MonoBehaviour
         menuUISound.clip = buttonSelect;
         menuUISound.Play();
         //Debug.Log("Play sound: " + buttonSelect);
-        StartCoroutine(OptionsButtonDelay());
+        StartCoroutine(CreditsButtonDelay());
     }
 
-    private IEnumerator OptionsButtonDelay()
+    private IEnumerator CreditsButtonDelay()
     {
         //Debug.Log(Time.time);
         yield return new WaitForSeconds(0.5f);

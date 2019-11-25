@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
         // If the scene isn't Cutscene, load it
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1))
         {
-            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+            //SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive); //Emily commented out, trying to test gameplay
         }
 
         // Load Menu if not already loaded by build settings
