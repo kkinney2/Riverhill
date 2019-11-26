@@ -4403,12 +4403,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc1eeae17807944eae15f169973085e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCameraController: {fileID: 0}
   levels:
   - {fileID: 3211926}
   - {fileID: 1879012006}
   - {fileID: 1009243642}
   - {fileID: 770993561}
   - {fileID: 1353355063}
+  prefab_Characters: []
+  currentTeam:
+  - {fileID: 1871606646}
+  enemyTeam:
+  - {fileID: 1763946066}
 --- !u!1 &2231777635083834123
 GameObject:
   m_ObjectHideFlags: 0

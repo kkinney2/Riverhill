@@ -73,12 +73,23 @@ public class BattleManager : MonoBehaviour
         turnText.gameObject.SetActive(false);
     }
 
-    public void Startup()
+    // GameController now supplies the characters to play with
+    public void Startup(List<GameObject> players, List<GameObject> enemies)
     {
         battleStateMachine = new BattleStateMachine();
         characterStates = new List<CharacterState>();
         characterStates_Enemy = new List<CharacterState>();
         characterStates_Player = new List<CharacterState>();
+
+        for (int i = 0; i < players.Count; i++)
+        {
+            characterStats.Add(players[i].GetComponent<CharacterStats>());
+        }
+
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            characterStats.Add(enemies[i].GetComponent<CharacterStats>());
+        }
 
         levelConditions = GameSettings.Instance.gameObject.GetComponent<LevelConditions>();
 
@@ -90,7 +101,7 @@ public class BattleManager : MonoBehaviour
 
         LoadLevel();
 
-        StartCoroutine(UpdateTiles());
+        //StartCoroutine(UpdateTiles());
         StartCoroutine(TurnSequence());
     }
 
@@ -286,6 +297,7 @@ public class BattleManager : MonoBehaviour
         CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
         a_CharacterStat.Name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
         characterStates.Add(a_CState);
+        
         if (a_CState.characterStats.isEnemy)
         {
             characterStates_Enemy.Add(a_CState);
@@ -294,7 +306,7 @@ public class BattleManager : MonoBehaviour
         {
             characterStates_Player.Add(a_CState);
         }
-
+        
         Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.Name);
     }
 
@@ -363,6 +375,7 @@ public class BattleManager : MonoBehaviour
         {
             currentLevel.Load();
             turnText.gameObject.SetActive(true);
+            StartCoroutine(UpdateTiles());
         }
         
     }

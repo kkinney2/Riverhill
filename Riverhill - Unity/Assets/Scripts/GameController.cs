@@ -6,13 +6,24 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     BattleManager battleManager;
+    public CameraControl mainCameraController;
+
+
     public Level[] levels;
+
+    public List<GameObject> prefab_Characters;
+    public List<GameObject> currentTeam;
+    public List<GameObject> enemyTeam;
+
+    private void Awake()
+    {
+        battleManager = BattleManager.Instance;
+        mainCameraController = Camera.main.GetComponent<CameraControl>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        battleManager = BattleManager.Instance;
-
         // If the scene isn't Cutscene, load it
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1))
         {
@@ -20,6 +31,11 @@ public class GameController : MonoBehaviour
         }
 
         // Load Menu if not already loaded by build settings
+
+        // TODO: Temp BattleManager startup for testing
+        battleManager.currentLevel = levels[0];
+        battleManager.Startup(currentTeam, enemyTeam);
+        mainCameraController.FindPlayer();
     }
 
     // Update is called once per frame
@@ -59,6 +75,6 @@ public class GameController : MonoBehaviour
         battleManager.currentLevel = levels[levelNum];
         battleManager.LoadLevel();
 
-        battleManager.Startup();
+        //battleManager.Startup(currentTeam, enemyTeam);
     }
 }

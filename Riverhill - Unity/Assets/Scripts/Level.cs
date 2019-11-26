@@ -25,7 +25,14 @@ public class Level : MonoBehaviour
 
     public void Load()
     {
-        StartCoroutine(LoadLevel(true));
+        //StartCoroutine(LoadLevel(true));
+        Grid_Tile.gameObject.SetActive(true);
+        Grid_Obstacles.gameObject.SetActive(true);
+        Grid_Unwalkable.gameObject.SetActive(true);
+
+        TileManager.Instance.grid = Grid_Tile.GetComponent<Grid>();
+        TileManager.Instance.Reset();
+        BattleManager.Instance.isLevelLoaded = true;
     }
 
     public void Unload()
