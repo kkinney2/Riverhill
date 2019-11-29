@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
 
     [Header("Levels Status")]
+    private int currentLevelNum = 0;
     // Tutorial Level
     public bool level0_Unlocked = true;
     public bool level0_Completed = false;
@@ -50,7 +51,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        
+
     }
 
     // Start is called before the first frame update
@@ -59,13 +60,13 @@ public class GameController : MonoBehaviour
         // If the scene isn't Cutscene, load it
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1))
         {
-            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive); //Emily commented out, trying to test gameplay
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
         }
 
         // If the scene isn't TurnBasedTest, load it
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(2))
         {
-            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive); //Emily commented out, trying to test gameplay
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
         }
 
         mainCameraController = Camera.main.GetComponent<CameraControl>();
@@ -83,13 +84,14 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void NewGame()
     {
         battleManager.currentLevel = battleManager.levels[0]; // I think this as like a cartridge.
-        battleManager.LoadLevel();                            // And this as pushing the start button
+        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+
     }
 
     public void LoadGame()
@@ -101,35 +103,16 @@ public class GameController : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        /*
-        isLevelLoaded = false;
-        spriteLayering.UpdateReferences();
-
-        currentLevel++;
-
-        if (currentLevel > 1)
-        {
-            levels[currentLevel - 2].Unload();
-        }
-        levels[currentLevel - 1].Load();
-
-        for (int i = 0; i < characterStates_Player.Count; i++)
-        {
-            characterStates_Player[i].characterStats.ResetHealth();
-        }
-        */
+        LoadLevel(currentLevelNum + 1);
     }
 
     public void LoadLevel(int levelNum)
     {
-        if ( battleManager.currentLevel != null)
+        if (battleManager.currentLevel != null)
         {
             battleManager.Unloadlevel();
         }
 
         battleManager.currentLevel = battleManager.levels[levelNum];
-        battleManager.LoadLevel();
-
-        //battleManager.Startup(currentTeam, enemyTeam);
     }
 }
