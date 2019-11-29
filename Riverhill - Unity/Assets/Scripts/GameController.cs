@@ -27,15 +27,17 @@ public class GameController : MonoBehaviour
         // If the scene isn't Cutscene, load it
         if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1))
         {
-            //SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive); //Emily commented out, trying to test gameplay
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive); //Emily commented out, trying to test gameplay
         }
 
         // Load Menu if not already loaded by build settings
 
         // TODO: Temp BattleManager startup for testing
+        /*
         battleManager.currentLevel = levels[0];
         battleManager.Startup(currentTeam, enemyTeam);
         mainCameraController.FindPlayer();
+        */
     }
 
     // Update is called once per frame

@@ -51,10 +51,10 @@ public class TextDisplayer : MonoBehaviour
 
             if (fullText[i] == '.' || fullText[i] == '?' || fullText[i] == '!')
             {
-                yield return new WaitForSeconds(1f / GameSettings.Instance.TextSpeed);
+                yield return new WaitForSeconds(1f / CutsceneManager.Instance.TextSpeed);
             }
 
-            yield return new WaitForSeconds(1f / GameSettings.Instance.TextSpeed);
+            yield return new WaitForSeconds(1f / CutsceneManager.Instance.TextSpeed);
         }
         yield return null;
     }

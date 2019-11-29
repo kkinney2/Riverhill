@@ -43,4 +43,12 @@ public class GameSettings : MonoBehaviour
     {
         Application.targetFrameRate = FramerateTarget;
     }
+
+    private void Update()
+    {
+        if (CutsceneManager.Instance != null)
+        {
+            CutsceneManager.Instance.TextSpeed = TextSpeed;
+        }
+    }
 }

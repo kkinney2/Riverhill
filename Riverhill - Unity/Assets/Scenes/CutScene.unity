@@ -14279,33 +14279,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 890923550}
-  - component: {fileID: 890923549}
   - component: {fileID: 890923551}
   m_Layer: 0
-  m_Name: GameSettings
+  m_Name: CutsceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &890923549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890923548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FramerateTarget: 60
-  TextSpeed: 25
-  CharacterMoveSpeed: 5
-  MaxActionCount: 2
-  tileHighlight_Positive: {fileID: 0}
-  tileHighlight_Negative: {fileID: 0}
 --- !u!4 &890923550
 Transform:
   m_ObjectHideFlags: 0
@@ -14339,6 +14320,7 @@ MonoBehaviour:
   hasActiveCutscene: 0
   TestScene: {fileID: 1670891051}
   isTestingScene: 0
+  TextSpeed: 25
 --- !u!1 &897473380 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
@@ -23928,6 +23910,55 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 674848118}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1550332542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1550332544}
+  - component: {fileID: 1550332543}
+  m_Layer: 0
+  m_Name: GameSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1550332543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550332542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FramerateTarget: 60
+  TextSpeed: 25
+  CharacterMoveSpeed: 5
+  MaxActionCount: 2
+  tileHighlight_Positive: {fileID: 0}
+  tileHighlight_Negative: {fileID: 0}
+--- !u!4 &1550332544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550332542}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1555104737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,

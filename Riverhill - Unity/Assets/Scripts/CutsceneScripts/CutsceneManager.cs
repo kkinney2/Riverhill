@@ -33,6 +33,10 @@ public class CutsceneManager : MonoBehaviour
     public GameObject TestScene;
     public bool isTestingScene = false;
 
+    [Range(1, 45)]
+    [Tooltip("Controls text speed based on a 1/x delay between characters and a 2/x delay on punctuation")]
+    public int TextSpeed = 25;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +65,7 @@ public class CutsceneManager : MonoBehaviour
         for (int i = 0; i < Cutscene_GameObjects.Length; i++)
         {
             cutscenes[i] = Cutscene_GameObjects[i].GetComponent<Cutscene>();
-            yield return new WaitForSeconds(1f / GameSettings.Instance.FramerateTarget);
+            yield return new WaitForSeconds(1f);
         }
 
         yield return null;
