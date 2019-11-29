@@ -1,24 +1,47 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    BattleManager battleManager;
+    public BattleManager battleManager;
     public CameraControl mainCameraController;
-
-
-    public Level[] levels;
 
     public List<GameObject> prefab_Characters;
     public List<GameObject> currentTeam;
     public List<GameObject> enemyTeam;
 
+    [Header("Levels Status")]
+    // Tutorial Level
+    public bool level0_Unlocked = true;
+    public bool level0_Completed = false;
+
+    public bool level1_Unlocked = false;
+    public bool level1_Completed = false;
+
+    public bool level2_Unlocked = false;
+    public bool level2_Completed = false;
+
+    public bool level3_Unlocked = false;
+    public bool level3_Completed = false;
+
+    public bool level4_Unlocked = false;
+    public bool level4_Completed = false;
+
+    [Header("Character Status")]
+    public List<bool> characterStatuses;
+
+    public bool alyss_Unlocked = true;
+
+    public bool dayana_Unlocked = false;
+
+    public bool nelson_Unlocked = false;
+
+
+
     private void Awake()
     {
-        battleManager = BattleManager.Instance;
-        mainCameraController = Camera.main.GetComponent<CameraControl>();
+        
     }
 
     // Start is called before the first frame update
@@ -29,6 +52,14 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive); //Emily commented out, trying to test gameplay
         }
+
+        // If the scene isn't TurnBasedTest, load it
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(2))
+        {
+            SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive); //Emily commented out, trying to test gameplay
+        }
+
+        mainCameraController = Camera.main.GetComponent<CameraControl>();
 
         // Load Menu if not already loaded by build settings
 
@@ -69,12 +100,12 @@ public class GameController : MonoBehaviour
 
     public void LoadLevel(int levelNum)
     {
-        if (battleManager.currentLevel != null)
+        if ( battleManager.currentLevel != null)
         {
             battleManager.Unloadlevel();
         }
 
-        battleManager.currentLevel = levels[levelNum];
+        battleManager.currentLevel = battleManager.levels[levelNum];
         battleManager.LoadLevel();
 
         //battleManager.Startup(currentTeam, enemyTeam);

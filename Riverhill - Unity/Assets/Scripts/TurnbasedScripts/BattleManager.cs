@@ -34,6 +34,8 @@ public class BattleManager : MonoBehaviour
     public EnemyStats enemy;
     */
 
+    public Level[] levels;
+
     public GameObject prefab_CharacterUI;
     CharacterUI characterUI;
     GameObject characterUI_Object;
@@ -57,12 +59,6 @@ public class BattleManager : MonoBehaviour
     bool hasPlayableCharacter = false;
     bool hasPlayableEnemy = false;
 
-    // No longer needed - Characters are told when their turn is, not waiting for their turn
-    /* 
-    public bool playerTurn = false;
-    public bool enemyTurn = false;
-    */
-
     public bool nextCharacter = false;
 
     private BattleStateMachine battleStateMachine;
@@ -70,6 +66,7 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().battleManager = this;
         turnText.gameObject.SetActive(false);
     }
 
@@ -297,7 +294,7 @@ public class BattleManager : MonoBehaviour
         CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
         a_CharacterStat.Name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
         characterStates.Add(a_CState);
-        
+
         if (a_CState.characterStats.isEnemy)
         {
             characterStates_Enemy.Add(a_CState);
@@ -306,7 +303,7 @@ public class BattleManager : MonoBehaviour
         {
             characterStates_Player.Add(a_CState);
         }
-        
+
         Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.Name);
     }
 
@@ -324,31 +321,33 @@ public class BattleManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForEndOfFrame();
-            for (int i = 0; i < characterStates.Count; i++)
+            if (characterStates.Count > 0)
             {
-                // Update Tile location via TileManager
-
-                // If the local tiles doesn't match it's current tile...
-                if (characterStates[i].localTile != TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position))
+                for (int i = 0; i < characterStates.Count; i++)
                 {
-                    // ...If it has a tile...
-                    if (characterStates[i].localTile != null)
+                    // Update Tile location via TileManager
+
+                    // If the local tiles doesn't match it's current tile...
+                    if (characterStates[i].localTile != TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position))
                     {
-                        // ... reset the local tile from it's previous location
-                        characterStates[i].localTile.hasCharacter = false;
-                        characterStates[i].localTile.characterState = null;
+                        // ...If it has a tile...
+                        if (characterStates[i].localTile != null)
+                        {
+                            // ... reset the local tile from it's previous location
+                            characterStates[i].localTile.hasCharacter = false;
+                            characterStates[i].localTile.characterState = null;
+                        }
+
+                        //... assign the current tile to the local tile
+                        //Debug.Log("UpdatingTile");
+                        characterStates[i].localTile = TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position);
+
+                        characterStates[i].localTile.hasCharacter = true;
+                        characterStates[i].localTile.characterState = characterStates[i];
+                        //Debug.Log(characterStates[i].character.name + "'s Local Tile" + characterStates[i].localTile);
                     }
-
-                    //... assign the current tile to the local tile
-                    //Debug.Log("UpdatingTile");
-                    characterStates[i].localTile = TileManager.Instance.GetTileFromWorldPosition(characterStates[i].characterStats.gameObject.transform.position);
-
-                    characterStates[i].localTile.hasCharacter = true;
-                    characterStates[i].localTile.characterState = characterStates[i];
-                    //Debug.Log(characterStates[i].character.name + "'s Local Tile" + characterStates[i].localTile);
                 }
             }
-
         }
     }
 
@@ -377,7 +376,7 @@ public class BattleManager : MonoBehaviour
             turnText.gameObject.SetActive(true);
             StartCoroutine(UpdateTiles());
         }
-        
+
     }
 
     public void Unloadlevel()

@@ -1148,6 +1148,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863995075}
   m_CullTransparentMesh: 0
+--- !u!1 &960548732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960548737}
+  - component: {fileID: 960548736}
+  - component: {fileID: 960548735}
+  - component: {fileID: 960548734}
+  - component: {fileID: 960548733}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &960548733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960548732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a9cb3f33206a84da60af806a99495c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsWithRenderer: []
+  spriteRenderers: []
+  characters: []
+  tileHighlights: []
+--- !u!114 &960548734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960548732}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea604bdf787d404da0a21cba58459ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: 
+  tutorial_firstAttack: 0
+  tutorial_firstMovement: 0
+  tutorial_firstWasHit: 0
+  tutorial_DayanaDies: 0
+  tutorial_AlyssDies: 0
+--- !u!114 &960548735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960548732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FramerateTarget: 60
+  TextSpeed: 25
+  CharacterMoveSpeed: 5
+  MaxActionCount: 2
+  tileHighlight_Positive: {fileID: 4365147109737309284, guid: ab121e0c74b18c8488d5384ecc52d4d6,
+    type: 3}
+  tileHighlight_Negative: {fileID: 1338498439852372794, guid: e9b7c9c740defef42a4276fb7542a2ed,
+    type: 3}
+--- !u!114 &960548736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960548732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc1eeae17807944eae15f169973085e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  battleManager: {fileID: 0}
+  mainCameraController: {fileID: 0}
+  prefab_Characters: []
+  currentTeam: []
+  enemyTeam: []
+--- !u!4 &960548737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960548732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1063163166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1738,9 +1843,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2097813851}
-        m_MethodName: loadGame
-        m_Mode: 1
+      - m_Target: {fileID: 960548736}
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 768951090}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1958,8 +2074,9 @@ GameObject:
   - component: {fileID: 2073262085}
   - component: {fileID: 2073262084}
   - component: {fileID: 2073262087}
+  - component: {fileID: 2073262088}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainMenu_Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2126,6 +2243,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2073262088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073262083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e10704a38110c5489567c6eb7a76cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomInLimit: 5
+  zoomOutLimit: 29
+  hasTarget: 0
+  offset: 2
 --- !u!1 &2097813849
 GameObject:
   m_ObjectHideFlags: 0
