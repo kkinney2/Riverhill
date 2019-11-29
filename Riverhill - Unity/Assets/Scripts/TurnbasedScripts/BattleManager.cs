@@ -76,11 +76,15 @@ public class BattleManager : MonoBehaviour
 
         for (int i = 0; i < players.Count; i++)
         {
+            players[i] = Instantiate(players[i]);
+            players[i].gameObject.tag = "Player";
             characterStats.Add(players[i].GetComponent<CharacterStats>());
         }
 
         for (int i = 0; i < enemies.Count; i++)
         {
+            enemies[i] = Instantiate(enemies[i]);
+            enemies[i].gameObject.tag = "Enemy";
             characterStats.Add(enemies[i].GetComponent<CharacterStats>());
         }
 

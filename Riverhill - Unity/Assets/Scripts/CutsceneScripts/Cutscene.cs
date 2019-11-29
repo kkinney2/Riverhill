@@ -25,6 +25,8 @@ public class Cutscene : MonoBehaviour
     IEnumerator Scene()
     {
         Debug.Log("Scene Started");
+        float tempNum = Camera.main.orthographicSize;
+        Camera.main.orthographicSize = 11.2f;
         for (int i = 0; i < Frames.Length; i++)
         {
             if (i != 0)
@@ -46,6 +48,7 @@ public class Cutscene : MonoBehaviour
         Frames[Frames.Length - 1].SetActive(false);
 
         CutsceneManager.Instance.hasActiveCutscene = false;
+        Camera.main.orthographicSize = tempNum;
         yield return null;
     }
 }

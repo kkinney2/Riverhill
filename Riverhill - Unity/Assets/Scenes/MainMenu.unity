@@ -1237,7 +1237,9 @@ MonoBehaviour:
   battleManager: {fileID: 0}
   cutsceneManager: {fileID: 0}
   mainCameraController: {fileID: 0}
-  prefab_Characters: []
+  prefab_Characters:
+  - {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
+  - {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390, type: 3}
   hasActiveLevel: 0
   level0_Unlocked: 1
   level0_Completed: 0
@@ -2119,10 +2121,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 150
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 30
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2146,7 +2148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073262083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

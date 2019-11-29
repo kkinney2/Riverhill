@@ -83,13 +83,18 @@ public class GameController : MonoBehaviour
     // TODO: Break each level out into seperate coroutines so that they can be skipped for level loading
     IEnumerator GameSequence()
     {
+        currentTeam.Add(prefab_Characters[0]);
+
         cutsceneManager.StartCutscene("Intro cutscene");
-
         yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
 
+        // TODO: Maybe load a "Level Selection" Canvas here?
+
+        #region Tutorial
         cutsceneManager.StartCutscene("CH_1 Tutorial");
-
         yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+
+        enemyTeam.Add(prefab_Characters[1]);
 
         //battleManager.currentLevel = battleManager.levels[0]; 
         LoadLevel(0);                                         // I think this as like a cartridge.
@@ -98,7 +103,7 @@ public class GameController : MonoBehaviour
 
         // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
-
+        #endregion
 
 
         // Placeholder to validate the IEnumerator

@@ -62,7 +62,8 @@ public class MainMenu : MonoBehaviour
 
         // TODO: Disabling "Hardcoded"
         // TODO: New Game button still being selected when "next frame" buttons are pressed
-        gameObject.transform.parent.transform.parent.GetComponent<Canvas>().enabled = false;
+        //gameObject.transform.parent.transform.parent.GetComponent<Canvas>().enabled = false;
+        gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
     }
 
     public void loadGame()
