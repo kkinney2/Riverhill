@@ -295,7 +295,7 @@ public class BattleManager : MonoBehaviour
         defender.characterStats.WasHit();
     }
 
-    public void LoadLevel()
+    private void LoadLevel()
     {
         if (currentLevel == null)
         {
