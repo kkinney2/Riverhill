@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 
     [Header("Levels Status")]
     private int currentLevelNum = 0;
+    public bool hasActiveLevel = false;
     // Tutorial Level
     public bool level0_Unlocked = true;
     public bool level0_Completed = false;
@@ -71,15 +72,6 @@ public class GameController : MonoBehaviour
         }
 
         mainCameraController = Camera.main.GetComponent<CameraControl>();
-
-        // Load Menu if not already loaded by build settings
-
-        // TODO: Temp BattleManager startup for testing
-        /*
-        battleManager.currentLevel = levels[0];
-        battleManager.Startup(currentTeam, enemyTeam);
-        mainCameraController.FindPlayer();
-        */
     }
 
     // Update is called once per frame
@@ -88,8 +80,25 @@ public class GameController : MonoBehaviour
 
     }
 
+    // TODO: Break each level out into seperate coroutines so that they can be skipped for level loading
     IEnumerator GameSequence()
     {
+        cutsceneManager.StartCutscene("Intro cutscene");
+
+        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+
+        cutsceneManager.StartCutscene("CH_1 Tutorial");
+
+        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+
+        //battleManager.currentLevel = battleManager.levels[0]; 
+        LoadLevel(0);                                         // I think this as like a cartridge.
+        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        hasActiveLevel = true;
+
+        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
+        yield return new WaitUntil(() => hasActiveLevel == false);
+
 
 
         // Placeholder to validate the IEnumerator
@@ -98,9 +107,7 @@ public class GameController : MonoBehaviour
 
     public void NewGame()
     {
-        battleManager.currentLevel = battleManager.levels[0]; // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
-
+        StartCoroutine(GameSequence());
     }
 
     public void LoadGame()
@@ -117,6 +124,7 @@ public class GameController : MonoBehaviour
 
     public void LoadLevel(int levelNum)
     {
+        // Ensures proper level loading
         if (battleManager.currentLevel != null)
         {
             battleManager.Unloadlevel();

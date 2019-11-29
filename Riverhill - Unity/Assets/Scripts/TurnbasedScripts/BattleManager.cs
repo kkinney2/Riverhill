@@ -29,6 +29,7 @@ public class BattleManager : MonoBehaviour
 
 
     public Level[] levels;
+    GameController gameController;
 
     public GameObject prefab_CharacterUI;
     CharacterUI characterUI;
@@ -60,7 +61,8 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().battleManager = this;
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController.battleManager = this;
         turnText.gameObject.SetActive(false);
     }
 
@@ -93,6 +95,9 @@ public class BattleManager : MonoBehaviour
         LoadLevel();
 
         //StartCoroutine(UpdateTiles());
+
+        // TODO: Move Camera targeting to when characters are switched
+        gameController.mainCameraController.FindPlayer();
         StartCoroutine(TurnSequence());
     }
 
@@ -160,6 +165,7 @@ public class BattleManager : MonoBehaviour
             {
                 // TODO: Communicate the game is over
                 Debug.Log("GAME_OVER");
+                gameController.hasActiveLevel = false;
                 break;
             }
             // TODO: End player turn on button, but allow for cycling between players while they still have actions
@@ -205,8 +211,7 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("CONGRATS");
 
                 //TODO: ResetLevel Loading
-                //LoadNextLevel();
-                //StartCoroutine(TurnSequence());
+                gameController.hasActiveLevel = false;
                 break;
             }
             nextCharacter = false;

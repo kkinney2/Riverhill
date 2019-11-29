@@ -1047,7 +1047,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &768951094
 RectTransform:
@@ -1235,8 +1235,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
+  cutsceneManager: {fileID: 0}
   mainCameraController: {fileID: 0}
   prefab_Characters: []
+  hasActiveLevel: 0
+  level0_Unlocked: 1
+  level0_Completed: 0
+  level1_Unlocked: 0
+  level1_Completed: 0
+  level2_Unlocked: 0
+  level2_Completed: 0
+  level3_Unlocked: 0
+  level3_Completed: 0
+  level4_Unlocked: 0
+  level4_Completed: 0
+  characterStatuses: 
+  alyss_Unlocked: 1
+  dayana_Unlocked: 0
+  nelson_Unlocked: 0
   currentTeam: []
   enemyTeam: []
 --- !u!4 &960548737
@@ -1843,20 +1859,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 960548736}
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 768951090}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2097813851}
+        m_MethodName: loadGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

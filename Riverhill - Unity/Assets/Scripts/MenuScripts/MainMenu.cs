@@ -59,6 +59,10 @@ public class MainMenu : MonoBehaviour
         //Debug.Log(Time.time);
         //SceneManager.LoadScene("CutScene");
         gameController.NewGame();
+
+        // TODO: Disabling "Hardcoded"
+        // TODO: New Game button still being selected when "next frame" buttons are pressed
+        gameObject.transform.parent.transform.parent.GetComponent<Canvas>().enabled = false;
     }
 
     public void loadGame()
