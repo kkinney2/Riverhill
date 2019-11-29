@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -85,6 +86,14 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    IEnumerator GameSequence()
+    {
+
+
+        // Placeholder to validate the IEnumerator
+        yield return new WaitForEndOfFrame();
     }
 
     public void NewGame()
