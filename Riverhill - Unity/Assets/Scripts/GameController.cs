@@ -4,12 +4,18 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    [Tooltip("This is recieved by script once available." +
+        "This only serves to update the Developer.")]
+    // Also allows the specified script to report itself without a method
     public BattleManager battleManager;
+    [Tooltip("This is recieved by script once available." +
+        "This only serves to update the Developer.")]
+    // Also allows the specified script to report itself without a method
+    public CutsceneManager cutsceneManager;
     public CameraControl mainCameraController;
 
     public List<GameObject> prefab_Characters;
-    public List<GameObject> currentTeam;
-    public List<GameObject> enemyTeam;
+
 
     [Header("Levels Status")]
     // Tutorial Level
@@ -37,6 +43,9 @@ public class GameController : MonoBehaviour
 
     public bool nelson_Unlocked = false;
 
+
+    public List<GameObject> currentTeam;
+    public List<GameObject> enemyTeam;
 
 
     private void Awake()
@@ -75,6 +84,19 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void NewGame()
+    {
+        battleManager.currentLevel = battleManager.levels[0]; // I think this as like a cartridge.
+        battleManager.LoadLevel();                            // And this as pushing the start button
+    }
+
+    public void LoadGame()
+    {
+        // TODO: Implement Saving
+        //       This tutorial seems to have an easy to implement format.
+        //       https://www.raywenderlich.com/418-how-to-save-and-load-a-game-in-unity#toc-anchor-004
     }
 
     public void LoadNextLevel()

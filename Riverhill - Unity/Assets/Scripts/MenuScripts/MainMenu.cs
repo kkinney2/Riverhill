@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
+    GameController gameController;
 
     public EventSystem eventSys;
     private GameObject storeSelect;
@@ -14,6 +15,11 @@ public class MainMenu : MonoBehaviour
     public AudioClip buttonSwitch;
     public AudioClip buttonSelect;
     public AudioClip newGameSelect;
+
+    private void Awake()
+    {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
 
     public void Start()
     {
@@ -51,7 +57,8 @@ public class MainMenu : MonoBehaviour
         //Debug.Log(Time.time);
         yield return new WaitForSeconds(3f);
         //Debug.Log(Time.time);
-        SceneManager.LoadScene("CutScene");
+        //SceneManager.LoadScene("CutScene");
+        gameController.NewGame();
     }
 
     public void loadGame()
@@ -67,7 +74,8 @@ public class MainMenu : MonoBehaviour
         //Debug.Log(Time.time);
         yield return new WaitForSeconds(0.5f);
         //Debug.Log(Time.time);
-        SceneManager.LoadScene("TurnBasedTest");
+        //SceneManager.LoadScene("TurnBasedTest");
+        gameController.LoadGame();
     }
 
     public void quitGame()

@@ -40,6 +40,9 @@ public class CutsceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().cutsceneManager = this;
+
+
         cutscenes = new Cutscene[Cutscene_GameObjects.Length];
 
         for (int i = 0; i < Cutscene_GameObjects.Length; i++)
