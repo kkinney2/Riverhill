@@ -103,7 +103,45 @@ public class GameController : MonoBehaviour
 
         // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
+
+        // Add Dayana to the current team
+        enemyTeam.Remove(prefab_Characters[1]);
+        currentTeam.Add(prefab_Characters[1]);
         #endregion
+
+        #region Level 1
+        cutsceneManager.StartCutscene("CH 2 - First Battle");
+        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+
+        // Add enemeies to the enemyTeam
+        enemyTeam.Add(prefab_Characters[1]);
+
+        //battleManager.currentLevel = battleManager.levels[0]; 
+        LoadLevel(1);                                         // I think this as like a cartridge.
+        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        hasActiveLevel = true;
+
+        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
+        yield return new WaitUntil(() => hasActiveLevel == false);
+        #endregion
+
+        #region Level 2
+        cutsceneManager.StartCutscene("Ch 3 - Fort Munge");
+        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+
+        // Add enemeies to the enemyTeam
+        enemyTeam.Add(prefab_Characters[1]);
+
+        //battleManager.currentLevel = battleManager.levels[0]; 
+        LoadLevel(1);                                         // I think this as like a cartridge.
+        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        hasActiveLevel = true;
+
+        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
+        yield return new WaitUntil(() => hasActiveLevel == false);
+        #endregion
+
+        
 
 
         // Placeholder to validate the IEnumerator
