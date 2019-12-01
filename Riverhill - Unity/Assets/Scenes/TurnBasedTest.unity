@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 26603530}
   - component: {fileID: 26603529}
   m_Layer: 5
-  m_Name: Mask
+  m_Name: E1Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,6 +520,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: p1HPBarFill
+      value: 
+      objectReference: {fileID: 1585453302}
+    - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: e1HPBarFill
+      value: 
+      objectReference: {fileID: 1034083987}
+    - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: currentE1Health
+      value: 
+      objectReference: {fileID: 1766591805}
+    - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: currentP1Health
+      value: 
+      objectReference: {fileID: 1978206892}
+    - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: HPBarFill
+      value: 
+      objectReference: {fileID: 1034083987}
+    - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: currentHealthText
+      value: 
+      objectReference: {fileID: 1766591805}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb40f9bb8ee8b294897199dad30b6390, type: 3}
 --- !u!4 &613895691 stripped
@@ -1351,7 +1381,7 @@ GameObject:
   - component: {fileID: 701519814}
   - component: {fileID: 701519813}
   m_Layer: 5
-  m_Name: Mask
+  m_Name: P1Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1440,7 +1470,7 @@ GameObject:
   - component: {fileID: 759656709}
   - component: {fileID: 759656708}
   m_Layer: 5
-  m_Name: EnemyHPBar
+  m_Name: E1HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1570,7 +1600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &861354873
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1836,7 +1866,7 @@ GameObject:
   - component: {fileID: 1034083988}
   - component: {fileID: 1034083987}
   m_Layer: 5
-  m_Name: HPBarFill
+  m_Name: E1HPBarFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2056,6 +2086,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: p1HPBarFill
+      value: 
+      objectReference: {fileID: 1585453302}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: e1HPBarFill
+      value: 
+      objectReference: {fileID: 1034083987}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: currentE1Health
+      value: 
+      objectReference: {fileID: 1766591805}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: currentP1Health
+      value: 
+      objectReference: {fileID: 1978206892}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: currentHealthText
+      value: 
+      objectReference: {fileID: 1978206892}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: HPBarFill
+      value: 
+      objectReference: {fileID: 1585453302}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
 --- !u!1 &1093432431
@@ -2411,7 +2471,7 @@ GameObject:
   - component: {fileID: 1585453303}
   - component: {fileID: 1585453302}
   m_Layer: 5
-  m_Name: HPBarFill
+  m_Name: P1HPBarFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2485,7 +2545,7 @@ GameObject:
   - component: {fileID: 1662177089}
   - component: {fileID: 1662177088}
   m_Layer: 5
-  m_Name: PlayerHPBar
+  m_Name: P1HPBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2566,7 +2626,7 @@ GameObject:
   - component: {fileID: 1766591806}
   - component: {fileID: 1766591805}
   m_Layer: 5
-  m_Name: HPBarNumber
+  m_Name: E1HPBarNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4389,7 +4449,7 @@ GameObject:
   - component: {fileID: 1978206893}
   - component: {fileID: 1978206892}
   m_Layer: 5
-  m_Name: HPBarNumber
+  m_Name: P1HPBarNumber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
