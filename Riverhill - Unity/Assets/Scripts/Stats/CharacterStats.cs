@@ -52,6 +52,11 @@ public class CharacterStats : MonoBehaviour
 
         ResetHealth();
 
+        /* EMILY ADDED SETTING THIS STUFF IN BATTLEMANAGER SCRIPT
+        currentHealthText.text = ("Health: " + CurrentHP);
+        HPBarFill.fillAmount = ((CurrentHP) / 100);
+        */
+
         #region Animations
         animator = gameObject.GetComponent<Animator>();
 

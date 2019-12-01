@@ -50,6 +50,11 @@ public class BattleManager : MonoBehaviour
     public int turnCount = 0;
 
     public Text turnText;
+    //trying to get health bar stuff to appear
+    public Image P1HPBar;
+    public Image E1HPBar;
+    public CharacterStats charStatsAlyss;
+    public CharacterStats charStatsDayana;
 
     bool hasPlayableCharacter = false;
     bool hasPlayableEnemy = false;
@@ -64,6 +69,8 @@ public class BattleManager : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         gameController.battleManager = this;
         turnText.gameObject.SetActive(false);
+        P1HPBar.gameObject.SetActive(false);
+        E1HPBar.gameObject.SetActive(false);
     }
 
     // GameController now supplies the characters to play with
@@ -143,6 +150,12 @@ public class BattleManager : MonoBehaviour
 
                 Debug.Log("Start " + characterStates_Player[i].character.name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Player[i].character.name;
+                //EMILY ADDED TO GET HEALTH BARS WORKING UPON LOAD (NO UNITY PAUSE)
+                charStatsAlyss.currentHealthText.text = ("Health: " + charStatsAlyss.CurrentHP);
+                charStatsAlyss.HPBarFill.fillAmount = ((charStatsAlyss.CurrentHP) / 100);
+                charStatsDayana.currentHealthText.text = ("Health: " + charStatsDayana.CurrentHP);
+                charStatsDayana.HPBarFill.fillAmount = ((charStatsDayana.CurrentHP) / 100);
+
                 yield return new WaitForSeconds(1f);
 
                 battleStateMachine.ChangeState(characterStates_Player[i]);
@@ -189,6 +202,11 @@ public class BattleManager : MonoBehaviour
                 //Debug.Log("");
                 Debug.Log("Start " + characterStates_Enemy[i].character.name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Enemy[i].character.name;
+                //EMILY ADDED TO GET HEALTH BARS WORKING UPON LOAD (NO UNITY PAUSE)
+                charStatsAlyss.currentHealthText.text = ("Health: " + charStatsAlyss.CurrentHP);
+                charStatsAlyss.HPBarFill.fillAmount = ((charStatsAlyss.CurrentHP) / 100);
+                charStatsDayana.currentHealthText.text = ("Health: " + charStatsDayana.CurrentHP);
+                charStatsDayana.HPBarFill.fillAmount = ((charStatsDayana.CurrentHP) / 100);
                 yield return new WaitForSeconds(1f);
                 battleStateMachine.ChangeState(characterStates_Enemy[i]);
 
@@ -314,6 +332,8 @@ public class BattleManager : MonoBehaviour
         {
             currentLevel.Load();
             turnText.gameObject.SetActive(true);
+            P1HPBar.gameObject.SetActive(true);
+            E1HPBar.gameObject.SetActive(true);
             StartCoroutine(UpdateTiles());
         }
 
@@ -322,6 +342,8 @@ public class BattleManager : MonoBehaviour
     public void Unloadlevel()
     {
         turnText.gameObject.SetActive(false);
+        P1HPBar.gameObject.SetActive(false);
+        E1HPBar.gameObject.SetActive(false);
         currentLevel.Unload();
     }
 }
