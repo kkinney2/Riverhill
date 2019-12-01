@@ -351,10 +351,6 @@ MonoBehaviour:
   isLevelLoaded: 0
   turnCount: 0
   turnText: {fileID: 512794680}
-  P1HPBar: {fileID: 1662177088}
-  E1HPBar: {fileID: 759656708}
-  charStatsAlyss: {fileID: 1075692366}
-  charStatsDayana: {fileID: 613895692}
   nextCharacter: 0
 --- !u!4 &268945813
 Transform:
@@ -562,18 +558,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 613895690}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &613895692 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
-    type: 3}
-  m_PrefabInstance: {fileID: 613895690}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763946066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f2901b85930da478ad043aaa6b4303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &618128382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,7 +1475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &759656707
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2134,18 +2118,6 @@ PrefabInstance:
       objectReference: {fileID: 1585453302}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
---- !u!114 &1075692366 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-    type: 3}
-  m_PrefabInstance: {fileID: 1075692365}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871606646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f2901b85930da478ad043aaa6b4303, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1093432431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2578,7 +2550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1662177087
 RectTransform:
   m_ObjectHideFlags: 0
