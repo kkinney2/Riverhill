@@ -143,6 +143,10 @@ MonoBehaviour:
   CurrentHP: 0
   attack: 55
   healingAura: {fileID: 8776435073918093274}
+  currentHealthText: {fileID: 7073883371658501644, guid: 1afb0623628a59c4296cb10abf4b77ce,
+    type: 3}
+  HPBarFill: {fileID: 1078651871555440460, guid: 59f1af056fb43bd4d876168e2249b2f1,
+    type: 3}
 --- !u!82 &1871606650
 AudioSource:
   m_ObjectHideFlags: 0

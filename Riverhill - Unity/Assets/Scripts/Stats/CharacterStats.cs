@@ -16,12 +16,10 @@ public class CharacterStats : MonoBehaviour
     public float BaseHP;
     public float CurrentHP;
 
-    /*
+    /* Emily, you big dumb dumb!! It's easier than you think.
     public float CurrentP1HP;
     public float CurrentE1HP;
     */
-    //Emily, you big dumb dumb!! It's easier than you think.
-
 
     public float attack;
 
@@ -34,16 +32,15 @@ public class CharacterStats : MonoBehaviour
     private float deathPlayTime = 0;
 
     //for health bars
-    /*
+    /* Emily is big dumb dumb :-)
     public Text currentP1Health;
     public Text currentE1Health;
     public Image p1HPBarFill;
     public Image e1HPBarFill;
     */
-    //Emily is big dumb dumb :-)
 
-    //public Text currentHealthText;
-    //public Image HPBarFill;
+    public Text currentHealthText;
+    public Image HPBarFill;
 
     private void Start()
     {
@@ -86,8 +83,8 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        //currentHealthText.text = ("Health: " + CurrentHP);
-        //HPBarFill.fillAmount = ((CurrentHP) / 100);
+        currentHealthText.text = ("Health: " + CurrentHP);
+        HPBarFill.fillAmount = ((CurrentHP) / 100);
 
         if (CurrentHP <= 0f)
         {
