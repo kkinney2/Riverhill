@@ -1159,7 +1159,6 @@ GameObject:
   - component: {fileID: 960548737}
   - component: {fileID: 960548736}
   - component: {fileID: 960548735}
-  - component: {fileID: 960548734}
   - component: {fileID: 960548733}
   m_Layer: 0
   m_Name: GameController
@@ -1184,24 +1183,6 @@ MonoBehaviour:
   spriteRenderers: []
   characters: []
   tileHighlights: []
---- !u!114 &960548734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 960548732}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ea604bdf787d404da0a21cba58459ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
-  tutorial_firstAttack: 0
-  tutorial_firstMovement: 0
-  tutorial_firstWasHit: 0
-  tutorial_DayanaDies: 0
-  tutorial_AlyssDies: 0
 --- !u!114 &960548735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1214,6 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canSkipCutscenes: 1
   FramerateTarget: 60
   TextSpeed: 25
   CharacterMoveSpeed: 5
@@ -1236,6 +1218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
   cutsceneManager: {fileID: 0}
+  gameSettings: {fileID: 0}
   mainCameraController: {fileID: 0}
   prefab_Characters:
   - {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}

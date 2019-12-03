@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
-    /* Use if ever only one instance of battle manager (battle stats)
-     * Can be referenced using BattleManager.Instance (BattleStats.Instance).***
-     * 
-     * A good reference is in TileManager for the singleton and ActorController for the application
-     */
+
     #region Singleton
     private static BattleManager _instance;
     public static BattleManager Instance { get { return _instance; } }
@@ -24,6 +20,9 @@ public class BattleManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController.battleManager = this;
     }
     #endregion
 
@@ -65,8 +64,6 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        gameController.battleManager = this;
         turnText.gameObject.SetActive(false);
         P1HPBar.gameObject.SetActive(false);
         E1HPBar.gameObject.SetActive(false);

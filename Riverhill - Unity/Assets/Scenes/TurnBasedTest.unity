@@ -428,12 +428,12 @@ MonoBehaviour:
   - {fileID: 1009243642}
   - {fileID: 770993561}
   - {fileID: 1353355063}
+  gameController: {fileID: 0}
   prefab_CharacterUI: {fileID: 8653099306592415916, guid: 5a01056e15610294d88f9196d49d5cc7,
     type: 3}
   characterStats: []
   spriteLayering: {fileID: 2072256814}
   currentLevel: {fileID: 0}
-  levelConditions: {fileID: 2072256813}
   isLevelLoaded: 0
   turnCount: 0
   turnText: {fileID: 512794680}
@@ -4530,7 +4530,6 @@ GameObject:
   - component: {fileID: 2072256811}
   - component: {fileID: 2072256815}
   - component: {fileID: 2072256812}
-  - component: {fileID: 2072256813}
   - component: {fileID: 2072256814}
   m_Layer: 0
   m_Name: GameController
@@ -4573,24 +4572,6 @@ MonoBehaviour:
     type: 3}
   tileHighlight_Negative: {fileID: 1338498439852372794, guid: e9b7c9c740defef42a4276fb7542a2ed,
     type: 3}
---- !u!114 &2072256813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072256810}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ea604bdf787d404da0a21cba58459ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
-  tutorial_firstAttack: 0
-  tutorial_firstMovement: 0
-  tutorial_firstWasHit: 0
-  tutorial_DayanaDies: 0
-  tutorial_AlyssDies: 0
 --- !u!114 &2072256814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4621,6 +4602,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleManager: {fileID: 0}
   cutsceneManager: {fileID: 0}
+  canSkipCutscenes: 0
+  gameSettings: {fileID: 0}
   mainCameraController: {fileID: 0}
   prefab_Characters: []
   hasActiveLevel: 0

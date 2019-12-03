@@ -19,8 +19,8 @@ public class GameController : MonoBehaviour
     public List<GameObject> prefab_Characters;
 
 
-    [Header("Levels Status")]
     private int currentLevelNum = 0;
+    [Header("Levels Status")]
     public bool hasActiveLevel = false;
     // Tutorial Level
     public bool level0_Unlocked = true;
@@ -85,15 +85,20 @@ public class GameController : MonoBehaviour
     IEnumerator GameSequence()
     {
         currentTeam.Add(prefab_Characters[0]);
-
-        cutsceneManager.StartCutscene("Intro cutscene");
-        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
-
+        if (!gameSettings.canSkipCutscenes)
+        {
+            cutsceneManager.StartCutscene("Intro cutscene");
+            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+        }
         // TODO: Maybe load a "Level Selection" Canvas here?
 
         #region Tutorial
-        cutsceneManager.StartCutscene("CH_1 Tutorial");
-        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+
+        if (!gameSettings.canSkipCutscenes)
+        {
+            cutsceneManager.StartCutscene("CH_1 Tutorial");
+            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+        }
 
         enemyTeam.Add(prefab_Characters[1]);
 
@@ -114,8 +119,11 @@ public class GameController : MonoBehaviour
         #endregion
 
         #region Level 1
-        cutsceneManager.StartCutscene("CH 2 - First Battle");
-        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+        if (!gameSettings.canSkipCutscenes)
+        {
+            cutsceneManager.StartCutscene("CH 2 - First Battle");
+            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+        }
 
         // Add enemeies to the enemyTeam
         enemyTeam.Add(prefab_Characters[1]);
@@ -130,8 +138,11 @@ public class GameController : MonoBehaviour
         #endregion
 
         #region Level 2
-        cutsceneManager.StartCutscene("Ch 3 - Fort Munge");
-        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+        if (!gameSettings.canSkipCutscenes)
+        {
+            cutsceneManager.StartCutscene("Ch 3 - Fort Munge");
+            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+        }
 
         // Add enemeies to the enemyTeam
         enemyTeam.Add(prefab_Characters[1]);

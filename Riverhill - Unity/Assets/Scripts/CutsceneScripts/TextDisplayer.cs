@@ -46,6 +46,11 @@ public class TextDisplayer : MonoBehaviour
 
     IEnumerator DisplayText()
     {
+        while (gameController.cutsceneManager == null)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
         while (fullText.Length < 1)
         {
             yield return new WaitForEndOfFrame();

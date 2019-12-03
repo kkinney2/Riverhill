@@ -26,6 +26,8 @@ public class GameSettings : MonoBehaviour
 
     GameController gameController;
 
+    public bool canSkipCutscenes = false;
+
     [Tooltip("Sets Target Framerate")]
     public int FramerateTarget = 60;
 
