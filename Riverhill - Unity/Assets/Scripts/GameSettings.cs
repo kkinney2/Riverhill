@@ -34,7 +34,6 @@ public class GameSettings : MonoBehaviour
 
     [Tooltip("Sets max action count per character per turn")]
     public int MaxActionCount = 2;
-    // TODO: GameSettings 
 
     public GameObject tileHighlight_Positive;
     public GameObject tileHighlight_Negative;

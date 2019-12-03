@@ -253,7 +253,7 @@ public class BattleManager : MonoBehaviour
     {
         // Creates CharacterState and Assigns GameObject
         CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
-        a_CharacterStat.Name = a_CharacterStat.gameObject.name; // TODO: Is CharacterStats.name necessary?
+        a_CharacterStat.Name = a_CharacterStat.gameObject.name; 
         characterStates.Add(a_CState);
 
         if (a_CState.characterStats.isEnemy)

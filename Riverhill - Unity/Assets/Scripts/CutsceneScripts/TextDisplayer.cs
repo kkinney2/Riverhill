@@ -9,13 +9,17 @@ public class TextDisplayer : MonoBehaviour
     string fullText = "";
     string displayedText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         textBox = GetComponent<Text>();
 
         fullText = textBox.text;
         displayedText = "";
+    }
+
+    void Start()
+    {
+        
     }
 
     private void Update()
@@ -42,7 +46,6 @@ public class TextDisplayer : MonoBehaviour
         if (fullText.Length < 1)
         {
             yield return new WaitForEndOfFrame();
-            //TODO: Why does DisplayText have to wait for fulltext?
         }
 
         for (int i = 0; i < fullText.Length; i++)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelConditions : MonoBehaviour
 {
-    public string levelName = ""; // TODO:Probs could/should be an enum
+    public string levelName = ""; // Probs could/should be an enum
 
     [Header("Tutorial Switches")]
     public bool tutorial_firstAttack = false;

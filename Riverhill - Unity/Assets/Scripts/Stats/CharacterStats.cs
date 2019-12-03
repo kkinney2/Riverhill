@@ -16,6 +16,9 @@ public class CharacterStats : MonoBehaviour
     public float BaseHP;
     public float CurrentHP;
 
+    public Vector2 meleeAttackRange = new Vector2(1, 1);
+    public Vector2 rangedAttackRange = new Vector2(1, 3);
+
     /* Emily, you big dumb dumb!! It's easier than you think.
     public float CurrentP1HP;
     public float CurrentE1HP;

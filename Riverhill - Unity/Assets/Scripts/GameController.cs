@@ -107,6 +107,9 @@ public class GameController : MonoBehaviour
         // Add Dayana to the current team
         enemyTeam.Remove(prefab_Characters[1]);
         currentTeam.Add(prefab_Characters[1]);
+
+        // TODO: Send back to level loading screen
+        //       Show that next level is unlocked?
         #endregion
 
         #region Level 1

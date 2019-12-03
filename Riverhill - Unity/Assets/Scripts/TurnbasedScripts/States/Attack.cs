@@ -46,7 +46,7 @@ public class Attack : IState
             for (int i = 0; i < battleManager.characterStates_Enemy.Count; i++)
             {
                 pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.gameObject.transform.position);
-                if (pathfinder.path.Count == 1)
+                if (pathfinder.path.Count == characterState.characterStats.meleeAttackRange.y)
                 {
                     TileManager.Instance.GetTileFromWorldPosition(battleManager.characterStates_Enemy[i].character.gameObject.transform.position).tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = true;
                 }
@@ -89,7 +89,7 @@ public class Attack : IState
                                 pathfinder.FindPath(testPoint);
                             }
 
-                            if (pathfinder.path.Count == 1f) // TODO: Script a attack range variable/Get from characterStats
+                            if (pathfinder.path.Count <= characterState.characterStats.meleeAttackRange.y)
                             {
                                 battleManager.AttackCharacter(characterState, a_Tile.characterState);
                                 isDone = true;

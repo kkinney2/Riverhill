@@ -15,10 +15,8 @@ public class ActionSelect : IState
     //Could possibly reorganize this all later & move it into Attack state?
     public GameObject attackButton;
     //For now we're going to check if attack is possible before button is even selected... work on disabling button if attack not possible yet
-    // TODO: Move attack ranges to characterStats so they are accessible from inspector
-    public Vector2 meleeAttackRange = new Vector2(1, 1);
+    
     public bool enemyInMAttackRange = false;
-    public Vector2 rangedAttackRange = new Vector2(1, 3);
     public bool enemyInRAttackRange = false;
 
     public GameObject player;
