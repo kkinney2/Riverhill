@@ -77,22 +77,23 @@ public class CharacterState : IState
 
     public void Execute()
     {
-        if ((actionCount >= GameSettings.Instance.MaxActionCount && !hasActiveAction) || endTurnSelected == true)
+        if ((actionCount >= battleManager.gameController.gameSettings.MaxActionCount && !hasActiveAction) || endTurnSelected == true)
         {
             //Exit();
             this.battleStateMachine.ChangeState(state_Idle);
             battleManager.nextCharacter = true;
         }
 
-        if (actionCount <= GameSettings.Instance.MaxActionCount || hasActiveAction)
+        if (actionCount <= battleManager.gameController.gameSettings.MaxActionCount || hasActiveAction)
         {
             if (hasActiveAction)
             {
-                //Debug.Log("Updating Action");
+                // Update the active action
                 battleStateMachine.UpdateState();
             }
             else
             {
+                // Log Feedback
                 if (!characterStats.isEnemy)
                 {
                     Debug.Log("Sending to ActionSelect");

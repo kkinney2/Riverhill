@@ -104,7 +104,7 @@ public class Attack : IState
 
         if (isDone)
         {
-            characterState.actionCount = (characterState.actionCount + GameSettings.Instance.MaxActionCount); //inc. actionCount, by max to avoid multi-attack selections per turn //success!
+            characterState.actionCount = (characterState.actionCount + battleManager.gameController.gameSettings.MaxActionCount); //inc. actionCount, by max to avoid multi-attack selections per turn //success!
             characterStateMachine.ChangeState(characterState.state_Idle);
         }
     }

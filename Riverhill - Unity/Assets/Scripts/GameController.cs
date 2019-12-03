@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
         "This only serves to update the Developer.")]
     // Also allows the specified script to report itself without a method
     public CutsceneManager cutsceneManager;
+    public GameSettings gameSettings;
     public CameraControl mainCameraController;
 
     public List<GameObject> prefab_Characters;

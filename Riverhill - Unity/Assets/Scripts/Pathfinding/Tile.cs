@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    GameController gameController;
+
+
     public TileManager owner;
 
     Grid grid;
@@ -25,11 +28,16 @@ public class Tile : MonoBehaviour
     public bool hasCharacter = false;
     public CharacterState characterState;
 
+    private void Awake()
+    {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        tileHighlight_Positive = Instantiate(GameSettings.Instance.tileHighlight_Positive);
-        tileHighlight_Negative = Instantiate(GameSettings.Instance.tileHighlight_Negative);
+        tileHighlight_Positive = Instantiate(gameController.gameSettings.tileHighlight_Positive);
+        tileHighlight_Negative = Instantiate(gameController.gameSettings.tileHighlight_Negative);
 
         tileHighlight_Positive.tag = "TileHighlight";
         tileHighlight_Negative.tag = "TileHighlight";

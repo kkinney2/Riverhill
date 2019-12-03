@@ -29,7 +29,7 @@ public class BattleManager : MonoBehaviour
 
 
     public Level[] levels;
-    GameController gameController;
+    public GameController gameController;
 
     public GameObject prefab_CharacterUI;
     CharacterUI characterUI;
@@ -44,7 +44,6 @@ public class BattleManager : MonoBehaviour
     public SpriteLayering spriteLayering;
 
     public Level currentLevel;
-    public LevelConditions levelConditions;
     public bool isLevelLoaded = false;
 
     public int turnCount = 0;
@@ -95,8 +94,6 @@ public class BattleManager : MonoBehaviour
             characterStats.Add(enemies[i].GetComponent<CharacterStats>());
         }
 
-        levelConditions = GameSettings.Instance.gameObject.GetComponent<LevelConditions>();
-
         // Create Characters
         StartCoroutine(CreateCharacters());
 
@@ -129,7 +126,6 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitUntil(() => characterStates_Player[characterStates_Player.Count - 1].characterStats.CurrentHP > 0); // WaitUntil the last character has their health set
         yield return new WaitUntil(() => isLevelLoaded == true);
-        levelConditions.levelName = currentLevel.name;
 
         Debug.Log("Turn Sequence Started");
         while (true)

@@ -8,10 +8,13 @@ public class TextDisplayer : MonoBehaviour
     Text textBox;
     string fullText = "";
     string displayedText;
+    GameController gameController;
 
     private void Awake()
     {
         textBox = GetComponent<Text>();
+
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         fullText = textBox.text;
         displayedText = "";
@@ -19,7 +22,7 @@ public class TextDisplayer : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     private void Update()
@@ -43,7 +46,7 @@ public class TextDisplayer : MonoBehaviour
 
     IEnumerator DisplayText()
     {
-        if (fullText.Length < 1)
+        while (fullText.Length < 1)
         {
             yield return new WaitForEndOfFrame();
         }
@@ -54,10 +57,10 @@ public class TextDisplayer : MonoBehaviour
 
             if (fullText[i] == '.' || fullText[i] == '?' || fullText[i] == '!')
             {
-                yield return new WaitForSeconds(1f / CutsceneManager.Instance.TextSpeed);
+                yield return new WaitForSeconds(1f / gameController.cutsceneManager.TextSpeed);
             }
 
-            yield return new WaitForSeconds(1f / CutsceneManager.Instance.TextSpeed);
+            yield return new WaitForSeconds(1f / gameController.cutsceneManager.TextSpeed);
         }
         yield return null;
     }

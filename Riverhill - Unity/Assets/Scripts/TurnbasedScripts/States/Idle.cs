@@ -29,7 +29,7 @@ public class Idle : IState
     public void Execute()
     {
         //Debug.Log("Executing Idle State");
-        if (characterState.actionCount >= GameSettings.Instance.MaxActionCount)
+        if (characterState.actionCount >= battleManager.gameController.gameSettings.MaxActionCount)
         {
             battleManager.nextCharacter = true;
 

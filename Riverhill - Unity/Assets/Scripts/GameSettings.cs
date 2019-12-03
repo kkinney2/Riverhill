@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
+    /*
     #region Singleton
     private static GameSettings _instance;
 
@@ -21,6 +22,9 @@ public class GameSettings : MonoBehaviour
         }
     }
     #endregion
+    */
+
+    GameController gameController;
 
     [Tooltip("Sets Target Framerate")]
     public int FramerateTarget = 60;
@@ -38,6 +42,12 @@ public class GameSettings : MonoBehaviour
     public GameObject tileHighlight_Positive;
     public GameObject tileHighlight_Negative;
 
+    private void Awake()
+    {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        gameController.gameSettings = this;
+    }
+
     private void Start()
     {
         Application.targetFrameRate = FramerateTarget;
@@ -45,9 +55,9 @@ public class GameSettings : MonoBehaviour
 
     private void Update()
     {
-        if (CutsceneManager.Instance != null)
+        if (gameController.cutsceneManager != null)
         {
-            CutsceneManager.Instance.TextSpeed = TextSpeed;
+            gameController.cutsceneManager.TextSpeed = TextSpeed;
         }
     }
 }

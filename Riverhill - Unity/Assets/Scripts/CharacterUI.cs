@@ -48,20 +48,42 @@ public class CharacterUI : MonoBehaviour
     public void Moving()
     {
         Debug.Log("Move Button Selected");
-        characterState.moveSelected = true;
+        if (!characterState.hasActiveAction)
+        {
+            characterState.moveSelected = true;
+        }
+        else
+        {
+            characterState.battleStateMachine.ChangeState(characterState.state_Idle);
+        }
+        
     }
 
     public void Attacking()
     {
         Debug.Log("Attack Button Selected");
-        characterState.attackSelected = true;
+        if (!characterState.hasActiveAction)
+        {
+            characterState.attackSelected = true;
+        }
+        else
+        {
+            characterState.battleStateMachine.ChangeState(characterState.state_Idle);
+        }
     }
 
     // TODO: Implement Specials - CharacterUI
     public void Special()
     {
         Debug.Log("Special Button Selected");
-        characterState.specialSelected = true;
+        if (!characterState.hasActiveAction)
+        {
+            characterState.specialSelected = true;
+        }
+        else
+        {
+            characterState.battleStateMachine.ChangeState(characterState.state_Idle);
+        }
     }
 
     public void EndTurn()

@@ -16,8 +16,8 @@ public class ActionSelect : IState
     public GameObject attackButton;
     //For now we're going to check if attack is possible before button is even selected... work on disabling button if attack not possible yet
     
-    public bool enemyInMAttackRange = false;
-    public bool enemyInRAttackRange = false;
+    public bool enemyInAttackRange_Melee = false;
+    public bool enemyInAttackRange_Ranged = false;
 
     public GameObject player;
     public GameObject enemy;
@@ -85,34 +85,34 @@ public class ActionSelect : IState
         {
             pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.transform.position);
 
-            if (pathfinder.path.Count == 1) // TODO: Hardcoded attack range
+            if (pathfinder.path.Count <= characterState.characterStats.meleeAttackRange.y) // TODO: Hardcoded attack range
             {
-                enemyInMAttackRange = true; // SIDENOTE: When I first read this, I read it as "enemy in MAH attack range" xD
+                enemyInAttackRange_Melee = true; // SIDENOTE: When I first read this, I read it as "enemy in MAH attack range" xD
             }
             else
             {
-                enemyInMAttackRange = false;
+                enemyInAttackRange_Melee = false;
             }
         }
 
         //If so-enable Attack button/make interactable
-        if (enemyInMAttackRange == true) {
+        if (enemyInAttackRange_Melee == true) {
             attackButton.GetComponent<Button>().interactable = true;
         }
 
         //If not-disable Attack button/make not-interactable
-        if (enemyInMAttackRange == false) {
+        if (enemyInAttackRange_Melee == false) {
             attackButton.GetComponent<Button>().interactable = false;
         }
         #endregion
 
-        if (characterState.moveSelected == true && characterState.actionCount <= GameSettings.Instance.MaxActionCount) // (&& actionCount <= 2)
+        if (characterState.moveSelected == true && characterState.actionCount <= battleManager.gameController.gameSettings.MaxActionCount) // (&& actionCount <= 2)
         {
             Debug.Log("MoveSelected, to Move state");
             characterStateMachine.ChangeState(characterState.state_Move);
         }
 
-        if (characterState.attackSelected == true && characterState.actionCount <= GameSettings.Instance.MaxActionCount) // (&& actionCount <= 2)
+        if (characterState.attackSelected == true && characterState.actionCount <= battleManager.gameController.gameSettings.MaxActionCount) // (&& actionCount <= 2)
         {
             Debug.Log("AttackSelected, to Attack state");
             //go to Attack state
@@ -120,7 +120,7 @@ public class ActionSelect : IState
         }
 
         // TODO: Implement Special
-        if (characterState.specialSelected == true && characterState.actionCount <= GameSettings.Instance.MaxActionCount) // (&& actionCount <= 2)
+        if (characterState.specialSelected == true && characterState.actionCount <= battleManager.gameController.gameSettings.MaxActionCount) // (&& actionCount <= 2)
         {
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state

@@ -4,25 +4,6 @@ using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
 {
-    #region Singleton
-    private static CutsceneManager _instance;
-
-    public static CutsceneManager Instance { get { return _instance; } }
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-    }
-    #endregion
-
-
     public GameObject[] Cutscene_GameObjects;
 
     Cutscene[] cutscenes;
@@ -37,11 +18,14 @@ public class CutsceneManager : MonoBehaviour
     [Tooltip("Controls text speed based on a 1/x delay between characters and a 2/x delay on punctuation")]
     public int TextSpeed = 25;
 
+    private void Awake()
+    {
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().cutsceneManager = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().cutsceneManager = this;
-
 
         cutscenes = new Cutscene[Cutscene_GameObjects.Length];
 

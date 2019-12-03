@@ -8,6 +8,13 @@ public class Cutscene : MonoBehaviour
     public string SceneName;
     public GameObject[] Frames;
 
+    GameController gameController;
+
+    private void Awake()
+    {
+        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
+
 
     private void Start()
     {
@@ -35,7 +42,7 @@ public class Cutscene : MonoBehaviour
             }
             Frames[i].SetActive(true);
             while (true)
-            {   
+            {
                 // TODO: Extremely high polling number for user input
                 yield return new WaitForSeconds(0.00001f);
                 if (Input.GetButtonUp("Submit"))
@@ -47,7 +54,7 @@ public class Cutscene : MonoBehaviour
 
         Frames[Frames.Length - 1].SetActive(false);
 
-        CutsceneManager.Instance.hasActiveCutscene = false;
+        gameController.cutsceneManager.hasActiveCutscene = false;
         Camera.main.orthographicSize = tempNum;
         yield return null;
     }

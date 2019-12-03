@@ -95,7 +95,7 @@ public class AIState : IState
             characterStateMachine.ChangeState(characterState.state_Move);
         }
 
-        if (characterState.actionCount >= GameSettings.Instance.MaxActionCount)
+        if (characterState.actionCount >= battleManager.gameController.gameSettings.MaxActionCount)
         {
             characterStateMachine.ChangeState(characterState.state_Idle);
         }
