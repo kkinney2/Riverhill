@@ -339,7 +339,6 @@ public class BattleManager : MonoBehaviour
     public void AttackCharacter(CharacterState attacker, CharacterState defender)
     {
         StartCoroutine(CharacterAttacking(attacker, defender));
-        defender.characterStats.CurrentHP = defender.characterStats.CurrentHP - (attacker.characterStats.attack /*+attacker.characterStats.MODIFIERS- defender.characterStats.MODIFIERS*/ );
     }
 
     IEnumerator CharacterAttacking(CharacterState attacker, CharacterState defender)
@@ -347,6 +346,7 @@ public class BattleManager : MonoBehaviour
         attacker.characterStats.IsAttacking();
         yield return new WaitForSeconds(1f);
         defender.characterStats.WasHit();
+        defender.characterStats.CurrentHP = defender.characterStats.CurrentHP - (attacker.characterStats.attack /*+attacker.characterStats.MODIFIERS- defender.characterStats.MODIFIERS*/ );
     }
 
     private void LoadLevel()
