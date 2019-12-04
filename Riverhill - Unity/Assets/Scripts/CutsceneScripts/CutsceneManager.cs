@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -20,7 +21,10 @@ public class CutsceneManager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().cutsceneManager = this;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().cutsceneManager = this;
+        }
     }
 
     // Start is called before the first frame update

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TextDisplayer : MonoBehaviour
@@ -8,13 +9,17 @@ public class TextDisplayer : MonoBehaviour
     Text textBox;
     string fullText = "";
     string displayedText;
+    float textSpeed = 25f;
     GameController gameController;
 
     private void Awake()
     {
         textBox = GetComponent<Text>();
 
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
 
         fullText = textBox.text;
         displayedText = "";
@@ -27,6 +32,10 @@ public class TextDisplayer : MonoBehaviour
 
     private void Update()
     {
+        if (gameController != null && gameController.cutsceneManager != null)
+        {
+            textSpeed = gameController.cutsceneManager.TextSpeed;
+        }
         textBox.text = displayedText;
     }
 
@@ -46,7 +55,7 @@ public class TextDisplayer : MonoBehaviour
 
     IEnumerator DisplayText()
     {
-        while (gameController.cutsceneManager == null)
+        while (gameController != null && gameController.cutsceneManager == null)
         {
             yield return new WaitForEndOfFrame();
         }
@@ -62,10 +71,10 @@ public class TextDisplayer : MonoBehaviour
 
             if (fullText[i] == '.' || fullText[i] == '?' || fullText[i] == '!')
             {
-                yield return new WaitForSeconds(1f / gameController.cutsceneManager.TextSpeed);
+                yield return new WaitForSeconds(1f / textSpeed);
             }
 
-            yield return new WaitForSeconds(1f / gameController.cutsceneManager.TextSpeed);
+            yield return new WaitForSeconds(1f / textSpeed);
         }
         yield return null;
     }
