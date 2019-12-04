@@ -24,6 +24,7 @@ public class CutsceneManager : MonoBehaviour
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
         {
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().cutsceneManager = this;
+            isTestingScene = false;
         }
     }
 

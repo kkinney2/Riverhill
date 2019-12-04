@@ -363,6 +363,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512794678}
   m_CullTransparentMesh: 0
+--- !u!114 &558325799 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1392715872, guid: 697005ba38dedae4ea01a3b7494d3e35,
+    type: 3}
+  m_PrefabInstance: {fileID: 4089840528562033913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &613895690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1319,6 +1331,7 @@ GameObject:
   - component: {fileID: 861354874}
   - component: {fileID: 861354873}
   - component: {fileID: 861354876}
+  - component: {fileID: 861354877}
   m_Layer: 2
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -1407,6 +1420,18 @@ MonoBehaviour:
   zoomOutLimit: 29
   hasTarget: 0
   offset: 2
+--- !u!114 &861354877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861354872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea65045324c527e47845017c59ed9596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &937482609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3951,6 +3976,7 @@ GameObject:
   - component: {fileID: 2072256815}
   - component: {fileID: 2072256812}
   - component: {fileID: 2072256814}
+  - component: {fileID: 2072256813}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -3993,6 +4019,18 @@ MonoBehaviour:
     type: 3}
   tileHighlight_Negative: {fileID: 1338498439852372794, guid: e9b7c9c740defef42a4276fb7542a2ed,
     type: 3}
+--- !u!114 &2072256813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072256810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea65045324c527e47845017c59ed9596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2072256814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8287,6 +8325,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: HPBarFill
+      value: 
+      objectReference: {fileID: 558325799}
     - target: {fileID: 1392715872, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
       propertyPath: m_FillAmount
       value: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
@@ -20,9 +21,15 @@ public class BattleManager : MonoBehaviour
         {
             _instance = this;
         }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+            gameController.battleManager = this;
+        }
+        else
+        {
 
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        gameController.battleManager = this;
+        }
     }
     #endregion
 
@@ -106,7 +113,15 @@ public class BattleManager : MonoBehaviour
         //StartCoroutine(UpdateTiles());
 
         // TODO: Move Camera targeting to when characters are switched
-        gameController.mainCameraController.FindPlayer();
+        if (gameController != null)
+        {
+            gameController.mainCameraController.FindPlayer();
+        }
+        else
+        {
+            Camera.main.GetComponent<CameraControl>().FindPlayer();
+        }
+
         StartCoroutine(TurnSequence());
     }
 
@@ -182,7 +197,11 @@ public class BattleManager : MonoBehaviour
             {
                 // TODO: Communicate the game is over
                 Debug.Log("GAME_OVER");
-                gameController.hasActiveLevel = false;
+                if (gameController != null)
+                {
+                    gameController.hasActiveLevel = false;
+                }
+
                 break;
             }
             // TODO: End player turn on button, but allow for cycling between players while they still have actions
@@ -237,7 +256,11 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("CONGRATS");
 
                 //TODO: ResetLevel Loading
-                gameController.hasActiveLevel = false;
+                if (gameController != null)
+                {
+                    gameController.hasActiveLevel = false;
+                }
+
                 break;
             }
             nextCharacter = false;
@@ -254,7 +277,7 @@ public class BattleManager : MonoBehaviour
     {
         // Creates CharacterState and Assigns GameObject
         CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
-        a_CharacterStat.Name = a_CharacterStat.gameObject.name; 
+        a_CharacterStat.Name = a_CharacterStat.gameObject.name;
         characterStates.Add(a_CState);
 
         if (a_CState.characterStats.isEnemy)
