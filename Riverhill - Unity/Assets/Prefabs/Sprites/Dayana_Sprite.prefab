@@ -478,7 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 1
-  Name: Dayana_Sprite
+  Name: Dayana
   BaseHP: 100
   CurrentHP: 0
   meleeAttackRange: {x: 1, y: 1}

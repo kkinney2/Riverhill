@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
-  Name: Alyss_Sprite
+  Name: Alyss
   BaseHP: 100
   CurrentHP: 0
   meleeAttackRange: {x: 1, y: 1}
