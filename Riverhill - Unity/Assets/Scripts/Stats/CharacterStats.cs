@@ -42,6 +42,13 @@ public class CharacterStats : MonoBehaviour
     public Image e1HPBarFill;
     */
 
+    //public Image P1HPBar;
+    //public Image E1HPBar;
+    //public Image p1HPBarFill;
+    //public Image e1HPBarFill;
+    //public Text currentP1Health;
+    //public Text currentE1Health;
+
     public Text currentHealthText;
     public Image HPBarFill;
 
@@ -56,6 +63,9 @@ public class CharacterStats : MonoBehaviour
         //currentHealthText.text = ("Health: " + CurrentHP);
         //HPBarFill.fillAmount = ((CurrentHP) / 100);
         //*/
+
+        currentHealthText.text = ("Health: " + CurrentHP);
+        HPBarFill.fillAmount = ((CurrentHP) / 100);
 
         #region Animations
         animator = gameObject.GetComponent<Animator>();
