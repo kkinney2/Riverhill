@@ -14,7 +14,7 @@ public class CharacterState : IState
 
     public CharacterPathfinding pathfinder;
 
-    IState state_CharacterAction;
+    public IState state_CharacterAction;
 
     public Idle state_Idle;
     public Move state_Move;

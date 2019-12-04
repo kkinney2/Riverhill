@@ -48,7 +48,7 @@ public class CharacterUI : MonoBehaviour
     public void Moving()
     {
         Debug.Log("Move Button Selected");
-        if (!characterState.hasActiveAction)
+        if (!characterState.hasActiveAction || characterState.battleStateMachine.IsInState(characterState.state_CharacterAction))
         {
             characterState.moveSelected = true;
         }
@@ -62,7 +62,7 @@ public class CharacterUI : MonoBehaviour
     public void Attacking()
     {
         Debug.Log("Attack Button Selected");
-        if (!characterState.hasActiveAction)
+        if (!characterState.hasActiveAction || characterState.battleStateMachine.IsInState(characterState.state_CharacterAction))
         {
             characterState.attackSelected = true;
         }
@@ -76,7 +76,7 @@ public class CharacterUI : MonoBehaviour
     public void Special()
     {
         Debug.Log("Special Button Selected");
-        if (!characterState.hasActiveAction)
+        if (!characterState.hasActiveAction || characterState.battleStateMachine.IsInState(characterState.state_CharacterAction))
         {
             characterState.specialSelected = true;
         }
