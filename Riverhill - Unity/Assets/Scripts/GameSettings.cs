@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSettings : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class GameSettings : MonoBehaviour
     [Tooltip("Sets Target Framerate")]
     public int FramerateTarget = 60;
 
-    [Range(1,45)]
+    [Range(1, 45)]
     [Tooltip("Controls text speed based on a 1/x delay between characters and a 2/x delay on punctuation")]
     public int TextSpeed = 15;
 
@@ -46,8 +47,11 @@ public class GameSettings : MonoBehaviour
 
     private void Awake()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
-        gameController.gameSettings = this;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+            gameController.gameSettings = this;
+        }
     }
 
     private void Start()
@@ -57,7 +61,7 @@ public class GameSettings : MonoBehaviour
 
     private void Update()
     {
-        if (gameController.cutsceneManager != null)
+        if (gameController != null && gameController.cutsceneManager != null)
         {
             gameController.cutsceneManager.TextSpeed = TextSpeed;
         }

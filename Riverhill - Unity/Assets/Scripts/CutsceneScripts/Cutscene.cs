@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cutscene : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class Cutscene : MonoBehaviour
 
     private void Awake()
     {
-        gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
+        
     }
 
 
@@ -54,7 +59,11 @@ public class Cutscene : MonoBehaviour
 
         Frames[Frames.Length - 1].SetActive(false);
 
-        gameController.cutsceneManager.hasActiveCutscene = false;
+        if (gameController != null)
+        {
+            gameController.cutsceneManager.hasActiveCutscene = false;
+        }
+        
         Camera.main.orthographicSize = tempNum;
         yield return null;
     }
