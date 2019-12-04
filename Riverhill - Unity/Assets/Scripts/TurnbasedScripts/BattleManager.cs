@@ -160,8 +160,8 @@ public class BattleManager : MonoBehaviour
                     hasPlayableCharacter = true;
                 }
 
-                Debug.Log("Start " + characterStates_Player[i].characterStats.name + "'s Turn");
-                turnText.text = "Turn: " + characterStates_Player[i].characterStats.name;
+                Debug.Log("Start " + characterStates_Player[i].characterStats.Name + "'s Turn");
+                turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
 
                 //EMILY ADDED TO GET HEALTH BARS WORKING UPON LOAD (NO UNITY PAUSE)
                 /*
@@ -219,8 +219,8 @@ public class BattleManager : MonoBehaviour
                 }
 
                 //Debug.Log("");
-                Debug.Log("Start " + characterStates_Enemy[i].character.name + "'s Turn");
-                turnText.text = "Turn: " + characterStates_Enemy[i].character.name;
+                Debug.Log("Start " + characterStates_Enemy[i].characterStats.Name + "'s Turn");
+                turnText.text = "Turn: " + characterStates_Enemy[i].characterStats.Name;
 
                 //EMILY ADDED TO GET HEALTH BARS WORKING UPON LOAD (NO UNITY PAUSE)
                 /*
