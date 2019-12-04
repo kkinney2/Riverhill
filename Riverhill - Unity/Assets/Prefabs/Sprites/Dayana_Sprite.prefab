@@ -483,7 +483,7 @@ MonoBehaviour:
   CurrentHP: 0
   meleeAttackRange: {x: 1, y: 1}
   rangedAttackRange: {x: 1, y: 3}
-  attack: 55
+  attack: 10
   healingAura: {fileID: 285973722684946891}
   currentHealthText: {fileID: 1909550574}
   HPBarFill: {fileID: 624934464}
