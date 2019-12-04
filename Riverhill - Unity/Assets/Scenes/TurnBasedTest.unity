@@ -363,18 +363,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512794678}
   m_CullTransparentMesh: 0
---- !u!114 &558325799 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1392715872, guid: 697005ba38dedae4ea01a3b7494d3e35,
-    type: 3}
-  m_PrefabInstance: {fileID: 4089840528562033913}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &613895690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8268,7 +8256,7 @@ PrefabInstance:
     - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -8324,15 +8312,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: HPBarFill
-      value: 
-      objectReference: {fileID: 558325799}
-    - target: {fileID: 1392715872, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}

@@ -485,10 +485,8 @@ MonoBehaviour:
   rangedAttackRange: {x: 1, y: 3}
   attack: 55
   healingAura: {fileID: 285973722684946891}
-  currentHealthText: {fileID: 4513885213217154065, guid: d81a697bd68c116479d91fd830d69337,
-    type: 3}
-  HPBarFill: {fileID: 5342043459137372252, guid: fa3b80acb96de3b41902b23f6fd41fd2,
-    type: 3}
+  currentHealthText: {fileID: 1909550574}
+  HPBarFill: {fileID: 624934464}
 --- !u!82 &1763946070
 AudioSource:
   m_ObjectHideFlags: 0
@@ -722,6 +720,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 26603528}
     m_Modifications:
+    - target: {fileID: 4513885213217154065, guid: d81a697bd68c116479d91fd830d69337,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Health: 100'
+      objectReference: {fileID: 0}
     - target: {fileID: 4513885213217154071, guid: d81a697bd68c116479d91fd830d69337,
         type: 3}
       propertyPath: m_Name
@@ -840,6 +843,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4513885214570908159}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1909550574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4513885213217154065, guid: d81a697bd68c116479d91fd830d69337,
+    type: 3}
+  m_PrefabInstance: {fileID: 4513885214570908159}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5342043459625336348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -853,6 +868,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: aa77a7e5b02c90e44af7b12a125d334e,
         type: 3}
+    - target: {fileID: 5342043459137372252, guid: fa3b80acb96de3b41902b23f6fd41fd2,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5342043459137372254, guid: fa3b80acb96de3b41902b23f6fd41fd2,
         type: 3}
       propertyPath: m_Name
@@ -986,3 +1006,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5342043459625336348}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &624934464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5342043459137372252, guid: fa3b80acb96de3b41902b23f6fd41fd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5342043459625336348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
