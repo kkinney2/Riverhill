@@ -24,7 +24,11 @@ public class Cutscene : MonoBehaviour
 
     private void Start()
     {
-        Background.SetActive(false);
+        if (Background != null)
+        {
+            Background.SetActive(false);
+        }
+        
         for (int i = 0; i < Frames.Length; i++)
         {
             Frames[i].SetActive(false);
@@ -42,7 +46,7 @@ public class Cutscene : MonoBehaviour
         float tempNum = Camera.main.orthographicSize;
         Camera.main.orthographicSize = 11.2f;
 
-        Background.SetActive(false);
+        Background.SetActive(true);
 
         for (int i = 0; i < Frames.Length; i++)
         {

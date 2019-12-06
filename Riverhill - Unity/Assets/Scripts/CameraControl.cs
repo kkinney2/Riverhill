@@ -13,6 +13,8 @@ public class CameraControl : MonoBehaviour
     //center camera on active player
     private Transform targetTransform; //need to set as active player
 
+    Vector3 originalPosition;
+
     public float offset; //if wanted? going to work with offset vertically for now, since camera is centering around player pivot (at feet?)
 
     private Camera myCamera;
@@ -21,6 +23,7 @@ public class CameraControl : MonoBehaviour
     void Start()
     {
         myCamera = GetComponent<Camera>();
+        originalPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -51,6 +54,14 @@ public class CameraControl : MonoBehaviour
                 myCamera.orthographicSize = 10f;
             }
         }
+    }
+
+    public void Reset()
+    {
+        targetTransform = null;
+        hasTarget = false;
+
+        transform.position = originalPosition;
     }
 
     public void FindPlayer()
