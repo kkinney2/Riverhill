@@ -7,6 +7,7 @@ public class Cutscene : MonoBehaviour
 {
     [Tooltip("Name of the Scene for the CutsceneManager to Find")]
     public string SceneName;
+    public GameObject Background;
     public GameObject[] Frames;
 
     GameController gameController;
@@ -17,12 +18,17 @@ public class Cutscene : MonoBehaviour
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         }
-        
+
     }
 
 
     private void Start()
     {
+        if (Background != null)
+        {
+            Background.SetActive(false);
+        }
+        
         for (int i = 0; i < Frames.Length; i++)
         {
             Frames[i].SetActive(false);
@@ -39,6 +45,9 @@ public class Cutscene : MonoBehaviour
         Debug.Log("Scene Started");
         float tempNum = Camera.main.orthographicSize;
         Camera.main.orthographicSize = 11.2f;
+
+        Background.SetActive(true);
+
         for (int i = 0; i < Frames.Length; i++)
         {
             if (i != 0)
@@ -57,13 +66,14 @@ public class Cutscene : MonoBehaviour
             }
         }
 
+        Background.SetActive(false);
         Frames[Frames.Length - 1].SetActive(false);
 
         if (gameController != null)
         {
             gameController.cutsceneManager.hasActiveCutscene = false;
         }
-        
+
         Camera.main.orthographicSize = tempNum;
         yield return null;
     }
