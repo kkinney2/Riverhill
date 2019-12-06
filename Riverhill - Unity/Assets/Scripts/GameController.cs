@@ -114,7 +114,7 @@ public class GameController : MonoBehaviour
         enemyTeam.Remove(prefab_Characters[1]);
         currentTeam.Add(prefab_Characters[1]);
 
-
+        mainCameraController.Reset();
 
         // TODO: Send back to level loading screen
         battleManager.Unloadlevel();

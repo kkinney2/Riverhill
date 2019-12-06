@@ -7,9 +7,13 @@ using UnityEngine.UI;
 public class TextDisplayer : MonoBehaviour
 {
     Text textBox;
-    string fullText = "";
-    string displayedText;
+    public string fullText = "";
+    public string displayedText;
     float textSpeed = 25f;
+
+    Cutscene myCutscene;
+    Coroutine tempCoroutine;
+
     GameController gameController;
 
     private void Awake()
@@ -20,6 +24,8 @@ public class TextDisplayer : MonoBehaviour
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         }
+
+        myCutscene = gameObject.transform.parent.transform.parent.transform.parent.transform.parent.GetComponent<Cutscene>();
 
         fullText = textBox.text;
         displayedText = "";
@@ -41,16 +47,30 @@ public class TextDisplayer : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(DisplayText());
+        myCutscene = gameObject.transform.parent.transform.parent.transform.parent.transform.parent.GetComponent<Cutscene>();
+
+        myCutscene.currentTextDisplayer = this;
+        tempCoroutine = StartCoroutine(DisplayText());
     }
 
     private void OnDisable()
     {
-        StopCoroutine(DisplayText());
+        if (tempCoroutine != null)
+        {
+            StopCoroutine(tempCoroutine);
+        }
+
         if (textBox != null)
         {
             textBox.text = "";
         }
+    }
+
+    public void DisplayFullText()
+    {
+        StopCoroutine(tempCoroutine);
+        displayedText = "";
+        displayedText = fullText;
     }
 
     IEnumerator DisplayText()
@@ -76,6 +96,8 @@ public class TextDisplayer : MonoBehaviour
 
             yield return new WaitForSeconds(1f / textSpeed);
         }
+
+        myCutscene.hasFinishedDisplayingText = true;
         yield return null;
     }
 }

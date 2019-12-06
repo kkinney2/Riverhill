@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSkipCutscenes: 0
   FramerateTarget: 60
-  TextSpeed: 25
+  TextSpeed: 30
   CharacterMoveSpeed: 5
   MaxActionCount: 2
   tileHighlight_Positive: {fileID: 4365147109737309284, guid: ab121e0c74b18c8488d5384ecc52d4d6,

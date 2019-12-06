@@ -12,6 +12,9 @@ public class Cutscene : MonoBehaviour
 
     GameController gameController;
 
+    public TextDisplayer currentTextDisplayer;
+    public bool hasFinishedDisplayingText = false;
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
@@ -28,7 +31,7 @@ public class Cutscene : MonoBehaviour
         {
             Background.SetActive(false);
         }
-        
+
         for (int i = 0; i < Frames.Length; i++)
         {
             Frames[i].SetActive(false);
@@ -61,11 +64,35 @@ public class Cutscene : MonoBehaviour
                 yield return new WaitForSeconds(0.00001f);
                 if (Input.GetButtonUp("Submit"))
                 {
-                    break;
+                    if (hasFinishedDisplayingText)
+                    {
+                        hasFinishedDisplayingText = false;
+                        currentTextDisplayer = null;
+                        break;
+                    }
+                    else
+                    {
+                        currentTextDisplayer.DisplayFullText();
+                        //Wait for text to display full text
+                        yield return new WaitForSeconds(0.1f);
+                        while (true)
+                        {
+                            // TODO: Extremely high polling number for user input
+                            yield return new WaitForSeconds(0.00001f);
+                            if (Input.GetButtonUp("Submit"))
+                            {
+                                break;
+                            }
+                        }
+
+                        break;
+                    }
+                    
                 }
             }
         }
 
+        hasFinishedDisplayingText = false;
         Background.SetActive(false);
         Frames[Frames.Length - 1].SetActive(false);
 
