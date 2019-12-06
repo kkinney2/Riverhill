@@ -115,6 +115,7 @@ public class GameController : MonoBehaviour
         currentTeam.Add(prefab_Characters[1]);
 
         // TODO: Send back to level loading screen
+        battleManager.Unloadlevel();
         //       Show that next level is unlocked?
         #endregion
 

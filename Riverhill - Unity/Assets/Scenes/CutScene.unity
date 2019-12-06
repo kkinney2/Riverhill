@@ -9814,6 +9814,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[2]
       value: 
       objectReference: {fileID: 96807634}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 1327984231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &377944953 stripped
@@ -15410,6 +15415,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[9]
       value: 
       objectReference: {fileID: 189976647}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 1862306082}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &624482177 stripped
@@ -18958,6 +18968,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[12]
       value: 
       objectReference: {fileID: 444503261}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 1909417664}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &774341082 stripped
@@ -19375,6 +19390,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[7]
       value: 
       objectReference: {fileID: 1582465945}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 178311380}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!1 &787725564 stripped
@@ -25646,6 +25666,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 1858238257}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!1001 &1127332555
@@ -34667,14 +34692,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1550332544}
   - component: {fileID: 1550332543}
-  - component: {fileID: 1550332545}
   m_Layer: 0
   m_Name: GameSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1550332543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34708,18 +34732,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1550332545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1550332542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea65045324c527e47845017c59ed9596, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1555104737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
@@ -37238,14 +37250,13 @@ GameObject:
   - component: {fileID: 1690935395}
   - component: {fileID: 1690935394}
   - component: {fileID: 1690935393}
-  - component: {fileID: 1690935396}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1690935393
 AudioListener:
   m_ObjectHideFlags: 0
@@ -37311,18 +37322,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1690935396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690935392}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea65045324c527e47845017c59ed9596, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1695980179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38396,6 +38395,11 @@ PrefabInstance:
       propertyPath: SceneName
       value: CH 2 - First Battle
       objectReference: {fileID: 0}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 45626064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &1737965147 stripped
@@ -40910,6 +40914,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[4]
       value: 
       objectReference: {fileID: 1356781590}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 404568612}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &1857591829 stripped
@@ -43505,6 +43514,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[14]
       value: 
       objectReference: {fileID: 344254984}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 84977023}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &1963443396 stripped
@@ -45787,6 +45801,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[36]
       value: 
       objectReference: {fileID: 1233979228}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 1992097579}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &2038487606 stripped
@@ -47865,6 +47884,11 @@ PrefabInstance:
       propertyPath: Frames.Array.data[17]
       value: 
       objectReference: {fileID: 1946152250}
+    - target: {fileID: 7149478361319552039, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: Background
+      value: 
+      objectReference: {fileID: 123777407}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a917db366d79aa43bd8b8c2f598f622, type: 3}
 --- !u!4 &7947169440816077969 stripped

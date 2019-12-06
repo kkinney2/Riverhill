@@ -376,5 +376,10 @@ public class BattleManager : MonoBehaviour
         //E1HPBar.gameObject.SetActive(false);
 
         currentLevel.Unload();
+
+        battleStateMachine = new BattleStateMachine();
+        characterStates = new List<CharacterState>();
+        characterStates_Enemy = new List<CharacterState>();
+        characterStates_Player = new List<CharacterState>();
     }
 }
