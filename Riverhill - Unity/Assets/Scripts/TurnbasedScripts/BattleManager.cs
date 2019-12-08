@@ -199,6 +199,7 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("GAME_OVER");
                 if (gameController != null)
                 {
+                    gameController.currentStatus = "LevelFailed";
                     gameController.hasActiveLevel = false;
                 }
 
@@ -258,6 +259,7 @@ public class BattleManager : MonoBehaviour
                 //TODO: ResetLevel Loading
                 if (gameController != null)
                 {
+                    gameController.currentStatus = "LevelCompleted";
                     gameController.hasActiveLevel = false;
                 }
 

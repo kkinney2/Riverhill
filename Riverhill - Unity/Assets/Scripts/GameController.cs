@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour
 
     public List<GameObject> prefab_Characters;
 
+    [Header("Game Status")]
+    public string currentStatus;
+
 
     private int currentLevelNum = 0;
     [Header("Levels Status")]
@@ -73,6 +76,8 @@ public class GameController : MonoBehaviour
         }
 
         mainCameraController = Camera.main.GetComponent<CameraControl>();
+
+        currentStatus = "MainMenu";
     }
 
     // Update is called once per frame
@@ -80,8 +85,23 @@ public class GameController : MonoBehaviour
     {
 
     }
+    IEnumerator LevelSelection()
+    {
+        while (true)
+        {
+            // Load Level Selection Screen
+
+            // Wait While level is loaded
+        }
+
+
+        yield return null;
+    }
 
     // TODO: Break each level out into seperate coroutines so that they can be skipped for level loading
+    // Straight through run
+    #region RunThrough
+    /*
     IEnumerator GameSequence()
     {
         currentTeam.Add(prefab_Characters[0]);
@@ -93,7 +113,7 @@ public class GameController : MonoBehaviour
         // TODO: Maybe load a "Level Selection" Canvas here?
 
         #region Tutorial
-
+        /*
         if (!gameSettings.canSkipCutscenes)
         {
             cutsceneManager.StartCutscene("CH_1 Tutorial");
@@ -119,7 +139,9 @@ public class GameController : MonoBehaviour
         // TODO: Send back to level loading screen
         battleManager.Unloadlevel();
         //       Show that next level is unlocked?
+        
         #endregion
+        StartCoroutine(Level_Tutorial());
 
         #region Level 1
         if (!gameSettings.canSkipCutscenes)
@@ -159,16 +181,58 @@ public class GameController : MonoBehaviour
         yield return new WaitUntil(() => hasActiveLevel == false);
         #endregion
 
-        
+
 
 
         // Placeholder to validate the IEnumerator
         yield return new WaitForEndOfFrame();
     }
+    */
+    #endregion
+
+    public void Coroutine_Level_Tutorial()
+    {
+        StartCoroutine(Level_Tutorial());
+    }
+
+    IEnumerator Level_Tutorial()
+    {
+        if (!gameSettings.canSkipCutscenes)
+        {
+            cutsceneManager.StartCutscene("CH_1 Tutorial");
+            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+        }
+
+        enemyTeam.Add(prefab_Characters[1]);
+
+        //battleManager.currentLevel = battleManager.levels[0]; 
+        LoadLevel(0);                                         // I think this as like a cartridge.
+        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        hasActiveLevel = true;
+
+        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
+        yield return new WaitUntil(() => hasActiveLevel == false);
+
+        if (currentStatus == "LevelCompleted")
+        {
+            level0_Completed = true;
+            level1_Unlocked = true;
+        }
+
+        // Add Dayana to the current team
+        enemyTeam.Remove(prefab_Characters[1]);
+        currentTeam.Add(prefab_Characters[1]);
+
+        mainCameraController.Reset();
+
+        // TODO: Send back to level loading screen
+        battleManager.Unloadlevel();
+        //       Show that next level is unlocked?
+    }
 
     public void NewGame()
     {
-        StartCoroutine(GameSequence());
+        StartCoroutine(LevelSelection());
     }
 
     public void LoadGame()
@@ -176,6 +240,11 @@ public class GameController : MonoBehaviour
         // TODO: Implement Saving
         //       This tutorial seems to have an easy to implement format.
         //       https://www.raywenderlich.com/418-how-to-save-and-load-a-game-in-unity#toc-anchor-004
+
+        // Load Save Data
+        // The rest should be the same due to references
+
+        StartCoroutine(LevelSelection());
     }
 
     public void LoadNextLevel()
@@ -193,4 +262,18 @@ public class GameController : MonoBehaviour
 
         battleManager.currentLevel = battleManager.levels[levelNum];
     }
+
+    public void LoadLevel(string a_Level)
+    {
+        switch (a_Level)
+        {
+            case "Tutorial":
+                StartCoroutine(Level_Tutorial());
+                break;
+            default:
+                break;
+        }
+
+    }
+
 }

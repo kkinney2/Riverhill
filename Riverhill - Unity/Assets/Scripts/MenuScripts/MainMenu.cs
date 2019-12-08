@@ -44,6 +44,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    #region New Game
     public void newGame()
     {
         menuUISound.clip = newGameSelect;
@@ -61,11 +62,12 @@ public class MainMenu : MonoBehaviour
         gameController.NewGame();
 
         // TODO: Disabling "Hardcoded"
-        // TODO: New Game button still being selected when "next frame" buttons are pressed
         //gameObject.transform.parent.transform.parent.GetComponent<Canvas>().enabled = false;
         gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
     }
+    #endregion
 
+    #region Load Game
     public void loadGame()
     {
         menuUISound.clip = buttonSelect;
@@ -81,6 +83,24 @@ public class MainMenu : MonoBehaviour
         //Debug.Log(Time.time);
         //SceneManager.LoadScene("TurnBasedTest");
         gameController.LoadGame();
+    }
+    #endregion
+
+    public void Load_Level(string a_Level)
+    {
+        menuUISound.clip = buttonSelect;
+        menuUISound.Play();
+        //Debug.Log("Play sound: " + buttonSelect);
+        StartCoroutine(LoadLevelButtonDelay(a_Level));
+    }
+
+    private IEnumerator LoadLevelButtonDelay(string a_Level)
+    {
+        //Debug.Log(Time.time);
+        yield return new WaitForSeconds(0.5f);
+        //Debug.Log(Time.time);
+        //SceneManager.LoadScene("TurnBasedTest");
+        gameController.LoadLevel(a_Level);
     }
 
     public void quitGame()
