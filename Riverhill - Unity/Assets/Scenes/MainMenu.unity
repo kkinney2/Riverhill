@@ -491,7 +491,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79636645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2097813850}
@@ -2626,8 +2626,11 @@ MonoBehaviour:
   - {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
   - {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390, type: 3}
   currentStatus: 
+  MenuUI: {fileID: 1732305411}
   LoadGame_button: {fileID: 1605063896}
   LevelSelect_button: {fileID: 1257261382}
+  LevelSelect_Menu: {fileID: 607105048}
+  hasStartedGame: 0
   hasActiveLevel: 0
   level0_Unlocked: 1
   level0_Completed: 0

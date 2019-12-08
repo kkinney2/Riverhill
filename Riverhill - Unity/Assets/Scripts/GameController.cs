@@ -24,8 +24,11 @@ public class GameController : MonoBehaviour
     private int currentLevelNum = 0;
 
     [Header("Levels Status")]
+    public GameObject MenuUI;
     public Button LoadGame_button;
     public Button LevelSelect_button;
+    public GameObject LevelSelect_Menu;
+    public bool hasStartedGame = false;
 
     public bool hasActiveLevel = false;
     // Tutorial Level
@@ -95,6 +98,14 @@ public class GameController : MonoBehaviour
         {
             #region Load/LevelSelect Button
             //TODO: Need to check state for load/levelSelect **Hardcoded**
+            if (hasStartedGame)
+            {
+                LevelSelect_button.interactable = true;
+            }
+            else
+            {
+                LevelSelect_button.interactable = false;
+            }
             if (false)
             {
                 LoadGame_button.gameObject.SetActive(true);
@@ -117,8 +128,12 @@ public class GameController : MonoBehaviour
     IEnumerator LevelSelection()
     {
         currentStatus = "LevelSelection";
+        SetMenuUI(true);
+        LevelSelect_Menu.SetActive(true);
+        // Interactions
         while (true)
         {
+            yield return new WaitForEndOfFrame();
             // Load Level Selection Screen
 
             // Wait While level is loaded
@@ -308,6 +323,7 @@ public class GameController : MonoBehaviour
         // TODO: Send back to level loading screen
         battleManager.Unloadlevel();
         //       Show that next level is unlocked?
+        StartCoroutine(LevelSelection());
     }
 
     IEnumerator Level_One()
@@ -344,6 +360,7 @@ public class GameController : MonoBehaviour
         // TODO: Send back to level loading screen
         battleManager.Unloadlevel();
         //       Show that next level is unlocked?
+        StartCoroutine(LevelSelection());
     }
 
     IEnumerator Level_Two()
@@ -380,11 +397,13 @@ public class GameController : MonoBehaviour
         // TODO: Send back to level loading screen
         battleManager.Unloadlevel();
         //       Show that next level is unlocked?
+        StartCoroutine(LevelSelection());
     }
 
     #region New Game
     public void NewGame()
     {
+        hasStartedGame = true;
         StartCoroutine(StartNewGame());
     }
 
@@ -451,7 +470,13 @@ public class GameController : MonoBehaviour
             default:
                 break;
         }
+        SetMenuUI(false);
+        StopCoroutine(LevelSelection());
+    }
 
+    public void SetMenuUI(bool toggle)
+    {
+        MenuUI.SetActive(toggle);
     }
 
 }

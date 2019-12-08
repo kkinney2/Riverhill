@@ -63,7 +63,7 @@ public class MainMenu : MonoBehaviour
 
         // TODO: Disabling "Hardcoded"
         //gameObject.transform.parent.transform.parent.GetComponent<Canvas>().enabled = false;
-        gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
     #endregion
 
