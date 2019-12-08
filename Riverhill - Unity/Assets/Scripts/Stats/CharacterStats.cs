@@ -53,6 +53,8 @@ public class CharacterStats : MonoBehaviour
 
     //sound stuff
     public AudioSource charSounds;
+    public AudioClip charAttack;
+    public AudioClip charSpecial;
     public AudioClip charInjury;
     public AudioClip charDeath;
 
@@ -129,6 +131,10 @@ public class CharacterStats : MonoBehaviour
 
     public void IsAttacking()
     {
+        //attack sound
+        charSounds.clip = charAttack;
+        charSounds.Play();
+
         animator.SetTrigger("isAttacking");
     }
 
@@ -143,6 +149,10 @@ public class CharacterStats : MonoBehaviour
 
     public void IsDead()
     {
+        //death sound
+        charSounds.clip = charDeath;
+        charSounds.Play();
+
         StartCoroutine(Died());
     }
 
@@ -150,21 +160,17 @@ public class CharacterStats : MonoBehaviour
     {
         animator.SetBool("isDead", true);
 
-        //death sound
-        charSounds.clip = charDeath;
-        charSounds.Play();
-
         yield return new WaitForSeconds(deathPlayTime);
-
-        //death sound
-        //charSounds.clip = charDeath;
-        //charSounds.Play();
 
         gameObject.SetActive(false);
     }
 
     public void useSpecial()
     {
+        //special sound
+        charSounds.clip = charSpecial;
+        charSounds.Play();
+
         animator.SetTrigger("useSpecial");
     }
 
