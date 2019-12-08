@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -20,26 +21,33 @@ public class GameController : MonoBehaviour
 
     [Header("Game Status")]
     public string currentStatus;
-
-
     private int currentLevelNum = 0;
+
     [Header("Levels Status")]
+    public Button LoadGame_button;
+    public Button LevelSelect_button;
+
     public bool hasActiveLevel = false;
     // Tutorial Level
     public bool level0_Unlocked = true;
     public bool level0_Completed = false;
+    public Button level0_button;
 
     public bool level1_Unlocked = false;
     public bool level1_Completed = false;
+    public Button level1_button;
 
     public bool level2_Unlocked = false;
     public bool level2_Completed = false;
+    public Button level2_button;
 
     public bool level3_Unlocked = false;
     public bool level3_Completed = false;
+    public Button level3_button;
 
     public bool level4_Unlocked = false;
     public bool level4_Completed = false;
+    public Button level4_button;
 
     [Header("Character Status")]
     public List<bool> characterStatuses;
@@ -83,15 +91,92 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (currentStatus == "MainMenu")
+        {
+            #region Load/LevelSelect Button
+            //TODO: Need to check state for load/levelSelect **Hardcoded**
+            if (false)
+            {
+                LoadGame_button.gameObject.SetActive(true);
+                LevelSelect_button.gameObject.SetActive(false);
+            }
+            else
+            {
+                LoadGame_button.gameObject.SetActive(false);
+                LevelSelect_button.gameObject.SetActive(true);
+            }
+            #endregion
+        }
     }
+
+    public void Coroutine_LevelSelection()
+    {
+        StartCoroutine(LevelSelection());
+    }
+
     IEnumerator LevelSelection()
     {
+        currentStatus = "LevelSelection";
         while (true)
         {
             // Load Level Selection Screen
 
             // Wait While level is loaded
+
+            #region Tutorial Button
+            if (level0_Unlocked)
+            {
+                level0_button.interactable = true;
+            }
+            else
+            {
+                level0_button.interactable = false;
+            }
+            #endregion
+
+            #region LevelOne Button
+            if (level1_Unlocked)
+            {
+                level1_button.interactable = true;
+            }
+            else
+            {
+                level1_button.interactable = false;
+            }
+            #endregion
+
+            #region LevelTwo Button
+            if (level2_Unlocked)
+            {
+                level2_button.interactable = true;
+            }
+            else
+            {
+                level2_button.interactable = false;
+            }
+            #endregion
+
+            #region LevelThree Button
+            if (level3_Unlocked)
+            {
+                level3_button.interactable = true;
+            }
+            else
+            {
+                level3_button.interactable = false;
+            }
+            #endregion
+
+            #region LevelFour Button
+            if (level4_Unlocked)
+            {
+                level4_button.interactable = true;
+            }
+            else
+            {
+                level4_button.interactable = false;
+            }
+            #endregion
         }
 
 
@@ -189,11 +274,6 @@ public class GameController : MonoBehaviour
     }
     */
     #endregion
-
-    public void Coroutine_Level_Tutorial()
-    {
-        StartCoroutine(Level_Tutorial());
-    }
 
     IEnumerator Level_Tutorial()
     {
@@ -329,8 +409,6 @@ public class GameController : MonoBehaviour
 
         // Load Save Data
         // The rest should be the same due to references
-
-        StartCoroutine(LevelSelection());
     }
 
     public void LoadNextLevel()

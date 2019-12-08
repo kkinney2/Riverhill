@@ -86,6 +86,25 @@ public class MainMenu : MonoBehaviour
     }
     #endregion
 
+    #region Level Selection
+    public void levelSelect()
+    {
+        menuUISound.clip = buttonSelect;
+        menuUISound.Play();
+        //Debug.Log("Play sound: " + buttonSelect);
+        StartCoroutine(LevelSelectButtonDelay());
+    }
+
+    private IEnumerator LevelSelectButtonDelay()
+    {
+        //Debug.Log(Time.time);
+        yield return new WaitForSeconds(0.5f);
+        //Debug.Log(Time.time);
+        //SceneManager.LoadScene("TurnBasedTest");
+        gameController.Coroutine_LevelSelection();
+    }
+    #endregion
+
     public void Load_Level(string a_Level)
     {
         menuUISound.clip = buttonSelect;
