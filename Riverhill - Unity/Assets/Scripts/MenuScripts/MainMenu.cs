@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void Update()
     {
-        if(eventSys.currentSelectedGameObject != storeSelect)
+        if (eventSys.currentSelectedGameObject != storeSelect)
         {
             if (eventSys.currentSelectedGameObject == null)
             {
@@ -96,10 +96,8 @@ public class MainMenu : MonoBehaviour
 
     private IEnumerator LoadLevelButtonDelay(string a_Level)
     {
-        //Debug.Log(Time.time);
         yield return new WaitForSeconds(0.5f);
-        //Debug.Log(Time.time);
-        //SceneManager.LoadScene("TurnBasedTest");
+
         gameController.LoadLevel(a_Level);
     }
 
