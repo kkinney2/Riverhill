@@ -4052,17 +4052,25 @@ MonoBehaviour:
   gameSettings: {fileID: 0}
   mainCameraController: {fileID: 0}
   prefab_Characters: []
+  currentStatus: 
+  LoadGame_button: {fileID: 0}
+  LevelSelect_button: {fileID: 0}
   hasActiveLevel: 0
   level0_Unlocked: 1
   level0_Completed: 0
+  level0_button: {fileID: 0}
   level1_Unlocked: 0
   level1_Completed: 0
+  level1_button: {fileID: 0}
   level2_Unlocked: 0
   level2_Completed: 0
+  level2_button: {fileID: 0}
   level3_Unlocked: 0
   level3_Completed: 0
+  level3_button: {fileID: 0}
   level4_Unlocked: 0
   level4_Completed: 0
+  level4_button: {fileID: 0}
   characterStatuses: 
   alyss_Unlocked: 1
   dayana_Unlocked: 0

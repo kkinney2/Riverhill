@@ -51,6 +51,11 @@ public class CharacterStats : MonoBehaviour
     public Text currentHealthText;
     public Image HPBarFill;
 
+    //sound stuff
+    public AudioSource charSounds;
+    public AudioClip charInjury;
+    public AudioClip charDeath;
+
     private void Start()
     {
         // No longer self reports
@@ -65,6 +70,8 @@ public class CharacterStats : MonoBehaviour
 
         currentHealthText.text = ("Health: " + CurrentHP);
         HPBarFill.fillAmount = ((CurrentHP) / 100);
+
+        AudioSource charSounds = GetComponent<AudioSource>();
 
         #region Animations
         animator = gameObject.GetComponent<Animator>();
@@ -127,6 +134,10 @@ public class CharacterStats : MonoBehaviour
 
     public void WasHit()
     {
+        //injury sound
+        charSounds.clip = charInjury;
+        charSounds.Play();
+
         animator.SetTrigger("wasHit");
     }
 
@@ -139,7 +150,15 @@ public class CharacterStats : MonoBehaviour
     {
         animator.SetBool("isDead", true);
 
+        //death sound
+        charSounds.clip = charDeath;
+        charSounds.Play();
+
         yield return new WaitForSeconds(deathPlayTime);
+
+        //death sound
+        //charSounds.clip = charDeath;
+        //charSounds.Play();
 
         gameObject.SetActive(false);
     }
