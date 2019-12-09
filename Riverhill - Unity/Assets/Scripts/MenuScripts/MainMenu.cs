@@ -16,6 +16,9 @@ public class MainMenu : MonoBehaviour
     public AudioClip buttonSelect;
     public AudioClip newGameSelect;
 
+    GameObject panelWithMusic;
+    AudioSource panelWithMusicAS;
+
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -26,6 +29,9 @@ public class MainMenu : MonoBehaviour
         storeSelect = eventSys.firstSelectedGameObject;
 
         AudioSource menuUISound = GetComponent<AudioSource>();
+
+        panelWithMusic = GameObject.Find("Panel_MainMenu");
+        panelWithMusicAS = panelWithMusic.GetComponent<AudioSource>();
     }
 
     public void Update()
@@ -47,6 +53,7 @@ public class MainMenu : MonoBehaviour
     #region New Game
     public void newGame()
     {
+        Destroy(panelWithMusicAS);
         menuUISound.clip = newGameSelect;
         menuUISound.Play();
         //Debug.Log("Play sound: " + newGameSelect);
