@@ -138,7 +138,17 @@ public class CharacterStats : MonoBehaviour
 
     IEnumerator AttackSound()
     {
-        yield return new WaitForSeconds(0.5f);
+        //wanting to adjust sound delay for different character...
+
+        if (Name.Contains("Alyss"))
+        {
+            yield return new WaitForSeconds(0.7f); //around 0.7f delay seems good for Alyss attack (also tried 0.5f and 0.6f)
+        }
+
+        if (Name.Contains("Dayana"))
+        {
+            yield return new WaitForSeconds(1f); //1f seems good for Dayana attack
+        }
 
         //attack sound
         charSounds.clip = charAttack;
@@ -149,6 +159,24 @@ public class CharacterStats : MonoBehaviour
     {
         animator.SetTrigger("wasHit");
 
+        StartCoroutine(MakeOof());
+    }
+
+    IEnumerator MakeOof()
+    {
+        //wanting to adjust sound delay for different character...
+
+        if (Name.Contains("Alyss"))
+        {
+            yield return new WaitForSeconds(1f); //?? any delay is no good?? //Alyss seems to react before actually getting hit (Dayana's anim is pretty slow)
+            //1f looks fine, tbh, aside from Alyss taking damage before Dayana finishes her attack lol
+        }
+
+        if (Name.Contains("Dayana"))
+        {
+            yield return new WaitForSeconds(0.5f); //around 0.5f good for Dayana react
+        }
+        
         //injury sound
         charSounds.clip = charInjury;
         charSounds.Play();
@@ -157,10 +185,6 @@ public class CharacterStats : MonoBehaviour
     public void IsDead()
     {
         StartCoroutine(Died());
-
-        //death sound
-        charSounds.clip = charDeath;
-        charSounds.Play();
     }
 
     IEnumerator Died()
@@ -168,6 +192,11 @@ public class CharacterStats : MonoBehaviour
         animator.SetBool("isDead", true);
 
         yield return new WaitForSeconds(deathPlayTime);
+        //need more of a delay for sound? idk
+
+        //death sound
+        charSounds.clip = charDeath;
+        charSounds.Play();
 
         gameObject.SetActive(false);
     }

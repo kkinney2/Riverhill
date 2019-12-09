@@ -70,6 +70,13 @@ public class BattleManager : MonoBehaviour
     public bool nextCharacter = false;
 
     private BattleStateMachine battleStateMachine;
+    
+    //gameplay music
+    public AudioSource gameplayMusicAS;
+    public AudioClip gameplayMusic;
+    //for stopping gameplay music?
+    public bool gameplayMusicIsPlaying;
+    public bool shouldTurnOffMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +85,8 @@ public class BattleManager : MonoBehaviour
 
         //P1HPBar.gameObject.SetActive(false);
         //E1HPBar.gameObject.SetActive(false);
+
+        gameplayMusicAS = GetComponent<AudioSource>();
     }
 
     // GameController now supplies the characters to play with
@@ -362,6 +371,10 @@ public class BattleManager : MonoBehaviour
             currentLevel.Load();
             turnText.gameObject.SetActive(true);
 
+            gameplayMusicAS.enabled = true;
+            gameplayMusicAS.Play();
+            gameplayMusicIsPlaying = true;
+
             //P1HPBar.gameObject.SetActive(true);
             //E1HPBar.gameObject.SetActive(true);
 
@@ -376,6 +389,18 @@ public class BattleManager : MonoBehaviour
 
         //P1HPBar.gameObject.SetActive(false);
         //E1HPBar.gameObject.SetActive(false);
+
+        if (gameplayMusicIsPlaying == true)
+        {
+            shouldTurnOffMusic = true;
+
+            if (shouldTurnOffMusic == true)
+            {
+                gameplayMusicAS.enabled = false;
+                gameplayMusicIsPlaying = false;
+                shouldTurnOffMusic = false;
+            }
+        }
 
         currentLevel.Unload();
     }
