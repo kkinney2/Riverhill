@@ -38,10 +38,10 @@ public class BattleManager : MonoBehaviour
     public GameController gameController;
 
     public GameObject prefab_CharacterUI;
-    public Canvas characterUICanvas;
 
-    CharacterUI characterUI;
-    GameObject characterUI_Object;
+    public CharacterUI characterUI;
+    public GameObject characterUI_Object;
+    public Canvas characterUICanvas;
 
     public List<CharacterStats> characterStats;
     public List<CharacterState> characterStates;
@@ -89,8 +89,6 @@ public class BattleManager : MonoBehaviour
         //E1HPBar.gameObject.SetActive(false);
 
         gameplayMusicAS = GetComponent<AudioSource>();
-
-        characterUICanvas = prefab_CharacterUI.GetComponent<Canvas>();
     }
 
     // GameController now supplies the characters to play with
@@ -366,6 +364,10 @@ public class BattleManager : MonoBehaviour
 
     private void LoadLevel()
     {
+        characterUICanvas = characterUI_Object.GetComponent<Canvas>();
+        //Debug.Log(characterUI_Object);
+        //Debug.Log(characterUICanvas);
+
         if (currentLevel == null)
         {
             Debug.LogWarning("No level to Load");

@@ -23,7 +23,7 @@ public class CharacterPathfinding : MonoBehaviour
 
     //public static BattleManager battleManager;
     //public GameObject objBattleManager;
-    //public BattleManager battleManagerScript;
+    BattleManager battleManager;
 
     private void Awake()
     {
@@ -145,6 +145,7 @@ public class CharacterPathfinding : MonoBehaviour
 
         //TO-DO: THIS IS WHERE WE WANT TO DISABLE UI?
         //battleManagerScript.characterUICanvas.enabled = false;
+        //battleManager.characterUICanvas.enabled = false;
 
         // Teleport to Position
         //transform.position = path[path.Count - 1].transform.position;
