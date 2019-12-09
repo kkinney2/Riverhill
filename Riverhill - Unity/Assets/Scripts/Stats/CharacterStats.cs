@@ -48,7 +48,7 @@ public class CharacterStats : MonoBehaviour
     //public Text currentP1Health;
     //public Text currentE1Health;
 
-    public Text currentHealthText;
+    //public Text currentHealthText;
     public Image HPBarFill;
 
     //sound stuff
@@ -70,7 +70,7 @@ public class CharacterStats : MonoBehaviour
         //HPBarFill.fillAmount = ((CurrentHP) / 100);
         //*/
 
-        currentHealthText.text = ("Health: " + CurrentHP);
+        //currentHealthText.text = ("Health: " + CurrentHP);
         HPBarFill.fillAmount = ((CurrentHP) / 100);
 
         AudioSource charSounds = GetComponent<AudioSource>();
@@ -104,7 +104,7 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        currentHealthText.text = ("Health: " + CurrentHP);
+        //currentHealthText.text = ("Health: " + CurrentHP);
         HPBarFill.fillAmount = ((CurrentHP) / 100);
 
         if (CurrentHP <= 0f)
