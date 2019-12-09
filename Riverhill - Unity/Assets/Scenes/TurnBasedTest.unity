@@ -256,6 +256,7 @@ MonoBehaviour:
   gameController: {fileID: 0}
   prefab_CharacterUI: {fileID: 8653099306592415916, guid: 5a01056e15610294d88f9196d49d5cc7,
     type: 3}
+  characterUICanvas: {fileID: 0}
   characterStats: []
   spriteLayering: {fileID: 2072256814}
   currentLevel: {fileID: 0}
@@ -8425,6 +8426,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: objBattleManager
+      value: 
+      objectReference: {fileID: 268945811}
+    - target: {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: battleManagerScript
+      value: 
+      objectReference: {fileID: 268945812}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
 --- !u!1 &4261429118425795852
@@ -10509,5 +10520,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589401, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: objBattleManager
+      value: 
+      objectReference: {fileID: 268945811}
+    - target: {fileID: 307183929201589401, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: battleManagerScript
+      value: 
+      objectReference: {fileID: 268945812}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb40f9bb8ee8b294897199dad30b6390, type: 3}

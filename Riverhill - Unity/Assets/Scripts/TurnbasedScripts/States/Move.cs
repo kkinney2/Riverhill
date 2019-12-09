@@ -19,6 +19,10 @@ public class Move : IState
 
     Vector2 previousPos;
 
+    //disabling UI on action perform
+    //already have BattleManager battleManager;
+    //battleManager.characterUICanvas.enabled = ;
+
     public Move(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
@@ -75,7 +79,6 @@ public class Move : IState
                 }
                 #endregion
             }
-
 
             pathfinder.Move();
         }
@@ -147,6 +150,7 @@ public class Move : IState
             Debug.Log("actionCount: " + characterState.actionCount);
             characterStateMachine.ChangeState(characterState.state_Idle);
             Debug.Log("actionCount: " + characterState.actionCount);
+            battleManager.characterUICanvas.enabled = true;
         }
     }
 

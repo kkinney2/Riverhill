@@ -38,6 +38,8 @@ public class BattleManager : MonoBehaviour
     public GameController gameController;
 
     public GameObject prefab_CharacterUI;
+    public Canvas characterUICanvas;
+
     CharacterUI characterUI;
     GameObject characterUI_Object;
 
@@ -87,6 +89,8 @@ public class BattleManager : MonoBehaviour
         //E1HPBar.gameObject.SetActive(false);
 
         gameplayMusicAS = GetComponent<AudioSource>();
+
+        characterUICanvas = prefab_CharacterUI.GetComponent<Canvas>();
     }
 
     // GameController now supplies the characters to play with
