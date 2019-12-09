@@ -24,6 +24,7 @@ public class CutsceneManager : MonoBehaviour
     public AudioClip cutsceneMusic;
     //for stopping cutscene music?
     public bool cutsceneMusicIsPlaying;
+    public bool shouldTurnOffMusic;
 
     private void Awake()
     {
@@ -55,6 +56,21 @@ public class CutsceneManager : MonoBehaviour
         else
         {
             StartCutscene("Test");
+        }
+    }
+
+    private void Update()
+    {
+        if (hasActiveCutscene == false && cutsceneMusicIsPlaying == true)
+        {
+            shouldTurnOffMusic = true;
+
+            if (shouldTurnOffMusic == true)
+            {
+                cutsceneMusicAS.enabled = false;
+                cutsceneMusicIsPlaying = false;
+                shouldTurnOffMusic = false;
+            }
         }
     }
 

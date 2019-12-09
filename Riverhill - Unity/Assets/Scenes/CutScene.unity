@@ -21353,6 +21353,8 @@ MonoBehaviour:
   TextSpeed: 25
   cutsceneMusicAS: {fileID: 890923549}
   cutsceneMusic: {fileID: 8300000, guid: f17e69d97b446ae40a9550ce00733cf3, type: 3}
+  cutsceneMusicIsPlaying: 0
+  shouldTurnOffMusic: 0
 --- !u!1001 &892621456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34810,7 +34812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSkipCutscenes: 0
+  canSkipCutscenes: 1
   FramerateTarget: 60
   TextSpeed: 25
   CharacterMoveSpeed: 5

@@ -21,8 +21,6 @@ public class MainMenu : MonoBehaviour
     GameObject panelWithMusic;
     AudioSource panelWithMusicAS;
 
-    private static CutsceneManager cutsceneManager;
-
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -34,16 +32,25 @@ public class MainMenu : MonoBehaviour
 
         AudioSource menuUISound = GetComponent<AudioSource>();
         
+        panelWithMusic = GameObject.Find("Panel_MainMenu");
+        panelWithMusicAS = panelWithMusic.GetComponent<AudioSource>();
+        panelWithMusicAS.enabled = true;
+        //panelWithMusicAS.Play();
+
+        /*
         if (cutsceneManager.hasActiveCutscene == false && cutsceneManager.cutsceneMusicIsPlaying == true)
         {
             cutsceneManager.cutsceneMusicAS.enabled = false;
             cutsceneManager.cutsceneMusicIsPlaying = false;
         }
-        
-        panelWithMusic = GameObject.Find("Panel_MainMenu");
-        panelWithMusicAS = panelWithMusic.GetComponent<AudioSource>();
-        panelWithMusicAS.enabled = true;
-        //panelWithMusicAS.Play();
+        */
+        /*
+        if (cutsceneManager.cutsceneMusicIsPlaying == true)
+        {
+            cutsceneManager.cutsceneMusicAS.enabled = false;
+            cutsceneManager.cutsceneMusicIsPlaying = false;
+        }
+        */
     }
 
     public void Update()

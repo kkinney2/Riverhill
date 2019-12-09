@@ -131,29 +131,36 @@ public class CharacterStats : MonoBehaviour
 
     public void IsAttacking()
     {
+        animator.SetTrigger("isAttacking");
+
+        StartCoroutine(AttackSound());
+    }
+
+    IEnumerator AttackSound()
+    {
+        yield return new WaitForSeconds(0.5f);
+
         //attack sound
         charSounds.clip = charAttack;
         charSounds.Play();
-
-        animator.SetTrigger("isAttacking");
     }
 
     public void WasHit()
     {
+        animator.SetTrigger("wasHit");
+
         //injury sound
         charSounds.clip = charInjury;
         charSounds.Play();
-
-        animator.SetTrigger("wasHit");
     }
 
     public void IsDead()
     {
+        StartCoroutine(Died());
+
         //death sound
         charSounds.clip = charDeath;
         charSounds.Play();
-
-        StartCoroutine(Died());
     }
 
     IEnumerator Died()
@@ -167,11 +174,11 @@ public class CharacterStats : MonoBehaviour
 
     public void useSpecial()
     {
+        animator.SetTrigger("useSpecial");
+
         //special sound
         charSounds.clip = charSpecial;
         charSounds.Play();
-
-        animator.SetTrigger("useSpecial");
     }
 
     IEnumerator AnimCheck()
