@@ -19,6 +19,12 @@ public class CutsceneManager : MonoBehaviour
     [Tooltip("Controls text speed based on a 1/x delay between characters and a 2/x delay on punctuation")]
     public int TextSpeed = 25;
 
+    //cutscene music
+    public AudioSource cutsceneMusicAS;
+    public AudioClip cutsceneMusic;
+
+    public bool cutsceneMusicIsPlaying;
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
@@ -31,6 +37,7 @@ public class CutsceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cutsceneMusicAS = GetComponent<AudioSource>();
 
         cutscenes = new Cutscene[Cutscene_GameObjects.Length];
 
@@ -50,7 +57,6 @@ public class CutsceneManager : MonoBehaviour
             StartCutscene("Test");
         }
     }
-
 
     IEnumerator ObtainCutsceneScripts()
     {
@@ -73,6 +79,9 @@ public class CutsceneManager : MonoBehaviour
                 {
                     cutscene.StartScene();
                     hasActiveCutscene = true;
+                    cutsceneMusicAS.mute = false;
+                    cutsceneMusicAS.Play();
+                    cutsceneMusicIsPlaying = true;
                     break;
                 }
             }

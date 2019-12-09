@@ -19,6 +19,8 @@ public class MainMenu : MonoBehaviour
     GameObject panelWithMusic;
     AudioSource panelWithMusicAS;
 
+    private static CutsceneManager cutsceneManager;
+
     private void Awake()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
@@ -30,8 +32,16 @@ public class MainMenu : MonoBehaviour
 
         AudioSource menuUISound = GetComponent<AudioSource>();
 
+        if (cutsceneManager.cutsceneMusicIsPlaying == true)
+        {
+            cutsceneManager.cutsceneMusicAS.Stop();
+            cutsceneManager.cutsceneMusicIsPlaying = false;
+        }
+        
         panelWithMusic = GameObject.Find("Panel_MainMenu");
         panelWithMusicAS = panelWithMusic.GetComponent<AudioSource>();
+        panelWithMusicAS.enabled = true;
+        panelWithMusicAS.Play();
     }
 
     public void Update()
@@ -53,7 +63,8 @@ public class MainMenu : MonoBehaviour
     #region New Game
     public void newGame()
     {
-        Destroy(panelWithMusicAS);
+        panelWithMusicAS.Stop();
+        panelWithMusicAS.enabled = false;
         menuUISound.clip = newGameSelect;
         menuUISound.Play();
         //Debug.Log("Play sound: " + newGameSelect);
