@@ -7,6 +7,8 @@ public class Level : MonoBehaviour
     public GameObject Grid_Tile;
     public GameObject Grid_Obstacles;
     public GameObject Grid_Unwalkable;
+    public GameObject[] spawnMaps;
+    public Vector3[] spawnPositions;
     public TileManager tileManager;
 
     [Header("Bounds")]
