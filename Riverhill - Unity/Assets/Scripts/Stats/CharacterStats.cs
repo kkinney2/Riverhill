@@ -58,10 +58,6 @@ public class CharacterStats : MonoBehaviour
     public AudioClip charInjury;
     public AudioClip charDeath;
 
-    //tryna disable UI while action occurs
-    public GameObject objWithCanvas;
-    Canvas canvasUI;
-
     private void Start()
     {
         // No longer self reports
@@ -78,8 +74,6 @@ public class CharacterStats : MonoBehaviour
         HPBarFill.fillAmount = ((CurrentHP) / 100);
 
         AudioSource charSounds = GetComponent<AudioSource>();
-
-        canvasUI = objWithCanvas.GetComponent<Canvas>();
 
         #region Animations
         animator = gameObject.GetComponent<Animator>();
@@ -126,7 +120,7 @@ public class CharacterStats : MonoBehaviour
 
     public void IsHealing()
     {
-        canvasUI.enabled = false;
+        //Alyss special, may need to move special healing sound here?
 
         animator.SetTrigger("isHealing");
         healingAura_Anim.SetTrigger("isHealing");
@@ -134,15 +128,11 @@ public class CharacterStats : MonoBehaviour
 
     public void IsWalking(bool set)
     {
-        canvasUI.enabled = false;
-
         animator.SetBool("isWalking", set);
     }
 
     public void IsAttacking()
     {
-        canvasUI.enabled = false;
-
         animator.SetTrigger("isAttacking");
 
         StartCoroutine(AttackSound());
@@ -151,7 +141,6 @@ public class CharacterStats : MonoBehaviour
     IEnumerator AttackSound()
     {
         //wanting to adjust sound delay for different character...
-
         if (Name.Contains("Alyss"))
         {
             yield return new WaitForSeconds(0.7f); //around 0.7f delay seems good for Alyss attack (also tried 0.5f and 0.6f)
@@ -169,8 +158,6 @@ public class CharacterStats : MonoBehaviour
 
     public void WasHit()
     {
-        //canvasUI.enabled = false;
-
         animator.SetTrigger("wasHit");
 
         StartCoroutine(MakeOof());
@@ -179,7 +166,6 @@ public class CharacterStats : MonoBehaviour
     IEnumerator MakeOof()
     {
         //wanting to adjust sound delay for different character...
-
         if (Name.Contains("Alyss"))
         {
             yield return new WaitForSeconds(1f); //?? any delay is no good?? //Alyss seems to react before actually getting hit (Dayana's anim is pretty slow)
@@ -203,27 +189,25 @@ public class CharacterStats : MonoBehaviour
 
     IEnumerator Died()
     {
-        canvasUI.enabled = false;
-
         animator.SetBool("isDead", true);
 
         yield return new WaitForSeconds(deathPlayTime);
-        //need more of a delay for sound? idk
+        //need more of a delay for sound? idk, I think so though
 
         //death sound
         charSounds.clip = charDeath;
         charSounds.Play();
+
+        yield return new WaitForSeconds(2f);
 
         gameObject.SetActive(false);
     }
 
     public void useSpecial()
     {
-        canvasUI.enabled = false;
-
         animator.SetTrigger("useSpecial");
 
-        //special sound
+        //special sound //may need to add wait for seconds also?
         charSounds.clip = charSpecial;
         charSounds.Play();
     }

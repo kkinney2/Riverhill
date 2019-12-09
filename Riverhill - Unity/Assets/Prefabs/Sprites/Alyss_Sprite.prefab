@@ -391,8 +391,6 @@ MonoBehaviour:
   charSpecial: {fileID: 8300000, guid: 16c382c6e47032847b21c1f395b63f5b, type: 3}
   charInjury: {fileID: 8300000, guid: 337a01514c2a8b44aa0bf2a30c79180a, type: 3}
   charDeath: {fileID: 8300000, guid: 1a3add7cdf9704a4fbb0540e70582716, type: 3}
-  objWithCanvas: {fileID: 8653099306592415916, guid: 5a01056e15610294d88f9196d49d5cc7,
-    type: 3}
 --- !u!82 &1871606650
 AudioSource:
   m_ObjectHideFlags: 0
@@ -726,6 +724,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 701519812}
     m_Modifications:
+    - target: {fileID: 1078651871555440462, guid: 59f1af056fb43bd4d876168e2249b2f1,
+        type: 3}
+      propertyPath: m_Name
+      value: P1HPBarFill
+      objectReference: {fileID: 0}
     - target: {fileID: 1078651871555440460, guid: 59f1af056fb43bd4d876168e2249b2f1,
         type: 3}
       propertyPath: m_Sprite
@@ -851,11 +854,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1078651871555440462, guid: 59f1af056fb43bd4d876168e2249b2f1,
-        type: 3}
-      propertyPath: m_Name
-      value: P1HPBarFill
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59f1af056fb43bd4d876168e2249b2f1, type: 3}
