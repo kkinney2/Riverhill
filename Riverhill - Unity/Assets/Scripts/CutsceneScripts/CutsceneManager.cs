@@ -22,7 +22,7 @@ public class CutsceneManager : MonoBehaviour
     //cutscene music
     public AudioSource cutsceneMusicAS;
     public AudioClip cutsceneMusic;
-
+    //for stopping cutscene music?
     public bool cutsceneMusicIsPlaying;
 
     private void Awake()
@@ -79,7 +79,7 @@ public class CutsceneManager : MonoBehaviour
                 {
                     cutscene.StartScene();
                     hasActiveCutscene = true;
-                    cutsceneMusicAS.mute = false;
+                    cutsceneMusicAS.enabled = true;
                     cutsceneMusicAS.Play();
                     cutsceneMusicIsPlaying = true;
                     break;

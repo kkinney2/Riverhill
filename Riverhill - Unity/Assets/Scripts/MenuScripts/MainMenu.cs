@@ -11,11 +11,13 @@ public class MainMenu : MonoBehaviour
     public EventSystem eventSys;
     private GameObject storeSelect;
 
+    //sound effects
     public AudioSource menuUISound;
     public AudioClip buttonSwitch;
     public AudioClip buttonSelect;
     public AudioClip newGameSelect;
 
+    //music
     GameObject panelWithMusic;
     AudioSource panelWithMusicAS;
 
@@ -31,17 +33,17 @@ public class MainMenu : MonoBehaviour
         storeSelect = eventSys.firstSelectedGameObject;
 
         AudioSource menuUISound = GetComponent<AudioSource>();
-
-        if (cutsceneManager.cutsceneMusicIsPlaying == true)
+        
+        if (cutsceneManager.hasActiveCutscene == false && cutsceneManager.cutsceneMusicIsPlaying == true)
         {
-            cutsceneManager.cutsceneMusicAS.Stop();
+            cutsceneManager.cutsceneMusicAS.enabled = false;
             cutsceneManager.cutsceneMusicIsPlaying = false;
         }
         
         panelWithMusic = GameObject.Find("Panel_MainMenu");
         panelWithMusicAS = panelWithMusic.GetComponent<AudioSource>();
         panelWithMusicAS.enabled = true;
-        panelWithMusicAS.Play();
+        //panelWithMusicAS.Play();
     }
 
     public void Update()
@@ -63,7 +65,7 @@ public class MainMenu : MonoBehaviour
     #region New Game
     public void newGame()
     {
-        panelWithMusicAS.Stop();
+        //panelWithMusicAS.Stop();
         panelWithMusicAS.enabled = false;
         menuUISound.clip = newGameSelect;
         menuUISound.Play();
