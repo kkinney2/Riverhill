@@ -58,6 +58,10 @@ public class CharacterStats : MonoBehaviour
     public AudioClip charInjury;
     public AudioClip charDeath;
 
+    //tryna disable UI while action occurs
+    public GameObject objWithCanvas;
+    Canvas canvasUI;
+
     private void Start()
     {
         // No longer self reports
@@ -74,6 +78,8 @@ public class CharacterStats : MonoBehaviour
         HPBarFill.fillAmount = ((CurrentHP) / 100);
 
         AudioSource charSounds = GetComponent<AudioSource>();
+
+        canvasUI = objWithCanvas.GetComponent<Canvas>();
 
         #region Animations
         animator = gameObject.GetComponent<Animator>();
@@ -120,17 +126,23 @@ public class CharacterStats : MonoBehaviour
 
     public void IsHealing()
     {
+        canvasUI.enabled = false;
+
         animator.SetTrigger("isHealing");
         healingAura_Anim.SetTrigger("isHealing");
     }
 
     public void IsWalking(bool set)
     {
+        canvasUI.enabled = false;
+
         animator.SetBool("isWalking", set);
     }
 
     public void IsAttacking()
     {
+        canvasUI.enabled = false;
+
         animator.SetTrigger("isAttacking");
 
         StartCoroutine(AttackSound());
@@ -157,6 +169,8 @@ public class CharacterStats : MonoBehaviour
 
     public void WasHit()
     {
+        //canvasUI.enabled = false;
+
         animator.SetTrigger("wasHit");
 
         StartCoroutine(MakeOof());
@@ -189,6 +203,8 @@ public class CharacterStats : MonoBehaviour
 
     IEnumerator Died()
     {
+        canvasUI.enabled = false;
+
         animator.SetBool("isDead", true);
 
         yield return new WaitForSeconds(deathPlayTime);
@@ -203,6 +219,8 @@ public class CharacterStats : MonoBehaviour
 
     public void useSpecial()
     {
+        canvasUI.enabled = false;
+
         animator.SetTrigger("useSpecial");
 
         //special sound

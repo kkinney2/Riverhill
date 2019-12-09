@@ -484,13 +484,14 @@ MonoBehaviour:
   rangedAttackRange: {x: 1, y: 3}
   attack: 10
   healingAura: {fileID: 285973722684946891}
-  currentHealthText: {fileID: 0}
   HPBarFill: {fileID: 624934464}
   charSounds: {fileID: 1763946070}
   charAttack: {fileID: 8300000, guid: 295dfaa94e564e74884dcae046ddc3a3, type: 3}
   charSpecial: {fileID: 8300000, guid: 6fcf3d4fa9f111c40aacb2941919d5d7, type: 3}
   charInjury: {fileID: 8300000, guid: 7da83f288d223314d8c53b10837e01e6, type: 3}
   charDeath: {fileID: 8300000, guid: 99b6cbb1516d0274a9e08317a34b8a0d, type: 3}
+  objWithCanvas: {fileID: 8653099306592415916, guid: 5a01056e15610294d88f9196d49d5cc7,
+    type: 3}
 --- !u!82 &1763946070
 AudioSource:
   m_ObjectHideFlags: 0
