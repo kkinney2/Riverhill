@@ -79,15 +79,28 @@ public class BattleManager : MonoBehaviour
     public bool gameplayMusicIsPlaying;
     public bool shouldTurnOffMusic;
 
+    //wanting to disable UI while performing action
+    public CharacterPathfinding charPathfindingAlyss;
+    public CharacterPathfinding charPathfindingDayana;
+
     // Start is called before the first frame update
     void Start()
     {
         turnText.gameObject.SetActive(false);
 
-        //P1HPBar.gameObject.SetActive(false);
-        //E1HPBar.gameObject.SetActive(false);
-
         gameplayMusicAS = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (charPathfindingAlyss.isPerformingMove == true)
+        {
+            Debug.Log("isPeformingTrue" + charPathfindingAlyss.isPerformingMove);
+        }
+        if (charPathfindingDayana.isPerformingMove == true)
+        {
+            Debug.Log("isPeformingTrue" + charPathfindingDayana.isPerformingMove);
+        }
     }
 
     // GameController now supplies the characters to play with
@@ -166,14 +179,6 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("Start " + characterStates_Player[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
 
-                //EMILY ADDED TO GET HEALTH BARS WORKING UPON LOAD (NO UNITY PAUSE)
-                /*
-                charStatsAlyss.currentHealthText.text = ("Health: " + charStatsAlyss.CurrentHP);
-                charStatsAlyss.HPBarFill.fillAmount = ((charStatsAlyss.CurrentHP) / 100);
-                charStatsDayana.currentHealthText.text = ("Health: " + charStatsDayana.CurrentHP);
-                charStatsDayana.HPBarFill.fillAmount = ((charStatsDayana.CurrentHP) / 100);
-                */
-
                 yield return new WaitForSeconds(1f);
 
                 battleStateMachine.ChangeState(characterStates_Player[i]);
@@ -203,14 +208,6 @@ public class BattleManager : MonoBehaviour
                 //Debug.Log("");
                 Debug.Log("Start " + characterStates_Enemy[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Enemy[i].characterStats.Name;
-
-                //EMILY ADDED TO GET HEALTH BARS WORKING UPON LOAD (NO UNITY PAUSE)
-                /*
-                charStatsAlyss.currentHealthText.text = ("Health: " + charStatsAlyss.CurrentHP);
-                charStatsAlyss.HPBarFill.fillAmount = ((charStatsAlyss.CurrentHP) / 100);
-                charStatsDayana.currentHealthText.text = ("Health: " + charStatsDayana.CurrentHP);
-                charStatsDayana.HPBarFill.fillAmount = ((charStatsDayana.CurrentHP) / 100);
-                */
 
                 yield return new WaitForSeconds(1f);
                 battleStateMachine.ChangeState(characterStates_Enemy[i]);
@@ -399,9 +396,6 @@ public class BattleManager : MonoBehaviour
             gameplayMusicAS.enabled = true;
             gameplayMusicAS.Play();
             gameplayMusicIsPlaying = true;
-
-            //P1HPBar.gameObject.SetActive(true);
-            //E1HPBar.gameObject.SetActive(true);
 
             StartCoroutine(UpdateTiles());
         }
