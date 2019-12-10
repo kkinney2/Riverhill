@@ -80,8 +80,10 @@ public class BattleManager : MonoBehaviour
     public bool shouldTurnOffMusic;
 
     //wanting to disable UI while performing action
-    public CharacterPathfinding charPathfindingAlyss;
-    public CharacterPathfinding charPathfindingDayana;
+    //public CharacterPathfinding charPathfindingAlyss;
+    //public CharacterPathfinding charPathfindingDayana; //not needed for Dayana
+    public GameObject player;
+    //public CharacterUI characterUI; //already has
 
     // Start is called before the first frame update
     void Start()
@@ -91,17 +93,15 @@ public class BattleManager : MonoBehaviour
         gameplayMusicAS = GetComponent<AudioSource>();
     }
 
+    /*
     private void Update()
     {
         if (charPathfindingAlyss.isPerformingMove == true)
         {
             Debug.Log("isPeformingTrue" + charPathfindingAlyss.isPerformingMove);
         }
-        if (charPathfindingDayana.isPerformingMove == true)
-        {
-            Debug.Log("isPeformingTrue" + charPathfindingDayana.isPerformingMove);
-        }
     }
+    */
 
     // GameController now supplies the characters to play with
     public void Startup(List<GameObject> players, List<GameObject> enemies)
@@ -381,6 +381,9 @@ public class BattleManager : MonoBehaviour
     private void LoadLevel()
     {
         characterUICanvas = characterUI_Object.GetComponent<Canvas>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        characterUI.lookToPlayerObject = player;
+        characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
         //Debug.Log(characterUI_Object);
         //Debug.Log(characterUICanvas);
 

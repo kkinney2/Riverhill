@@ -324,6 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasCharacterState: 0
   characterUI_Object: {fileID: 0}
+  characterUIObjCanvas: {fileID: 8653099306592415907}
 --- !u!1 &8653099306593360483
 GameObject:
   m_ObjectHideFlags: 0

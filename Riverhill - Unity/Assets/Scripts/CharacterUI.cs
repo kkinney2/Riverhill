@@ -10,6 +10,10 @@ public class CharacterUI : MonoBehaviour
     public bool hasCharacterState;
     public GameObject characterUI_Object;
 
+    public Canvas characterUIObjCanvas;
+    public GameObject lookToPlayerObject;
+    public CharacterPathfinding charPathfindingAlyss;
+
     public CharacterUI(GameObject a_UIAsset)
     {
         battleManager = BattleManager.Instance;
@@ -34,6 +38,10 @@ public class CharacterUI : MonoBehaviour
         {
             hasCharacterState = false;
             gameObject.transform.position = new Vector3(int.MaxValue, int.MaxValue, 0);
+        }
+        if (charPathfindingAlyss.isPerformingMove == true)
+        {
+            characterUIObjCanvas.enabled = false;
         }
     }
 
