@@ -167,6 +167,8 @@ MonoBehaviour:
   Grid_Tile: {fileID: 4261429119365732646}
   Grid_Obstacles: {fileID: 4261429119125097891}
   Grid_Unwalkable: {fileID: 1505303767}
+  spawnMaps: []
+  spawnPositions: []
   tileManager: {fileID: 0}
   UpperBound: {fileID: 1005111634}
   LowerBound: {fileID: 1068351879}
@@ -256,6 +258,8 @@ MonoBehaviour:
   gameController: {fileID: 0}
   prefab_CharacterUI: {fileID: 8653099306592415916, guid: 5a01056e15610294d88f9196d49d5cc7,
     type: 3}
+  characterUI: {fileID: 0}
+  characterUI_Object: {fileID: 0}
   characterUICanvas: {fileID: 0}
   characterStats: []
   spriteLayering: {fileID: 2072256814}
@@ -268,6 +272,10 @@ MonoBehaviour:
   gameplayMusic: {fileID: 8300000, guid: e2ab6c9d1c1d6cc47bf3d3862e3024aa, type: 3}
   gameplayMusicIsPlaying: 0
   shouldTurnOffMusic: 0
+  charPathfindingAlyss: {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35,
+    type: 3}
+  charPathfindingDayana: {fileID: 307183929201589401, guid: fb40f9bb8ee8b294897199dad30b6390,
+    type: 3}
 --- !u!4 &268945813
 Transform:
   m_ObjectHideFlags: 0
@@ -1406,6 +1414,8 @@ MonoBehaviour:
   Grid_Tile: {fileID: 0}
   Grid_Obstacles: {fileID: 0}
   Grid_Unwalkable: {fileID: 0}
+  spawnMaps: []
+  spawnPositions: []
   tileManager: {fileID: 0}
   UpperBound: {fileID: 0}
   LowerBound: {fileID: 0}
@@ -1691,6 +1701,8 @@ MonoBehaviour:
   Grid_Tile: {fileID: 0}
   Grid_Obstacles: {fileID: 0}
   Grid_Unwalkable: {fileID: 0}
+  spawnMaps: []
+  spawnPositions: []
   tileManager: {fileID: 0}
   UpperBound: {fileID: 0}
   LowerBound: {fileID: 0}
@@ -2067,6 +2079,8 @@ MonoBehaviour:
   Grid_Tile: {fileID: 0}
   Grid_Obstacles: {fileID: 0}
   Grid_Unwalkable: {fileID: 0}
+  spawnMaps: []
+  spawnPositions: []
   tileManager: {fileID: 0}
   UpperBound: {fileID: 0}
   LowerBound: {fileID: 0}
@@ -2264,6 +2278,8 @@ MonoBehaviour:
   Grid_Tile: {fileID: 2231777635509604434}
   Grid_Obstacles: {fileID: 2231777635305784428}
   Grid_Unwalkable: {fileID: 618128382}
+  spawnMaps: []
+  spawnPositions: []
   tileManager: {fileID: 0}
   UpperBound: {fileID: 1512356837}
   LowerBound: {fileID: 1189013326}
@@ -8426,16 +8442,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: objBattleManager
-      value: 
-      objectReference: {fileID: 268945811}
-    - target: {fileID: 3117976415592239984, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: battleManagerScript
-      value: 
-      objectReference: {fileID: 268945812}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
 --- !u!1 &4261429118425795852
@@ -10520,15 +10526,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 307183929201589401, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: objBattleManager
-      value: 
-      objectReference: {fileID: 268945811}
-    - target: {fileID: 307183929201589401, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: battleManagerScript
-      value: 
-      objectReference: {fileID: 268945812}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb40f9bb8ee8b294897199dad30b6390, type: 3}

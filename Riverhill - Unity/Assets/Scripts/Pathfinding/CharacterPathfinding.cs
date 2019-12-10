@@ -21,17 +21,16 @@ public class CharacterPathfinding : MonoBehaviour
     public AudioSource characterSound;
     public AudioClip walkSound;
 
-    //public static BattleManager battleManager;
-    //public GameObject objBattleManager;
+    //wanting to disable UI while performing action
     BattleManager battleManager;
+    //new approach... with bool
+    public bool isPerformingMove;
 
     private void Awake()
     {
         charSpriteRenderer = GetComponent<SpriteRenderer>();
 
         AudioSource characterSound = GetComponent<AudioSource>();
-
-        //battleManagerScript = objBattleManager.GetComponent<BattleManager>();
     }
 
     public void Move()
@@ -96,6 +95,7 @@ public class CharacterPathfinding : MonoBehaviour
 
     public void MoveAlongPath()
     {
+        isPerformingMove = true;
         StartCoroutine(FollowPath());
     }
 
@@ -142,10 +142,6 @@ public class CharacterPathfinding : MonoBehaviour
             Debug.Log("FollowPath() has no path to follow");
             yield break;
         }
-
-        //TO-DO: THIS IS WHERE WE WANT TO DISABLE UI?
-        //battleManagerScript.characterUICanvas.enabled = false;
-        //battleManager.characterUICanvas.enabled = false;
 
         // Teleport to Position
         //transform.position = path[path.Count - 1].transform.position;
@@ -216,6 +212,7 @@ public class CharacterPathfinding : MonoBehaviour
 
         path = new List<Tile>();
         isDone = true;
+        isPerformingMove = false;
         yield break;
     }
 

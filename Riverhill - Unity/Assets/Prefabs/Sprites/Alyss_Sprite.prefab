@@ -365,8 +365,7 @@ MonoBehaviour:
   movingRight: 0
   characterSound: {fileID: 1871606650}
   walkSound: {fileID: 8300000, guid: 0d168071ca220574795a1e40a76db4ff, type: 3}
-  objBattleManager: {fileID: 0}
-  battleManagerScript: {fileID: 0}
+  isPerformingMove: 0
 --- !u!114 &3352766574871589456
 MonoBehaviour:
   m_ObjectHideFlags: 0
