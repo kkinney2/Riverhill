@@ -66,13 +66,12 @@ public class BattleManager : MonoBehaviour
     public CharacterStats charStatsDayana;
     */
 
-    bool hasPlayableCharacter = false;
-    bool hasPlayableEnemy = false;
-
     public bool nextCharacter = false;
+    [Tooltip("Status of StatusCheck()")]
+    public bool statusCheck = false;
 
     private BattleStateMachine battleStateMachine;
-    
+
     //gameplay music
     public AudioSource gameplayMusicAS;
     public AudioClip gameplayMusic;
@@ -99,6 +98,7 @@ public class BattleManager : MonoBehaviour
         characterStates_Enemy = new List<CharacterState>();
         characterStates_Player = new List<CharacterState>();
 
+        #region Separate and Prep Passed Characters
         for (int i = 0; i < players.Count; i++)
         {
             players[i] = Instantiate(players[i]);
@@ -112,6 +112,7 @@ public class BattleManager : MonoBehaviour
             enemies[i].gameObject.tag = "Enemy";
             characterStats.Add(enemies[i].GetComponent<CharacterStats>());
         }
+        #endregion
 
         // Create Characters
         StartCoroutine(CreateCharacters());
@@ -134,6 +135,7 @@ public class BattleManager : MonoBehaviour
         }
 
         StartCoroutine(TurnSequence());
+        StartCoroutine(CheckStatus());
     }
 
     IEnumerator CreateCharacters()
@@ -161,16 +163,6 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Player count: " + characterStates_Player.Count);
             for (int i = 0; i < characterStates_Player.Count; i++)
             {
-                if (characterStates_Player[i].characterStats.CurrentHP <= 0f)
-                {
-                    hasPlayableCharacter = false;
-                    continue;
-                }
-                else
-                {
-                    hasPlayableCharacter = true;
-                }
-
                 Debug.Log("Start " + characterStates_Player[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
 
@@ -204,32 +196,10 @@ public class BattleManager : MonoBehaviour
             }
             #endregion
 
-            if (!hasPlayableCharacter)
-            {
-                // TODO: Communicate the game is over
-                Debug.Log("GAME_OVER");
-                if (gameController != null)
-                {
-                    gameController.currentStatus = "LevelFailed";
-                    gameController.hasActiveLevel = false;
-                }
-
-                break;
-            }
             // TODO: End player turn on button, but allow for cycling between players while they still have actions
             #region Enemy Turn
             for (int i = 0; i < characterStates_Enemy.Count; i++)
             {
-                if (characterStates_Enemy[i].characterStats.CurrentHP <= 0f)
-                {
-                    hasPlayableEnemy = false;
-                    continue;
-                }
-                else
-                {
-                    hasPlayableEnemy = true;
-                }
-
                 //Debug.Log("");
                 Debug.Log("Start " + characterStates_Enemy[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Enemy[i].characterStats.Name;
@@ -262,20 +232,6 @@ public class BattleManager : MonoBehaviour
             }
             #endregion
 
-            if (!hasPlayableEnemy)
-            {
-                // TODO: Communicate the game is over
-                Debug.Log("CONGRATS");
-
-                //TODO: ResetLevel Loading
-                if (gameController != null)
-                {
-                    gameController.currentStatus = "LevelCompleted";
-                    gameController.hasActiveLevel = false;
-                }
-
-                break;
-            }
             nextCharacter = false;
             turnCount++;
             yield return new WaitForEndOfFrame();
@@ -284,6 +240,69 @@ public class BattleManager : MonoBehaviour
         //Debug.Log("TurnSequence Exiting");
 
         yield break;
+    }
+
+    IEnumerator CheckStatus()
+    {
+        statusCheck = true;
+        bool hasPlayableCharacter = true;
+        bool hasPlayableEnemy = true;
+
+        while (hasPlayableCharacter || hasPlayableEnemy)
+        {
+            yield return new WaitForEndOfFrame();
+
+            #region Check Characters
+            for (int i = 0; i < characterStates_Player.Count; i++)
+            {
+                if (characterStates_Player[i].characterStats.CurrentHP > 0)
+                {
+                    //hasPlayableCharacter = true;
+                    break;
+                }
+                else
+                {
+                    hasPlayableCharacter = false;
+                }
+
+            }
+
+            for (int i = 0; i < characterStates_Enemy.Count; i++)
+            {
+                if (characterStates_Enemy[i].characterStats.CurrentHP > 0)
+                {
+                    // Break out of the for-loop if there's a playable enemy
+                    //hasPlayableEnemy = true;
+                    break;
+                }
+                else
+                {
+                    hasPlayableEnemy = false;
+                }
+            }
+            #endregion
+
+            if (!hasPlayableCharacter)
+            {
+                Debug.Log("GAME_OVER");
+                if (gameController != null)
+                {
+                    gameController.currentStatus = "LevelFailed";
+                    gameController.hasActiveLevel = false;
+                }
+            }
+
+            if (!hasPlayableEnemy)
+            {
+                Debug.Log("CONGRATS");
+
+                if (gameController != null)
+                {
+                    gameController.currentStatus = "LevelCompleted";
+                    gameController.hasActiveLevel = false;
+                }
+            }
+        }
     }
 
     public void CreateCharacter(CharacterStats a_CharacterStat)
@@ -392,6 +411,12 @@ public class BattleManager : MonoBehaviour
     public void Unloadlevel()
     {
         turnText.gameObject.SetActive(false);
+
+        // Remove the characters
+        for (int i = 0; i < characterStates.Count; i++)
+        {
+            Destroy(characterStates[i].character.gameObject);
+        }
 
         //P1HPBar.gameObject.SetActive(false);
         //E1HPBar.gameObject.SetActive(false);

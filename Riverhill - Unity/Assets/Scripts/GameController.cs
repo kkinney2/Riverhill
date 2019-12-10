@@ -314,6 +314,8 @@ public class GameController : MonoBehaviour
             level1_Unlocked = true;
         }
 
+        battleManager.Unloadlevel();
+
         // Add Dayana to the current team
         enemyTeam.Remove(prefab_Characters[1]);
         currentTeam.Add(prefab_Characters[1]);
@@ -321,7 +323,7 @@ public class GameController : MonoBehaviour
         mainCameraController.Reset();
 
         // TODO: Send back to level loading screen
-        battleManager.Unloadlevel();
+        
         //       Show that next level is unlocked?
         StartCoroutine(LevelSelection());
     }
