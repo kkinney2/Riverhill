@@ -43,6 +43,12 @@ public class CharacterUI : MonoBehaviour
         {
             characterUIObjCanvas.enabled = false;
         }
+        /*
+        if(characterState.actionCount <= 2)
+        {
+            characterUIObjCanvas.enabled = false;
+        }
+        */
     }
 
     public void AssignNewCharacter(CharacterState a_CharacterState)
