@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 2429414441171432506}
   - component: {fileID: 2429414441171432507}
   - component: {fileID: 2429414441171432504}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Anti-Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2359,7 +2359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2429414442904325711}
   - component: {fileID: 2429414442904325710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grid_Nope
   m_TagString: Untagged
   m_Icon: {fileID: 0}

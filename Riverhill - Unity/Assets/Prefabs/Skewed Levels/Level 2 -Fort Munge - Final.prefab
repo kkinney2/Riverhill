@@ -8361,7 +8361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1232296009911834646}
   - component: {fileID: 1232296009911834647}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grid_Nope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8575,7 +8575,7 @@ GameObject:
   - component: {fileID: 1232296010695548463}
   - component: {fileID: 1232296010695548462}
   - component: {fileID: 1232296010695548465}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Anti-Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
