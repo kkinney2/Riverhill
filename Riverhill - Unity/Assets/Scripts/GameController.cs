@@ -243,6 +243,7 @@ public class GameController : MonoBehaviour
 
         //       Show that next level is unlocked?
         StartCoroutine(LevelSelection());
+        yield return null;
     }
 
     IEnumerator Tutorial_MidBattle_Cutscenes()
@@ -301,6 +302,7 @@ public class GameController : MonoBehaviour
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
         }
+        yield return null;
     }
     #endregion
 

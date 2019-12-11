@@ -447,11 +447,19 @@ public class BattleManager : MonoBehaviour
         turnText.gameObject.SetActive(false);
 
         StopAllCoroutines();
+        charactersCreated = false;
+
+        
+
+        characterStates = new List<CharacterState>();
+        characterStates_Enemy = new List<CharacterState>();
+        characterStates_Player = new List<CharacterState>();
 
         // Remove the characters
         for (int i = 0; i < characterStates.Count; i++)
         {
-            characterStates[i].character.gameObject.SetActive(false);
+            //characterStates[i].character.gameObject.SetActive(false);
+            Destroy(characterStates[i].character.gameObject);
         }
 
         //P1HPBar.gameObject.SetActive(false);
