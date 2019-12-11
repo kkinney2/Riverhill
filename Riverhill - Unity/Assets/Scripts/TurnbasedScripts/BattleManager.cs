@@ -53,6 +53,8 @@ public class BattleManager : MonoBehaviour
 
     public Level currentLevel;
     public bool isLevelLoaded = false;
+    //want an extra bool check for turning off tutorial / in battle---cutscene music
+    public bool isInBattle = false;
 
     public int turnCount = 0;
 
@@ -419,6 +421,9 @@ public class BattleManager : MonoBehaviour
             currentLevel.Load();
             turnText.gameObject.SetActive(true);
 
+            //want an extra bool check for turing off tutorial / in battle---cutscene music
+            isInBattle = true;
+
             gameplayMusicAS.enabled = true;
             gameplayMusicAS.Play();
             gameplayMusicIsPlaying = true;
@@ -452,6 +457,8 @@ public class BattleManager : MonoBehaviour
                 shouldTurnOffMusic = false;
             }
         }
+
+        isInBattle = false;
 
         currentLevel.Unload();
     }

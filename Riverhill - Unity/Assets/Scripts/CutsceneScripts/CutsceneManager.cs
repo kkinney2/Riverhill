@@ -26,6 +26,11 @@ public class CutsceneManager : MonoBehaviour
     public bool cutsceneMusicIsPlaying;
     public bool shouldTurnOffMusic;
 
+    Cutscene cutscene;
+
+    //public GameObject battleManagerObj;
+    //public BattleManager battleManager;
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
@@ -39,6 +44,9 @@ public class CutsceneManager : MonoBehaviour
     void Start()
     {
         cutsceneMusicAS = GetComponent<AudioSource>();
+
+        //battleManagerObj = GameObject.Find("BattleManager");
+        //battleManager = battleManagerObj.GetComponent<BattleManager>();
 
         cutscenes = new Cutscene[Cutscene_GameObjects.Length];
 
@@ -61,6 +69,7 @@ public class CutsceneManager : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log(battleManager.isInBattle);
         if (hasActiveCutscene == false && cutsceneMusicIsPlaying == true)
         {
             shouldTurnOffMusic = true;
@@ -72,6 +81,32 @@ public class CutsceneManager : MonoBehaviour
                 shouldTurnOffMusic = false;
             }
         }
+        /* NOTHING WORKS YAY
+        if (cutscene.SceneName == "Tutorial - gameplay start")
+        {
+            shouldTurnOffMusic = true;
+
+            if (shouldTurnOffMusic == true)
+            {
+                cutsceneMusicAS.enabled = false;
+                cutsceneMusicIsPlaying = false;
+                shouldTurnOffMusic = false;
+            }
+        }
+        */
+        /* EVERYTHING PAUSES YAY
+        if (battleManager.isInBattle == true && cutsceneMusicIsPlaying == true)
+        {
+            shouldTurnOffMusic = true;
+
+            if (shouldTurnOffMusic == true)
+            {
+                cutsceneMusicAS.enabled = false;
+                cutsceneMusicIsPlaying = false;
+                shouldTurnOffMusic = false;
+            }
+        }
+        */
     }
 
     IEnumerator ObtainCutsceneScripts()
@@ -87,6 +122,7 @@ public class CutsceneManager : MonoBehaviour
 
     public void StartCutscene(string sceneName)
     {
+        //Debug.Log(sceneName);
         if (!hasActiveCutscene)
         {
             foreach (Cutscene cutscene in cutscenes)
