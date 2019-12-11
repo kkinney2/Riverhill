@@ -35,6 +35,10 @@ public class GameController : MonoBehaviour
     public bool level0_Unlocked = true;
     public bool level0_Completed = false;
     public Button level0_button;
+    public bool alyssMoved = false;
+    public bool alyssAttacked = false;
+    public bool dayanaAttacked = false;
+
 
     public bool level1_Unlocked = false;
     public bool level1_Completed = false;
@@ -290,6 +294,7 @@ public class GameController : MonoBehaviour
     */
     #endregion
 
+    #region Tutorial
     IEnumerator Level_Tutorial()
     {
         if (!gameSettings.canSkipCutscenes)
@@ -304,6 +309,7 @@ public class GameController : MonoBehaviour
         LoadLevel(0);                                         // I think this as like a cartridge.
         battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
         hasActiveLevel = true;
+        StartCoroutine(MidBattle_Cutscenes());
 
         // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
@@ -327,6 +333,18 @@ public class GameController : MonoBehaviour
         //       Show that next level is unlocked?
         StartCoroutine(LevelSelection());
     }
+
+    IEnumerator MidBattle_Cutscenes()
+    {
+        cutsceneManager.StartCutscene("Tutorial - gameplay start");
+        while (hasActiveLevel)
+        {
+            yield return new WaitForEndOfFrame();
+
+
+        }
+    }
+    #endregion
 
     IEnumerator Level_One()
     {

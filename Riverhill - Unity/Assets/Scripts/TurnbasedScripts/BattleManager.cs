@@ -285,6 +285,9 @@ public class BattleManager : MonoBehaviour
                 if (gameController != null)
                 {
                     gameController.currentStatus = "LevelFailed";
+                    // Wait a moment to ensure cutscene starts if one is to be loaded
+                    yield return new WaitForEndOfFrame();
+                    yield return new WaitUntil(() => gameController.cutsceneManager.hasActiveCutscene == false);
                     gameController.hasActiveLevel = false;
                 }
             }
@@ -296,6 +299,10 @@ public class BattleManager : MonoBehaviour
                 if (gameController != null)
                 {
                     gameController.currentStatus = "LevelCompleted";
+                    // Wait a moment to ensure cutscene starts if one is to be loaded
+                    yield return new WaitForEndOfFrame();
+                    yield return new WaitUntil(() => gameController.cutsceneManager.hasActiveCutscene == false);
+                    gameController.hasActiveLevel = false;
                     gameController.hasActiveLevel = false;
                 }
             }
