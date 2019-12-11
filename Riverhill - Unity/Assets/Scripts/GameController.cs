@@ -313,7 +313,9 @@ public class GameController : MonoBehaviour
         }
 
         // TODO: Add enemies to the enemyTeam
-        //enemyTeam.Add(prefab_Characters[1]);
+        enemyTeam.Add(prefab_Characters[1]);
+        enemyTeam.Add(prefab_Characters[1]);
+        enemyTeam.Add(prefab_Characters[1]);
 
         //battleManager.currentLevel = battleManager.levels[0]; 
         LoadLevel(1);                                         // I think this as like a cartridge.

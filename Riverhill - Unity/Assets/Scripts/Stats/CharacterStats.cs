@@ -65,7 +65,7 @@ public class CharacterStats : MonoBehaviour
         // No longer self reports
         //BattleManager.Instance.characterStats.Add(this);
 
-        ResetHealth();
+        
 
         ///* EMILY ADDED SETTING THIS STUFF IN BATTLEMANAGER SCRIPT
         //currentHealthText.text = ("Health: " + CurrentHP);
@@ -101,7 +101,7 @@ public class CharacterStats : MonoBehaviour
 
     private void Awake()
     {
-
+        ResetHealth();
     }
 
     private void Update()

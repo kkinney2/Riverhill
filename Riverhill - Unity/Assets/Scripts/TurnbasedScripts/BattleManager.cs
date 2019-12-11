@@ -55,6 +55,7 @@ public class BattleManager : MonoBehaviour
     public bool isLevelLoaded = false;
     //want an extra bool check for turning off tutorial / in battle---cutscene music
     public bool isInBattle = false;
+    public bool charactersCreated = false;
 
     public int turnCount = 0;
 
@@ -108,6 +109,7 @@ public class BattleManager : MonoBehaviour
     // GameController now supplies the characters to play with
     public void Startup(List<GameObject> players, List<GameObject> enemies)
     {
+        gameController.currentStatus = "Level";
         battleStateMachine = new BattleStateMachine();
         characterStates = new List<CharacterState>();
         characterStates_Enemy = new List<CharacterState>();
@@ -124,6 +126,7 @@ public class BattleManager : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i] = Instantiate(enemies[i]);
+            enemies[i].gameObject.name += "_Enemy";
             enemies[i].gameObject.tag = "Enemy";
             characterStats.Add(enemies[i].GetComponent<CharacterStats>());
         }
@@ -161,6 +164,7 @@ public class BattleManager : MonoBehaviour
             CreateCharacter(characterStats[i]);
         }
         Debug.Log("***Characters Created***");
+        charactersCreated = true;
     }
 
     IEnumerator Coroutine_CreateCharacters()
@@ -171,6 +175,7 @@ public class BattleManager : MonoBehaviour
             CreateCharacter(characterStats[i]);
         }
         Debug.Log("***Characters Created***");
+        charactersCreated = true;
         yield break;
     }
 
@@ -257,9 +262,11 @@ public class BattleManager : MonoBehaviour
         bool hasPlayableCharacter = true;
         bool hasPlayableEnemy = true;
 
+        yield return new WaitUntil(() => charactersCreated == true);
+
         while (hasPlayableCharacter || hasPlayableEnemy)
         {
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(1f);
 
             #region Check Characters
             for (int i = 0; i < characterStates_Player.Count; i++)
@@ -280,12 +287,14 @@ public class BattleManager : MonoBehaviour
             {
                 if (characterStates_Enemy[i].characterStats.CurrentHP > 0)
                 {
+                    Debug.Log("Enemy Health:" + characterStates_Enemy[i].characterStats.CurrentHP);
                     // Break out of the for-loop if there's a playable enemy
                     //hasPlayableEnemy = true;
                     break;
                 }
                 else
                 {
+                    Debug.Log("Enemy Health:" + characterStates_Enemy[i].characterStats.CurrentHP);
                     hasPlayableEnemy = false;
                 }
             }
@@ -442,7 +451,7 @@ public class BattleManager : MonoBehaviour
         // Remove the characters
         for (int i = 0; i < characterStates.Count; i++)
         {
-            Destroy(characterStates[i].character.gameObject);
+            characterStates[i].character.gameObject.SetActive(false);
         }
 
         //P1HPBar.gameObject.SetActive(false);
