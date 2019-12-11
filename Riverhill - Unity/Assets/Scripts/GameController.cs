@@ -216,7 +216,7 @@ public class GameController : MonoBehaviour
 
         //battleManager.currentLevel = battleManager.levels[0]; 
         LoadLevel(0);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
         if (!gameSettings.canSkipCutscenes)
@@ -306,6 +306,7 @@ public class GameController : MonoBehaviour
     }
     #endregion
 
+    #region LevelOne
     IEnumerator Level_One()
     {
         if (!gameSettings.canSkipCutscenes)
@@ -321,7 +322,7 @@ public class GameController : MonoBehaviour
 
         //battleManager.currentLevel = battleManager.levels[0]; 
         LoadLevel(1);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
         yield return new WaitUntil(() => hasActiveLevel == false);
@@ -343,6 +344,7 @@ public class GameController : MonoBehaviour
         //       Show that next level is unlocked?
         StartCoroutine(LevelSelection());
     }
+    #endregion
 
     #region LevelTwo
     IEnumerator Level_Two()
@@ -357,8 +359,8 @@ public class GameController : MonoBehaviour
         //enemyTeam.Add(prefab_Characters[1]);
 
         //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(2);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        LoadLevel(2);                      // I think this as like a cartridge.
+        battleManager.Startup();           // And this is turning on the console.
         hasActiveLevel = true;
 
         StartCoroutine(LevelTwo_MidBattle_Cutscenes());
@@ -415,7 +417,7 @@ public class GameController : MonoBehaviour
 
         //battleManager.currentLevel = battleManager.levels[0]; 
         LoadLevel(3);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
         StartCoroutine(LevelThree_MidBattle_Cutscenes());
@@ -491,7 +493,7 @@ public class GameController : MonoBehaviour
 
         //battleManager.currentLevel = battleManager.levels[0]; 
         LoadLevel(4);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
+        battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
         StartCoroutine(LevelFour_MidBattle_Cutscenes());

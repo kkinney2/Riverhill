@@ -181,10 +181,9 @@ public class BattleManager : MonoBehaviour
         }
         #endregion
 
-        //TODO: Does this actually need to be called if the characters already exist?
         // Create Characters
         //StartCoroutine(Coroutine_CreateCharacters());
-        //CreateCharacters();
+        CreateCharacters();
 
         GenerateCharacterUI();
         Debug.Log("***CharacterUI Created***");
@@ -252,7 +251,7 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
 
-    #region RunTime
+    #region Runtime
     IEnumerator TurnSequence()
     {
         turnCount++;
@@ -449,7 +448,7 @@ public class BattleManager : MonoBehaviour
         characterUI = characterUI_Object.GetComponent<CharacterUI>();
     }
 
-   
+
     #region Attack Character A->B
     public void AttackCharacter(CharacterState attacker, CharacterState defender)
     {
@@ -469,13 +468,6 @@ public class BattleManager : MonoBehaviour
     #region Level Loading
     private void LoadLevel()
     {
-        characterUICanvas = characterUI_Object.GetComponent<Canvas>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        characterUI.lookToPlayerObject = player;
-        characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
-        //Debug.Log(characterUI_Object);
-        //Debug.Log(characterUICanvas);
-
         if (currentLevel == null)
         {
             Debug.LogWarning("No level to Load");
@@ -495,6 +487,13 @@ public class BattleManager : MonoBehaviour
             StartCoroutine(UpdateTiles());
         }
 
+        characterUICanvas = characterUI_Object.GetComponent<Canvas>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        characterUI.lookToPlayerObject = player;
+        characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
+        //Debug.Log(characterUI_Object);
+        //Debug.Log(characterUICanvas);
+
     }
 
     public void Unloadlevel()
@@ -504,7 +503,7 @@ public class BattleManager : MonoBehaviour
         StopAllCoroutines();
         charactersCreated = false;
 
-        
+
 
         characterStates = new List<CharacterState>();
         characterStates_Enemy = new List<CharacterState>();

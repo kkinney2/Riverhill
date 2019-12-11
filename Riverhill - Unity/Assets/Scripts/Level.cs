@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
     //public GameObject[] spawnMaps;
     //public List<Vector3> spawnPositions_Player;
     //public List<Vector3> spawnPositions_Enemy;
+    public GameObject characters;
     public GameObject[] players;
     public GameObject[] enemies;
     // TODO: Spawn map for other characters
@@ -39,26 +40,10 @@ public class Level : MonoBehaviour
     {
         BattleManager.Instance.currentLevel = this;
 
-        if (toggle == true)
-        {
-            // Spawn Positions
-            //TODO: This only works for the tutorial spawn due to unclear spawnmaps
-
-            //          Player
-            spawnMaps[0].gameObject.SetActive(true);
-            spawnPositions_Player = TileManager.Instance.GetTilePositionsFromGrid(spawnMaps[0].GetComponent<Grid>());
-            spawnMaps[0].gameObject.SetActive(false);
-
-            //          Enemy
-            spawnMaps[1].gameObject.SetActive(true);
-            spawnPositions_Enemy = TileManager.Instance.GetTilePositionsFromGrid(spawnMaps[1].GetComponent<Grid>());
-            spawnMaps[1].gameObject.SetActive(false);
-        }
-
         Grid_Tile.gameObject.SetActive(toggle);
         Grid_Obstacles.gameObject.SetActive(toggle);
         Grid_Unwalkable.gameObject.SetActive(toggle);
-
+        characters.SetActive(toggle);
 
         if (toggle)
         {
@@ -67,7 +52,6 @@ public class Level : MonoBehaviour
         }
 
         BattleManager.Instance.isLevelLoaded = toggle;
-
     }
 
     IEnumerator Coroutine_LoadLevel(bool toggle)
@@ -82,6 +66,8 @@ public class Level : MonoBehaviour
 
         Grid_Unwalkable.gameObject.SetActive(toggle);
         yield return new WaitUntil(() => Grid_Unwalkable.gameObject.activeSelf == toggle);
+
+        characters.SetActive(toggle);
 
         if (toggle)
         {
