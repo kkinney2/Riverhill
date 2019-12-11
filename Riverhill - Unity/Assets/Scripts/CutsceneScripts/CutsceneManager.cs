@@ -9,6 +9,8 @@ public class CutsceneManager : MonoBehaviour
 
     Cutscene[] cutscenes;
 
+    public Canvas myCanvas;
+
     public bool hasActiveCutscene = false;
 
     [Header("Scene Testing")]
@@ -38,6 +40,7 @@ public class CutsceneManager : MonoBehaviour
             GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().cutsceneManager = this;
             isTestingScene = false;
         }
+        myCanvas.worldCamera = Camera.main;
     }
 
     // Start is called before the first frame update
