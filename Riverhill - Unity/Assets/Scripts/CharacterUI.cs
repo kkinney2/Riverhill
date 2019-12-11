@@ -29,6 +29,7 @@ public class CharacterUI : MonoBehaviour
 
     private void Update()
     {
+        //Debug.Log("actionCount" + characterState.actionCount);
         if (characterState != null)
         {
             hasCharacterState = true;
@@ -39,20 +40,26 @@ public class CharacterUI : MonoBehaviour
             hasCharacterState = false;
             gameObject.transform.position = new Vector3(int.MaxValue, int.MaxValue, 0);
         }
+        /*
+        if (charPathfindingAlyss.isPerformingMove == false)
+        {
+            if(characterState.nowSwitchTurns == true)
+            {
+                characterUIObjCanvas.enabled = false;
+            }
+            characterUIObjCanvas.enabled = true;
+        }
+        */
         if (charPathfindingAlyss.isPerformingMove == true)
         {
             characterUIObjCanvas.enabled = false;
         }
-        /*
-        if(characterState.actionCount <= 2)
-        {
-            characterUIObjCanvas.enabled = false;
-        }
-        */
+
     }
 
     public void AssignNewCharacter(CharacterState a_CharacterState)
     {
+        //characterUIObjCanvas.enabled = false;
         characterState = a_CharacterState;
         //Debug.Log("UI: Current Character: " + a_CharacterState.characterStats.Name);
     }

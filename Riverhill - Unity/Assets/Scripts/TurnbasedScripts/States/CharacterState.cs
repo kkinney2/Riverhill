@@ -22,6 +22,7 @@ public class CharacterState : IState
 
     public bool hasActiveAction = false;
     public int actionCount = 0;
+    public bool nowSwitchTurns;
 
     //UI button options
     public bool moveSelected = false;
@@ -79,6 +80,8 @@ public class CharacterState : IState
     {
         if ((actionCount >= battleManager.gameController.gameSettings.MaxActionCount && !hasActiveAction) || endTurnSelected == true)
         {
+            nowSwitchTurns = true;
+            //Debug.Log(nowSwitchTurns);
             //Exit();
             this.battleStateMachine.ChangeState(state_Idle);
             battleManager.nextCharacter = true;
@@ -86,6 +89,8 @@ public class CharacterState : IState
 
         if (actionCount <= battleManager.gameController.gameSettings.MaxActionCount || hasActiveAction)
         {
+            nowSwitchTurns = false;
+            //Debug.Log(nowSwitchTurns);
             if (hasActiveAction)
             {
                 // Update the active action
