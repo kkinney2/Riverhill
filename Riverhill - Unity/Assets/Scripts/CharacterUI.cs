@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterUI : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class CharacterUI : MonoBehaviour
     public GameObject lookToPlayerObject;
     public CharacterPathfinding charPathfindingAlyss;
 
+    public Text specialText;
+
     public CharacterUI(GameObject a_UIAsset)
     {
         battleManager = BattleManager.Instance;
@@ -24,7 +27,14 @@ public class CharacterUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (lookToPlayerObject.name.Contains("Alyss"))
+        {
+            specialText.text = "Healing Aura";
+        }
+        if (lookToPlayerObject.name.Contains("Dayana"))
+        {
+            specialText.text = "Knockback";
+        }
     }
 
     private void Update()

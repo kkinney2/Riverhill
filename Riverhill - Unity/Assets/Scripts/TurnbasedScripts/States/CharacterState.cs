@@ -19,6 +19,7 @@ public class CharacterState : IState
     public Idle state_Idle;
     public Move state_Move;
     public Attack state_Attack;
+    public Special state_Special;
 
     public bool hasActiveAction = false;
     public int actionCount = 0;
@@ -68,6 +69,7 @@ public class CharacterState : IState
 
         state_Idle = new Idle(this, battleStateMachine);
         state_Attack = new Attack(this, battleStateMachine);
+        state_Special = new Special(this, battleStateMachine);
         state_Move = new Move(this, battleStateMachine);
     }
 

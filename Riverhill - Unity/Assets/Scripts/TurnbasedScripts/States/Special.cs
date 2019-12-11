@@ -9,6 +9,8 @@ public class Special : IState
 
     BattleManager battleManager;
 
+    bool isDone = false;
+
     public Special(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
         this.characterState = a_CharacterState;
@@ -43,7 +45,27 @@ public class Special : IState
     public void Execute() //crashes when selected twice...
     {
         Debug.Log("Executing special state, **ADD FUNC.**");
+
         //TO DO: do special function here!
+        if (battleManager.player.name.Contains("Alyss"))
+        {
+            Debug.Log("Healing Aura");
+            //Do Healing Aura
+            characterState.characterStats.CurrentHP = (characterState.characterStats.CurrentHP + characterState.characterStats.healingAuraHP);
+            //make sure it doesn't add past base health;
+            if(characterState.characterStats.CurrentHP > characterState.characterStats.BaseHP)
+            {
+                characterState.characterStats.CurrentHP = characterState.characterStats.BaseHP;
+            }
+            isDone = true;
+        }
+
+        if (battleManager.player.name.Contains("Dayana"))
+        {
+            Debug.Log("Knockback");
+            //Do Knockback
+            isDone = true;
+        }
 
         /*
         Debug.Log("Executing Special");
@@ -56,11 +78,21 @@ public class Special : IState
 
         // Currently ignoring error until specials are being integrated
         //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
+        
+        if (isDone)
+        {
+            Debug.Log("Special isDone");
+            //characterState.actionCount++;
+            characterState.actionCount = (characterState.actionCount + battleManager.gameController.gameSettings.MaxActionCount); //inc. actionCount, by max to avoid multi-special selections per turn //success!
+            Debug.Log("ActionCount = " + characterState.actionCount);
+            characterStateMachine.ChangeState(characterState.state_Idle);
+        }
     }
 
     public void Exit()
     {
         Debug.Log("Exiting special state");
+        isDone = false;
         /*
         Debug.Log("Exiting Special");
         //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.character));

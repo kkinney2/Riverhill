@@ -484,6 +484,8 @@ MonoBehaviour:
   meleeAttackRange: {x: 1, y: 1}
   rangedAttackRange: {x: 1, y: 3}
   attack: 10
+  healingAuraHP: 0
+  knockbackAD: 5
   healingAura: {fileID: 285973722684946891}
   HPBarFill: {fileID: 624934464}
   charSounds: {fileID: 1763946070}

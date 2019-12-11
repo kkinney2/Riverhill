@@ -24,6 +24,8 @@ public class CharacterStats : MonoBehaviour
     */
 
     public float attack;
+    public float healingAuraHP; //amount of healing
+    public float knockbackAD; //amount of knockback damage
 
     private Animator animator;
 

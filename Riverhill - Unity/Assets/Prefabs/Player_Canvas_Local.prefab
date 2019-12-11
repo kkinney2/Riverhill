@@ -236,7 +236,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8653099306592415916}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
@@ -325,6 +325,9 @@ MonoBehaviour:
   hasCharacterState: 0
   characterUI_Object: {fileID: 0}
   characterUIObjCanvas: {fileID: 8653099306592415907}
+  lookToPlayerObject: {fileID: 0}
+  charPathfindingAlyss: {fileID: 0}
+  specialText: {fileID: 8653099306726526444}
 --- !u!1 &8653099306593360483
 GameObject:
   m_ObjectHideFlags: 0

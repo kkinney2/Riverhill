@@ -125,6 +125,7 @@ public class ActionSelect : IState
             Debug.Log("SpecialSelected, to Special state");
             //go to Special state
             //this.characterStateMachine.ChangeState(new Special(characterStateMachine, this.gameObject));
+            characterStateMachine.ChangeState(characterState.state_Special);
         }
 
         if (characterState.endTurnSelected == true)
