@@ -64,8 +64,12 @@ public class TileManager : MonoBehaviour
 
     public void Reset()
     {
-        StartCoroutine(Setup());
-        StartCoroutine(FindNeighbors());
+        Setup();
+        FindNeighbors();
+        /*
+        StartCoroutine(Coroutine_Setup());
+        StartCoroutine(Coroutine_FindNeighbors());
+        */
     }
 
     void OnDrawGizmosSelected()
@@ -80,7 +84,57 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    IEnumerator Setup()
+    public List<Vector3> GetTilePositionsFromGrid(Grid a_Grid)
+    {
+        List<Vector3> tempList = new List<Vector3>();
+        for (int x = -gridSize.x; x < gridSize.x; x++)
+        {
+            for (int y = -gridSize.y; y < gridSize.y; y++)
+            {
+                Vector3 cellPoint = a_Grid.CellToWorld(new Vector3Int(x, y, 0));
+
+                if (Physics2D.Raycast(cellPoint + Vector3.back, Vector3.forward, Mathf.Infinity, 1))
+                {
+
+                    tempList.Add(cellPoint);
+                }
+            }
+        }
+
+        return tempList;
+    }
+
+    public void Setup()
+    {
+        for (int x = -gridSize.x; x < gridSize.x; x++)
+        {
+            for (int y = -gridSize.y; y < gridSize.y; y++)
+            {
+                //Debug.Log("Ting");
+                Vector3 cellPoint = grid.CellToWorld(new Vector3Int(x, y, 0));
+                //Debug.Log("CastPoint: " + cellPoint);
+
+                if (Physics2D.Raycast(cellPoint + Vector3.back, Vector3.forward, Mathf.Infinity, 1))
+                {
+                    //Debug.Log("ping");
+                    GameObject a_tempGO = new GameObject();
+                    a_tempGO.transform.parent = tilesParent.transform;
+                    a_tempGO.transform.position = cellPoint;
+
+                    a_tempGO.gameObject.name = cellPoint.ToString();
+
+                    Tile tileComp = a_tempGO.AddComponent<Tile>();
+                    tileComp.owner = this;
+                    tileComp.cellPosition = new Vector2Int(x, y);
+
+                    tiles[x + gridSize.x, y + gridSize.y] = tileComp;
+                    tilesList.Add(a_tempGO);
+                }
+            }
+        }
+    }
+
+    IEnumerator Coroutine_Setup()
     {
         for (int x = -gridSize.x; x < gridSize.x; x++)
         {
@@ -112,7 +166,16 @@ public class TileManager : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator FindNeighbors()
+    public void FindNeighbors()
+    {
+        for (int i = 0; i < tilesList.Count; i++)
+        {
+            Tile currentTile = tilesList[i].GetComponent<Tile>();
+            currentTile.neighborTiles = GetNeighborTiles(currentTile);
+        }
+    }
+
+    IEnumerator Coroutine_FindNeighbors()
     {
 
         for (int i = 0; i < tilesList.Count; i++)

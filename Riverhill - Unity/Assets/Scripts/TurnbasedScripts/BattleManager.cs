@@ -128,7 +128,8 @@ public class BattleManager : MonoBehaviour
         #endregion
 
         // Create Characters
-        StartCoroutine(CreateCharacters());
+        StartCoroutine(Coroutine_CreateCharacters());
+        //CreateCharacters();
 
         GenerateCharacterUI();
         Debug.Log("***CharacterUI Created***");
@@ -151,7 +152,16 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(CheckStatus());
     }
 
-    IEnumerator CreateCharacters()
+    public void CreateCharacters()
+    {
+        for (int i = 0; i < characterStats.Count; i++)
+        {
+            CreateCharacter(characterStats[i]);
+        }
+        Debug.Log("***Characters Created***");
+    }
+
+    IEnumerator Coroutine_CreateCharacters()
     {
         yield return new WaitForEndOfFrame();
         for (int i = 0; i < characterStats.Count; i++)
@@ -313,16 +323,22 @@ public class BattleManager : MonoBehaviour
     {
         // Creates CharacterState and Assigns GameObject
         CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
+        
         //a_CharacterStat.Name = a_CharacterStat.gameObject.name;
         characterStates.Add(a_CState);
 
         if (a_CState.characterStats.isEnemy)
         {
             characterStates_Enemy.Add(a_CState);
+
+            a_CState.character.gameObject.transform.position = currentLevel.spawnPositions_Enemy[Random.Range(0, currentLevel.spawnPositions_Enemy.Count)];
+
         }
         else
         {
             characterStates_Player.Add(a_CState);
+
+            a_CState.character.gameObject.transform.position = currentLevel.spawnPositions_Player[Random.Range(0, currentLevel.spawnPositions_Player.Count)];
         }
 
         Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.Name);

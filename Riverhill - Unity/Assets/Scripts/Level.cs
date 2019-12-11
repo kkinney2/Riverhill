@@ -8,7 +8,9 @@ public class Level : MonoBehaviour
     public GameObject Grid_Obstacles;
     public GameObject Grid_Unwalkable;
     public GameObject[] spawnMaps;
-    public Vector3[] spawnPositions;
+    public List<Vector3> spawnPositions_Player;
+    public List<Vector3> spawnPositions_Enemy;
+    // TODO: Spawn map for other characters
     public TileManager tileManager;
 
     [Header("Bounds")]
@@ -17,12 +19,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        /*
-        gameObject.SetActive(false);
-        Grid_Tile.gameObject.SetActive(false);
-        Grid_Obstacles.gameObject.SetActive(false);
-        Grid_Unwalkable.gameObject.SetActive(false);
-        */
+
     }
 
     public void Load()
@@ -40,9 +37,26 @@ public class Level : MonoBehaviour
     {
         BattleManager.Instance.currentLevel = this;
 
+        if (toggle == true)
+        {
+            // Spawn Positions
+            //TODO: This only works for the tutorial spawn due to unclear spawnmaps
+
+            //          Player
+            spawnMaps[0].gameObject.SetActive(true);
+            spawnPositions_Player = TileManager.Instance.GetTilePositionsFromGrid(spawnMaps[0].GetComponent<Grid>());
+            spawnMaps[0].gameObject.SetActive(false);
+
+            //          Enemy
+            spawnMaps[1].gameObject.SetActive(true);
+            spawnPositions_Enemy = TileManager.Instance.GetTilePositionsFromGrid(spawnMaps[1].GetComponent<Grid>());
+            spawnMaps[1].gameObject.SetActive(false);
+        }
+
         Grid_Tile.gameObject.SetActive(toggle);
         Grid_Obstacles.gameObject.SetActive(toggle);
         Grid_Unwalkable.gameObject.SetActive(toggle);
+
 
         if (toggle)
         {

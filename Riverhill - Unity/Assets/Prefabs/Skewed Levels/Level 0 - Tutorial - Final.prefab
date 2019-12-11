@@ -991,7 +991,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 3.13, y: 2.64, z: 0}
   m_MaxChunkCount: 16
@@ -2316,7 +2316,7 @@ GameObject:
   - component: {fileID: 2429414442901367971}
   - component: {fileID: 2429414442901367970}
   m_Layer: 0
-  m_Name: Grid_Enemy2
+  m_Name: Grid_Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3145,7 +3145,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 4.5, y: 7.5, z: 0}
   m_MaxChunkCount: 16
@@ -3183,7 +3183,7 @@ GameObject:
   - component: {fileID: 2429414443065710286}
   - component: {fileID: 2429414443065710287}
   m_Layer: 0
-  m_Name: Bowmen
+  m_Name: Dayana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
