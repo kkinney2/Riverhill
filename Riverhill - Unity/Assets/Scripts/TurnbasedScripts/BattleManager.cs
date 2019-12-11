@@ -437,6 +437,8 @@ public class BattleManager : MonoBehaviour
     {
         turnText.gameObject.SetActive(false);
 
+        StopAllCoroutines();
+
         // Remove the characters
         for (int i = 0; i < characterStates.Count; i++)
         {
