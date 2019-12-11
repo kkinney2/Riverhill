@@ -7,9 +7,11 @@ public class Level : MonoBehaviour
     public GameObject Grid_Tile;
     public GameObject Grid_Obstacles;
     public GameObject Grid_Unwalkable;
-    public GameObject[] spawnMaps;
-    public List<Vector3> spawnPositions_Player;
-    public List<Vector3> spawnPositions_Enemy;
+    //public GameObject[] spawnMaps;
+    //public List<Vector3> spawnPositions_Player;
+    //public List<Vector3> spawnPositions_Enemy;
+    public GameObject[] players;
+    public GameObject[] enemies;
     // TODO: Spawn map for other characters
     public TileManager tileManager;
 

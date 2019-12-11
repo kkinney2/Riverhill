@@ -106,8 +106,62 @@ public class BattleManager : MonoBehaviour
     }
     */
 
-    // GameController now supplies the characters to play with
-    public void Startup(List<GameObject> players, List<GameObject> enemies)
+    #region old StartUp
+    /*
+   // GameController now supplies the characters to play with
+   public void Startup(List<GameObject> players, List<GameObject> enemies)
+   {
+       gameController.currentStatus = "Level";
+       battleStateMachine = new BattleStateMachine();
+       characterStates = new List<CharacterState>();
+       characterStates_Enemy = new List<CharacterState>();
+       characterStates_Player = new List<CharacterState>();
+
+       #region Separate and Prep Passed Characters
+       for (int i = 0; i < players.Count; i++)
+       {
+           players[i] = Instantiate(players[i]);
+           players[i].gameObject.tag = "Player";
+           characterStats.Add(players[i].GetComponent<CharacterStats>());
+       }
+
+       for (int i = 0; i < enemies.Count; i++)
+       {
+           enemies[i] = Instantiate(enemies[i]);
+           enemies[i].gameObject.name += "_Enemy";
+           enemies[i].gameObject.tag = "Enemy";
+           characterStats.Add(enemies[i].GetComponent<CharacterStats>());
+       }
+       #endregion
+
+       // Create Characters
+       StartCoroutine(Coroutine_CreateCharacters());
+       //CreateCharacters();
+
+       GenerateCharacterUI();
+       Debug.Log("***CharacterUI Created***");
+
+       LoadLevel();
+
+       //StartCoroutine(UpdateTiles());
+
+       // TODO: Move Camera targeting to when characters are switched
+       if (gameController != null)
+       {
+           gameController.mainCameraController.FindPlayer();
+       }
+       else
+       {
+           Camera.main.GetComponent<CameraControl>().FindPlayer();
+       }
+
+       StartCoroutine(TurnSequence());
+       StartCoroutine(CheckStatus());
+   }
+   */
+    #endregion
+
+    public void Startup()
     {
         gameController.currentStatus = "Level";
         battleStateMachine = new BattleStateMachine();
@@ -116,24 +170,20 @@ public class BattleManager : MonoBehaviour
         characterStates_Player = new List<CharacterState>();
 
         #region Separate and Prep Passed Characters
-        for (int i = 0; i < players.Count; i++)
+        for (int i = 0; i < currentLevel.players.Length; i++)
         {
-            players[i] = Instantiate(players[i]);
-            players[i].gameObject.tag = "Player";
-            characterStats.Add(players[i].GetComponent<CharacterStats>());
+            characterStats.Add(currentLevel.players[i].GetComponent<CharacterStats>());
         }
 
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < currentLevel.enemies.Length; i++)
         {
-            enemies[i] = Instantiate(enemies[i]);
-            enemies[i].gameObject.name += "_Enemy";
-            enemies[i].gameObject.tag = "Enemy";
-            characterStats.Add(enemies[i].GetComponent<CharacterStats>());
+            characterStats.Add(currentLevel.enemies[i].GetComponent<CharacterStats>());
         }
         #endregion
 
+        //TODO: Does this actually need to be called if the characters already exist?
         // Create Characters
-        StartCoroutine(Coroutine_CreateCharacters());
+        //StartCoroutine(Coroutine_CreateCharacters());
         //CreateCharacters();
 
         GenerateCharacterUI();
@@ -157,6 +207,7 @@ public class BattleManager : MonoBehaviour
         StartCoroutine(CheckStatus());
     }
 
+    #region Creating Characters
     public void CreateCharacters()
     {
         for (int i = 0; i < characterStats.Count; i++)
@@ -179,6 +230,29 @@ public class BattleManager : MonoBehaviour
         yield break;
     }
 
+    public void CreateCharacter(CharacterStats a_CharacterStat)
+    {
+        // Creates CharacterState and Assigns GameObject
+        CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
+
+        //a_CharacterStat.Name = a_CharacterStat.gameObject.name;
+        characterStates.Add(a_CState);
+
+        if (a_CState.characterStats.isEnemy)
+        {
+            characterStates_Enemy.Add(a_CState);
+
+        }
+        else
+        {
+            characterStates_Player.Add(a_CState);
+        }
+
+        Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.Name);
+    }
+    #endregion
+
+    #region RunTime
     IEnumerator TurnSequence()
     {
         turnCount++;
@@ -330,40 +404,6 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    public void CreateCharacter(CharacterStats a_CharacterStat)
-    {
-        // Creates CharacterState and Assigns GameObject
-        CharacterState a_CState = new CharacterState(a_CharacterStat.gameObject);
-        
-        //a_CharacterStat.Name = a_CharacterStat.gameObject.name;
-        characterStates.Add(a_CState);
-
-        if (a_CState.characterStats.isEnemy)
-        {
-            characterStates_Enemy.Add(a_CState);
-
-            a_CState.character.gameObject.transform.position = currentLevel.spawnPositions_Enemy[Random.Range(0, currentLevel.spawnPositions_Enemy.Count)];
-
-        }
-        else
-        {
-            characterStates_Player.Add(a_CState);
-
-            a_CState.character.gameObject.transform.position = currentLevel.spawnPositions_Player[Random.Range(0, currentLevel.spawnPositions_Player.Count)];
-        }
-
-        Debug.Log("Character Created: " + characterStates[characterStates.Count - 1].characterStats.Name);
-    }
-
-    /// <summary>
-    /// Generates the UI characters can use, and will be able to transfer between characters
-    /// </summary>
-    private void GenerateCharacterUI()
-    {
-        characterUI_Object = Instantiate(prefab_CharacterUI);
-        characterUI = characterUI_Object.GetComponent<CharacterUI>();
-    }
-
     IEnumerator UpdateTiles()
     {
         while (true)
@@ -398,7 +438,19 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
+    /// <summary>
+    /// Generates the UI characters can use, and will be able to transfer between characters
+    /// </summary>
+    private void GenerateCharacterUI()
+    {
+        characterUI_Object = Instantiate(prefab_CharacterUI);
+        characterUI = characterUI_Object.GetComponent<CharacterUI>();
+    }
+
+   
+    #region Attack Character A->B
     public void AttackCharacter(CharacterState attacker, CharacterState defender)
     {
         StartCoroutine(CharacterAttacking(attacker, defender));
@@ -412,6 +464,9 @@ public class BattleManager : MonoBehaviour
         defender.characterStats.CurrentHP = defender.characterStats.CurrentHP - (attacker.characterStats.attack /*+attacker.characterStats.MODIFIERS- defender.characterStats.MODIFIERS*/ );
     }
 
+    #endregion
+
+    #region Level Loading
     private void LoadLevel()
     {
         characterUICanvas = characterUI_Object.GetComponent<Canvas>();
@@ -481,4 +536,5 @@ public class BattleManager : MonoBehaviour
 
         currentLevel.Unload();
     }
+    #endregion
 }
