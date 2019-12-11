@@ -21,7 +21,10 @@ public class Cutscene : MonoBehaviour
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         }
-
+        if (Background == null)
+        {
+            Background = new GameObject();
+        }
     }
 
 
