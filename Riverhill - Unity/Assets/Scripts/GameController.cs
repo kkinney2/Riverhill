@@ -309,9 +309,9 @@ public class GameController : MonoBehaviour
         LoadLevel(0);                                         // I think this as like a cartridge.
         battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
         hasActiveLevel = true;
+
         StartCoroutine(MidBattle_Cutscenes());
 
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
 
         if (currentStatus == "LevelCompleted")
@@ -341,7 +341,51 @@ public class GameController : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
 
+            if (currentStatus == "LevelFailed")
+            {
+                cutsceneManager.StartCutscene("Tutorial - Alyss is defeated");
+            }
+            if (cutsceneManager.hasActiveCutscene)
+            {
+                yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+            }
 
+            if (currentStatus == "LevelCompleted")
+            {
+                cutsceneManager.StartCutscene("Tutorial - Dayana is defeated");
+            }
+            if (cutsceneManager.hasActiveCutscene)
+            {
+                yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+            }
+
+            if (alyssMoved == true)
+            {
+                cutsceneManager.StartCutscene("Tutorial - player moves");
+            }
+            // TODO: Insert this 'if' in the battlemanager while loop line 189
+            if (cutsceneManager.hasActiveCutscene)
+            {
+                yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+            }
+
+            if (alyssAttacked == true)
+            {
+                cutsceneManager.StartCutscene("Tutorial - player hits Dayana");
+            }
+            if (cutsceneManager.hasActiveCutscene)
+            {
+                yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+            }
+
+            if (dayanaAttacked == true)
+            {
+                cutsceneManager.StartCutscene("Tutorial - Dayana hits player");
+            }
+            if (cutsceneManager.hasActiveCutscene)
+            {
+                yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+            }
         }
     }
     #endregion
