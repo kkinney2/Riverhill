@@ -202,104 +202,11 @@ public class GameController : MonoBehaviour
         yield return null;
     }
 
-    // TODO: Break each level out into seperate coroutines so that they can be skipped for level loading
-    // Straight through run
-    #region RunThrough
-    /*
-    IEnumerator GameSequence()
-    {
-        currentTeam.Add(prefab_Characters[0]);
-        if (!gameSettings.canSkipCutscenes)
-        {
-            cutsceneManager.StartCutscene("Intro cutscene");
-            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
-        }
-        // TODO: Maybe load a "Level Selection" Canvas here?
-
-        #region Tutorial
-        /*
-        if (!gameSettings.canSkipCutscenes)
-        {
-            cutsceneManager.StartCutscene("CH_1 Tutorial");
-            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
-        }
-
-        enemyTeam.Add(prefab_Characters[1]);
-
-        //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(0);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
-        hasActiveLevel = true;
-
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
-        yield return new WaitUntil(() => hasActiveLevel == false);
-
-        // Add Dayana to the current team
-        enemyTeam.Remove(prefab_Characters[1]);
-        currentTeam.Add(prefab_Characters[1]);
-
-        mainCameraController.Reset();
-
-        // TODO: Send back to level loading screen
-        battleManager.Unloadlevel();
-        //       Show that next level is unlocked?
-        
-        #endregion
-        StartCoroutine(Level_Tutorial());
-
-        #region Level 1
-        if (!gameSettings.canSkipCutscenes)
-        {
-            cutsceneManager.StartCutscene("CH 2 - First Battle");
-            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
-        }
-
-        // Add enemeies to the enemyTeam
-        enemyTeam.Add(prefab_Characters[1]);
-
-        //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(1);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
-        hasActiveLevel = true;
-
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
-        yield return new WaitUntil(() => hasActiveLevel == false);
-        #endregion
-
-        #region Level 2
-        if (!gameSettings.canSkipCutscenes)
-        {
-            cutsceneManager.StartCutscene("Ch 3 - Fort Munge");
-            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
-        }
-
-        // Add enemeies to the enemyTeam
-        enemyTeam.Add(prefab_Characters[1]);
-
-        //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(1);                                         // I think this as like a cartridge.
-        battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
-        hasActiveLevel = true;
-
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
-        yield return new WaitUntil(() => hasActiveLevel == false);
-        #endregion
-
-
-
-
-        // Placeholder to validate the IEnumerator
-        yield return new WaitForEndOfFrame();
-    }
-    */
-    #endregion
-
     #region Tutorial
     IEnumerator Level_Tutorial()
     {
         if (!gameSettings.canSkipCutscenes)
         {
-            //TODO: Unsure about which scene comes first
             //cutsceneManager.StartCutscene("Tutorial - gameplay start");
             cutsceneManager.StartCutscene("CH_1 Tutorial");
             yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
@@ -333,8 +240,6 @@ public class GameController : MonoBehaviour
         currentTeam.Add(prefab_Characters[1]);
 
         mainCameraController.Reset();
-
-        // TODO: Send back to level loading screen
 
         //       Show that next level is unlocked?
         StartCoroutine(LevelSelection());
@@ -415,7 +320,6 @@ public class GameController : MonoBehaviour
         battleManager.Startup(currentTeam, enemyTeam);        // And this is turning on the console.
         hasActiveLevel = true;
 
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
 
         if (currentStatus == "LevelCompleted")
@@ -455,7 +359,6 @@ public class GameController : MonoBehaviour
 
         StartCoroutine(LevelTwo_MidBattle_Cutscenes());
 
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
 
         if (currentStatus == "LevelCompleted")
@@ -513,7 +416,6 @@ public class GameController : MonoBehaviour
 
         StartCoroutine(LevelThree_MidBattle_Cutscenes());
 
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
 
         if (currentStatus == "LevelCompleted")
@@ -590,7 +492,6 @@ public class GameController : MonoBehaviour
 
         StartCoroutine(LevelFour_MidBattle_Cutscenes());
 
-        // TODO: Needs a way to repeat if not beaten or a way to re enter the level
         yield return new WaitUntil(() => hasActiveLevel == false);
 
         if (currentStatus == "LevelCompleted")
