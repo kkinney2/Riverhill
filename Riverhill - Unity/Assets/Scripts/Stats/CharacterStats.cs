@@ -15,6 +15,8 @@ public class CharacterStats : MonoBehaviour
     public float BaseHP;
     public float CurrentHP;
 
+    Vector3 startPos;
+
     public Vector2 meleeAttackRange = new Vector2(1, 1);
     public Vector2 rangedAttackRange = new Vector2(1, 3);
 
@@ -102,6 +104,14 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         ResetHealth();
+        startPos = transform.position;
+    }
+
+    // Once not active, reset it for next play through
+    private void OnDisable()
+    {
+        ResetHealth();
+        transform.position = startPos;
     }
 
     private void Update()

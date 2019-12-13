@@ -3910,6 +3910,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alyss_Sprite (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239886, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 697005ba38dedae4ea01a3b7494d3e35, type: 3}
 --- !u!4 &859921641433043674 stripped

@@ -596,7 +596,7 @@ public class GameController : MonoBehaviour
 
         newManager.gameController = this;
         newManager.levels = oldManager.levels;
-        newManager.currentLevel = oldManager.currentLevel;
+        //newManager.currentLevel = oldManager.currentLevel;
 
 
         newManager.prefab_CharacterUI = oldManager.prefab_CharacterUI;
