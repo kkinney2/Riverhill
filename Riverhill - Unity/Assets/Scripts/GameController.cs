@@ -213,10 +213,9 @@ public class GameController : MonoBehaviour
             yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
         }
 
-        enemyTeam.Add(prefab_Characters[1]);
+        CreateBattleManager(battleManager);
 
-        //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(0);                                         // I think this as like a cartridge.
+        LoadLevel(0);                   // I think this as like a cartridge.
         battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
@@ -224,7 +223,6 @@ public class GameController : MonoBehaviour
         {
             StartCoroutine(Tutorial_MidBattle_Cutscenes());
         }
-
 
         yield return new WaitUntil(() => hasActiveLevel == false);
 
@@ -235,10 +233,6 @@ public class GameController : MonoBehaviour
         }
 
         battleManager.Unloadlevel();
-
-        // Add Dayana to the current team
-        enemyTeam.Remove(prefab_Characters[1]);
-        currentTeam.Add(prefab_Characters[1]);
 
         mainCameraController.Reset();
 
@@ -316,13 +310,10 @@ public class GameController : MonoBehaviour
             yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
         }
 
-        // TODO: Add enemies to the enemyTeam
-        enemyTeam.Add(prefab_Characters[1]);
-        enemyTeam.Add(prefab_Characters[1]);
-        enemyTeam.Add(prefab_Characters[1]);
+        CreateBattleManager(battleManager);
 
         //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(1);                                         // I think this as like a cartridge.
+        LoadLevel(1);                   // I think this as like a cartridge.
         battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
@@ -333,10 +324,6 @@ public class GameController : MonoBehaviour
             level1_Completed = true;
             level2_Unlocked = true;
         }
-
-        // Reconfigure Teams
-
-        // ********
 
         mainCameraController.Reset();
 
@@ -356,8 +343,7 @@ public class GameController : MonoBehaviour
             yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
         }
 
-        // TODO: Add enemies to the enemyTeam
-        //enemyTeam.Add(prefab_Characters[1]);
+        CreateBattleManager(battleManager);
 
         //battleManager.currentLevel = battleManager.levels[0]; 
         LoadLevel(2);                      // I think this as like a cartridge.
@@ -373,10 +359,6 @@ public class GameController : MonoBehaviour
             level2_Completed = true;
             level3_Unlocked = true;
         }
-
-        // Reconfigure Teams
-
-        // ********
 
         mainCameraController.Reset();
 
@@ -413,11 +395,10 @@ public class GameController : MonoBehaviour
             yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
         }
 
-        // TODO: Add enemies to the enemyTeam
-        //enemyTeam.Add(prefab_Characters[1]);
+        CreateBattleManager(battleManager);
 
         //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(3);                                         // I think this as like a cartridge.
+        LoadLevel(3);                   // I think this as like a cartridge.
         battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
@@ -430,10 +411,6 @@ public class GameController : MonoBehaviour
             level2_Completed = true;
             level3_Unlocked = true;
         }
-
-        // Reconfigure Teams
-
-        // ********
 
         mainCameraController.Reset();
 
@@ -489,11 +466,10 @@ public class GameController : MonoBehaviour
             yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
         }
 
-        // TODO: Add enemies to the enemyTeam
-        //enemyTeam.Add(prefab_Characters[1]);
+        CreateBattleManager(battleManager);
 
         //battleManager.currentLevel = battleManager.levels[0]; 
-        LoadLevel(4);                                         // I think this as like a cartridge.
+        LoadLevel(4);                   // I think this as like a cartridge.
         battleManager.Startup();        // And this is turning on the console.
         hasActiveLevel = true;
 
@@ -506,10 +482,6 @@ public class GameController : MonoBehaviour
             level2_Completed = true;
             level3_Unlocked = true;
         }
-
-        // Reconfigure Teams
-
-        // ********
 
         mainCameraController.Reset();
 
@@ -566,7 +538,8 @@ public class GameController : MonoBehaviour
         // Load Save Data
         // The rest should be the same due to references
     }
-
+    #region Level Loading
+    
     public void LoadNextLevel()
     {
         LoadLevel(currentLevelNum + 1);
@@ -582,7 +555,7 @@ public class GameController : MonoBehaviour
 
         battleManager.currentLevel = battleManager.levels[levelNum];
     }
-
+    
     public void LoadLevel(string a_Level)
     {
         switch (a_Level)
@@ -597,12 +570,12 @@ public class GameController : MonoBehaviour
                 StartCoroutine(Level_Two());
                 break;
             case "LevelThree":
-                Debug.Log("NOT IMPLEMENTED: LEVEL_THREE");
-                //StartCoroutine(Level_Three());
+                //Debug.Log("NOT IMPLEMENTED: LEVEL_THREE");
+                StartCoroutine(Level_Three());
                 break;
             case "LevelFour":
-                Debug.Log("NOT IMPLEMENTED: LEVEL_FOUR");
-                //StartCoroutine(Level_Four);
+                //Debug.Log("NOT IMPLEMENTED: LEVEL_FOUR");
+                StartCoroutine(Level_Four());
                 break;
             default:
                 break;
@@ -610,10 +583,40 @@ public class GameController : MonoBehaviour
         SetMenuUI(false);
         StopCoroutine(LevelSelection());
     }
+    #endregion
 
     public void SetMenuUI(bool toggle)
     {
         MenuUI.SetActive(toggle);
     }
 
+    public void CreateBattleManager(BattleManager oldManager)
+    {
+        BattleManager newManager = oldManager.gameObject.AddComponent<BattleManager>();
+
+        newManager.gameController = this;
+        newManager.levels = oldManager.levels;
+        newManager.currentLevel = oldManager.currentLevel;
+
+
+        newManager.prefab_CharacterUI = oldManager.prefab_CharacterUI;
+        /*
+        newManager.characterUI = oldManager.characterUI;
+        newManager.characterUI_Object = oldManager.characterUI_Object;
+        newManager.characterUICanvas = oldManager.characterUICanvas;
+        */
+        Destroy(oldManager.characterUI_Object);
+        newManager.spriteLayering = oldManager.spriteLayering;
+
+        newManager.turnText = oldManager.turnText;
+
+        newManager.gameplayMusicAS = oldManager.gameplayMusicAS;
+        newManager.gameplayMusic = oldManager.gameplayMusic;
+        newManager.gameplayMusicIsPlaying = oldManager.gameplayMusicIsPlaying;
+        newManager.shouldTurnOffMusic = oldManager.shouldTurnOffMusic;
+
+        battleManager = newManager;
+
+        Destroy(oldManager);
+    }
 }

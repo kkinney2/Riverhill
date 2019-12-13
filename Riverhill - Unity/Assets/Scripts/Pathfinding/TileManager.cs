@@ -48,7 +48,7 @@ public class TileManager : MonoBehaviour
         {
             gridSize = new Vector2Int(10, 10);
         }
-        tiles = new Tile[100, 100]; // TODO: Hardcoded Tiles array
+        tiles = new Tile[1000, 1000]; // TODO: Hardcoded Tiles array
         tilesList = new List<GameObject>();
         tilesParent = new GameObject();
         tilesParent.name = "Tiles";
@@ -64,6 +64,23 @@ public class TileManager : MonoBehaviour
 
     public void Reset()
     {
+        if (tilesHighlights == null)
+        {
+            tilesHighlights = new GameObject();
+            tilesHighlights.name = "Tile Highlights";
+        }
+
+        if (gridSize.x == 0 || gridSize.y == 0)
+        {
+            gridSize = new Vector2Int(10, 10);
+        }
+        tiles = new Tile[1000, 1000]; // TODO: Hardcoded Tiles array
+        tilesList = new List<GameObject>();
+        tilesParent = new GameObject();
+        tilesParent.name = "Tiles_" + grid.name;
+
+        pathfinder = new Pathfinding();
+
         Setup();
         FindNeighbors();
         /*
@@ -207,7 +224,7 @@ public class TileManager : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             // Even Columns
-            if (a_Tile.cellPosition.y%2 == 0)
+            if (a_Tile.cellPosition.y % 2 == 0)
             {
                 switch (i)
                 {
@@ -297,7 +314,7 @@ public class TileManager : MonoBehaviour
                 NeighboringTiles.Add(tiles[xCheck + gridSize.x, yCheck + gridSize.x]);
             }
         }
-        
+
         return NeighboringTiles;
     }
 

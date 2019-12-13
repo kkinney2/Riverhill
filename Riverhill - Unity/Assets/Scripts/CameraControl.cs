@@ -69,5 +69,11 @@ public class CameraControl : MonoBehaviour
         targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         hasTarget = true;
     }
+
+    public void TargetGameObject(GameObject a_target)
+    {
+        targetTransform = a_target.transform;
+        hasTarget = true;
+    }
 }
 

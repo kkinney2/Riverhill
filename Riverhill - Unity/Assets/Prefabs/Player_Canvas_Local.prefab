@@ -327,6 +327,9 @@ MonoBehaviour:
   characterUIObjCanvas: {fileID: 8653099306592415907}
   lookToPlayerObject: {fileID: 0}
   charPathfindingAlyss: {fileID: 0}
+  move_Button: {fileID: 8653099308066460101}
+  attack_Button: {fileID: 8653099307942543681}
+  special_button: {fileID: 8653099306172150703}
   specialText: {fileID: 8653099306726526444}
 --- !u!1 &8653099306593360483
 GameObject:

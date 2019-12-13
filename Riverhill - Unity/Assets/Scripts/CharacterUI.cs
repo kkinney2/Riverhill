@@ -15,6 +15,10 @@ public class CharacterUI : MonoBehaviour
     public GameObject lookToPlayerObject;
     public CharacterPathfinding charPathfindingAlyss;
 
+    public Button move_Button;
+    public Button attack_Button;
+    public Button special_button;
+
     public Text specialText;
 
     public CharacterUI(GameObject a_UIAsset, BattleManager battleM)

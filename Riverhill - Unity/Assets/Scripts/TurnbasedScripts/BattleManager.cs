@@ -166,6 +166,7 @@ public class BattleManager : MonoBehaviour
     {
         gameController.currentStatus = "Level";
         battleStateMachine = new BattleStateMachine();
+        characterStats = new List<CharacterStats>();
         characterStates = new List<CharacterState>();
         characterStates_Enemy = new List<CharacterState>();
         characterStates_Player = new List<CharacterState>();
@@ -270,6 +271,8 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("Start " + characterStates_Player[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
 
+                gameController.mainCameraController.TargetGameObject(characterStates_Player[i].character.gameObject);
+
                 yield return new WaitForSeconds(1f);
 
                 battleStateMachine.ChangeState(characterStates_Player[i]);
@@ -289,6 +292,7 @@ public class BattleManager : MonoBehaviour
                 characterUI.gameObject.SetActive(false);
                 characterUI.AssignNewCharacter(null);
                 Debug.Log("End " + characterStates_Player[i].character.name + "'s Turn");
+                yield return new WaitForSeconds(1f);
             }
             #endregion
 
@@ -299,6 +303,8 @@ public class BattleManager : MonoBehaviour
                 //Debug.Log("");
                 Debug.Log("Start " + characterStates_Enemy[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Enemy[i].characterStats.Name;
+
+                gameController.mainCameraController.TargetGameObject(characterStates_Enemy[i].character.gameObject);
 
                 yield return new WaitForSeconds(1f);
                 battleStateMachine.ChangeState(characterStates_Enemy[i]);
@@ -317,6 +323,7 @@ public class BattleManager : MonoBehaviour
 
                 characterUI.AssignNewCharacter(null);
                 Debug.Log("End " + characterStates_Enemy[i].character.name + "'s Turn");
+                yield return new WaitForSeconds(1f);
             }
             #endregion
 
@@ -347,7 +354,7 @@ public class BattleManager : MonoBehaviour
             {
                 if (characterStates_Player[i].characterStats.CurrentHP > 0)
                 {
-                    //hasPlayableCharacter = true;
+                    hasPlayableCharacter = true; // If a partner is dead in the list before another, it would toggle to false and then stay false if this WASN't here
                     break;
                 }
                 else
@@ -361,14 +368,14 @@ public class BattleManager : MonoBehaviour
             {
                 if (characterStates_Enemy[i].characterStats.CurrentHP > 0)
                 {
-                    Debug.Log("Enemy Health:" + characterStates_Enemy[i].characterStats.CurrentHP);
+                    //Debug.Log("Enemy Health:" + characterStates_Enemy[i].characterStats.CurrentHP);
                     // Break out of the for-loop if there's a playable enemy
-                    //hasPlayableEnemy = true;
+                    hasPlayableEnemy = true;
                     break;
                 }
                 else
                 {
-                    Debug.Log("Enemy Health:" + characterStates_Enemy[i].characterStats.CurrentHP);
+                    //Debug.Log("Enemy Health:" + characterStates_Enemy[i].characterStats.CurrentHP);
                     hasPlayableEnemy = false;
                 }
             }

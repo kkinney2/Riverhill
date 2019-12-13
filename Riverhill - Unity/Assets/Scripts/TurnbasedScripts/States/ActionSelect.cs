@@ -16,7 +16,7 @@ public class ActionSelect : IState
     CharacterPathfinding pathfinder;
 
     //Could possibly reorganize this all later & move it into Attack state?
-    public GameObject attackButton;
+    public Button attackButton;
     //For now we're going to check if attack is possible before button is even selected... work on disabling button if attack not possible yet
     
     public bool enemyInAttackRange_Melee = false;
@@ -30,6 +30,7 @@ public class ActionSelect : IState
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
         {
             gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+            battleManager = gameController.battleManager;
         }
 
         this.characterState = a_CharacterState;
@@ -40,7 +41,8 @@ public class ActionSelect : IState
 
     public void Enter()
     {
-        attackButton = GameObject.FindGameObjectWithTag("P1AttackButton"); //get Attack button (part of UI prefab)
+        //attackButton = GameObject.FindGameObjectWithTag("P1AttackButton"); //get Attack button (part of UI prefab)
+        attackButton = battleManager.characterUI.attack_Button;
 
         //attempting tracking enemy position and determining when attack is possible
         //there's probably a better way to do this/cleaner way to code it... whoops :-)
@@ -62,6 +64,7 @@ public class ActionSelect : IState
         //Debug.Log("Executing ActionSelect state");
 
         #region IsAttackPossible?
+        #region Commented out
         //First---Check if enemy is in melee attack range & adjust bool accordingly
         //May be a better way to do this...
         /*
@@ -88,6 +91,7 @@ public class ActionSelect : IState
             enemyInMAttackRange = false;
         }
         */
+        #endregion
 
         for (int i = 0; i < battleManager.characterStates_Enemy.Count; i++)
         {
@@ -96,21 +100,23 @@ public class ActionSelect : IState
             if (pathfinder.path.Count <= characterState.characterStats.meleeAttackRange.y) // TODO: Hardcoded attack range
             {
                 enemyInAttackRange_Melee = true; // SIDENOTE: When I first read this, I read it as "enemy in MAH attack range" xD
+                break; // If there's no break, it will keep checking for multiple enemies. and if at least one is out of range it would have not triggered
             }
             else
             {
+                //Debug.Log("Enemy is " + pathfinder.path.Count + " tiles away");
                 enemyInAttackRange_Melee = false;
             }
         }
 
         //If so-enable Attack button/make interactable
         if (enemyInAttackRange_Melee == true) {
-            attackButton.GetComponent<Button>().interactable = true;
+            attackButton.interactable = true;
         }
 
         //If not-disable Attack button/make not-interactable
         if (enemyInAttackRange_Melee == false) {
-            attackButton.GetComponent<Button>().interactable = false;
+            attackButton.interactable = false;
         }
         #endregion
 

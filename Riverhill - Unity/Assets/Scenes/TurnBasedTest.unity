@@ -173,7 +173,9 @@ MonoBehaviour:
   - {fileID: 859921641433043673}
   enemies:
   - {fileID: 5302424536520080030}
+  gameController: {fileID: 0}
   tileManager: {fileID: 0}
+  battleManager: {fileID: 0}
   UpperBound: {fileID: 1044195270}
   LowerBound: {fileID: 1044195268}
 --- !u!1001 &32881597
@@ -183,11 +185,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1512454861249688123}
     m_Modifications:
-    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: m_Name
-      value: Dayana_Sprite_ENEMY (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 307183929201589478, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -242,6 +239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_Name
+      value: Dayana_Sprite_ENEMY (1)
       objectReference: {fileID: 0}
     - target: {fileID: 307183929201589479, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
@@ -301,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
-  gridSize: {x: 20, y: 20}
+  gridSize: {x: 100, y: 100}
   tilesHighlights: {fileID: 0}
   tilesList: []
 --- !u!4 &93919224
@@ -587,6 +589,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2420038011435080299, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37e50a09dbcadb478f2bbeffdb7340b, type: 3}
 --- !u!4 &382001248 stripped
@@ -719,11 +726,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937482610}
     m_Modifications:
-    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: m_Name
-      value: Dayana
-      objectReference: {fileID: 0}
     - target: {fileID: 307183929201589478, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -778,6 +780,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_Name
+      value: Dayana
       objectReference: {fileID: 0}
     - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
@@ -1614,11 +1621,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1512454861249688123}
     m_Modifications:
-    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: m_Name
-      value: Dayana_Sprite_ENEMY
-      objectReference: {fileID: 0}
     - target: {fileID: 307183929201589478, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1673,6 +1675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_Name
+      value: Dayana_Sprite_ENEMY
       objectReference: {fileID: 0}
     - target: {fileID: 307183929201589479, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
@@ -1752,7 +1759,9 @@ MonoBehaviour:
   characters: {fileID: 0}
   players: []
   enemies: []
+  gameController: {fileID: 0}
   tileManager: {fileID: 0}
+  battleManager: {fileID: 0}
   UpperBound: {fileID: 1408528876}
   LowerBound: {fileID: 1408528875}
 --- !u!1001 &805781166
@@ -1821,6 +1830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1232296010293532380, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732, type: 3}
@@ -2146,7 +2160,9 @@ MonoBehaviour:
   characters: {fileID: 0}
   players: []
   enemies: []
+  gameController: {fileID: 0}
   tileManager: {fileID: 0}
+  battleManager: {fileID: 0}
   UpperBound: {fileID: 805781169}
   LowerBound: {fileID: 805781168}
 --- !u!1001 &1044195267
@@ -2214,6 +2230,46 @@ PrefabInstance:
     - target: {fileID: 2429414441208874760, guid: 54690d73792407b44a156e58334cc17b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429414442904325708, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429414442002679718, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429414441880638243, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4993712034358683446, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429414441880638242, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915332371660720322, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429414441524826712, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2429414442901367968, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2352,11 +2408,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937482610}
     m_Modifications:
-    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: m_Name
-      value: Alyss
-      objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2411,6 +2462,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Name
+      value: Alyss
       objectReference: {fileID: 0}
     - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -2490,6 +2546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8999428724312088673, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc32073d8232df54ebf3306f83599575, type: 3}
@@ -2736,7 +2797,9 @@ MonoBehaviour:
   characters: {fileID: 0}
   players: []
   enemies: []
+  gameController: {fileID: 0}
   tileManager: {fileID: 0}
+  battleManager: {fileID: 0}
   UpperBound: {fileID: 1086155487}
   LowerBound: {fileID: 1086155486}
 --- !u!1001 &1408528873
@@ -2805,6 +2868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176491002171463907, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332309c5ad2c56749bfabbbc43a21301, type: 3}
@@ -2986,11 +3054,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1512454861249688123}
     m_Modifications:
-    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: m_Name
-      value: Dayana_Sprite_ENEMY (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 307183929201589478, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3045,6 +3108,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_Name
+      value: Dayana_Sprite_ENEMY (2)
       objectReference: {fileID: 0}
     - target: {fileID: 307183929201589479, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
@@ -3142,7 +3210,9 @@ MonoBehaviour:
   - {fileID: 675611871}
   - {fileID: 32881598}
   - {fileID: 1754173097}
+  gameController: {fileID: 0}
   tileManager: {fileID: 0}
+  battleManager: {fileID: 0}
   UpperBound: {fileID: 382001250}
   LowerBound: {fileID: 382001248}
 --- !u!1 &1896215486
@@ -5011,6 +5081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a9cb3f33206a84da60af806a99495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
   objectsWithRenderer: []
   spriteRenderers: []
   characters: []
@@ -7468,7 +7539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2231777635509604434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 0.65, z: 1}
   m_Children:
   - {fileID: 2231777635345526774}
@@ -9261,16 +9332,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: m_Name
-      value: Alyss_Sprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9324,6 +9385,16 @@ PrefabInstance:
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Name
+      value: Alyss_Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10551,7 +10622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4261429119365732646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 0.65, z: 1}
   m_Children:
   - {fileID: 4261429119085230559}
@@ -11369,16 +11440,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: m_Name
-      value: Dayana_Sprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 307183929201589478, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11432,6 +11493,16 @@ PrefabInstance:
     - target: {fileID: 307183929201589478, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_Name
+      value: Dayana_Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
