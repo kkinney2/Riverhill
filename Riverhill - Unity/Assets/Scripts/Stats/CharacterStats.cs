@@ -20,11 +20,6 @@ public class CharacterStats : MonoBehaviour
     public Vector2 meleeAttackRange = new Vector2(1, 1);
     public Vector2 rangedAttackRange = new Vector2(1, 3);
 
-    /* Emily, you big dumb dumb!! It's easier than you think.
-    public float CurrentP1HP;
-    public float CurrentE1HP;
-    */
-
     public float attack;
     public float healingAuraHP; //amount of healing
     public float knockbackAD; //amount of knockback damage
@@ -37,22 +32,6 @@ public class CharacterStats : MonoBehaviour
 
     private float deathPlayTime = 0;
 
-    //for health bars
-    /* Emily is big dumb dumb :-)
-    public Text currentP1Health;
-    public Text currentE1Health;
-    public Image p1HPBarFill;
-    public Image e1HPBarFill;
-    */
-
-    //public Image P1HPBar;
-    //public Image E1HPBar;
-    //public Image p1HPBarFill;
-    //public Image e1HPBarFill;
-    //public Text currentP1Health;
-    //public Text currentE1Health;
-
-    //public Text currentHealthText;
     public Image HPBarFill;
 
     //sound stuff
@@ -62,19 +41,10 @@ public class CharacterStats : MonoBehaviour
     public AudioClip charInjury;
     public AudioClip charDeath;
 
+    public bool hasAnimPlaying = false;
+
     private void Start()
     {
-        // No longer self reports
-        //BattleManager.Instance.characterStats.Add(this);
-
-        
-
-        ///* EMILY ADDED SETTING THIS STUFF IN BATTLEMANAGER SCRIPT
-        //currentHealthText.text = ("Health: " + CurrentHP);
-        //HPBarFill.fillAmount = ((CurrentHP) / 100);
-        //*/
-
-        //currentHealthText.text = ("Health: " + CurrentHP);
         HPBarFill.fillAmount = ((CurrentHP) / 100);
 
         AudioSource charSounds = GetComponent<AudioSource>();
@@ -97,7 +67,7 @@ public class CharacterStats : MonoBehaviour
             }
         }
 
-        StartCoroutine(AnimCheck());
+        StartCoroutine(HealingCheck());
         #endregion
     }
 
@@ -130,12 +100,22 @@ public class CharacterStats : MonoBehaviour
         CurrentHP = BaseHP;
     }
 
-    public void IsHealing()
+    IEnumerator AnimCheck()
     {
-        //Alyss special, may need to move special healing sound here?
+        while (true)
+        {
+            yield return new WaitForEndOfFrame();
 
-        animator.SetTrigger("isHealing");
-        healingAura_Anim.SetTrigger("isHealing");
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                yield return new WaitForSeconds(1f);    // Adds a slight delay to ensure the anim is played out
+                hasAnimPlaying = false;
+            }
+            else
+            {
+                hasAnimPlaying = true;
+            }
+        }
     }
 
     public void IsWalking(bool set)
@@ -143,6 +123,7 @@ public class CharacterStats : MonoBehaviour
         animator.SetBool("isWalking", set);
     }
 
+    #region Attack
     public void IsAttacking()
     {
         animator.SetTrigger("isAttacking");
@@ -167,7 +148,9 @@ public class CharacterStats : MonoBehaviour
         charSounds.clip = charAttack;
         charSounds.Play();
     }
+    #endregion
 
+    #region Hit
     public void WasHit()
     {
         animator.SetTrigger("wasHit");
@@ -193,7 +176,9 @@ public class CharacterStats : MonoBehaviour
         charSounds.clip = charInjury;
         charSounds.Play();
     }
+    #endregion
 
+    #region Dead
     public void IsDead()
     {
         StartCoroutine(Died());
@@ -214,7 +199,9 @@ public class CharacterStats : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+    #endregion
 
+    #region Special
     public void useSpecial()
     {
         animator.SetTrigger("useSpecial");
@@ -223,8 +210,18 @@ public class CharacterStats : MonoBehaviour
         charSounds.clip = charSpecial;
         charSounds.Play();
     }
+    #endregion
 
-    IEnumerator AnimCheck()
+    #region Healing Effect
+    public void IsHealing()
+    {
+        //Alyss special, may need to move special healing sound here?
+
+        animator.SetTrigger("isHealing");
+        healingAura_Anim.SetTrigger("isHealing");
+    }
+
+    IEnumerator HealingCheck()
     {
         while (true)
         {
@@ -237,4 +234,5 @@ public class CharacterStats : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    #endregion
 }
