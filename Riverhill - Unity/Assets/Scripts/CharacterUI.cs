@@ -17,9 +17,9 @@ public class CharacterUI : MonoBehaviour
 
     public Text specialText;
 
-    public CharacterUI(GameObject a_UIAsset)
+    public CharacterUI(GameObject a_UIAsset, BattleManager battleM)
     {
-        battleManager = BattleManager.Instance;
+        battleManager = battleM;
 
         //characterUI_Object = a_UIAsset;
     }

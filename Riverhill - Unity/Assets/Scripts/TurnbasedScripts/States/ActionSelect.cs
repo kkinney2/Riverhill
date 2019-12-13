@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ActionSelect : IState
 {
+    public GameController gameController;
+
     CharacterState characterState;
     private BattleStateMachine characterStateMachine;
 
@@ -24,6 +27,11 @@ public class ActionSelect : IState
 
     public ActionSelect(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
+
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
 
@@ -42,7 +50,7 @@ public class ActionSelect : IState
 
         Debug.Log("Entering ActionSelect state");
         Debug.Log("actionCount: " + characterState.actionCount);
-        battleManager = BattleManager.Instance;
+        battleManager = gameController.battleManager;
         this.characterStateMachine.UpdateState();
         /*        
         acScript = character.GetComponent<ActorController>();

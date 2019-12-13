@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class SpriteLayering : MonoBehaviour
 {
+    public GameController gameController;
+
     public List<GameObject> objectsWithRenderer;
 
     public List<SpriteRenderer> spriteRenderers;
@@ -20,13 +23,16 @@ public class SpriteLayering : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (BattleManager.Instance != null)
+        if (gameController.battleManager != null)
         {
             UpdateReferences();
 
@@ -72,7 +78,7 @@ public class SpriteLayering : MonoBehaviour
 
     public void UpdateReferences()
     {
-        currentLevel = BattleManager.Instance.currentLevel;
+        currentLevel = gameController.battleManager.currentLevel;
         if (currentLevel != null)
         {
             UpperBound = currentLevel.UpperBound;

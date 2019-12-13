@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
@@ -14,7 +15,9 @@ public class Level : MonoBehaviour
     public GameObject[] players;
     public GameObject[] enemies;
     // TODO: Spawn map for other characters
+    public GameController gameController;
     public TileManager tileManager;
+    public BattleManager battleManager;
 
     [Header("Bounds")]
     public Transform UpperBound;
@@ -22,7 +25,10 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
     }
 
     public void Load()
@@ -38,7 +44,7 @@ public class Level : MonoBehaviour
 
     public void LoadLevel(bool toggle)
     {
-        BattleManager.Instance.currentLevel = this;
+        gameController.battleManager.currentLevel = this;
 
         Grid_Tile.gameObject.SetActive(toggle);
         Grid_Obstacles.gameObject.SetActive(toggle);
@@ -51,12 +57,12 @@ public class Level : MonoBehaviour
             TileManager.Instance.Reset();
         }
 
-        BattleManager.Instance.isLevelLoaded = toggle;
+        gameController.battleManager.isLevelLoaded = toggle;
     }
 
     IEnumerator Coroutine_LoadLevel(bool toggle)
     {
-        BattleManager.Instance.currentLevel = this;
+        gameController.battleManager.currentLevel = this;
 
         Grid_Tile.gameObject.SetActive(toggle);
         yield return new WaitUntil(() => Grid_Tile.gameObject.activeSelf == toggle);
@@ -75,7 +81,7 @@ public class Level : MonoBehaviour
             TileManager.Instance.Reset();
         }
 
-        BattleManager.Instance.isLevelLoaded = toggle;
+        gameController.battleManager.isLevelLoaded = toggle;
 
         yield break;
     }

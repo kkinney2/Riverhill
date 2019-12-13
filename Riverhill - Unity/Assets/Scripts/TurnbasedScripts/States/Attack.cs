@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Attack : IState
 {
+    public GameController gameController;
     CharacterState characterState;
     private BattleStateMachine characterStateMachine;
 
@@ -15,6 +17,11 @@ public class Attack : IState
 
     public Attack(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
+
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
 
@@ -38,7 +45,7 @@ public class Attack : IState
     public void Enter()
     {
         Debug.Log("Entering attack state"); //success!
-        battleManager = BattleManager.Instance;
+        battleManager = gameController.battleManager;
 
         characterState.hasActiveAction = true;
         if (!characterState.characterStats.isEnemy)

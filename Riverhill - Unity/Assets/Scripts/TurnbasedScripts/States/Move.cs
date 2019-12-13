@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Move : IState
 {
+    public GameController gameController;
     CharacterState characterState;
     BattleStateMachine characterStateMachine;
     public BattleStateMachine battleStateMachine;
@@ -25,6 +27,10 @@ public class Move : IState
 
     public Move(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
 
@@ -34,7 +40,7 @@ public class Move : IState
     public void Enter()
     {
         Debug.Log("Entering move state"); //success!
-        battleManager = BattleManager.Instance;
+        battleManager = gameController.battleManager;
 
         characterState.hasActiveAction = true;
 

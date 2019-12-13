@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Special : IState
 {
+    public GameController gameController;
     CharacterState characterState;
     private BattleStateMachine characterStateMachine;
 
@@ -13,6 +15,11 @@ public class Special : IState
 
     public Special(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
+
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
     }
@@ -34,7 +41,7 @@ public class Special : IState
     public void Enter()
     {
         Debug.Log("Entering special state"); //success!
-        battleManager = BattleManager.Instance;
+        battleManager = gameController.battleManager;
         // TODO: What adds to actionCount? the action or the decision maker?
         //battleManager.actionCount++; // or = (battleManager.actionCount + 2); //inc. actionCount, by one or two to allow/avoid multi-special selections per turn //success!
         

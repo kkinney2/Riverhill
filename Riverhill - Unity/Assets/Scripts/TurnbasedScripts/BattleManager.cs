@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BattleManager : MonoBehaviour
 {
-
+    /*
     #region Singleton
     private static BattleManager _instance;
     public static BattleManager Instance { get { return _instance; } }
@@ -32,7 +32,7 @@ public class BattleManager : MonoBehaviour
         }
     }
     #endregion
-
+    */
 
     public Level[] levels;
     public GameController gameController;
@@ -61,14 +61,6 @@ public class BattleManager : MonoBehaviour
 
     public Text turnText;
 
-    //trying to get health bar stuff to appear
-    /* MOVING OVER TO CHAR STATS
-    public Image P1HPBar;
-    public Image E1HPBar;
-    public CharacterStats charStatsAlyss;
-    public CharacterStats charStatsDayana;
-    */
-
     public bool nextCharacter = false;
     [Tooltip("Status of StatusCheck()")]
     public bool statusCheck = false;
@@ -87,6 +79,15 @@ public class BattleManager : MonoBehaviour
     //public CharacterPathfinding charPathfindingDayana; //not needed for Dayana
     public GameObject player;
     //public CharacterUI characterUI; //already has
+
+    private void Awake()
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+            gameController.battleManager = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* 
  * Can be used to "Idle" a Character so they they don't accidently
@@ -9,6 +10,7 @@ using UnityEngine;
 
 public class Idle : IState
 {
+    public GameController gameController;
     CharacterState characterState;
     private BattleStateMachine characterStateMachine;
 
@@ -16,6 +18,10 @@ public class Idle : IState
 
     public Idle(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
     }
@@ -23,7 +29,7 @@ public class Idle : IState
     public void Enter()
     {
         Debug.Log("Entering Idle State");
-        battleManager = BattleManager.Instance;
+        battleManager = gameController.battleManager;
     }
 
     public void Execute()

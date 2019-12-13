@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterState : IState
 {
+    public GameController gameController;
     public BattleStateMachine battleStateMachine;
     public GameObject character;
     public CharacterStats characterStats;
@@ -37,7 +39,12 @@ public class CharacterState : IState
     //public CharacterState(GameObject a_Character, BattleStateMachine a_BattleStateMachine)
     public CharacterState(GameObject a_Character)
     {
-        battleManager = BattleManager.Instance;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
+
+        battleManager = gameController.battleManager;
 
         /* Each Character will have their own BattleStateMachine, this way
          * they can individually keep track of their actions taken and 

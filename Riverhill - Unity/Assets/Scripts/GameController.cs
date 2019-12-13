@@ -69,6 +69,7 @@ public class GameController : MonoBehaviour
     public List<GameObject> currentTeam;
     public List<GameObject> enemyTeam;
 
+    Level[] levels;
 
     private void Awake()
     {

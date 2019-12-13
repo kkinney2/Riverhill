@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AIState : IState
 {
+    public GameController gameController;
     CharacterState characterState;
     private BattleStateMachine characterStateMachine;
 
@@ -18,6 +20,11 @@ public class AIState : IState
 
     public AIState(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+            gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+        }
+
         this.characterState = a_CharacterState;
         this.characterStateMachine = a_BattleStateMachine;
 
@@ -27,7 +34,7 @@ public class AIState : IState
     public void Enter()
     {
         Debug.Log("Entering AI state");
-        battleManager = BattleManager.Instance;
+        battleManager = gameController.battleManager;
 
         // Update Player Characters
         UpdatePlayerCharacters();
