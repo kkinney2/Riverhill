@@ -118,10 +118,12 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    #region Walk
     public void IsWalking(bool set)
     {
         animator.SetBool("isWalking", set);
     }
+    #endregion
 
     #region Attack
     public void IsAttacking()
