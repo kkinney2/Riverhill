@@ -34,6 +34,14 @@ public class SpriteLayering : MonoBehaviour
     {
         if (gameController.battleManager != null)
         {
+            // if current level changes, there will be different references, thus reset
+            if (currentLevel != gameController.battleManager.currentLevel)
+            {
+                currentLevel = gameController.battleManager.currentLevel;
+                characters = new List<SpriteRenderer>();
+                objectsWithRenderer = new List<GameObject>();
+                spriteRenderers = new List<SpriteRenderer>();
+            }
             UpdateReferences();
 
             for (int i = 0; i < spriteRenderers.Count; i++)
@@ -47,38 +55,10 @@ public class SpriteLayering : MonoBehaviour
                 spriteRenderers[i].gameObject.transform.position = currentPos;
             }
         }
-        
-        
-
-        /*
-        for (int i = 0; i < characters.Count; i++)
-        {
-            Vector3 currentPos = characters[i].gameObject.transform.position;
-            // Percentage of the level's height
-            float heightPercentage = ((UpperBound.position.y - currentPos.y) / distBetweenUpperLower_Y);
-            float distFromUpper = heightPercentage * distBetweenUpperLower_Z;
-
-            currentPos = new Vector3(currentPos.x, currentPos.y, UpperBound.position.z - distFromUpper);
-            characters[i].gameObject.transform.position = currentPos;
-        }
-
-        /*
-        for (int i = 0; i < tileHighlights.Count; i++)
-        {
-            Vector3 currentPos = tileHighlights[i].gameObject.transform.position;
-            // Percentage of the level's height
-            float heightPercentage = ((UpperBound.position.y - currentPos.y) / distBetweenUpperLower_Y);
-            float distFromUpper = heightPercentage * distBetweenUpperLower_Z;
-
-            currentPos = new Vector3(currentPos.x, currentPos.y, UpperBound.position.z - distFromUpper + 0.1f);
-            tileHighlights[i].gameObject.transform.position = currentPos;
-        }
-        */
     }
 
     public void UpdateReferences()
     {
-        currentLevel = gameController.battleManager.currentLevel;
         if (currentLevel != null)
         {
             UpperBound = currentLevel.UpperBound;
@@ -86,29 +66,26 @@ public class SpriteLayering : MonoBehaviour
             distBetweenUpperLower_Y = UpperBound.position.y - LowerBound.position.y;
             distBetweenUpperLower_Z = UpperBound.position.z - LowerBound.position.z;
 
-            objectsWithRenderer = new List<GameObject>();
-            spriteRenderers = new List<SpriteRenderer>();
-
             GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
             foreach (GameObject obj in allObjects)
             {
                 if (obj.GetComponent<SpriteRenderer>() != null)
                 {
-                    spriteRenderers.Add(obj.GetComponent<SpriteRenderer>());
+                    if (!spriteRenderers.Contains(obj.GetComponent<SpriteRenderer>()))
+                    {
+                        spriteRenderers.Add(obj.GetComponent<SpriteRenderer>());
+                    }
 
                     if (obj.CompareTag("Player") || obj.CompareTag("Enemy"))
                     {
-                        characters.Add(obj.GetComponent<SpriteRenderer>());
+                        if (!characters.Contains(obj.GetComponent<SpriteRenderer>()))
+                        {
+                            characters.Add(obj.GetComponent<SpriteRenderer>());
+                        }
                     }
-                    /*
-                    else if(obj.CompareTag("TileHighlight"))
-                    {
-                        tileHighlights.Add(obj.GetComponent<SpriteRenderer>());
-                    }
-                    */
                     continue;
                 }
             }
-        } 
+        }
     }
 }
