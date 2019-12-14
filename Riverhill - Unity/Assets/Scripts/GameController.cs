@@ -530,7 +530,9 @@ public class GameController : MonoBehaviour
     {
         if (!gameSettings.canSkipCutscenes)
         {
-            cutsceneManager.StartCutscene("Intro cutscene");
+            cutsceneManager.StartCutscene("blurb"); // How-To
+            yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+            cutsceneManager.StartCutscene("Intro cutscene"); // Start of Story
             yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
         }
 

@@ -705,6 +705,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201C...\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -1151,6 +1156,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CYou are not my king.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -1476,6 +1486,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -1899,6 +1914,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CA hopeful sentiment to be sure. Let\u2019s hope our future battles
         go as smoothly.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -2431,7 +2451,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -2525,6 +2545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -2749,7 +2774,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -3245,6 +3270,11 @@ PrefabInstance:
         been minimally equipped and staffed. My father used to tell me that he was
         considering abandoning it altogether.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -3632,6 +3662,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWith respect, I think I\u2019ll leave the ruling to you. It\u2019s
         never really suited me.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -4068,6 +4103,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWhat do you mean?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -4377,6 +4417,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CSo be it. Then you shall not be a citizen of Riverhill.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -4552,6 +4597,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CNo, that\u2019s not what I\u2026\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -4718,6 +4768,11 @@ PrefabInstance:
         need some maintenance, and then we\u2019re going to need to go recruit more
         soldiers to fight for us.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -4813,6 +4868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CVery well. So we fight.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -5449,6 +5509,11 @@ PrefabInstance:
       value: "\u201CThese farming villages look like a good place to canvas for new
         soldiers.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -5746,6 +5811,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI know\u2026\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -5975,6 +6045,11 @@ PrefabInstance:
       value: "\u201CYou will not speak to me in such a manner! You are a liar and
         a thief, and the throne is rightfully ours! You may have poisoned my brother\u2019s
         mind, but\u2026\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -6336,6 +6411,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201C...\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -6572,7 +6652,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -6657,6 +6737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CYou\u2019re saying that I should have supported you from the beginning.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -6954,6 +7039,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CGood idea! Just keep an eye out for your uncle\u2019s soldiers.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -7052,6 +7142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -7196,6 +7291,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -7470,6 +7570,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CIt\u2019s not an ideal situation, that's for sure, but please,
         Alyss! This is a chance to stop this craziness before it gets any worse!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -7848,6 +7953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CI\u2019m glad to have you on my side. We can rule together, Lark.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -8438,6 +8548,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201COw! Dayana!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -8675,7 +8790,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -8899,6 +9014,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI honestly do not see what is so bad about it, sister. Now we
         don\u2019t have to worry about governing and all that other nonsense.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -9370,6 +9490,11 @@ PrefabInstance:
         and banished from these lands. I expect you out of the city by nightfall.
         You brought this upon yourself.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -9762,6 +9887,11 @@ PrefabInstance:
         sure that all farmers are treated with respect and dignity, and reverse my
         uncle\u2019s horrible tax laws.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -10070,6 +10200,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CLet\u2019s get going and head further away from town. I bet Uncle
         isn\u2019t going to be happy if he sees us so close to the city.\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -10957,6 +11092,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI\u2019m not dead yet. Finish this.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -11122,6 +11262,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CAm I the only one who cares about the future of our city? I won\u2019t
         stand for this!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -11356,6 +11501,11 @@ PrefabInstance:
       value: "\u201CWatch your tongue. Be thankful I am allowing you to keep your
         title.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -11516,6 +11666,11 @@ PrefabInstance:
         and bullheaded you are. I won\u2019t kill you over a mistake. Join me instead,
         let that be your repentance.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -11670,6 +11825,11 @@ PrefabInstance:
       value: "\u201CI am simply doing what is right for the kingdom. This is the will
         of the people.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -11758,6 +11918,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CLiar! You simply want power to do as you please!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -12282,6 +12447,11 @@ PrefabInstance:
       value: "\u201CI will resist you with every fiber of my being. I will not go
         back.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -12370,6 +12540,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CI would never! And the same goes for you as well!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -12530,6 +12705,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201C...\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -12553,6 +12733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -12704,7 +12889,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -13124,6 +13309,11 @@ PrefabInstance:
       value: "\u201CA divided throne is of no use to the people. We must be united
         as one. I suspect your brother,then, hasn\u2019t told you what he told me?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -13284,6 +13474,11 @@ PrefabInstance:
         real battle. To be honest, I still don\u2019t know how I feel about this.
         These are citizens of Riverhill, after all.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -13368,6 +13563,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CObviously, yes. It seems to be a risk no matter where we are.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -13451,6 +13651,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CDon\u2019t play coy with me, uncle. The throne is rightfully ours!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -13553,7 +13758,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -13638,6 +13843,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201COh...\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -13946,6 +14156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CIt is over.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -14994,6 +15209,11 @@ PrefabInstance:
       value: "\u201COf course she is.... Very well. My men are prepared to use force
         as necessary.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -15104,6 +15324,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -15320,6 +15545,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CAbsolutely not! I will not bend to the whims of that madman!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -15695,7 +15925,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -15720,6 +15950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -16245,7 +16480,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -16941,7 +17176,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -17036,7 +17271,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -17265,6 +17500,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWell done, everyone! The liberation of these farmlands will show
         the masses what we truly stand for: the people of Riverhill.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -17629,7 +17869,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -17715,6 +17955,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI feel as if a great deal of things are going wrong, Dayana, and
         I don\u2019t know if we have a part to play in it.\u201D\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -18588,6 +18833,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI\u2019m way ahead of you. Nobody\u2019s getting captured tonight!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -18740,6 +18990,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CWhy not!? You are my enemy! I serve the king whom you hate!\u201D\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -19183,6 +19438,11 @@ PrefabInstance:
       value: "\u201CYou should listen to your brother, dear. It will be easier for
         everyone.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -19275,6 +19535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -19410,6 +19675,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\"I can\u2019t believe my eyes! It\u2019s the princess!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131657789868650039, guid: 24ae08ea6adda81498469d80111cbdb7,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4216166417706588931, guid: 24ae08ea6adda81498469d80111cbdb7,
         type: 3}
@@ -20407,6 +20677,11 @@ PrefabInstance:
       value: "\u201CSo it has come to this, brother. My army will be passing through
         this area, and you cannot stop us.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -20805,6 +21080,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\"\x1CI am but a simple farmer, your highness. My name is Nelson.\x1D\""
       objectReference: {fileID: 0}
+    - target: {fileID: 4131657789868650039, guid: 24ae08ea6adda81498469d80111cbdb7,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4216166417706588931, guid: 24ae08ea6adda81498469d80111cbdb7,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -21032,6 +21312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CWhy? I can\u2019t understand your fervor on this!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -21344,7 +21629,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -21799,6 +22084,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CGlad to hear it. Your belief in me is inspiring. Let\u2019s move
         towards the bright future ahead of us, together.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -22265,7 +22555,7 @@ MonoBehaviour:
   - {fileID: 1329826983}
   myCanvas: {fileID: 448563978}
   hasActiveCutscene: 0
-  TestScene: {fileID: 1329826983}
+  TestScene: {fileID: 810978338}
   isTestingScene: 1
   TextSpeed: 25
   cutsceneMusicAS: {fileID: 890923549}
@@ -22791,7 +23081,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -23027,6 +23317,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CYes, the day is won.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -23261,6 +23556,11 @@ PrefabInstance:
       value: "\u201CWhat, the fact that your Uncle took over the kingdom, or the fact
         that we\u2019ve been lost in these woods for hours?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -23346,6 +23646,11 @@ PrefabInstance:
       value: "\u201CExcellent plan, my lady. With its poor defenses, taking the fort
         should be a snap!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -23429,6 +23734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201DYou can\u2019t.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -23534,6 +23844,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -23753,6 +24068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23889,6 +24209,11 @@ PrefabInstance:
       value: "\u201CYou\u2019re right. We must press on, for the good of Riverhill,
         and all its citizens. I won\u2019t let my personal inhibitions get in the
         way.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -24429,6 +24754,11 @@ PrefabInstance:
         you\u2019re not ready for this. We\u2019ll try again in a little while once
         you\u2019ve had some time to rest and recover.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -24512,6 +24842,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CYou! Traitor! What are you doing here?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -24600,7 +24935,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -24866,6 +25201,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CAlyss, I think we should just listen to him.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -25106,6 +25446,11 @@ PrefabInstance:
       value: "\u201CWe are only enemies because you chose to stand against me. You
         can make a different choice, now.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -25259,6 +25604,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CThat\u2019s\u2026 vague. What makes you say that, my lady?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -25342,6 +25692,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CSpeaking of things coming our way, hush! I hear something up ahead.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -25441,6 +25796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -25586,7 +25946,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -25672,6 +26032,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CFoul traitor! Go back and lick your master\u2019s boots some more,
         then!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -26021,6 +26386,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CHave you no words at all?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -26141,6 +26511,11 @@ PrefabInstance:
       value: "The king of the city of Riverhill has recently perished from a grave
         illness. In his absence, the king\u2019s brother has taken the throne, leaving
         the heirs, the young twin prince and princess, without their birthright.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334468887174192949, guid: aca04e83b53aff4479874945617eae90,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca04e83b53aff4479874945617eae90, type: 3}
@@ -26428,6 +26803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CPlease, let\u2019s not fight.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -26875,6 +27255,11 @@ PrefabInstance:
       value: "\u201CI am king now. You will return to your duties as princess. Be
         thankful I allow you that much. Now, go to your room. That\u2019s an order.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -27083,6 +27468,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CSilence! Girl, cease this foolishness at once or suffer the consequences!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
@@ -27612,6 +28002,11 @@ PrefabInstance:
         I may not be able to offer much, but I am skilled with a bow, and I promise
         to be loyal till the end!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4131657789868650039, guid: 24ae08ea6adda81498469d80111cbdb7,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4216166417706588931, guid: 24ae08ea6adda81498469d80111cbdb7,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -28078,7 +28473,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -28232,6 +28627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CHow has it come to this?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -28399,6 +28799,11 @@ PrefabInstance:
       value: "\u201CDon\u2019t speak to me, traitor. I will oppose him. I\u2019ll
         raise an army, if that\u2019s what it takes. I\u2019m sure the citizens will
         see who their true ruler is.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -28780,6 +29185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28989,6 +29399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\"Yes, that\u2019s me. What is your name, good sir?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -29448,6 +29863,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CAfter all this, you\u2019d just let me\u2026\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -29471,6 +29891,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -29693,6 +30118,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CWouldn\u2019t have wanted what, my dear?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858072222701009954, guid: bea46e128d2a5e8488b8d231ca8f13cb,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6699255643827374358, guid: bea46e128d2a5e8488b8d231ca8f13cb,
         type: 3}
@@ -30154,6 +30584,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CVictory! Hahaha! Well fought, my lady!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -30306,6 +30741,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CThat\u2019s horrible! How can I help?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -31227,6 +31667,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Frame (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -31362,6 +31807,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI have heard tales of your rebellion, princess. I hope that one
         day, you will reclaim the throne and rule fairly, like your father.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131657789868650039, guid: 24ae08ea6adda81498469d80111cbdb7,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4216166417706588931, guid: 24ae08ea6adda81498469d80111cbdb7,
         type: 3}
@@ -31683,6 +32133,11 @@ PrefabInstance:
       value: "\u201CI\u2019m afraid Uncle isn\u2019t giving you a say in the matter.
         I have been charged with finding you and bringing you back, and me and my
         men will escort you personally.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -32201,6 +32656,11 @@ PrefabInstance:
       value: "\u201CThat doesn\u2019t change the fact that he\u2019s king. I\u2019m
         sorry, Alyss, but I can\u2019t let you go this time.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -32224,6 +32684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -32366,6 +32831,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWhat, so I should be happy that you\u2019ve stripped us of any
         authority and undermined my father\u2019s will?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -33401,6 +33871,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWe\u2019re going to have to fight our way out of this, Dayana.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -33572,6 +34047,11 @@ PrefabInstance:
       value: "\u201CWhat\u2019s done is done. All that matters is that we\u2019re
         together again.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -33655,6 +34135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CThank you, your highness! I promise not to disappoint!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131657789868650039, guid: 24ae08ea6adda81498469d80111cbdb7,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4216166417706588931, guid: 24ae08ea6adda81498469d80111cbdb7,
         type: 3}
@@ -33822,6 +34307,11 @@ PrefabInstance:
       value: "\u201CWe are starting a war, princess. If it felt \u2018right\u2019,
         I\u2019d be a little worried about your state of mind. Remember, we are doing
         this for the people, to save them from the oppressive regime of Corgan.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -34209,7 +34699,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -34306,7 +34796,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -34902,6 +35392,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CSister, please. Is this really worth the fuss?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -34991,6 +35486,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CCan you seriously not see? His misdeeds are causing harm to the
         common folk of our kingdom! He only favors himself and his cronies!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -35357,6 +35857,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CSo, you\u2019re abandoning me, then.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -35924,7 +36429,7 @@ PrefabInstance:
     - target: {fileID: 4334468887174192949, guid: aca04e83b53aff4479874945617eae90,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 115
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aca04e83b53aff4479874945617eae90, type: 3}
@@ -36845,7 +37350,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -36930,6 +37435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CYou\u2019re taking his side?\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -37251,6 +37761,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: '"No."'
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -37429,6 +37944,11 @@ PrefabInstance:
       value: "\u201CThen what are we waiting for? At this pace, the throne shall be
         yours before you know it!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -37513,6 +38033,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI\u2019m sorry for ever doubting you. Your kindness is admirable,
         and I am deeply grateful for your forgiveness.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -37678,6 +38203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CHuzzah!\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -38301,6 +38831,11 @@ PrefabInstance:
       value: "\u201CIn order to properly pursue this campaign, we\u2019ll need to
         secure a base.\u201D\r\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -38482,7 +39017,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -38507,6 +39042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -38871,6 +39411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201C\u2026\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -39787,7 +40332,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -39874,6 +40419,11 @@ PrefabInstance:
       value: "\u201CThe taxes set by your uncle have made it near impossible for me
         to make money selling any of my crops! My farm is going to go out of business
         soon at this rate.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131657789868650039, guid: 24ae08ea6adda81498469d80111cbdb7,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4216166417706588931, guid: 24ae08ea6adda81498469d80111cbdb7,
         type: 3}
@@ -39967,6 +40517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Frame (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966136909509579635, guid: 215bd9801d6b8814191c979d3d7b21d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2966136909509579632, guid: 215bd9801d6b8814191c979d3d7b21d1,
         type: 3}
@@ -40388,6 +40943,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CThen I welcome you, Nelson the archer, into our ranks. Welcome
         to the war. I won\u2019t pretend it\u2019s going to be easy.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -41054,6 +41614,11 @@ PrefabInstance:
       value: "\u201CI can\u2019t stand to watch this. Come find me when you\u2019ve
         found your reason again.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -41282,6 +41847,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWithout doubt now. You\u2019ve proven you\u2019ve got the determination
         and tenacity to get anything done.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -42458,6 +43028,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI\u2019m not sure, but let\u2019s stay on our toes, just in case.\u201D\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -42692,6 +43267,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI\u2019m always on my toes, my lady, and ready to defend you from
         whatever comes our way!\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -42991,6 +43571,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CSo you believe I\u2019ll manage to overthrow Uncle?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -43084,7 +43669,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -43251,6 +43836,11 @@ PrefabInstance:
         by his tax codes? The commoners have to give up most of their gold, while
         the king and all those stuffy nobles pay virtually nil!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -43338,7 +43928,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -43599,6 +44189,11 @@ PrefabInstance:
       value: "\u201CI am doing what I must. Uncle cannot be allowed to remain on the
         throne.\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -43853,7 +44448,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -44248,7 +44843,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -45257,6 +45852,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWhat?\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -45361,6 +45961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cutscene_-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 815932841010492124, guid: 1a917db366d79aa43bd8b8c2f598f622,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5458897583406741232, guid: 1a917db366d79aa43bd8b8c2f598f622,
         type: 3}
@@ -45783,6 +46388,11 @@ PrefabInstance:
       value: "\u201CAfter expressly banishing me from the city? I will not return
         home just to be locked away like some child!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -45872,6 +46482,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CRemember, they follow your uncle. I admire your kindness, but
         if we are truly committed to this, we\u2019ll have to fight our way through.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -46107,6 +46722,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201COuch! Ohhhhh\u2026. I don\u2019t feel well...\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -46190,6 +46810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CYou will be confined to your room and kept under close surveillance.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -46497,6 +47122,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWhy have you travelled so far down this path? Alyss, this is crazy!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -46659,7 +47289,7 @@ PrefabInstance:
     - target: {fileID: 8224636196519933963, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8212185076586138943, guid: bef9e60d9697ed248b5764d9cc455887,
         type: 3}
@@ -46823,7 +47453,7 @@ PrefabInstance:
     - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 32
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -46908,6 +47538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CI\u2019m not going to kill you.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -47367,6 +48002,11 @@ PrefabInstance:
         Riverhill was a good name that meant something! Uncle is taking everything
         that we once stood for and reversing it!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -47586,6 +48226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201CI know, I know. It just\u2026 still doesn\u2019t feel quite right.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -48112,6 +48757,11 @@ PrefabInstance:
         preparing our whole lives for? Father told me that it was our duty, to protect
         the kingdom and our people!\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -48265,6 +48915,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CThank you for this, Dayana. I couldn\u2019t have asked for a better
         retainer. This was\u2026 kinda fun, too.\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1999748608320797645, guid: a6ac825941155c94cacd5eeb9f35634a,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1735228470910734073, guid: a6ac825941155c94cacd5eeb9f35634a,
         type: 3}
@@ -48859,6 +49514,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWhat has she gotten into\u2026\u201D"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -49391,6 +50051,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CI have been sent to being you home, dear sister. Uncle wants you
         home, where you will be, well\u2026\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
@@ -49979,6 +50644,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u201CWhy?\u201D\r\n"
       objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
       propertyPath: m_PixelPerfect
@@ -50062,6 +50732,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "\u201C...\u201D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236494403775732678, guid: 6714755d3eda4274baee233378dcecfe,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4116079969048080114, guid: 6714755d3eda4274baee233378dcecfe,
         type: 3}
