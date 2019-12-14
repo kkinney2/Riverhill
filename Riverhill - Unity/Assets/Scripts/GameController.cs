@@ -125,6 +125,7 @@ public class GameController : MonoBehaviour
         }
     }
 
+    #region Level Selection
     public void Coroutine_LevelSelection()
     {
         StartCoroutine(LevelSelection());
@@ -143,6 +144,7 @@ public class GameController : MonoBehaviour
 
             // Wait While level is loaded
 
+            #region Button Interactivity
             #region Tutorial Button
             if (level0_Unlocked)
             {
@@ -197,11 +199,13 @@ public class GameController : MonoBehaviour
                 level4_button.interactable = false;
             }
             #endregion
+            #endregion
         }
 
 
         yield return null;
     }
+    #endregion
 
     #region Tutorial
     IEnumerator Level_Tutorial()
@@ -422,6 +426,9 @@ public class GameController : MonoBehaviour
 
     IEnumerator LevelThree_MidBattle_Cutscenes()
     {
+        cutsceneManager.StartCutscene("CH 4- talking to nelson");
+        yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
+
         while (hasActiveLevel)
         {
             yield return new WaitForEndOfFrame();
@@ -445,6 +452,7 @@ public class GameController : MonoBehaviour
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
+            /*
             if (talkedWithNelson == true)
             {
                 cutsceneManager.StartCutscene("CH 4- talking to nelson");
@@ -453,6 +461,7 @@ public class GameController : MonoBehaviour
             {
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
+            */
         }
     }
     #endregion
@@ -539,7 +548,7 @@ public class GameController : MonoBehaviour
         // The rest should be the same due to references
     }
     #region Level Loading
-    
+
     public void LoadNextLevel()
     {
         LoadLevel(currentLevelNum + 1);
@@ -555,7 +564,7 @@ public class GameController : MonoBehaviour
 
         battleManager.currentLevel = battleManager.levels[levelNum];
     }
-    
+
     public void LoadLevel(string a_Level)
     {
         switch (a_Level)
