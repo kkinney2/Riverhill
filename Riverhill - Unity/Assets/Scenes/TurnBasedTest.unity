@@ -1544,7 +1544,7 @@ MonoBehaviour:
   Grid_Tile: {fileID: 1408528882}
   Grid_Obstacles: {fileID: 1408528881}
   Grid_Unwalkable: {fileID: 1408528880}
-  characters: {fileID: 0}
+  characters: {fileID: 1408528900}
   players:
   - {fileID: 1408528899}
   - {fileID: 1408528898}
@@ -1656,6 +1656,12 @@ Transform:
 --- !u!4 &805781169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3013405978224808574, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+    type: 3}
+  m_PrefabInstance: {fileID: 805781166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &805781170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1880780198, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
     type: 3}
   m_PrefabInstance: {fileID: 805781166}
   m_PrefabAsset: {fileID: 0}
@@ -1960,7 +1966,7 @@ MonoBehaviour:
   Grid_Tile: {fileID: 805781175}
   Grid_Obstacles: {fileID: 805781174}
   Grid_Unwalkable: {fileID: 805781173}
-  characters: {fileID: 0}
+  characters: {fileID: 805781170}
   players:
   - {fileID: 1475026935}
   - {fileID: 1097621954}
@@ -2381,6 +2387,72 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1086155484}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 814487014, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155495 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919219255072431288, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8915110020368703106, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919219254714729840, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919219254299189064, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525000867173366539, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919219255411726249, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525000867436026373, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919219254310646010, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6919219254650378569, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086155504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525000866877187483, guid: cc32073d8232df54ebf3306f83599575,
+    type: 3}
+  m_PrefabInstance: {fileID: 1086155484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1093432431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,12 +2675,22 @@ MonoBehaviour:
   Grid_Tile: {fileID: 1086155493}
   Grid_Obstacles: {fileID: 1086155492}
   Grid_Unwalkable: {fileID: 1086155491}
-  characters: {fileID: 0}
+  characters: {fileID: 1086155494}
   players:
   - {fileID: 1086155490}
   - {fileID: 1086155489}
   - {fileID: 1086155488}
-  enemies: []
+  enemies:
+  - {fileID: 1086155504}
+  - {fileID: 1086155503}
+  - {fileID: 1086155502}
+  - {fileID: 1086155501}
+  - {fileID: 1086155500}
+  - {fileID: 1086155499}
+  - {fileID: 1086155498}
+  - {fileID: 1086155497}
+  - {fileID: 1086155496}
+  - {fileID: 1086155495}
   gameController: {fileID: 0}
   tileManager: {fileID: 0}
   battleManager: {fileID: 0}
@@ -2839,6 +2921,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1408528873}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1408528900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1747157949, guid: 332309c5ad2c56749bfabbbc43a21301,
+    type: 3}
+  m_PrefabInstance: {fileID: 1408528873}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1475026935 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3117976416080622167, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
@@ -2986,23 +3074,11 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 805781166}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1763946066 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-    type: 3}
-  m_PrefabInstance: {fileID: 613895690}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1847863193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6429019884881477620, guid: d37e50a09dbcadb478f2bbeffdb7340b,
     type: 3}
   m_PrefabInstance: {fileID: 382001247}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1871606646 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-    type: 3}
-  m_PrefabInstance: {fileID: 1075692365}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1879012004
 GameObject:
@@ -4991,14 +5067,6 @@ MonoBehaviour:
   level4_Unlocked: 0
   level4_Completed: 0
   level4_button: {fileID: 0}
-  characterStatuses: 
-  alyss_Unlocked: 1
-  dayana_Unlocked: 0
-  nelson_Unlocked: 0
-  currentTeam:
-  - {fileID: 1871606646}
-  enemyTeam:
-  - {fileID: 1763946066}
 --- !u!1 &859921641433043673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 859921641433043673, guid: 54690d73792407b44a156e58334cc17b,

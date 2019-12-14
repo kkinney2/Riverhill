@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
     public bool level4_Completed = false;
     public Button level4_button;
 
+    /*
     [Header("Character Status")]
     public List<bool> characterStatuses;
 
@@ -65,10 +66,10 @@ public class GameController : MonoBehaviour
 
     public bool nelson_Unlocked = false;
 
-
     public List<GameObject> currentTeam;
     public List<GameObject> enemyTeam;
 
+    */
     Level[] levels;
 
     private void Awake()
@@ -527,7 +528,6 @@ public class GameController : MonoBehaviour
 
     IEnumerator StartNewGame()
     {
-        currentTeam.Add(prefab_Characters[0]);
         if (!gameSettings.canSkipCutscenes)
         {
             cutsceneManager.StartCutscene("Intro cutscene");
