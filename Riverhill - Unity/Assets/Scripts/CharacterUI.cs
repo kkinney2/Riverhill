@@ -21,6 +21,9 @@ public class CharacterUI : MonoBehaviour
 
     public Text specialText;
 
+    public AudioSource audioSourceUI;
+    public AudioClip UIbuttonClick;
+
     public CharacterUI(GameObject a_UIAsset, BattleManager battleM)
     {
         battleManager = battleM;
@@ -31,6 +34,8 @@ public class CharacterUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        AudioSource audioSourceUI = GetComponent<AudioSource>();
+
         if (lookToPlayerObject.name.Contains("Alyss"))
         {
             specialText.text = "Healing Aura";
@@ -82,6 +87,8 @@ public class CharacterUI : MonoBehaviour
 
     public void Moving()
     {
+        audioSourceUI.clip = UIbuttonClick;
+        audioSourceUI.Play();
         Debug.Log("Move Button Selected");
         if (!characterState.hasActiveAction || characterState.battleStateMachine.IsInState(characterState.state_CharacterAction))
         {
@@ -96,6 +103,8 @@ public class CharacterUI : MonoBehaviour
 
     public void Attacking()
     {
+        audioSourceUI.clip = UIbuttonClick;
+        audioSourceUI.Play();
         Debug.Log("Attack Button Selected");
         if (!characterState.hasActiveAction || characterState.battleStateMachine.IsInState(characterState.state_CharacterAction))
         {
@@ -110,6 +119,14 @@ public class CharacterUI : MonoBehaviour
     // TODO: Implement Specials - CharacterUI
     public void Special()
     {
+        audioSourceUI.clip = UIbuttonClick;
+        audioSourceUI.Play();
+        StartCoroutine(SpecialSound());
+    }
+
+    private IEnumerator SpecialSound()
+    {
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Special Button Selected");
         if (!characterState.hasActiveAction || characterState.battleStateMachine.IsInState(characterState.state_CharacterAction))
         {
@@ -123,9 +140,17 @@ public class CharacterUI : MonoBehaviour
 
     public void EndTurn()
     {
+        audioSourceUI.clip = UIbuttonClick;
+        audioSourceUI.Play();
+        StartCoroutine(EndTurnSound());
+    }
+
+    private IEnumerator EndTurnSound()
+    {
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("EndTurn Button Selected");
         characterState.endTurnSelected = true;
     }
 
-    #endregion
-}
+        #endregion
+    }
