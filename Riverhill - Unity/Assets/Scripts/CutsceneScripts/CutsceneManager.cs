@@ -31,7 +31,9 @@ public class CutsceneManager : MonoBehaviour
     Cutscene cutscene;
 
     //public GameObject battleManagerObj;
-    //public BattleManager battleManager;
+    //public
+    public GameObject battleManagerObj;
+    public BattleManager battleManager;
 
     private void Awake()
     {
@@ -46,8 +48,6 @@ public class CutsceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cutsceneMusicAS = GetComponent<AudioSource>();
-
         //battleManagerObj = GameObject.Find("BattleManager");
         //battleManager = battleManagerObj.GetComponent<BattleManager>();
 
@@ -70,7 +70,7 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         //Debug.Log(battleManager.isInBattle);
         if (hasActiveCutscene == false && cutsceneMusicIsPlaying == true)
@@ -84,6 +84,19 @@ public class CutsceneManager : MonoBehaviour
                 shouldTurnOffMusic = false;
             }
         }
+
+        if(battleManager.isInBattle == true)
+        {
+            shouldTurnOffMusic = true;
+
+            if (shouldTurnOffMusic == true)
+            {
+                cutsceneMusicAS.enabled = false;
+                cutsceneMusicIsPlaying = false;
+                shouldTurnOffMusic = false;
+            }
+        }
+        
         /* NOTHING WORKS YAY
         if (cutscene.SceneName == "Tutorial - gameplay start")
         {

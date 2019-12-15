@@ -281,6 +281,7 @@ MonoBehaviour:
   gameplayMusic: {fileID: 8300000, guid: e2ab6c9d1c1d6cc47bf3d3862e3024aa, type: 3}
   gameplayMusicIsPlaying: 0
   shouldTurnOffMusic: 0
+  thisBattleManager: {fileID: 268945811}
   player: {fileID: 0}
 --- !u!4 &268945813
 Transform:
@@ -2192,11 +2193,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937482610}
     m_Modifications:
-    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: m_Name
-      value: Alyss
-      objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2251,6 +2247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Name
+      value: Alyss
       objectReference: {fileID: 0}
     - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -9256,16 +9257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: m_Name
-      value: Alyss_Sprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9319,6 +9310,16 @@ PrefabInstance:
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Name
+      value: Alyss_Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

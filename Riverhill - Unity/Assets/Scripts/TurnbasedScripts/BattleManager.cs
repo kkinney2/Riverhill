@@ -74,6 +74,10 @@ public class BattleManager : MonoBehaviour
     public bool gameplayMusicIsPlaying;
     public bool shouldTurnOffMusic;
 
+    CutsceneManager cutsceneManager;
+
+    public GameObject thisBattleManager;
+
     //wanting to disable UI while performing action
     //public CharacterPathfinding charPathfindingAlyss;
     //public CharacterPathfinding charPathfindingDayana; //not needed for Dayana
@@ -95,6 +99,10 @@ public class BattleManager : MonoBehaviour
         turnText.gameObject.SetActive(false);
 
         gameplayMusicAS = GetComponent<AudioSource>();
+
+        //AHHHH
+        //thisBattleManager = this.gameObject.GetComponent(GameObject);
+        cutsceneManager.battleManagerObj = thisBattleManager;
     }
 
     /*
@@ -491,6 +499,10 @@ public class BattleManager : MonoBehaviour
             gameplayMusicAS.enabled = true;
             gameplayMusicAS.Play();
             gameplayMusicIsPlaying = true;
+
+            //turn off cutscene music
+            //cutsceneManager.cutsceneMusicAS.Stop();
+            //cutsceneManager.cutsceneMusicAS.mute = true;
 
             StartCoroutine(UpdateTiles());
         }
