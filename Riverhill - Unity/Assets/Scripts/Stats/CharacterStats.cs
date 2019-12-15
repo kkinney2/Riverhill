@@ -165,7 +165,7 @@ public class CharacterStats : MonoBehaviour
         //wanting to adjust sound delay for different character...
         if (Name.Contains("Alyss"))
         {
-            yield return new WaitForSeconds(1f); //?? any delay is no good?? //Alyss seems to react before actually getting hit (Dayana's anim is pretty slow)
+            yield return new WaitForSeconds(0.5f); //?? any delay is no good?? //Alyss seems to react before actually getting hit (Dayana's anim is pretty slow)
             //1f looks fine, tbh, aside from Alyss taking damage before Dayana finishes her attack lol
         }
 

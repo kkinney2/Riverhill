@@ -489,10 +489,11 @@ MonoBehaviour:
   healingAura: {fileID: 285973722684946891}
   HPBarFill: {fileID: 624934464}
   charSounds: {fileID: 1763946070}
-  charAttack: {fileID: 8300000, guid: 295dfaa94e564e74884dcae046ddc3a3, type: 3}
+  charAttack: {fileID: 8300000, guid: 4204eeb4a180b6b4b9eb546789dd2f12, type: 3}
   charSpecial: {fileID: 8300000, guid: 6fcf3d4fa9f111c40aacb2941919d5d7, type: 3}
   charInjury: {fileID: 8300000, guid: 7da83f288d223314d8c53b10837e01e6, type: 3}
   charDeath: {fileID: 8300000, guid: 99b6cbb1516d0274a9e08317a34b8a0d, type: 3}
+  hasAnimPlaying: 0
 --- !u!82 &1763946070
 AudioSource:
   m_ObjectHideFlags: 0
@@ -726,11 +727,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 26603528}
     m_Modifications:
-    - target: {fileID: 5342043459137372254, guid: fa3b80acb96de3b41902b23f6fd41fd2,
-        type: 3}
-      propertyPath: m_Name
-      value: E1HPBarFill
-      objectReference: {fileID: 0}
     - target: {fileID: 5342043459137372252, guid: fa3b80acb96de3b41902b23f6fd41fd2,
         type: 3}
       propertyPath: m_Sprite
@@ -856,6 +852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342043459137372254, guid: fa3b80acb96de3b41902b23f6fd41fd2,
+        type: 3}
+      propertyPath: m_Name
+      value: E1HPBarFill
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3b80acb96de3b41902b23f6fd41fd2, type: 3}

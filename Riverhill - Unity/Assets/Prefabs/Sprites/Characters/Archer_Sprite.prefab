@@ -380,10 +380,11 @@ MonoBehaviour:
   healingAura: {fileID: 277310691290201282}
   HPBarFill: {fileID: 8796970062363546488}
   charSounds: {fileID: 8796970062824179810}
-  charAttack: {fileID: 8300000, guid: 19200949854418d45baddde3f1d2d169, type: 3}
-  charSpecial: {fileID: 8300000, guid: 16c382c6e47032847b21c1f395b63f5b, type: 3}
-  charInjury: {fileID: 8300000, guid: 337a01514c2a8b44aa0bf2a30c79180a, type: 3}
-  charDeath: {fileID: 8300000, guid: 1a3add7cdf9704a4fbb0540e70582716, type: 3}
+  charAttack: {fileID: 8300000, guid: 53995369e41c8d14ebe2b9ff1291a385, type: 3}
+  charSpecial: {fileID: 8300000, guid: 53995369e41c8d14ebe2b9ff1291a385, type: 3}
+  charInjury: {fileID: 8300000, guid: 0752c1e9f4918d5428ba72f9f89ed441, type: 3}
+  charDeath: {fileID: 8300000, guid: 0e1b49db268b70843ab7f594c1f653cf, type: 3}
+  hasAnimPlaying: 0
 --- !u!82 &8796970062824179810
 AudioSource:
   m_ObjectHideFlags: 0

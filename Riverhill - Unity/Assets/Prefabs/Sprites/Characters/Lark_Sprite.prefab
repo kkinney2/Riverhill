@@ -382,9 +382,10 @@ MonoBehaviour:
   HPBarFill: {fileID: 7621186329629156136}
   charSounds: {fileID: 7621186330358626354}
   charAttack: {fileID: 8300000, guid: 19200949854418d45baddde3f1d2d169, type: 3}
-  charSpecial: {fileID: 8300000, guid: 16c382c6e47032847b21c1f395b63f5b, type: 3}
-  charInjury: {fileID: 8300000, guid: 337a01514c2a8b44aa0bf2a30c79180a, type: 3}
-  charDeath: {fileID: 8300000, guid: 1a3add7cdf9704a4fbb0540e70582716, type: 3}
+  charSpecial: {fileID: 8300000, guid: 19200949854418d45baddde3f1d2d169, type: 3}
+  charInjury: {fileID: 8300000, guid: c05d573a5fa05504cab66f6a518c0fe7, type: 3}
+  charDeath: {fileID: 8300000, guid: 7e11d0a04fd665740942b91417cff7b3, type: 3}
+  hasAnimPlaying: 0
 --- !u!82 &7621186330358626354
 AudioSource:
   m_ObjectHideFlags: 0
