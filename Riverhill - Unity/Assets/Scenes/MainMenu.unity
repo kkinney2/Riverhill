@@ -5606,7 +5606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e10704a38110c5489567c6eb7a76cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomInLimit: 5
+  zoomInLimit: 10
   zoomOutLimit: 29
   hasTarget: 0
   offset: 2
