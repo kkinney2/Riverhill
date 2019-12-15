@@ -99,10 +99,6 @@ public class BattleManager : MonoBehaviour
         turnText.gameObject.SetActive(false);
 
         gameplayMusicAS = GetComponent<AudioSource>();
-
-        //AHHHH
-        //thisBattleManager = this.gameObject.GetComponent(GameObject);
-        cutsceneManager.battleManagerObj = thisBattleManager;
     }
 
     /*
@@ -500,10 +496,6 @@ public class BattleManager : MonoBehaviour
             gameplayMusicAS.Play();
             gameplayMusicIsPlaying = true;
 
-            //turn off cutscene music
-            //cutsceneManager.cutsceneMusicAS.Stop();
-            //cutsceneManager.cutsceneMusicAS.mute = true;
-
             StartCoroutine(UpdateTiles());
         }
 
@@ -522,8 +514,6 @@ public class BattleManager : MonoBehaviour
 
         StopAllCoroutines();
         charactersCreated = false;
-
-
 
         characterStates = new List<CharacterState>();
         characterStates_Enemy = new List<CharacterState>();

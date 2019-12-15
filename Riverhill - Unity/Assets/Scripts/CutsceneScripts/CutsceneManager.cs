@@ -30,11 +30,6 @@ public class CutsceneManager : MonoBehaviour
 
     Cutscene cutscene;
 
-    //public GameObject battleManagerObj;
-    //public
-    public GameObject battleManagerObj;
-    public BattleManager battleManager;
-
     private void Awake()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
@@ -48,9 +43,6 @@ public class CutsceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //battleManagerObj = GameObject.Find("BattleManager");
-        //battleManager = battleManagerObj.GetComponent<BattleManager>();
-
         cutscenes = new Cutscene[Cutscene_GameObjects.Length];
 
         for (int i = 0; i < Cutscene_GameObjects.Length; i++)
@@ -84,19 +76,6 @@ public class CutsceneManager : MonoBehaviour
                 shouldTurnOffMusic = false;
             }
         }
-
-        if(battleManager.isInBattle == true)
-        {
-            shouldTurnOffMusic = true;
-
-            if (shouldTurnOffMusic == true)
-            {
-                cutsceneMusicAS.enabled = false;
-                cutsceneMusicIsPlaying = false;
-                shouldTurnOffMusic = false;
-            }
-        }
-        
         /* NOTHING WORKS YAY
         if (cutscene.SceneName == "Tutorial - gameplay start")
         {
@@ -146,10 +125,21 @@ public class CutsceneManager : MonoBehaviour
                 if (cutscene.SceneName == sceneName)
                 {
                     cutscene.StartScene();
+                    Debug.Log(sceneName);
                     hasActiveCutscene = true;
-                    cutsceneMusicAS.enabled = true;
-                    cutsceneMusicAS.Play();
-                    cutsceneMusicIsPlaying = true;
+                    if(sceneName == ("Tutorial - gameplay start") || sceneName == ("Tutorial - player moves") || sceneName == ("Tutorial - player hits Dayana") || sceneName == ("Tutorial - Dayana hits player") || sceneName == ("Tutorial - Dayana is defeated") || sceneName == ("Tutorial - Alyss is defeated"))
+                    {
+                        Debug.Log("sceneName = bad, no music");
+                        cutsceneMusicAS.enabled = false;
+                        cutsceneMusicIsPlaying = false;
+                    }
+                    else
+                    {
+                        Debug.Log("sceneName = good, music");
+                        cutsceneMusicAS.enabled = true;
+                        cutsceneMusicAS.Play();
+                        cutsceneMusicIsPlaying = true;
+                    }
                     break;
                 }
             }
