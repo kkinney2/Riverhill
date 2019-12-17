@@ -3735,7 +3735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSkipCutscenes: 1
+  canSkipCutscenes: 0
   FramerateTarget: 60
   TextSpeed: 30
   CharacterMoveSpeed: 5
@@ -5560,7 +5560,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: -150
   far clip plane: 150
   field of view: 60
   orthographic: 1
