@@ -270,18 +270,21 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("Start " + characterStates_Player[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
 
+                #region Player UI
                 if (characterStates_Player[i].characterStats.Name.Contains("Alyss")) {
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
                     player = GameObject.Find("Alyss_Sprite");
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
+
                 if (characterStates_Player[i].characterStats.Name.Contains("Dayana")) {
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
                     player = GameObject.Find("Dayana_Sprite");
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
+
                 if (characterStates_Player[i].characterStats.Name.Contains("Nelson"))
                 {
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
@@ -289,6 +292,7 @@ public class BattleManager : MonoBehaviour
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
+                #endregion
 
                 gameController.mainCameraController.TargetGameObject(characterStates_Player[i].character.gameObject);
 
@@ -296,8 +300,9 @@ public class BattleManager : MonoBehaviour
 
                 battleStateMachine.ChangeState(characterStates_Player[i]);
 
-                characterUI.AssignNewCharacter(characterStates_Player[i]);
                 characterUI.gameObject.SetActive(true);
+                characterUI.AssignNewCharacter(characterStates_Player[i]);
+                
 
                 while (nextCharacter == false)
                 {
@@ -308,8 +313,9 @@ public class BattleManager : MonoBehaviour
                 }
                 nextCharacter = false;
 
-                characterUI.gameObject.SetActive(false);
                 characterUI.AssignNewCharacter(null);
+                characterUI.gameObject.SetActive(false);
+                
                 Debug.Log("End " + characterStates_Player[i].character.name + "'s Turn");
                 yield return new WaitForSeconds(1f);
             }
