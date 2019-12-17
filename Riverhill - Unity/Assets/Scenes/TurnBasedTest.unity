@@ -283,6 +283,7 @@ MonoBehaviour:
   shouldTurnOffMusic: 0
   thisBattleManager: {fileID: 268945811}
   player: {fileID: 0}
+  alliesList: []
 --- !u!4 &268945813
 Transform:
   m_ObjectHideFlags: 0
@@ -2186,6 +2187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dayana_Sprite
       objectReference: {fileID: 0}
+    - target: {fileID: 5302424536520080030, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54690d73792407b44a156e58334cc17b, type: 3}
 --- !u!4 &1044195268 stripped
@@ -2494,6 +2500,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3518956902593570694, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4430733767111220455, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1331712827213110935, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc32073d8232df54ebf3306f83599575, type: 3}
@@ -2960,6 +2981,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103348272056006971, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7709041841549946097, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3623128814884627490, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332309c5ad2c56749bfabbbc43a21301, type: 3}

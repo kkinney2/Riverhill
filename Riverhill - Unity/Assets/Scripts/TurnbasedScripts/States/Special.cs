@@ -44,9 +44,10 @@ public class Special : IState
         battleManager = gameController.battleManager;
         // TODO: What adds to actionCount? the action or the decision maker?
         //battleManager.actionCount++; // or = (battleManager.actionCount + 2); //inc. actionCount, by one or two to allow/avoid multi-special selections per turn //success!
-        
+
         // Currently ignoring error until specials are being integrated
         //this.battleStateMachine.UpdateState();
+
     }
 
     public void Execute() //crashes when selected twice...
@@ -74,6 +75,14 @@ public class Special : IState
             isDone = true;
         }
 
+
+        if (battleManager.player.name.Contains("Nelson"))
+        {
+            Debug.Log("Long Range");
+            //Do Long Range
+            isDone = true;
+        }
+
         /*
         Debug.Log("Executing Special");
         //perform special here, add functionality later on
@@ -85,7 +94,7 @@ public class Special : IState
 
         // Currently ignoring error until specials are being integrated
         //this.battleStateMachine.ChangeState(new CharacterState(battleStateMachine, this.gameObject));
-        
+
         if (isDone)
         {
             Debug.Log("Special isDone");

@@ -3782,11 +3782,11 @@ MonoBehaviour:
   level2_Unlocked: 1
   level2_Completed: 0
   level2_button: {fileID: 91384458}
-  level3_Unlocked: 0
+  level3_Unlocked: 1
   level3_Completed: 0
   level3_button: {fileID: 636016810}
   talkedWithNelson: 0
-  level4_Unlocked: 0
+  level4_Unlocked: 1
   level4_Completed: 0
   level4_button: {fileID: 24457721}
 --- !u!4 &960548737

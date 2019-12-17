@@ -85,6 +85,9 @@ public class BattleManager : MonoBehaviour
     public GameObject player;
     //public CharacterUI characterUI; //already has
 
+    //Emily reworking specials, first off get Alyss to heal all allies
+    public List<GameObject> alliesList = new List<GameObject>();
+
     private void Awake()
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
@@ -278,7 +281,6 @@ public class BattleManager : MonoBehaviour
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
-                /*
                 if (characterStates_Player[i].characterStats.Name.Contains("Nelson"))
                 {
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
@@ -286,7 +288,6 @@ public class BattleManager : MonoBehaviour
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
-                */
 
                 gameController.mainCameraController.TargetGameObject(characterStates_Player[i].character.gameObject);
 
@@ -519,6 +520,15 @@ public class BattleManager : MonoBehaviour
         characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
         //Debug.Log(characterUI_Object);
         //Debug.Log(characterUICanvas);
+
+        foreach (GameObject ally in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            alliesList.Add(ally);
+        }
+        foreach(var ally in alliesList)
+        {
+            Debug.Log("ally: " + ally);
+        }
     }
 
     public void Unloadlevel()

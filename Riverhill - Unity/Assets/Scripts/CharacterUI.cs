@@ -52,12 +52,10 @@ public class CharacterUI : MonoBehaviour
         {
             specialText.text = "Knockback";
         }
-        /*
         if (lookToPlayerObject.name.Contains("Nelson"))
         {
             specialText.text = "Long Range";
         }
-        */
 
         //Debug.Log("actionCount" + characterState.actionCount);
         if (characterState != null)
