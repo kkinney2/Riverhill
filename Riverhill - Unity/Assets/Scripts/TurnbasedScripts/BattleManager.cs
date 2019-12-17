@@ -87,6 +87,7 @@ public class BattleManager : MonoBehaviour
 
     //Emily reworking specials, first off get Alyss to heal all allies
     public List<GameObject> alliesList = new List<GameObject>();
+    public List<GameObject> enemiesList = new List<GameObject>();
 
     private void Awake()
     {
@@ -525,10 +526,18 @@ public class BattleManager : MonoBehaviour
         {
             alliesList.Add(ally);
         }
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            enemiesList.Add(enemy);
+        }
         /*
         foreach(var ally in alliesList)
         {
             Debug.Log("ally: " + ally);
+        }
+        foreach (var enemy in enemiesList)
+        {
+            Debug.Log("enemy: " + enemy);
         }
         */
     }

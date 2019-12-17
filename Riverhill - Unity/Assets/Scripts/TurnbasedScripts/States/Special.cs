@@ -90,6 +90,10 @@ public class Special : IState
         {
             Debug.Log("Knockback");
             //Do Knockback
+            foreach (var enemy in battleManager.enemiesList)
+            {
+                enemy.GetComponent<CharacterStats>().CurrentHP = (enemy.GetComponent<CharacterStats>().CurrentHP - enemy.GetComponent<CharacterStats>().knockbackAD);
+            }
             isDone = true;
         }
 
