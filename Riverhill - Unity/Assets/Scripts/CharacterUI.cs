@@ -40,14 +40,25 @@ public class CharacterUI : MonoBehaviour
         {
             specialText.text = "Healing Aura";
         }
-        if (lookToPlayerObject.name.Contains("Dayana"))
-        {
-            specialText.text = "Knockback";
-        }
     }
 
     private void Update()
     {
+        if (lookToPlayerObject.name.Contains("Alyss"))
+        {
+            specialText.text = "Healing Aura";
+        }
+        if (lookToPlayerObject.name.Contains("Dayana"))
+        {
+            specialText.text = "Knockback";
+        }
+        /*
+        if (lookToPlayerObject.name.Contains("Nelson"))
+        {
+            specialText.text = "Long Range";
+        }
+        */
+
         //Debug.Log("actionCount" + characterState.actionCount);
         if (characterState != null)
         {

@@ -267,19 +267,26 @@ public class BattleManager : MonoBehaviour
                 turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
 
                 if (characterStates_Player[i].characterStats.Name.Contains("Alyss")) {
-                    //change LookTo & Pathfinding to Alyss
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
-                    player = GameObject.Find("Alyss_Sprite (1)");
+                    player = GameObject.Find("Alyss_Sprite");
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
                 if (characterStates_Player[i].characterStats.Name.Contains("Dayana")) {
-                    //change LookTo & Pathfinding to Alyss
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
-                    player = GameObject.Find("Dayana_Sprite (1)");
+                    player = GameObject.Find("Dayana_Sprite");
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
+                /*
+                if (characterStates_Player[i].characterStats.Name.Contains("Nelson"))
+                {
+                    characterUICanvas = characterUI_Object.GetComponent<Canvas>();
+                    player = GameObject.Find("Nelson_Sprite");
+                    characterUI.lookToPlayerObject = player;
+                    characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
+                }
+                */
 
                 gameController.mainCameraController.TargetGameObject(characterStates_Player[i].character.gameObject);
 
@@ -506,13 +513,12 @@ public class BattleManager : MonoBehaviour
         }
 
         characterUICanvas = characterUI_Object.GetComponent<Canvas>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Alyss_Sprite");
         //instead of getting tag, find with name (Name) containing Alyss
         characterUI.lookToPlayerObject = player;
         characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
         //Debug.Log(characterUI_Object);
         //Debug.Log(characterUICanvas);
-
     }
 
     public void Unloadlevel()
