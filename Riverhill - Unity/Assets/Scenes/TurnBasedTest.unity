@@ -284,6 +284,7 @@ MonoBehaviour:
   thisBattleManager: {fileID: 268945811}
   player: {fileID: 0}
   alliesList: []
+  enemiesList: []
 --- !u!4 &268945813
 Transform:
   m_ObjectHideFlags: 0
@@ -459,41 +460,6 @@ PrefabInstance:
     - target: {fileID: 2420038010996562380, guid: d37e50a09dbcadb478f2bbeffdb7340b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420038011820341045, guid: d37e50a09dbcadb478f2bbeffdb7340b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420038011235454548, guid: d37e50a09dbcadb478f2bbeffdb7340b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420038011435080298, guid: d37e50a09dbcadb478f2bbeffdb7340b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2163236361464986487, guid: d37e50a09dbcadb478f2bbeffdb7340b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420038010357321240, guid: d37e50a09dbcadb478f2bbeffdb7340b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420038011585986205, guid: d37e50a09dbcadb478f2bbeffdb7340b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2420038011623406932, guid: d37e50a09dbcadb478f2bbeffdb7340b,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1788,7 +1754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &861354873
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1848,7 +1814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861354872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -8.8, z: -54.8}
+  m_LocalPosition: {x: 22.9, y: 7.1, z: -54.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2141,56 +2107,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429414442904325708, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429414442002679718, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429414441880638243, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4993712034358683446, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1915332371660720322, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429414441524826712, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429414442901367968, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 859921641433043673, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_Name
-      value: Alyss_Sprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302424536520080030, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_Name
-      value: Dayana_Sprite
-      objectReference: {fileID: 0}
-    - target: {fileID: 5302424536520080030, guid: 54690d73792407b44a156e58334cc17b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54690d73792407b44a156e58334cc17b, type: 3}
