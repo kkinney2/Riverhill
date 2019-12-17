@@ -270,15 +270,26 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("Start " + characterStates_Player[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
 
+                gameController.mainCameraController.TargetGameObject(characterStates_Player[i].character.gameObject);
+
+                yield return new WaitForSeconds(1f);
+
+                battleStateMachine.ChangeState(characterStates_Player[i]);
+
+                characterUI.gameObject.SetActive(true);
+                characterUI.AssignNewCharacter(characterStates_Player[i]);
+
                 #region Player UI
-                if (characterStates_Player[i].characterStats.Name.Contains("Alyss")) {
+                if (characterStates_Player[i].characterStats.Name.Contains("Alyss"))
+                {
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
                     player = GameObject.Find("Alyss_Sprite");
                     characterUI.lookToPlayerObject = player;
                     characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
                 }
 
-                if (characterStates_Player[i].characterStats.Name.Contains("Dayana")) {
+                if (characterStates_Player[i].characterStats.Name.Contains("Dayana"))
+                {
                     characterUICanvas = characterUI_Object.GetComponent<Canvas>();
                     player = GameObject.Find("Dayana_Sprite");
                     characterUI.lookToPlayerObject = player;
@@ -294,15 +305,7 @@ public class BattleManager : MonoBehaviour
                 }
                 #endregion
 
-                gameController.mainCameraController.TargetGameObject(characterStates_Player[i].character.gameObject);
 
-                yield return new WaitForSeconds(1f);
-
-                battleStateMachine.ChangeState(characterStates_Player[i]);
-
-                characterUI.gameObject.SetActive(true);
-                characterUI.AssignNewCharacter(characterStates_Player[i]);
-                
 
                 while (nextCharacter == false)
                 {
