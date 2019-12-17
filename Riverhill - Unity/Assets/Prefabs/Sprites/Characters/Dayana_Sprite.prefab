@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 1763946070}
   m_Layer: 0
   m_Name: Dayana_Sprite
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,6 +727,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 26603528}
     m_Modifications:
+    - target: {fileID: 5342043459137372254, guid: fa3b80acb96de3b41902b23f6fd41fd2,
+        type: 3}
+      propertyPath: m_Name
+      value: E1HPBarFill
+      objectReference: {fileID: 0}
     - target: {fileID: 5342043459137372252, guid: fa3b80acb96de3b41902b23f6fd41fd2,
         type: 3}
       propertyPath: m_Sprite
@@ -852,11 +857,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342043459137372254, guid: fa3b80acb96de3b41902b23f6fd41fd2,
-        type: 3}
-      propertyPath: m_Name
-      value: E1HPBarFill
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3b80acb96de3b41902b23f6fd41fd2, type: 3}

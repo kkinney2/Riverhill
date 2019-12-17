@@ -3735,7 +3735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSkipCutscenes: 0
+  canSkipCutscenes: 1
   FramerateTarget: 60
   TextSpeed: 30
   CharacterMoveSpeed: 5
@@ -3776,10 +3776,10 @@ MonoBehaviour:
   alyssMoved: 0
   alyssAttacked: 0
   dayanaAttacked: 0
-  level1_Unlocked: 0
+  level1_Unlocked: 1
   level1_Completed: 0
   level1_button: {fileID: 165531886}
-  level2_Unlocked: 0
+  level2_Unlocked: 1
   level2_Completed: 0
   level2_button: {fileID: 91384458}
   level3_Unlocked: 0

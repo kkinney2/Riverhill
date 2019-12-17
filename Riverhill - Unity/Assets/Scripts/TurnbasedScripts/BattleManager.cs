@@ -75,6 +75,7 @@ public class BattleManager : MonoBehaviour
     public bool shouldTurnOffMusic;
 
     CutsceneManager cutsceneManager;
+    CharacterStats charStats; //charStats.Name
 
     public GameObject thisBattleManager;
 
@@ -100,16 +101,6 @@ public class BattleManager : MonoBehaviour
 
         gameplayMusicAS = GetComponent<AudioSource>();
     }
-
-    /*
-    private void Update()
-    {
-        if (charPathfindingAlyss.isPerformingMove == true)
-        {
-            Debug.Log("isPeformingTrue" + charPathfindingAlyss.isPerformingMove);
-        }
-    }
-    */
 
     #region old StartUp
     /*
@@ -274,6 +265,21 @@ public class BattleManager : MonoBehaviour
             {
                 Debug.Log("Start " + characterStates_Player[i].characterStats.Name + "'s Turn");
                 turnText.text = "Turn: " + characterStates_Player[i].characterStats.Name;
+
+                if (characterStates_Player[i].characterStats.Name.Contains("Alyss")) {
+                    //change LookTo & Pathfinding to Alyss
+                    characterUICanvas = characterUI_Object.GetComponent<Canvas>();
+                    player = GameObject.Find("Alyss_Sprite (1)");
+                    characterUI.lookToPlayerObject = player;
+                    characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
+                }
+                if (characterStates_Player[i].characterStats.Name.Contains("Dayana")) {
+                    //change LookTo & Pathfinding to Alyss
+                    characterUICanvas = characterUI_Object.GetComponent<Canvas>();
+                    player = GameObject.Find("Dayana_Sprite (1)");
+                    characterUI.lookToPlayerObject = player;
+                    characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
+                }
 
                 gameController.mainCameraController.TargetGameObject(characterStates_Player[i].character.gameObject);
 
@@ -501,6 +507,7 @@ public class BattleManager : MonoBehaviour
 
         characterUICanvas = characterUI_Object.GetComponent<Canvas>();
         player = GameObject.FindGameObjectWithTag("Player");
+        //instead of getting tag, find with name (Name) containing Alyss
         characterUI.lookToPlayerObject = player;
         characterUI.charPathfindingAlyss = characterUI.lookToPlayerObject.GetComponent<CharacterPathfinding>();
         //Debug.Log(characterUI_Object);
