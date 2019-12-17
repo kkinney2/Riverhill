@@ -48,6 +48,17 @@ public class Special : IState
         // Currently ignoring error until specials are being integrated
         //this.battleStateMachine.UpdateState();
 
+        /*
+        foreach (GameObject ally in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            alliesList.Add(ally);
+        }
+        foreach(var ally in alliesList)
+        {
+            Debug.Log("ally: " + ally);
+        }
+        */
+
     }
 
     public void Execute() //crashes when selected twice...
@@ -59,11 +70,18 @@ public class Special : IState
         {
             Debug.Log("Healing Aura");
             //Do Healing Aura
-            characterState.characterStats.CurrentHP = (characterState.characterStats.CurrentHP + characterState.characterStats.healingAuraHP);
-            //make sure it doesn't add past base health;
-            if(characterState.characterStats.CurrentHP > characterState.characterStats.BaseHP)
+            foreach (var ally in battleManager.alliesList)
             {
-                characterState.characterStats.CurrentHP = characterState.characterStats.BaseHP;
+                //Debug.Log("ally: " + ally);
+                //Debug.Log(ally.GetComponent<CharacterStats>().CurrentHP);
+                //Debug.Log(ally.GetComponent<CharacterStats>().CurrentHP + ally.GetComponent<CharacterStats>().healingAuraHP);
+                //characterState.characterStats.CurrentHP = (characterState.characterStats.CurrentHP + characterState.characterStats.healingAuraHP);
+                ally.GetComponent<CharacterStats>().CurrentHP = (ally.GetComponent<CharacterStats>().CurrentHP + ally.GetComponent<CharacterStats>().healingAuraHP);
+                //make sure it doesn't add past base health;
+                if (ally.GetComponent<CharacterStats>().CurrentHP > ally.GetComponent<CharacterStats>().BaseHP)
+                {
+                    ally.GetComponent<CharacterStats>().CurrentHP = ally.GetComponent<CharacterStats>().BaseHP;
+                }
             }
             isDone = true;
         }

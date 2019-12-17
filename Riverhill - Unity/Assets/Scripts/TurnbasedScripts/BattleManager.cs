@@ -525,10 +525,12 @@ public class BattleManager : MonoBehaviour
         {
             alliesList.Add(ally);
         }
+        /*
         foreach(var ally in alliesList)
         {
             Debug.Log("ally: " + ally);
         }
+        */
     }
 
     public void Unloadlevel()

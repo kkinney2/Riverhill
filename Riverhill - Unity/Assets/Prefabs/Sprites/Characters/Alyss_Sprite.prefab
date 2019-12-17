@@ -386,7 +386,7 @@ MonoBehaviour:
   rangedAttackRange: {x: 1, y: 3}
   attack: 20
   healingAuraHP: 20
-  knockbackAD: 0
+  knockbackAD: 5
   healingAura: {fileID: 8776435073918093274}
   HPBarFill: {fileID: 1392715872}
   charSounds: {fileID: 1871606650}
