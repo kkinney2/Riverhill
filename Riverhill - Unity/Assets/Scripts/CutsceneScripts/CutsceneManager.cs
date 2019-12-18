@@ -125,17 +125,17 @@ public class CutsceneManager : MonoBehaviour
                 if (cutscene.SceneName == sceneName)
                 {
                     cutscene.StartScene();
-                    Debug.Log(sceneName);
+                    //Debug.Log(sceneName);
                     hasActiveCutscene = true;
                     if(sceneName == ("Tutorial - gameplay start") || sceneName == ("Tutorial - player moves") || sceneName == ("Tutorial - player hits Dayana") || sceneName == ("Tutorial - Dayana hits player") || sceneName == ("Tutorial - Dayana is defeated") || sceneName == ("Tutorial - Alyss is defeated"))
                     {
-                        Debug.Log("sceneName = bad, no music");
+                        //Debug.Log("sceneName = bad, no music");
                         cutsceneMusicAS.enabled = false;
                         cutsceneMusicIsPlaying = false;
                     }
                     else
                     {
-                        Debug.Log("sceneName = good, music");
+                        //Debug.Log("sceneName = good, music");
                         cutsceneMusicAS.enabled = true;
                         cutsceneMusicAS.Play();
                         cutsceneMusicIsPlaying = true;

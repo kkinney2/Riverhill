@@ -516,6 +516,12 @@ public class BattleManager : MonoBehaviour
             //want an extra bool check for turing off tutorial / in battle---cutscene music
             isInBattle = true;
 
+            //in contrast to checking and hiding UI on level unload, can take out if not needed
+            if (characterUI.characterUIObjCanvas.enabled == false)
+            {
+                characterUI.characterUIObjCanvas.enabled = true;
+            }
+
             gameplayMusicAS.enabled = true;
             gameplayMusicAS.Play();
             gameplayMusicIsPlaying = true;
@@ -585,6 +591,12 @@ public class BattleManager : MonoBehaviour
         }
 
         isInBattle = false;
+
+        //safety to make sure UI from previous level cannot be seen in level selection screen, can take out if not needed afterall, idk
+        if (characterUI.characterUIObjCanvas.enabled == true)
+        {
+            characterUI.characterUIObjCanvas.enabled = false;
+        }
 
         currentLevel.Unload();
     }

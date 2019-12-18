@@ -462,6 +462,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4159919093747073844, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159919093747073844, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159919093747073844, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: attack
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180682420070398234, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180682420070398234, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: attack
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8180682420070398234, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768471641909355, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768471641909355, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768471641909355, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768471435276567, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768471435276567, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768471435276567, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472473542312, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472473542312, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472473542312, guid: d37e50a09dbcadb478f2bbeffdb7340b,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37e50a09dbcadb478f2bbeffdb7340b, type: 3}
 --- !u!4 &382001248 stripped
@@ -606,11 +681,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937482610}
     m_Modifications:
-    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
-        type: 3}
-      propertyPath: m_Name
-      value: Dayana
-      objectReference: {fileID: 0}
     - target: {fileID: 307183929201589478, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -665,6 +735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307183929201589477, guid: fb40f9bb8ee8b294897199dad30b6390,
+        type: 3}
+      propertyPath: m_Name
+      value: Dayana
       objectReference: {fileID: 0}
     - target: {fileID: 4184186491804655446, guid: fb40f9bb8ee8b294897199dad30b6390,
         type: 3}
@@ -1642,6 +1717,141 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4184186493707370552, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184186493707370552, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184186493707370552, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766575339508491, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766575339508491, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3352766575339508491, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063839465458649, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063839465458649, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063839465458649, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063840094127281, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063840094127281, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063840094127281, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063840407187552, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063840407187552, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094063840407187552, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472003280361, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472003280361, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472003280361, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472557809694, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472557809694, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768472557809694, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768473334902568, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768473334902568, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768473334902568, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768473137886188, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768473137886188, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699768473137886188, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f2ef7c88b76e1c448ba58ddb0bb7732, type: 3}
 --- !u!4 &805781167 stripped
@@ -2059,6 +2269,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1021510371827282821, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1021510371827282821, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631041278275868973, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: attack
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631041278275868973, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631041278275868973, guid: 54690d73792407b44a156e58334cc17b,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54690d73792407b44a156e58334cc17b, type: 3}
 --- !u!4 &1044195268 stripped
@@ -2195,11 +2430,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 937482610}
     m_Modifications:
-    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
-        type: 3}
-      propertyPath: m_Name
-      value: Alyss
-      objectReference: {fileID: 0}
     - target: {fileID: 3117976415592239887, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2254,6 +2484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117976415592239884, guid: 697005ba38dedae4ea01a3b7494d3e35,
+        type: 3}
+      propertyPath: m_Name
+      value: Alyss
       objectReference: {fileID: 0}
     - target: {fileID: 3352766574871589456, guid: 697005ba38dedae4ea01a3b7494d3e35,
         type: 3}
@@ -2333,6 +2568,161 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709430152291925963, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: attack
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709430152291925963, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709430152291925963, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825795516186379994, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: attack
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825795516186379994, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3825795516186379994, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 229474360794808148, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: attack
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 229474360794808148, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229474360794808148, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035745586069012, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035745586069012, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035745425707430, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035745425707430, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035746293938197, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035746293938197, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035746095096876, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035746095096876, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035745886567908, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035745886567908, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035746488891125, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333035746488891125, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902691460352656583, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902691460352656583, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902691461113715287, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902691461113715287, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902691460848958297, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902691460848958297, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113870833422958558, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: Name
+      value: Lark
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113870833422958558, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113870833422958558, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113870833422958558, guid: cc32073d8232df54ebf3306f83599575,
+        type: 3}
+      propertyPath: attack
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc32073d8232df54ebf3306f83599575, type: 3}
@@ -2765,6 +3155,221 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525371672590348059, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525371672590348059, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: attack
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525371672590348059, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000845865827943806, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000845865827943806, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: attack
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000845865827943806, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 125372268343559254, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 125372268343559254, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: attack
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 125372268343559254, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588472085104, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588472085104, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588315696851, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588315696851, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588113945143, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588113945143, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589010090919, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589010090919, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589047337432, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589047337432, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588809567188, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588809567188, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588622504366, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145588622504366, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589578143847, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589578143847, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589575808541, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589575808541, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589264645481, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589264645481, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589761597619, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446145589761597619, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319565241284, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319565241284, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319530572557, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319530572557, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319164712432, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319164712432, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319652557307, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889319652557307, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889320472919300, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889320472919300, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889320568737197, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: healingAuraHP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8015889320568737197, guid: 332309c5ad2c56749bfabbbc43a21301,
+        type: 3}
+      propertyPath: knockbackAD
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 332309c5ad2c56749bfabbbc43a21301, type: 3}

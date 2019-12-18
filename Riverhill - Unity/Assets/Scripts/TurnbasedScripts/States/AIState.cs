@@ -43,7 +43,7 @@ public class AIState : IState
 
     public void Execute()
     {
-        Debug.Log("Executing AI state, **ADD FUNC.**");
+        Debug.Log("Executing AI state");
         //AI DOES STUFF HERE...
 
         float minDistance = float.MaxValue;
