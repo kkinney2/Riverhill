@@ -48,6 +48,7 @@ public class AIState : IState
 
         float minDistance = float.MaxValue;
         bool hasAttackTarget = false;
+        bool hasMoveTarget = false;
 
         // Find Player and Analyze Options
         for (int i = 0; i < playerCharacterStates.Count; i++)
@@ -117,6 +118,7 @@ public class AIState : IState
         {
             characterStateMachine.ChangeState(characterState.state_Attack);
         }
+
         // If Player is not in AttackRange: Move towards nearest Player
         if(hasMoveTarget)
         {
