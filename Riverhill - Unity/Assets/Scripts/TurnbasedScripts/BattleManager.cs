@@ -69,8 +69,11 @@ public class BattleManager : MonoBehaviour
 
     //gameplay music
     public AudioSource gameplayMusicAS;
+    public AudioSource gameWinLoseAS;
     public AudioClip gameplayMusic;
     //for stopping gameplay music?
+    public AudioClip gameWinSound;
+    public AudioClip gameLoseSound;
     public bool gameplayMusicIsPlaying;
     public bool shouldTurnOffMusic;
 
@@ -417,6 +420,11 @@ public class BattleManager : MonoBehaviour
             if (!hasPlayableCharacter)
             {
                 Debug.Log("GAME_OVER");
+
+                //adding in lose music! adjust volume in WIN/LOSE AS
+                gameWinLoseAS.clip = gameLoseSound;
+                gameWinLoseAS.Play();
+
                 if (gameController != null)
                 {
                     gameController.currentStatus = "LevelFailed";
@@ -430,6 +438,10 @@ public class BattleManager : MonoBehaviour
             if (!hasPlayableEnemy)
             {
                 Debug.Log("CONGRATS");
+
+                //adding in win music! adjust volume in WIN/LOSE AS
+                gameWinLoseAS.clip = gameWinSound;
+                gameWinLoseAS.Play();
 
                 if (gameController != null)
                 {
