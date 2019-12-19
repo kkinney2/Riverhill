@@ -49,54 +49,70 @@ public class AIState : IState
         float minDistance = float.MaxValue;
         bool hasTarget = false;
 
-        // Find Player
+        // Find Player and Analyze Options
         for (int i = 0; i < playerCharacterStates.Count; i++)
         {
             // Is the character in range?
             pathfinder.FindPath(playerCharacterStates[i].character.transform.position);
 
-            if (pathfinder.path.Count == 1)
+            // If they are within attack range
+            if (pathfinder.path.Count <= characterState.characterStats.meleeAttackRange.y)
             {
-                characterState.AI_Target = playerCharacterStates[i];
-                hasTarget = true;
-                characterStateMachine.ChangeState(characterState.state_Attack);
-                break;
+                // and there is no current target
+                if (!hasTarget)
+                {
+                    // Store the target
+                    characterState.AI_Target = playerCharacterStates[i];
+                    hasTarget = true;
+                }
+                // if there is a current target
+                else
+                {
+                    // If the current loop's target is less than my current target's health
+                    if (characterState.AI_Target.characterStats.CurrentHP > playerCharacterStates[i].characterStats.CurrentHP)
+                    {
+                        // make the lesser health my target
+                        characterState.AI_Target = playerCharacterStates[i];
+                    }
+                }
+
+                // Continue to analyze other options, but skip searching for movement because there is already a target in range
+                continue;
             }
+            // If they arent in attack range
             else
             {
-                // Store the closest player character
-                if (pathfinder.path.Count < minDistance)
+                // If they are closer than the min distance
+                if (pathfinder.path.Count <= minDistance)
                 {
+                    // If its the same distance
+                    if (pathfinder.path.Count == minDistance)
+                    {
+                        // Compare the two
+                        // If the current loop's target is less than my current target's health
+                        if (characterState.AI_Target.characterStats.CurrentHP > playerCharacterStates[i].characterStats.CurrentHP)
+                        {
+                            // make the lesser health my target
+                            characterState.AI_Target = playerCharacterStates[i];
+
+                            // And continue searching
+                            continue;
+                        }
+                    }
+                    // Make them the new min
                     minDistance = pathfinder.path.Count;
                     characterState.AI_Target = playerCharacterStates[i];
                 }
             }
-            #region old AI
-            /*
-            float distance = (Mathf.Abs(Vector3.Distance(characterState.characterStats.gameObject.transform.position, playerCharacterStates[i].characterStats.gameObject.transform.position)));
-            if (proximityRange > distance)
-            {
-                // They are in range, so attack
-                characterState.AI_Target = playerCharacterStates[i];
-                hasTarget = true;
-                characterStateMachine.ChangeState(characterState.state_Attack);
-                break;
-            }
-            else
-            {
-                // They aren't in range, store the closest and keep searching
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    characterState.AI_Target = playerCharacterStates[i];
-                }
-            }
-            */
-            #endregion
         }
 
+        // Attack
+        if (hasTarget)
+        {
+            characterStateMachine.ChangeState(characterState.state_Attack);
+        }
         // If Player is not in AttackRange: Move towards nearest Player
-        if (!hasTarget)
+        else
         {
             Debug.Log("AI could not find close enough target. Moving Closer");
             characterStateMachine.ChangeState(characterState.state_Move);
@@ -123,7 +139,15 @@ public class AIState : IState
         {
             if (!battleManager.characterStats[i].isEnemy && battleManager.characterStats[i].CurrentHP > 0)
             {
-                playerCharacterStates.Add(battleManager.characterStates[i]);
+                if (!playerCharacterStates.Contains(battleManager.characterStates[i]))
+                {
+                    playerCharacterStates.Add(battleManager.characterStates[i]);
+                }
+            }
+            else
+            {
+                playerCharacterStates.Remove(battleManager.characterStates[i]);
+                //playerCharacterStates.RemoveAll(battleManager.characterStates[i]);
             }
         }
     }

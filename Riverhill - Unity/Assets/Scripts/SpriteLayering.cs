@@ -41,18 +41,36 @@ public class SpriteLayering : MonoBehaviour
                 characters = new List<SpriteRenderer>();
                 objectsWithRenderer = new List<GameObject>();
                 spriteRenderers = new List<SpriteRenderer>();
-            }
-            UpdateReferences();
 
-            for (int i = 0; i < spriteRenderers.Count; i++)
+                UpperBound = currentLevel.UpperBound;
+                LowerBound = currentLevel.LowerBound;
+                distBetweenUpperLower_Y = UpperBound.position.y - LowerBound.position.y;
+                distBetweenUpperLower_Z = UpperBound.position.z - LowerBound.position.z;
+
+                UpdateReferences();
+
+                for (int i = 0; i < spriteRenderers.Count; i++)
+                {
+                    Vector3 currentPos = spriteRenderers[i].gameObject.transform.position;
+                    // Percentage of the level's height
+                    float heightPercentage = ((UpperBound.position.y - currentPos.y) / distBetweenUpperLower_Y);
+                    float distFromUpper = heightPercentage * distBetweenUpperLower_Z;
+
+                    currentPos = new Vector3(currentPos.x, currentPos.y, UpperBound.position.z - distFromUpper);
+                    spriteRenderers[i].gameObject.transform.position = currentPos;
+                }
+            }
+            
+
+            for (int i = 0; i < characters.Count; i++)
             {
-                Vector3 currentPos = spriteRenderers[i].gameObject.transform.position;
+                Vector3 currentPos = characters[i].gameObject.transform.position;
                 // Percentage of the level's height
                 float heightPercentage = ((UpperBound.position.y - currentPos.y) / distBetweenUpperLower_Y);
                 float distFromUpper = heightPercentage * distBetweenUpperLower_Z;
 
                 currentPos = new Vector3(currentPos.x, currentPos.y, UpperBound.position.z - distFromUpper);
-                spriteRenderers[i].gameObject.transform.position = currentPos;
+                characters[i].gameObject.transform.position = currentPos;
             }
         }
     }
@@ -61,11 +79,6 @@ public class SpriteLayering : MonoBehaviour
     {
         if (currentLevel != null)
         {
-            UpperBound = currentLevel.UpperBound;
-            LowerBound = currentLevel.LowerBound;
-            distBetweenUpperLower_Y = UpperBound.position.y - LowerBound.position.y;
-            distBetweenUpperLower_Z = UpperBound.position.z - LowerBound.position.z;
-
             GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
             foreach (GameObject obj in allObjects)
             {
