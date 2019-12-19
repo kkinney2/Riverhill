@@ -67,7 +67,7 @@ public class Cutscene : MonoBehaviour
                 yield return new WaitForSeconds(0.00001f);
                 if (Input.GetButtonUp("Submit"))
                 {
-                    if (hasFinishedDisplayingText)
+                    if (hasFinishedDisplayingText || currentTextDisplayer == null)
                     {
                         hasFinishedDisplayingText = false;
                         currentTextDisplayer = null;
