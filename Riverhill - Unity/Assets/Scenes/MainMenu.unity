@@ -4150,7 +4150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSkipCutscenes: 1
+  canSkipCutscenes: 0
   FramerateTarget: 60
   TextSpeed: 30
   CharacterMoveSpeed: 5
