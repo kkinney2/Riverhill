@@ -76,6 +76,7 @@ public class AIState : IState
                     if (characterState.AI_Target.characterStats.CurrentHP > playerCharacterStates[i].characterStats.CurrentHP)
                     {
                         // make the lesser health my target
+                        Debug.Log("Changing Target");
                         characterState.AI_Target = playerCharacterStates[i];
                     }
                 }
@@ -135,7 +136,7 @@ public class AIState : IState
             Debug.Log("Moving Closer to Target: " + characterState.AI_Target.characterStats.Name);
             characterStateMachine.ChangeState(characterState.state_Move);
         }
-        else if (!hasMoveTarget)
+        else if (!hasMoveTarget && !hasAttackTarget)
         {
             if (characterState.character.transform.position != characterState.characterStats.startPos)
             {
