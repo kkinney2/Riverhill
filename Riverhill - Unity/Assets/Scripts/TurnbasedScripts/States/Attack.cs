@@ -52,7 +52,7 @@ public class Attack : IState
         {
             for (int i = 0; i < battleManager.characterStates_Enemy.Count; i++)
             {
-                pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.gameObject.transform.position);
+                pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.gameObject.transform.position, "raw");
                 if (pathfinder.path.Count == characterState.characterStats.meleeAttackRange.y)
                 {
                     TileManager.Instance.GetTileFromWorldPosition(battleManager.characterStates_Enemy[i].character.gameObject.transform.position).tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = true;
@@ -93,7 +93,7 @@ public class Attack : IState
                             // Pathfind to them to determine distance
                             if (worldToCell != null || testPoint != null)
                             {
-                                pathfinder.FindPath(testPoint);
+                                pathfinder.FindPath(testPoint, "raw");
                             }
 
                             if (pathfinder.path.Count <= characterState.characterStats.meleeAttackRange.y)

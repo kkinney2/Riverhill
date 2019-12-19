@@ -47,23 +47,25 @@ public class AIState : IState
         //AI DOES STUFF HERE...
 
         float minDistance = float.MaxValue;
-        bool hasTarget = false;
+        bool hasAttackTarget = false;
 
         // Find Player and Analyze Options
         for (int i = 0; i < playerCharacterStates.Count; i++)
         {
             // Is the character in range?
-            pathfinder.FindPath(playerCharacterStates[i].character.transform.position);
+            pathfinder.FindPath(playerCharacterStates[i].character.transform.position, "raw");
 
             // If they are within attack range
             if (pathfinder.path.Count <= characterState.characterStats.meleeAttackRange.y)
             {
+                Debug.Log("Found play in attack range");
+
                 // and there is no current target
-                if (!hasTarget)
+                if (!hasAttackTarget)
                 {
                     // Store the target
                     characterState.AI_Target = playerCharacterStates[i];
-                    hasTarget = true;
+                    hasAttackTarget = true;
                 }
                 // if there is a current target
                 else
@@ -82,8 +84,9 @@ public class AIState : IState
         }
 
         // If unable to find attack target, search to move
-        if (!hasTarget)
+        if (!hasAttackTarget)
         {
+            Debug.Log("Was unable to attack, searching for move target");
             for (int i = 0; i < playerCharacterStates.Count; i++)
             {
                 if (pathfinder.path.Count <= minDistance)
@@ -110,14 +113,14 @@ public class AIState : IState
         }
         
         // Attack
-        if (hasTarget)
+        if (hasAttackTarget)
         {
             characterStateMachine.ChangeState(characterState.state_Attack);
         }
         // If Player is not in AttackRange: Move towards nearest Player
-        else
+        if(hasMoveTarget)
         {
-            Debug.Log("AI could not find close enough target. Moving Closer");
+            Debug.Log(" Moving Closer to Target");
             characterStateMachine.ChangeState(characterState.state_Move);
         }
 

@@ -69,7 +69,7 @@ public class CharacterPathfinding : MonoBehaviour
         }
     }
 
-    public void FindPath(Vector3 a_Position)
+    public void FindPath(Vector3 a_Position, string pathType)
     {
         Vector3Int worldToCell = TileManager.Instance.grid.WorldToCell((new Vector3(a_Position.x, a_Position.y, 0)));
         Vector3 testPoint = TileManager.Instance.grid.CellToWorld(worldToCell);
@@ -82,7 +82,7 @@ public class CharacterPathfinding : MonoBehaviour
 
         if (worldToCell != null || testPoint != null || TileManager.Instance.GetTileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
         {
-            path = TileManager.Instance.FindPath(transform.position, testPoint, "movement");
+            path = TileManager.Instance.FindPath(transform.position, testPoint, pathType);
         }
 
         //path = TileManager.Instance.FindPath(transform.position, testPoint);

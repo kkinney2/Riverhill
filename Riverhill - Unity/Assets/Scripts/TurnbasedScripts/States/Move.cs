@@ -51,7 +51,7 @@ public class Move : IState
             {
                 //TileManager.Instance.tilesList[i].GetComponent<Tile>();
 
-                pathfinder.FindPath(TileManager.Instance.tilesList[i].transform.position);
+                pathfinder.FindPath(TileManager.Instance.tilesList[i].transform.position, "raw");
 
                 #region Tile Highlighting
                 if (pathfinder.path.Count >= pathfinder.range.x && pathfinder.path.Count <= pathfinder.range.y) // If the path is longer than or equal to the min range
@@ -98,7 +98,7 @@ public class Move : IState
         }
         else
         {
-            pathfinder.FindPath(characterState.AI_Target.characterStats.gameObject.transform.position);
+            pathfinder.FindPath(characterState.AI_Target.characterStats.gameObject.transform.position, "movement");
             pathfinder.MoveAlongPath();
         }
 

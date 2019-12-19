@@ -95,7 +95,7 @@ public class ActionSelect : IState
 
         for (int i = 0; i < battleManager.characterStates_Enemy.Count; i++)
         {
-            pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.transform.position);
+            pathfinder.FindPath(battleManager.characterStates_Enemy[i].character.transform.position, "raw");
 
             if (pathfinder.path.Count <= characterState.characterStats.meleeAttackRange.y) // TODO: Hardcoded attack range
             {
