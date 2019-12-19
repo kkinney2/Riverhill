@@ -10,6 +10,7 @@ public class Special : IState
     private BattleStateMachine characterStateMachine;
 
     BattleManager battleManager;
+    CharacterStats characterStats;
 
     bool isDone = false;
 
@@ -72,10 +73,8 @@ public class Special : IState
             //Do Healing Aura
             foreach (var ally in battleManager.alliesList)
             {
-                //Debug.Log("ally: " + ally);
-                //Debug.Log(ally.GetComponent<CharacterStats>().CurrentHP);
-                //Debug.Log(ally.GetComponent<CharacterStats>().CurrentHP + ally.GetComponent<CharacterStats>().healingAuraHP);
                 //characterState.characterStats.CurrentHP = (characterState.characterStats.CurrentHP + characterState.characterStats.healingAuraHP);
+                ally.GetComponent<CharacterStats>().IsHealing();
                 ally.GetComponent<CharacterStats>().CurrentHP = (ally.GetComponent<CharacterStats>().CurrentHP + ally.GetComponent<CharacterStats>().healingAuraHP);
                 //make sure it doesn't add past base health;
                 if (ally.GetComponent<CharacterStats>().CurrentHP > ally.GetComponent<CharacterStats>().BaseHP)

@@ -42,6 +42,7 @@ public class CharacterStats : MonoBehaviour
     public AudioClip charDeath;
 
     public bool hasAnimPlaying = false;
+    public bool performingHeal = false; //using to test cause green heal effect isn't activating
 
     private void Start()
     {
@@ -218,6 +219,8 @@ public class CharacterStats : MonoBehaviour
     public void IsHealing()
     {
         //Alyss special, may need to move special healing sound here?
+        Debug.Log("IsHealing()");
+        performingHeal = true; //starts ok, can't figure out how to turn off...
 
         animator.SetTrigger("isHealing");
         healingAura_Anim.SetTrigger("isHealing");
@@ -227,7 +230,8 @@ public class CharacterStats : MonoBehaviour
     {
         while (true)
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("isHealing"))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("isHealing")) //this is the problem, never activating
+            //if (performingHeal == true) //can't figure out how to turn off...
             {
                 healingAura.gameObject.SetActive(true);
             }
