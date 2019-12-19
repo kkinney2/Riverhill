@@ -15,8 +15,8 @@ public class AIState : IState
 
     List<CharacterState> playerCharacterStates = new List<CharacterState>();
 
-    //TODO: AI attack proximity is hardcoded
     float proximityRange = 5;
+    GameObject post;
 
     public AIState(CharacterState a_CharacterState, BattleStateMachine a_BattleStateMachine)
     {
@@ -35,6 +35,7 @@ public class AIState : IState
     {
         Debug.Log("Entering AI state");
         battleManager = gameController.battleManager;
+        proximityRange = characterState.characterStats.agroRange;
 
         // Update Player Characters
         UpdatePlayerCharacters();
@@ -92,7 +93,8 @@ public class AIState : IState
             {
                 pathfinder.FindPath(playerCharacterStates[i].character.transform.position, "movement");
 
-                if (pathfinder.path.Count <= minDistance)
+                // If they are closer and if they are within proximity for agro
+                if (pathfinder.path.Count <= minDistance && pathfinder.path.Count <= proximityRange)
                 {
 
                     // If its the same distance
@@ -130,8 +132,28 @@ public class AIState : IState
         // If Player is not in AttackRange: Move towards nearest Player
         if (hasMoveTarget)
         {
-            Debug.Log(" Moving Closer to Target: " + characterState.AI_Target.characterStats.Name);
+            Debug.Log("Moving Closer to Target: " + characterState.AI_Target.characterStats.Name);
             characterStateMachine.ChangeState(characterState.state_Move);
+        }
+        else if (!hasMoveTarget)
+        {
+            if (characterState.character.transform.position != characterState.characterStats.startPos)
+            {
+                Debug.Log("Has no target, returning to post");
+                pathfinder.FindPath(characterState.characterStats.startPos, "movement");
+
+                // Will then use that path to return to starting pos
+                characterStateMachine.ChangeState(characterState.state_Move);
+            }
+            else
+            {
+                // No action to perform
+                Debug.Log("Nothing to Do");
+
+                // End Turn
+                characterState.actionCount = battleManager.gameController.gameSettings.MaxActionCount;
+            }
+            
         }
 
         if (characterState.actionCount >= battleManager.gameController.gameSettings.MaxActionCount)

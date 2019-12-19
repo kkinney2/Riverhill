@@ -98,7 +98,11 @@ public class Move : IState
         }
         else
         {
-            pathfinder.FindPath(characterState.AI_Target.characterStats.gameObject.transform.position, "movement");
+            if (characterState.AI_Target != null)
+            {
+                pathfinder.FindPath(characterState.AI_Target.characterStats.gameObject.transform.position, "movement");
+            }
+            
             pathfinder.MoveAlongPath();
         }
 

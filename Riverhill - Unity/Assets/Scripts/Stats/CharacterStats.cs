@@ -15,10 +15,11 @@ public class CharacterStats : MonoBehaviour
     public float BaseHP;
     public float CurrentHP;
 
-    Vector3 startPos;
+    public Vector3 startPos;
 
     public Vector2 meleeAttackRange = new Vector2(1, 1);
     public Vector2 rangedAttackRange = new Vector2(1, 3);
+    public int agroRange = 5;
 
     public float attack;
     public float healingAuraHP; //amount of healing
