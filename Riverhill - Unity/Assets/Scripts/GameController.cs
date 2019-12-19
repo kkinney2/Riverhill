@@ -262,6 +262,7 @@ public class GameController : MonoBehaviour
             }
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
@@ -271,6 +272,7 @@ public class GameController : MonoBehaviour
             }
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
@@ -281,6 +283,7 @@ public class GameController : MonoBehaviour
             // TODO: Insert this 'if' in the battlemanager while loop line 189
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
@@ -290,6 +293,7 @@ public class GameController : MonoBehaviour
             }
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
@@ -299,6 +303,7 @@ public class GameController : MonoBehaviour
             }
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
         }
@@ -385,6 +390,7 @@ public class GameController : MonoBehaviour
             }
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
         }
@@ -450,6 +456,7 @@ public class GameController : MonoBehaviour
             }
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
@@ -513,6 +520,7 @@ public class GameController : MonoBehaviour
             }
             if (cutsceneManager.hasActiveCutscene)
             {
+                currentStatus = "Cutscene";
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
         }
