@@ -318,8 +318,8 @@ public class TileManager : MonoBehaviour
         return NeighboringTiles;
     }
 
-    public List<Tile> FindPath(Vector3 startPos, Vector3 targetPos)
+    public List<Tile> FindPath(Vector3 startPos, Vector3 targetPos, string pathType)
     {
-        return pathfinder.FindPath(startPos, targetPos);
+        return pathfinder.FindPath(startPos, targetPos, pathType);
     }
 }

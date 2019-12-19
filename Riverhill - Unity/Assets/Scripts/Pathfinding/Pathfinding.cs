@@ -47,13 +47,13 @@ public class Pathfinding {
 */
     }
 
-    public void FindPath(Transform a_StartPos ,Transform a_TargetPos)
+    public void FindPath(Transform a_StartPos ,Transform a_TargetPos, string pathType)
     {
-        FindPath(a_StartPos.position, a_TargetPos.position);
+        FindPath(a_StartPos.position, a_TargetPos.position, pathType);
     }
 
 
-    public List<Tile> FindPath(Vector3 a_StartPos, Vector3 a_TargetPos)
+    public List<Tile> FindPath(Vector3 a_StartPos, Vector3 a_TargetPos, string pathType)
     {
         Tile StartTile = TileManager.Instance.GetTileFromWorldPosition(a_StartPos);
         Tile TargetTile = TileManager.Instance.GetTileFromWorldPosition(a_TargetPos);
@@ -103,11 +103,27 @@ public class Pathfinding {
                 //Debug.Log("Tile: " + neighborTiles[i].cellPosition);
                 //Debug.Log("OpenList Count: " + OpenList.Count); 
 
-                if (ClosedList.Contains(NeighborTile))
+                // Checks for path
+                if (pathType == "raw")
                 {
-                    //OpenList.Remove(NeighborTile);
-                    continue;
+                    if (ClosedList.Contains(NeighborTile))
+                    {
+                        //OpenList.Remove(NeighborTile);
+                        continue;
+                    }
                 }
+
+                // Checks for path ignoring characters
+                if (pathType == "movement")
+                {
+                    if (ClosedList.Contains(NeighborTile) || NeighborTile.hasCharacter)
+                    {
+                        //OpenList.Remove(NeighborTile);
+                        continue;
+                    }
+                }
+
+                
                 int MoveCost = CurrentTile.gCost + GetManhattenDistance(CurrentTile, NeighborTile);
 
                 if(MoveCost < NeighborTile.gCost || !OpenList.Contains(NeighborTile))
