@@ -54,7 +54,7 @@ public class Move : IState
                 pathfinder.FindPath(TileManager.Instance.tilesList[i].transform.position);
 
                 #region Tile Highlighting
-                if (pathfinder.path.Count >= pathfinder.range.x) // If the path is longer than or equal to the min range
+                if (pathfinder.path.Count >= pathfinder.range.x && pathfinder.path.Count <= pathfinder.range.y) // If the path is longer than or equal to the min range
                 {
                     //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(true);
                     //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(false);
@@ -62,9 +62,16 @@ public class Move : IState
                     TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = true;
                     TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = false;
 
+                    if (TileManager.Instance.tilesList[i].GetComponent<Tile>().hasCharacter == true) // If the tile has a character
+                    {
+                        //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
+                        //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.SetActive(true);
 
-                    // Will toggle negative(red) when cursor is hovering
+                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = false;
+                        TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = true;
+                    }
 
+                    /*
                     if (pathfinder.path.Count > pathfinder.range.y || TileManager.Instance.tilesList[i].GetComponent<Tile>().hasCharacter == true) // If the path is shorter than the max range OR if it has a character
                     {
                         //TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.SetActive(false);
@@ -73,6 +80,7 @@ public class Move : IState
                         TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Positive.GetComponent<SpriteRenderer>().enabled = false;
                         TileManager.Instance.tilesList[i].GetComponent<Tile>().tileHighlight_Negative.GetComponent<SpriteRenderer>().enabled = true;
                     }
+                    */
 
                 }
                 else
@@ -110,7 +118,7 @@ public class Move : IState
 
         previousPos = new Vector2(characterState.characterStats.gameObject.transform.position.x, characterState.characterStats.gameObject.transform.position.y);
 
-        // TODO: Moving user input to here so that tile selection can be toggled here
+        // : Moving user input to here so that tile selection can be toggled here
         /*
         Vector3 worldFromScreen = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log("WorldFromScreen: " + worldFromScreen);
