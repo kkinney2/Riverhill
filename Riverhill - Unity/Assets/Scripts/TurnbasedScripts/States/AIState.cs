@@ -76,13 +76,16 @@ public class AIState : IState
                     }
                 }
 
-                // Continue to analyze other options, but skip searching for movement because there is already a target in range
+                // Continue to analyze other options
                 continue;
             }
-            // If they arent in attack range
-            else
+        }
+
+        // If unable to find attack target, search to move
+        if (!hasTarget)
+        {
+            for (int i = 0; i < playerCharacterStates.Count; i++)
             {
-                // If they are closer than the min distance
                 if (pathfinder.path.Count <= minDistance)
                 {
                     // If its the same distance
@@ -105,7 +108,7 @@ public class AIState : IState
                 }
             }
         }
-
+        
         // Attack
         if (hasTarget)
         {

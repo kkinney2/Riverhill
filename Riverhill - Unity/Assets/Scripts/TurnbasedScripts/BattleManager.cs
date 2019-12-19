@@ -375,7 +375,8 @@ public class BattleManager : MonoBehaviour
 
         while (hasPlayableCharacter || hasPlayableEnemy)
         {
-            yield return new WaitForSeconds(1f);
+            //yield return new WaitForSeconds(1f);
+            yield return new WaitForEndOfFrame();
 
             #region Check Characters
             for (int i = 0; i < characterStates_Player.Count; i++)
@@ -387,6 +388,8 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
+                    // If it is not playable, remove it
+                    characterStates_Player.RemoveAt(i);
                     hasPlayableCharacter = false;
                 }
 
@@ -403,7 +406,9 @@ public class BattleManager : MonoBehaviour
                 }
                 else
                 {
+                    // If it is not playable, remove it
                     //Debug.Log("Enemy Health:" + characterStates_Enemy[i].characterStats.CurrentHP);
+                    characterStates_Enemy.RemoveAt(i);
                     hasPlayableEnemy = false;
                 }
             }
