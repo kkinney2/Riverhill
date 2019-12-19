@@ -4150,7 +4150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSkipCutscenes: 0
+  canSkipCutscenes: 1
   FramerateTarget: 60
   TextSpeed: 30
   CharacterMoveSpeed: 5
@@ -4189,8 +4189,11 @@ MonoBehaviour:
   level0_Completed: 0
   level0_button: {fileID: 143902128}
   alyssMoved: 0
+  alyssMoved_Played: 0
   alyssAttacked: 0
+  alyssAttacked_Played: 0
   dayanaAttacked: 0
+  dayanaAttacked_Played: 0
   level1_Unlocked: 1
   level1_Completed: 0
   level1_button: {fileID: 165531886}
@@ -4679,6 +4682,8 @@ MonoBehaviour:
   escMenu: {fileID: 1117966321}
   battleManager: {fileID: 0}
   battleManagerObj: {fileID: 0}
+  escMenuOn: 0
+  escMenuOff: 0
 --- !u!1 &1063163166
 GameObject:
   m_ObjectHideFlags: 0

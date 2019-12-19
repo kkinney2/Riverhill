@@ -16,10 +16,14 @@ public class ESCMenu : MonoBehaviour
     public BattleManager battleManager;
     public GameObject battleManagerObj;
 
+    public bool escMenuOn;
+    public bool escMenuOff;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        escMenuOn = false;
+        escMenuOff = true; //starts off
     }
 
     // Update is called once per frame
@@ -30,14 +34,27 @@ public class ESCMenu : MonoBehaviour
             battleManagerObj = GameObject.Find("BattleManager");
             battleManager = battleManagerObj.GetComponent<BattleManager>();
         }
-        
 
         if (battleManager.isInBattle == true && battleManager != null)
         {
-            if (Input.GetKey("escape"))
+            if (Input.GetKeyDown("escape"))
             {
-                //show this menu
-                escMenu.SetActive(true);
+                escUISound.clip = buttonSelect;
+                escUISound.Play();
+
+                if (escMenuOff == true) //if off
+                {
+                    //show this menu
+                    escMenu.SetActive(true); //turn on
+                    escMenuOn = true; //is now on
+                    escMenuOff = false;
+                }
+                else //if on
+                {
+                    escMenu.SetActive(false); //turn off
+                    escMenuOn = false;
+                    escMenuOff = true; //is now off
+                }
             }
         }
     }
@@ -55,7 +72,9 @@ public class ESCMenu : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         //hide this menu
-        escMenu.SetActive(false);
+        escMenu.SetActive(false); //turn off
+        escMenuOn = false;
+        escMenuOff = true; //is now off
     }
 
     public void quitGame()
