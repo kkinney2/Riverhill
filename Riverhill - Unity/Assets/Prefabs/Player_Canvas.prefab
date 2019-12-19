@@ -538,7 +538,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10000
   m_TargetDisplay: 0
 --- !u!114 &6781379477702666144
 MonoBehaviour:
@@ -593,6 +593,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasCharacterState: 0
   characterUI_Object: {fileID: 0}
+  characterUIObjCanvas: {fileID: 0}
+  lookToPlayerObject: {fileID: 0}
+  charPathfindingAlyss: {fileID: 0}
+  move_Button: {fileID: 0}
+  attack_Button: {fileID: 0}
+  special_button: {fileID: 0}
+  specialText: {fileID: 0}
+  audioSourceUI: {fileID: 0}
+  UIbuttonClick: {fileID: 0}
 --- !u!1 &6781379477703544161
 GameObject:
   m_ObjectHideFlags: 0

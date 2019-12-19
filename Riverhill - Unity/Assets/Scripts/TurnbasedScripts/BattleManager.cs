@@ -105,7 +105,7 @@ public class BattleManager : MonoBehaviour
 
         gameplayMusicAS = GetComponent<AudioSource>();
     }
-
+    
     #region old StartUp
     /*
    // GameController now supplies the characters to play with
