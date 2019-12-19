@@ -4150,7 +4150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd29e3febab638429efaa20f484bb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canSkipCutscenes: 1
+  canSkipCutscenes: 0
   FramerateTarget: 60
   TextSpeed: 30
   CharacterMoveSpeed: 5
@@ -4194,17 +4194,17 @@ MonoBehaviour:
   alyssAttacked_Played: 0
   dayanaAttacked: 0
   dayanaAttacked_Played: 0
-  level1_Unlocked: 1
+  level1_Unlocked: 0
   level1_Completed: 0
   level1_button: {fileID: 165531886}
-  level2_Unlocked: 1
+  level2_Unlocked: 0
   level2_Completed: 0
   level2_button: {fileID: 91384458}
-  level3_Unlocked: 1
+  level3_Unlocked: 0
   level3_Completed: 0
   level3_button: {fileID: 636016810}
   talkedWithNelson: 0
-  level4_Unlocked: 1
+  level4_Unlocked: 0
   level4_Completed: 0
   level4_button: {fileID: 24457721}
 --- !u!4 &960548737
