@@ -80,7 +80,8 @@ public class CharacterPathfinding : MonoBehaviour
         Debug.Log("Test Point: " + testPoint);
         */
 
-        if (worldToCell != null || testPoint != null || TileManager.Instance.GetTileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
+        //if (worldToCell != null || testPoint != null || TileManager.Instance.GetTileFromWorldPosition(testPoint).GetComponent<Tile>().hasCharacter == false)
+        if (worldToCell != null || testPoint != null)
         {
             path = TileManager.Instance.FindPath(transform.position, testPoint, pathType);
         }

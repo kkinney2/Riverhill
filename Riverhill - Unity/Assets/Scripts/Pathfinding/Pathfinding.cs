@@ -116,7 +116,7 @@ public class Pathfinding {
                 // Checks for path ignoring characters
                 if (pathType == "movement")
                 {
-                    if (ClosedList.Contains(NeighborTile) || NeighborTile.hasCharacter)
+                    if (ClosedList.Contains(NeighborTile) || (NeighborTile.hasCharacter && NeighborTile != TargetTile))
                     {
                         //OpenList.Remove(NeighborTile);
                         continue;

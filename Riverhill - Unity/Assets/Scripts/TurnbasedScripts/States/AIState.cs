@@ -90,29 +90,37 @@ public class AIState : IState
             Debug.Log("Was unable to attack, searching for move target");
             for (int i = 0; i < playerCharacterStates.Count; i++)
             {
+                pathfinder.FindPath(playerCharacterStates[i].character.transform.position, "movement");
+
                 if (pathfinder.path.Count <= minDistance)
                 {
+
                     // If its the same distance
-                    if (pathfinder.path.Count == minDistance)
+                    if (pathfinder.path.Count == minDistance && hasMoveTarget)
                     {
+                        Debug.Log("They are equally close...");
                         // Compare the two
                         // If the current loop's target is less than my current target's health
                         if (characterState.AI_Target.characterStats.CurrentHP > playerCharacterStates[i].characterStats.CurrentHP)
                         {
+                            Debug.Log("...but this one is weaker");
                             // make the lesser health my target
                             characterState.AI_Target = playerCharacterStates[i];
-
+                            hasMoveTarget = true;
                             // And continue searching
                             continue;
                         }
                     }
                     // Make them the new min
+
+                    Debug.Log("This one is closer");
                     minDistance = pathfinder.path.Count;
                     characterState.AI_Target = playerCharacterStates[i];
+                    hasMoveTarget = true;
                 }
             }
         }
-        
+
         // Attack
         if (hasAttackTarget)
         {
@@ -120,9 +128,9 @@ public class AIState : IState
         }
 
         // If Player is not in AttackRange: Move towards nearest Player
-        if(hasMoveTarget)
+        if (hasMoveTarget)
         {
-            Debug.Log(" Moving Closer to Target");
+            Debug.Log(" Moving Closer to Target: " + characterState.AI_Target.characterStats.Name);
             characterStateMachine.ChangeState(characterState.state_Move);
         }
 
