@@ -642,6 +642,10 @@ public class GameController : MonoBehaviour
 
         newManager.turnText = oldManager.turnText;
 
+
+        newManager.gameWinLoseAS = oldManager.gameWinLoseAS;
+        newManager.gameWinSound = oldManager.gameWinSound;
+        newManager.gameLoseSound = oldManager.gameLoseSound;
         newManager.gameplayMusicAS = oldManager.gameplayMusicAS;
         newManager.gameplayMusic = oldManager.gameplayMusic;
         newManager.gameplayMusicIsPlaying = oldManager.gameplayMusicIsPlaying;
