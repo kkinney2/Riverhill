@@ -71,6 +71,10 @@ public class Special : IState
         {
             Debug.Log("Healing Aura");
             //Do Healing Aura
+
+            characterState.characterStats.charSounds.clip = characterState.characterStats.charHeal;
+            characterState.characterStats.charSounds.Play();
+
             foreach (var ally in battleManager.alliesList)
             {
                 //characterState.characterStats.CurrentHP = (characterState.characterStats.CurrentHP + characterState.characterStats.healingAuraHP);

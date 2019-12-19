@@ -392,9 +392,11 @@ MonoBehaviour:
   charSounds: {fileID: 1871606650}
   charAttack: {fileID: 8300000, guid: 19200949854418d45baddde3f1d2d169, type: 3}
   charSpecial: {fileID: 8300000, guid: 16c382c6e47032847b21c1f395b63f5b, type: 3}
+  charHeal: {fileID: 8300000, guid: 16c382c6e47032847b21c1f395b63f5b, type: 3}
   charInjury: {fileID: 8300000, guid: 337a01514c2a8b44aa0bf2a30c79180a, type: 3}
   charDeath: {fileID: 8300000, guid: 1a3add7cdf9704a4fbb0540e70582716, type: 3}
   hasAnimPlaying: 0
+  performingHeal: 0
 --- !u!82 &1871606650
 AudioSource:
   m_ObjectHideFlags: 0

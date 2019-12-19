@@ -38,6 +38,7 @@ public class CharacterStats : MonoBehaviour
     public AudioSource charSounds;
     public AudioClip charAttack;
     public AudioClip charSpecial;
+    public AudioClip charHeal;
     public AudioClip charInjury;
     public AudioClip charDeath;
 
