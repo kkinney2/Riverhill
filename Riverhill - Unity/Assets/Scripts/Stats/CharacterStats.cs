@@ -227,7 +227,7 @@ public class CharacterStats : MonoBehaviour
     {
         while (true)
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Healing"))
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("isHealing"))
             {
                 healingAura.gameObject.SetActive(true);
             }
