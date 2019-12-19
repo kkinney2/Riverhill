@@ -25,10 +25,14 @@ public class ESCMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        battleManagerObj = GameObject.Find("BattleManager");
-        battleManager = battleManagerObj.GetComponent<BattleManager>();
+        if (battleManager == null && GameObject.Find("BattleManager") != null)
+        {
+            battleManagerObj = GameObject.Find("BattleManager");
+            battleManager = battleManagerObj.GetComponent<BattleManager>();
+        }
+        
 
-        if (battleManager.isInBattle == true)
+        if (battleManager.isInBattle == true && battleManager != null)
         {
             if (Input.GetKey("escape"))
             {

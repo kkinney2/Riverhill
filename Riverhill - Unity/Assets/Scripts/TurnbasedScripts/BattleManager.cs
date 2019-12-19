@@ -487,12 +487,18 @@ public class BattleManager : MonoBehaviour
     {
         characterUI_Object = Instantiate(prefab_CharacterUI);
         characterUI = characterUI_Object.GetComponent<CharacterUI>();
+        characterUI.battleManager = this;
     }
 
 
     #region Attack Character A->B
     public void AttackCharacter(CharacterState attacker, CharacterState defender)
     {
+        if (attacker.characterStats.Name == "Dayana")
+        {
+            gameController.dayanaAttacked = true;
+        }
+
         StartCoroutine(CharacterAttacking(attacker, defender));
     }
 

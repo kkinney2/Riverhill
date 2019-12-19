@@ -36,8 +36,11 @@ public class GameController : MonoBehaviour
     public bool level0_Completed = false;
     public Button level0_button;
     public bool alyssMoved = false;
+    public bool alyssMoved_Played = false;
     public bool alyssAttacked = false;
+    public bool alyssAttacked_Played = false;
     public bool dayanaAttacked = false;
+    public bool dayanaAttacked_Played = false;
 
     public bool level1_Unlocked = false;
     public bool level1_Completed = false;
@@ -211,6 +214,13 @@ public class GameController : MonoBehaviour
     #region Tutorial
     IEnumerator Level_Tutorial()
     {
+        alyssMoved = false;
+        alyssAttacked = false;
+        dayanaAttacked = false;
+        alyssMoved_Played = false;
+        alyssAttacked_Played = false;
+        dayanaAttacked_Played = false;
+
         if (!gameSettings.canSkipCutscenes)
         {
             //cutsceneManager.StartCutscene("Tutorial - gameplay start");
@@ -276,8 +286,9 @@ public class GameController : MonoBehaviour
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
-            if (alyssMoved == true)
+            if (alyssMoved == true && !alyssMoved_Played)
             {
+                alyssMoved_Played = true;
                 cutsceneManager.StartCutscene("Tutorial - player moves");
             }
             // TODO: Insert this 'if' in the battlemanager while loop line 189
@@ -287,8 +298,9 @@ public class GameController : MonoBehaviour
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
-            if (alyssAttacked == true)
+            if (alyssAttacked == true && !alyssAttacked_Played)
             {
+                alyssAttacked_Played = true;
                 cutsceneManager.StartCutscene("Tutorial - player hits Dayana");
             }
             if (cutsceneManager.hasActiveCutscene)
@@ -297,8 +309,9 @@ public class GameController : MonoBehaviour
                 yield return new WaitUntil(() => cutsceneManager.hasActiveCutscene == false);
             }
 
-            if (dayanaAttacked == true)
+            if (dayanaAttacked == true && !dayanaAttacked_Played)
             {
+                dayanaAttacked_Played = true;
                 cutsceneManager.StartCutscene("Tutorial - Dayana hits player");
             }
             if (cutsceneManager.hasActiveCutscene)

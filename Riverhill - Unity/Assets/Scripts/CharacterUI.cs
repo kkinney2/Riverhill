@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CharacterUI : MonoBehaviour
 {
-    BattleManager battleManager;
+    public BattleManager battleManager;
 
     public CharacterState characterState;
     public bool hasCharacterState;
@@ -110,6 +110,11 @@ public class CharacterUI : MonoBehaviour
         
     }
 
+    public void Moved()
+    {
+        battleManager.gameController.alyssMoved = true;
+    }
+
     public void Attacking()
     {
         audioSourceUI.clip = UIbuttonClick;
@@ -123,6 +128,11 @@ public class CharacterUI : MonoBehaviour
         {
             characterState.battleStateMachine.ChangeState(characterState.state_Idle);
         }
+    }
+
+    public void Attacked()
+    {
+        battleManager.gameController.alyssAttacked = true;
     }
 
     // TODO: Implement Specials - CharacterUI
